@@ -1,4 +1,4 @@
-#include "restaurant.h"
+#include "entrance.h"
 #include <iostream>
 
 using namespace std;

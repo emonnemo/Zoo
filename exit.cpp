@@ -1,4 +1,4 @@
-#include "restaurant.h"
+#include "exit.h"
 #include <iostream>
 
 using namespace std;
