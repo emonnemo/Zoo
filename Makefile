@@ -1,5 +1,5 @@
 CXX = g++
-CFLAGS = -g -Wall -std=c++11
+CFLAGS = -g -Wall
 driver: driver.o facility.o cell.o
 	$(CXX) $(CFLAGS) -o driver driver.o facility.o
 	
@@ -14,3 +14,5 @@ driver.o: driver.cpp facility.h cell.h
 
 clean: 
 	$(RM) count *.o *~
+ 
+//test
