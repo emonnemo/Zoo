@@ -1,5 +1,5 @@
 CXX = g++
-CFLAGS = -g -Wall
+CFLAGS = -g -Wall -std=c++11
 driver: driver.o facility.o cell.o
 	$(CXX) $(CFLAGS) -o driver driver.o facility.o
 	
