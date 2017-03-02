@@ -1,7 +1,7 @@
 CXX = g++
 CFLAGS = -g -Wall -std=c++11
-driver: driver.o facility.o cell.o road.o entrance.o exit.o restaurant.o park.o
-	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o entrance.o exit.o restaurant.o park.o
+driver: driver.o facility.o cell.o road.o entrance.o exit.o restaurant.o park.o zoo.o
+	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o entrance.o exit.o restaurant.o park.o zoo.o
 	
 cell.o: cell.cpp cell.h
 	$(CXX) $(CFLAGS) -c cell.cpp
@@ -23,6 +23,9 @@ restaurant.o: restaurant.cpp restaurant.h facility.h
 
 park.o: park.cpp park.h facility.h
 	$(CXX) $(CFLAGS) -c park.cpp
+
+zoo.o: zoo.cpp zoo.h
+	$(CXX) $(CFLAGS) -c zoo.cpp
 	
 driver.o: driver.cpp facility.h
 	$(CXX) $(CFLAGS) -c driver.cpp

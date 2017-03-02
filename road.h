@@ -9,21 +9,23 @@
 #include "facility.h"
 
 using namespace std;
-/** @class Road
-  * Kelas road turunan dari kelas facility berupa jalanan di zoo
+/** \class Road
+  * \details Kelas road turunan dari kelas facility berupa jalanan di zoo
   */
 class Road : public Facility{
-	/** @brief Constructor.
-	  * Menciptakan road dengan posisi (x,y)
-	  * @param x nilai posisi x yang diinginkan
-	  * @param x nilai posisi y yang diinginkan
+public :
+	/** \brief Constructor.
+	  * \details Menciptakan road dengan posisi (x,y)
+	  * \param x nilai posisi x yang diinginkan
+	  * \param x nilai posisi y yang diinginkan
 	  */
-	Road(int x, int y);
+	Road();
 
-	/** @brief Destructor.
+	/** \brief Destructor.
 	  */
 	~Road();
-	
+	char GetSymbol() const;
+private :
 };
 
 #endif

@@ -13,18 +13,18 @@ using namespace std;
   * Kelas abstrak facility turunan dari kelas cell berupa restoran, road, atau park
   */
 class Facility : public Cell{
-	/** @brief Constructor.
-	  * Menciptakan facility dengan letak (x,y)
-	  * @param x nilai posisi x yang diinginkan
-	  * @param y nilai posisi y yang diinginkan
-	  */
-	Facility(int x, int y);
+		/** @brief Constructor.
+		  * Menciptakan facility dengan letak (x,y).
+		  * @param x nilai posisi x yang diinginkan.
+		  * @param y nilai posisi y yang diinginkan.
+		  */
+		Facility(int x, int y);
 
-	/**
-	 * @brief destructor
-	 */
-	~Facility();
-	
+		/**
+		 * @brief destructor.
+		 */
+		~Facility();
+		
 };
 
 #endif

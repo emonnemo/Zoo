@@ -4,7 +4,7 @@
 #define ZOO_H
 
 #include "animal.h"
-
+#include "cell.h"
 using namespace std;
 
 /** @class Zoo
@@ -12,15 +12,19 @@ using namespace std;
   */
 class Zoo{
 	public:
-		/** @brief Constructor
-		  * Mengenerate kebun binatang denangan list hewan kosong
-		  * @param boolean Auto, jika true maka kebun binatang akan digenerate secara otomatis, jika false maka kebun binatang didesain oleh pengguna
+		/**
+		  * \brief Constructor
+		  * \details Mengenerate kebun binatang denangan list hewan kosong
+		  * 
+		  * \param Auto, jika true maka kebun binatang akan digenerate secara otomatis, jika false maka kebun binatang didesain oleh pengguna
+		  * \param w width lebar kebun binatang
+		  * \param l length panjang kebun binatang
 		  */
-		Zoo(bool Auto);
+		Zoo(bool , int , int );
 
 		/** @brief cctor
 		  */
-		Zoo(const Zoo z);
+		Zoo(const Zoo& z);
 
 		/** @brief Destructor
 		  */
@@ -46,9 +50,14 @@ class Zoo{
 		  * Menghapus hewan dengan ID = i, jika tidak ada maka tidak ad hewan yang dihapus
 		  */
 		void DelAnimal(int i);
-
+		int GetWidth() const;
+		int GetLength() const;
 	private:
-		const Cell** Cells;
+		const int width;
+		const int length;
+		Cell** Cells;
 		Animal* Animals;
 
-}
+};
+
+#endif
