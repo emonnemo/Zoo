@@ -1,7 +1,7 @@
 CXX = g++
 CFLAGS = -g -Wall -std=c++11
 driver: driver.o facility.o cell.o road.o entrance.o exit.o restaurant.o park.o
-	$(CXX) $(CFLAGS) -o driver driver.o facility.o
+	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o entrance.o exit.o restaurant.o park.o
 	
 cell.o: cell.cpp cell.h
 	$(CXX) $(CFLAGS) -c cell.cpp

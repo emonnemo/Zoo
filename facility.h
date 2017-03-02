@@ -20,8 +20,9 @@ class Facility : public Cell{
 	  */
 	Facility(int x, int y);
 
-	/** @brief Destructor.
-	  */
+	/**
+	 * @brief destructor
+	 */
 	~Facility();
 	
 };
