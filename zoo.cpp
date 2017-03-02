@@ -1,3 +1,7 @@
+/* Author		: Andika Kusuma / 13515033
+ * File			: zoo.cpp
+ */
+
 #include "zoo.h"
 #include <iostream>
 

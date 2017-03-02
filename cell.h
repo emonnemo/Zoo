@@ -8,25 +8,53 @@
 #include <iostream>
 
 using namespace std;
-/** @class Cell
-  * Kelas abstrak cell
+/** \class Cell.
+  * Kelas abstrak cell.
   */
 class Cell{
 	public	:
-		/** @brief Constructor.
-		  * Menciptakan cell dengan letak (x,y)
-		  * @param x nilai posisi x yang diinginkan
-		  * @param y nilai posisi y yang diinginkan
+		/** \brief Constructor.
+		  * Menciptakan cell dengan symbol "-".
 		  */
 		Cell();
 
-		/** @brief Destructor.
+		/**
+		 * \brief Constructor dengan parameter.
+		 * \details Menciptakan cell dengan symbol "c".
+		 * \param c symbol input.
+		 */
+		Cell(char c);
+
+		/**
+		 * \brief Copy Constructor.
+		 * \details copy constructor menjamin tidak bitwise copy.
+		 * \param c cell yang ingin dicopy.
+		 */
+		Cell(const Cell& c);
+
+		/** \brief Destructor.
 		  */
 		~Cell();
+
 		/**
-		 * \brief GetSymbol
-		 * \details mengembalikan nilai simbol cell
-		 * \return symbol
+		 * \brief Operator =.
+		 * \details operator = menjamin tidak bitwise copy.
+		 * \param c cell yang ingin dicopy.
+		 */
+		Cell& operator=(const Cell& c);
+
+		/**
+		 * \brief Operator <<.
+		 * \details mengoutput symbol Cell.
+		 * \param os output stream.
+		 * \param c Cell yang ingin dioutput. 
+		 */
+		friend ostream& operator<< (ostream& os, const Cell& c);
+
+		/**
+		 * \brief GetSymbol.
+		 * \details mengembalikan nilai simbol cell.
+		 * \return symbol.
 		 */
 		virtual char GetSymbol() const;
 	private :
