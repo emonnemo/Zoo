@@ -17,17 +17,11 @@ Restaurant::Restaurant(string f, bool o){
 	open = 0;
 }
 
-Restaurant::Restaurant(Restaurant& r){
-	symbol = r.symbol;
-	initsymbol = r.initsymbol;
-	food = r.food;
-}
-
 Restaurant::~Restaurant(){
 	
 }
 
-void Restaurant::Interact(){
+void Restaurant::Interact() const{
 	if (open){
 		cout << "This restaurant sells " << food << endl;
 	} else{

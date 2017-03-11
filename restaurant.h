@@ -27,13 +27,6 @@ public:
 	 */
 	Restaurant(string f, bool o);
 
-	/**
-	 * \brief CopyConstructor
-	 * \details Menjamin tidak mengcopy
- 	 * \param r restaurant yang akan dicopy
-	 */	
-	Restaurant(Restaurant& r);
-
 	/** @brief Destructor.
 	  */
 	~Restaurant();
@@ -42,7 +35,7 @@ public:
 	 * \brief Interact
 	 * \details Memunculkan dialog tentang makanan apa yang dijual suatu restaurant jika restaurant buka, jika tidak katakan restaurant tutup
 	 */
-	void Interact();
+	void Interact() const;
 
 private:
 	string food;

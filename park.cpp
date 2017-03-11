@@ -15,16 +15,10 @@ Park::Park(string p){
 	plant = p;
 }
 
-Park::Park(const Park& p){
-	symbol = p.symbol;
-	initsymbol = p.initsymbol;
-	plant = p.plant;
-}
-
 Park::~Park(){
 
 }
 
-void Park::Interact(){
+void Park::Interact() const{
 	cout << "This park has " << plant << " planted on it" << endl;
 }

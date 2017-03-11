@@ -9,10 +9,18 @@ using namespace std;
   */
 class Animal {
 	public:
-		/** @brief Constructor.
-		  * Menciptakan Animal
-		  */
-		Animal(string ID, int weight, char type);
+		/**
+		 * \brief Constructor
+		 * \details Menciptakan email
+		 * 
+		 * \param _ID ID jenis animal
+		 * \param _id nomor pada jenisnya
+		 * \param _weight berat badan
+		 * \param _eat persentase makan 0-100%
+		 * \param _type karnivor, herbivor, omnivor
+		 * \param _position posisi hewan
+		 */
+		Animal(string _ID, int _id, int _weight, float _eat, char _type, pair<int,int> _position);
 
 		/** @brief Destructor.
 		  */
@@ -48,35 +56,33 @@ class Animal {
 		  */
 		void SetWeight(int _weight);
 
-		/** @brief SetType
-		  * Mengatur type dari suatu animal
-		  * @param _type nilai type yang ingin ditetapkan untuk suatu Animal
-		  */
-		void SetType(char _type);
-
-		/** @brief SetID
-		  * Mengatur ID dari suatu Animal
-		  * @param _id nilai id yang ingin ditetapkan untuk suatu animal
-		  */
-		void SetID(string _id);
-
 		/**
 		 * \brief Print
 		 * \details mengoutput data data animal
 		 */
-		virtual void Print();
+
+		virtual void Act() const;
 
 		/**
 		 * \brief Interact
 		 * \details mengoutput hasil interaksi dengan Animal
 		 */
-		virtual void Interact();
+		virtual void Interact() const;
+
+		/**
+		 * \brief Move
+		 * \details Berpindah sejauh 1 langkah ke arah sesuai direction
+		 * \param direction 0 ke atas, 1 ke kiri, 2 ke kanan, 3 ke bawah
+		 */
+		void Move(int direction);
 
 	private:
 		string ID;
+		int id;
 		int weight;
+		float eat;
 		char type;
-
+		pair<int,int> position;
 };
 
 

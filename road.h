@@ -26,17 +26,9 @@ public :
 	 */
 	Road(char t);
 
-	/**
-	 * \brief Copyconstructor
-	 * \details Memastikan tidak bitwise copy
-	 * \param r road yang akan dicopy
-	 */
-	Road(Road& r);
-
 	/** \brief Destructor.
 	  */
 	~Road();
-
 private :
 	char type;
 };

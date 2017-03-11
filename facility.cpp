@@ -8,21 +8,10 @@ Facility::Facility(){
 	
 }
 
-Facility::Facility(const Facility& f){
-	symbol = f.symbol;
-	initsymbol = f.initsymbol;
-}
-
 Facility::~Facility(){
 
 }
 
-Facility& Facility::operator= (const Facility& f){
-	initsymbol = f.initsymbol;
-	symbol = f.symbol;
-	return *this;
-}
-
-void Facility::Interact(){
+void Facility::Interact() const{
 	
 }
