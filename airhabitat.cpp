@@ -9,17 +9,15 @@
 #include "habitat.h"
 using namespace std;
 
-AirHabitat::AirHabitat() {
-	symbol = 'o';
-}
-
-AirHabitat::~AirHabitat(){}
+AirHabitat::AirHabitat(): Habitat('o'){}
 
 AirHabitat::AirHabitat(const AirHabitat& ah) {
 	symbol = ah.symbol;
+	initsymbol = ah.initsymbol;
 }
 
 AirHabitat& AirHabitat::operator= (const AirHabitat& ah){
 	symbol = ah.symbol;
+	initsymbol = ah.initsymbol;
 	return (*this);
 }

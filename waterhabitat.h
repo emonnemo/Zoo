@@ -25,11 +25,6 @@ public:
 	 */
 	WaterHabitat();
 	/**
-	 * \brief Destructor
-	 * \details Mengembalikan memori kepada sistem
-	 */
-	~WaterHabitat();
-	/**
 	 * \brief Copy Constructor
 	 * \details copy constructor menjamin tidak bitwise copy.
 	 * 

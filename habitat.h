@@ -19,9 +19,9 @@ public:
 	 * \brief Constructor
 	 * \details Menciptakan habitat dengan letak (x,y)
 	 * 
-	 * \param symbol simbol pembeda sel yang diinginkan
+	 * \param s simbol pembeda sel yang diinginkan
 	 */
-	Habitat(char symbol);
+	Habitat(char s);
 	/**
 	 * \brief Destructor
 	 * \details Mengembalikan memori kepada sistem

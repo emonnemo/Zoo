@@ -25,11 +25,6 @@ public:
 	 */
 	AirHabitat(int x, int y);
 	/**
-	 * \brief Destructor
-	 * \details Mengembalikan memori kepada sistem
-	 */
-	~AirHabitat();
-	/**
 	 * \brief Copy Constructor
 	 * \details copy constructor menjamin tidak bitwise copy.
 	 * 
