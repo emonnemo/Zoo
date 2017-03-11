@@ -46,26 +46,4 @@ public:
 	WaterHabitat& operator= (const WaterHabitat& wh);
 };
 
-/**
- * \brief Class LandHabitat
- * \details real class untuk habitat udara
- * \return suatu sel yang memiliki karakteristik habitat udara
- */
-class AirHabitat: public Habitat () {
-public:
-	/**
-	 * \brief Constructor
-	 * \details Menciptakan air habitat yaitu cell yang di-assign simbol 'o'
-	 * 
-	 * \param x posisi baris yang diinginkan
-	 * \param y posisi kolom yang diinginkan
-	 */
-	AirHabitat(int x, int y);
-	/**
-	 * \brief Destructor
-	 * \details Mengembalikan memori kepada sistem
-	 */
-	~AirHabitat();
-};
-
 #endif
