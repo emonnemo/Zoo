@@ -13,10 +13,6 @@ class Animal {
 		  */
 		Animal();
 
-		/** @brief Destructor.
-		  */
-		~Animal();
-
 		/** @brief Copy Constructor
 		  * copy constructor menjamin tidak bitwise copy.
 		  * @param a Animal yang ingin di-copy

@@ -12,10 +12,6 @@ Animal::Animal(const Animal& a){
 
 }
 
-Animal::~Animal(){	
-	// dtor
-}
-
 Animal::operator=(const Animal& a){
 	ID = a.ID;
 	weight = a.weight;
