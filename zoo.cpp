@@ -11,7 +11,7 @@
 
 using namespace std;
 
-<<<<<<< HEAD
+
 Zoo::Zoo(bool Auto, int w = 20, int l = 20) : width(w), length(l){
 	Cells = new Cell**[w];
 	for(int i = 0; i < w; i++) Cells[i] = new Cell*[l];
@@ -21,7 +21,7 @@ Zoo::Zoo(bool Auto, int w = 20, int l = 20) : width(w), length(l){
 		}
 	}
 	cout << "zoo.ctor\n";
-=======
+
 Zoo::Zoo(bool Auto = 1, int w = 16, int l = 6):{
 	width = w;
 	length = l;
@@ -63,7 +63,6 @@ Zoo::Zoo(bool Auto = 1, int w = 16, int l = 6):{
 			}
 		}
 	}
->>>>>>> cee8e321dda16c55511ba1d49ddd4bd8cded4d90
 }
 
 Zoo::Zoo(const Zoo& z) : width(z.width), length(z.length){
