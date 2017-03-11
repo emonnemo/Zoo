@@ -72,7 +72,7 @@ class Cell{
 		 * \param s symbol yang baru
 		 */
 		void SetSymbol(char s);
-	private :
+	protected :
 		char initsymbol;
 		char symbol;
 };

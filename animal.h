@@ -9,15 +9,52 @@ using namespace std;
 class Animal {
 	public:
 		/** @brief Constructor.
-		  * Menciptakan Animal dengan posisi x dan y
-		  * @param x nilai posisi x yang diinginkan
-		  * @param y nilai posisi y yang diinginkan
+		  * Menciptakan Animal
 		  */
-		Animal(int x, int y);
+		Animal();
 
-		/** @brief Destructor.
+		/** @brief Copy Constructor
+		  * copy constructor menjamin tidak bitwise copy.
+		  * @param a Animal yang ingin di-copy
 		  */
-		~Animal();
+		Animal(const Animal& a);
+
+		/** @brief Operator =
+		  * operator sama dengan, menjamin tidak bitwise copy
+		  * @param a Animal yang ingin di-copy
+		  */
+		Animal& operator= (const Animal& a); 
+
+		int GetID() const;
+
+		/** @brief GetWeight
+		  * mengembalikan nilai weight dari suatu Animal
+		  */
+		int GetWeight() const;
+
+		/** @brief GetType
+		  * mengembalikan type dari suatu Animal
+		  */
+		int GetType() const;
+
+		/** @brief SetWeight
+		  * mengatur berat badan suatu Animal
+		  * @param _weight nilai berat badan yang ingin  di tetapkan untuk suatu Animal
+		  */
+		void SetWeight(int _weight);
+
+		/** @brief SetType
+		  * Mengatur type dari suatu animal
+		  * @param _type nilai type yang ingin ditetapkan untuk suatu Animal
+		  */
+		void SetType(char _type);
+
+		/** @brief SetID
+		  * Mengatur ID dari suatu Animal
+		  * @param _id nilai id yang ingin ditetapkan untuk suatu animal
+		  */
+		void SetID(int _id);
+
 
 	private:
 		int ID;

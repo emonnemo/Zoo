@@ -68,7 +68,7 @@ class Zoo{
 	private:
 		const int width;
 		const int length;
-		Cell** Cells;
+		Cell*** Cells;
 		list<Animal> Animals;
 
 };

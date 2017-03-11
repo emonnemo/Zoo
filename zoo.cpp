@@ -8,13 +8,13 @@
 using namespace std;
 
 Zoo::Zoo(bool Auto, int w = 20, int l = 20) : width(w), length(l){
-	Cells = new Cell*[w];
-	for(int i = 0; i < w; i++) Cells[i] = new Cell[l];
+	Cells = new Cell**[w];
+	for(int i = 0; i < w; i++) Cells[i] = new Cell*[l];
 	cout << "zoo.ctor\n";
 }
 Zoo::Zoo(const Zoo& z) : width(z.width), length(z.length){
-	Cells = new Cell*[width];
-	for(int i = 0; i < width; i++) Cells[i] = new Cell[length];
+	Cells = new Cell**[width];
+	for(int i = 0; i < width; i++) Cells[i] = new Cell*[length];
 	cout << "zoo.cctor\n";
 }
 Zoo::~Zoo(){
