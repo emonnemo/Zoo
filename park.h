@@ -14,17 +14,38 @@ using namespace std;
   */
 class Park : public Facility{
 public:
-	/** @brief Constructor.
-	  * Menciptakan park dengan posisi (x,y)
-	  * @param x nilai posisi x yang diinginkan
-	  * @param x nilai posisi y yang diinginkan
+	/** @brief Constructor tanpa parameter
+	  * Menciptakan park yang berisi plant string kosong
 	  */
 	Park();
+
+	/**
+	 * \brief Constructor dengan parameter
+	 * \details Mencipatakan park yang berisi plant p
+	 * \param p tanaman yang ditanam di park
+	 */
+	Park(string p);
+
+	/**
+	 * \brief Copyconstructor
+	 * \details Menjamin tidak bitwise copy
+	 * \param p Park yang ingin dicopy
+	 */
+	Park::Park(Park& p);
 
 	/** @brief Destructor.
 	  */
 	~Park();
-	
+
+	/**
+	 * \brief Interact
+	 * \details Menunjukkan tanaman apa yang ditanam di taman tersebut
+	 */
+	void Interact();
+
+
+private:
+	string plant;
 };
 
 #endif
