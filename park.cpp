@@ -15,12 +15,6 @@ Park::Park(string p){
 	plant = p;
 }
 
-Park::Park(const Park& p){
-	symbol = p.symbol;
-	initsymbol = p.initsymbol;
-	plant = p.plant;
-}
-
 Park::~Park(){
 
 }

@@ -17,12 +17,6 @@ Restaurant::Restaurant(string f, bool o){
 	open = 0;
 }
 
-Restaurant::Restaurant(Restaurant& r){
-	symbol = r.symbol;
-	initsymbol = r.initsymbol;
-	food = r.food;
-}
-
 Restaurant::~Restaurant(){
 	
 }

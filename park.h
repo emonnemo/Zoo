@@ -26,13 +26,6 @@ public:
 	 */
 	Park(string p);
 
-	/**
-	 * \brief Copyconstructor
-	 * \details Menjamin tidak bitwise copy
-	 * \param p Park yang ingin dicopy
-	 */
-	Park(const Park& p);
-
 	/** @brief Destructor.
 	  */
 	~Park();

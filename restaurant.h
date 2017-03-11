@@ -27,13 +27,6 @@ public:
 	 */
 	Restaurant(string f, bool o);
 
-	/**
-	 * \brief CopyConstructor
-	 * \details Menjamin tidak mengcopy
- 	 * \param r restaurant yang akan dicopy
-	 */	
-	Restaurant(Restaurant& r);
-
 	/** @brief Destructor.
 	  */
 	~Restaurant();

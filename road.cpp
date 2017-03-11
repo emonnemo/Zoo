@@ -13,11 +13,6 @@ Road::Road(char t){
 	initsymbol = t;
 }
 
-Road::Road(Road& r){
-	symbol = r.symbol;
-	initsymbol = r.initsymbol;
-}
-
 Road::~Road(){
 
 }
