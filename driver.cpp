@@ -4,5 +4,6 @@
 
 int main(){
 	Zoo z(true,2,2);
+	z.Render();
 	return 0;
 }

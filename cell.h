@@ -57,21 +57,21 @@ class Cell{
 		 * \details membalikan nilai initsymbol cell.
 		 * \return init symbol.
 		 */
-		virtual char GetInitSymbol() const = 0;
+		virtual char GetInitSymbol() const;
 
 		/**
 		 * \brief GetSymbol.
 		 * \details mengembalikan nilai simbol cell.
 		 * \return symbol.
 		 */
-		virtual char GetSymbol() const = 0;
+		virtual char GetSymbol() const;
 
 		/**
 		 * \brief SetSymbol.
 		 * \details mengubah symbol dengan s.
 		 * \param s symbol yang baru.
 		 */
-		virtual void SetSymbol(char s)=0;
+		virtual void SetSymbol(char s);
 
 	protected :
 		char initsymbol;

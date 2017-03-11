@@ -3,6 +3,9 @@
  */
 
 #include "zoo.h"
+#include "cell.h"
+#include "road.h"
+#include "facility.h"
 #include <list>
 #include <iostream>
 
@@ -11,6 +14,11 @@ using namespace std;
 Zoo::Zoo(bool Auto, int w = 20, int l = 20) : width(w), length(l){
 	Cells = new Cell**[w];
 	for(int i = 0; i < w; i++) Cells[i] = new Cell*[l];
+	for(int i = 0; i < w; i++){
+		for(int j = 0; j < l; j++){
+			Cells[i][j] = new Road();
+		}
+	}
 	cout << "zoo.ctor\n";
 }
 Zoo::Zoo(const Zoo& z) : width(z.width), length(z.length){
@@ -37,6 +45,7 @@ void Zoo::Render(){
 		for (int j=0; j<length; ++j){
 			cout << Cells[i][j]->GetSymbol();
 		}
+		cout << endl;
 	}
 }
 void Zoo::AddAnimal(Animal& a){

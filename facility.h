@@ -13,6 +13,7 @@ using namespace std;
   * Kelas abstrak facility turunan dari kelas cell berupa restoran, road, atau park
   */
 class Facility : public Cell{
+public:
 		/**
 		 * \brief Constructor tanpa parameter.
 		 * \details Menciptakan facility dengan symbol c.

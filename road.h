@@ -24,7 +24,6 @@ public :
 	/** \brief Destructor.
 	  */
 	~Road();
-	char GetSymbol() const;
 private :
 };
 
