@@ -51,7 +51,19 @@ class Zoo{
 		  * Menghapus hewan dengan ID = i, jika tidak ada maka tidak ad hewan yang dihapus
 		  */
 		void DelAnimal(int i);
+
+		/**
+		 * \brief GetWidth
+		 * \details mengembalikan width
+		 * \return int
+		 */
 		int GetWidth() const;
+
+		/**
+		 * \brief GetLength
+		 * \details mengembalikan length
+		 * \return int
+		 */
 		int GetLength() const;
 	private:
 		const int width;
