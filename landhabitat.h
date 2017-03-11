@@ -2,8 +2,8 @@
  * File			: landhabitat.h
  */
 
-#ifndef HABITAT_H
-#define HABITAT_H
+#ifndef LANDHABITAT_H
+#define LANDHABITAT_H
 
 #include <iostream>
 #include "habitat.h"
@@ -14,7 +14,7 @@ using namespace std;
  * \details real class untuk habitat darat
  * \return suatu sel yang memiliki karakteristik habitat darat
  */
-class LandHabitat: public Habitat () {
+class LandHabitat: public Habitat {
 public:
 	/**
 	 * \brief Constructor

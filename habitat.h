@@ -13,7 +13,7 @@ using namespace std;
  * \brief Class Habitat
  * \details abstract class dari habitat dalam zoo
  */
-class Habitat: public Cell () {
+class Habitat: public Cell {
 public:
 	/**
 	 * \brief Constructor

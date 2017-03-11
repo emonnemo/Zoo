@@ -27,9 +27,18 @@ park.o: park.cpp park.h facility.h
 zoo.o: zoo.cpp zoo.h
 	$(CXX) $(CFLAGS) -c zoo.cpp
 
-zoo.o: animal.cpp animal.h
-	$(CXX) $(CFLAGS) -c animal.cpp
-		
+habitat.o: habitat.cpp habitat.h
+	$(CXX) $(CFLAGS) -c habitat.cpp
+
+landhabitat.o: landhabitat.cpp landhabitat.h
+	$(CXX) $(CFLAGS) -c landhabitat.cpp
+
+waterhabitat.o: waterhabitat.cpp waterhabitat.h
+	$(CXX) $(CFLAGS) -c waterhabitat.cpp
+
+airhabitat.o: airhabitat.cpp airhabitat.h
+	$(CXX) $(CFLAGS) -c airhabitat.cpp
+
 driver.o: driver.cpp facility.h
 	$(CXX) $(CFLAGS) -c driver.cpp
 
