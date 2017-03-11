@@ -69,7 +69,7 @@ class Zoo{
 		const int length;
 		Cell*** Cells;
 		list<Animal> Animals;
-
+		int** CageM;
 };
 
 #endif

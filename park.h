@@ -31,7 +31,7 @@ public:
 	 * \details Menjamin tidak bitwise copy
 	 * \param p Park yang ingin dicopy
 	 */
-	Park::Park(Park& p);
+	Park(const Park& p);
 
 	/** @brief Destructor.
 	  */
