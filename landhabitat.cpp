@@ -22,4 +22,5 @@ LandHabitat::LandHabitat(const LandHabitat& lh){
 
 LandHabitat& LandHabitat::operator= (const LandHabitat& lh) {
 	symbol = lh.symbol;
+	return (*this);
 }
