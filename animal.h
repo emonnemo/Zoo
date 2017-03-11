@@ -58,7 +58,7 @@ class Animal {
 		  * @param _id nilai id yang ingin ditetapkan untuk suatu animal
 		  */
 		void SetID(int _id);
-
+		
 
 	private:
 		int ID;
