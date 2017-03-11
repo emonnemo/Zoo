@@ -39,7 +39,7 @@ class Animal {
 		/** @brief GetType
 		  * mengembalikan type dari suatu Animal
 		  */
-		int GetType() const;
+		char GetType() const;
 
 		/** @brief SetWeight
 		  * mengatur berat badan suatu Animal
