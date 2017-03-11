@@ -20,7 +20,6 @@ public:
 		 */
 		Facility();
 
-
 		/**
 		 * \brief Copy Constructor.
 		 * \details Copy constructor menjamin tidak bitwise copy.
