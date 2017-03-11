@@ -26,7 +26,7 @@ Zoo::~Zoo(){
 Zoo Zoo::operator=(const Zoo z){
 	for(int i = 0; i < width; i++){
 		for(int j = 0; j < length; j++){
-			Cells[i][j] = z.Cells[i][j];
+			Cells[i][j][0] = z.Cells[i][j][0];
 		}
 	}
 	cout << "zoo.opr=\n";
@@ -43,7 +43,7 @@ void Zoo::AddAnimal(Animal& a){
 	Animals.push_back(a);
 }
 void Zoo::DelAnimal(int id){
-	
+
 }
 
 int Zoo::GetWidth() const{
