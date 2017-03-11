@@ -8,6 +8,16 @@ Road::Road(){
 	initsymbol = 'r';
 }
 
+Road::Road(char t){
+	symbol = t;
+	initsymbol = t;
+}
+
+Road::Road(Road& r){
+	symbol = r.symbol;
+	initsymbol = r.initsymbol;
+}
+
 Road::~Road(){
 
 }

@@ -14,17 +14,31 @@ using namespace std;
   */
 class Road : public Facility{
 public :
-	/** \brief Constructor.
-	  * \details Menciptakan road dengan posisi (x,y)
-	  * \param x nilai posisi x yang diinginkan
-	  * \param x nilai posisi y yang diinginkan
+	/** \brief Constructor tanpa parameter
+	  * \details Menciptakan road dengan type=r (road biasa)
 	  */
 	Road();
+
+	/**
+	 * \brief Constructor dengan parameter
+	 * \details Menciptakan road dengan type=t
+	 * \param t type road (r untuk road biasa, n untuk entrance, dan x untuk exit);
+	 */
+	Road(char t);
+
+	/**
+	 * \brief Copyconstructor
+	 * \details Memastikan tidak bitwise copy
+	 * \param r road yang akan dicopy
+	 */
+	Road(Road& r);
 
 	/** \brief Destructor.
 	  */
 	~Road();
+
 private :
+	char type;
 };
 
 #endif
