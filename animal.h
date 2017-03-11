@@ -13,6 +13,10 @@ class Animal {
 		  */
 		Animal();
 
+		/** @brief Destructor.
+		  */
+		~Animal();
+
 		/** @brief Copy Constructor
 		  * copy constructor menjamin tidak bitwise copy.
 		  * @param a Animal yang ingin di-copy
@@ -25,30 +29,17 @@ class Animal {
 		  */
 		Animal& operator= (const Animal& a); 
 
-		/**
-		 * \brief GetID
-		 * \details mengembalikan nilai ID dari suatu Animal
-		 * \return ID
-		 */
 		int GetID() const;
 
 		/** @brief GetWeight
 		  * mengembalikan nilai weight dari suatu Animal
-		  * \return weight
 		  */
 		int GetWeight() const;
 
 		/** @brief GetType
 		  * mengembalikan type dari suatu Animal
-		  * \return type
 		  */
-		char GetType() const;
-
-		/** @brief SetID
-		  * Mengatur ID dari suatu Animal
-		  * @param _id nilai id yang ingin ditetapkan untuk suatu animal
-		  */
-		void SetID(int _id);
+		int GetType() const;
 
 		/** @brief SetWeight
 		  * mengatur berat badan suatu Animal
@@ -62,6 +53,11 @@ class Animal {
 		  */
 		void SetType(char _type);
 
+		/** @brief SetID
+		  * Mengatur ID dari suatu Animal
+		  * @param _id nilai id yang ingin ditetapkan untuk suatu animal
+		  */
+		void SetID(int _id);
 
 
 	private:
