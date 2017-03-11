@@ -69,7 +69,7 @@ class Zoo{
 		const int width;
 		const int length;
 		Cell*** Cells;
-		list<Animal> Animals;
+		list<Animal> *Animals;
 
 };
 
