@@ -16,12 +16,11 @@ class Zoo{
 		/**
 		  * \brief Constructor
 		  * \details Mengenerate kebun binatang denangan list hewan kosong
-		  * 
 		  * \param Auto, jika true maka kebun binatang akan digenerate secara otomatis, jika false maka kebun binatang didesain oleh pengguna
-		  * \param w width lebar kebun binatang
-		  * \param l length panjang kebun binatang
+		  * \param w width lebar kebun binatang, default 16
+		  * \param l length panjang kebun binatang, default 6
 		  */
-		Zoo(bool , int , int );
+		Zoo(bool Auto = 1, int w = 16, int l = 6);
 
 		/** @brief cctor
 		  */
