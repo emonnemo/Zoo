@@ -19,6 +19,6 @@ Park::~Park(){
 
 }
 
-void Park::Interact(){
+void Park::Interact() const{
 	cout << "This park has " << plant << " planted on it" << endl;
 }

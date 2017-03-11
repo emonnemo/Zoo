@@ -57,7 +57,7 @@ class Animal {
 		 * \brief Interact
 		 * \details mengoutput hasil interaksi dengan Animal
 		 */
-		virtual void Interact();
+		virtual void Interact() const;
 
 	private:
 		string ID;

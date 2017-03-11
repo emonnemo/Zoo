@@ -21,25 +21,11 @@ public:
 		Facility();
 
 		/**
-		 * \brief Copy Constructor.
-		 * \details Copy constructor menjamin tidak bitwise copy.
-		 * \param f facility yang ingin dicopy.
-		 */
-		Facility(const Facility& f);
-
-		/**
 		 * \brief destructor.
 		 */
 		~Facility();
-		
-		/**
-		 * \brief Operator =.
-		 * \details operator = menjamin tidak bitwise copy.
-		 * \param f Facility yang ingin dicopy.
-		 */
-		Facility& operator= (const Facility& f);
 
-		virtual void Interact();
+		virtual void Interact() const;
 };
 
 #endif

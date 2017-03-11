@@ -34,7 +34,7 @@ public:
 	 * \brief Interact
 	 * \details Menunjukkan tanaman apa yang ditanam di taman tersebut
 	 */
-	void Interact();
+	void Interact() const;
 
 
 private:

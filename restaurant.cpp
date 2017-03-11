@@ -21,7 +21,7 @@ Restaurant::~Restaurant(){
 	
 }
 
-void Restaurant::Interact(){
+void Restaurant::Interact() const{
 	if (open){
 		cout << "This restaurant sells " << food << endl;
 	} else{

@@ -35,7 +35,7 @@ public:
 	 * \brief Interact
 	 * \details Memunculkan dialog tentang makanan apa yang dijual suatu restaurant jika restaurant buka, jika tidak katakan restaurant tutup
 	 */
-	void Interact();
+	void Interact() const;
 
 private:
 	string food;

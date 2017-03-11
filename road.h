@@ -30,6 +30,7 @@ public :
 	  */
 	~Road();
 
+	virtual void Interact() const=0;
 private :
 	char type;
 };
