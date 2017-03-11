@@ -12,7 +12,7 @@ Animal::Animal(const Animal& a){
 
 }
 
-Animal::~Animal(){
+Animal::~Animal(){	
 	// dtor
 }
 

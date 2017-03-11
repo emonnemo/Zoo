@@ -33,6 +33,11 @@ class Cell{
 		Cell(const Cell& c);
 
 		/**
+		 * \brief destructor.
+		 */
+		~Cell();
+		
+		/**
 		 * \brief Operator =.
 		 * \details operator = menjamin tidak bitwise copy.
 		 * \param c cell yang ingin dicopy.
