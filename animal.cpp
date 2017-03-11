@@ -66,19 +66,19 @@ void Animal::Description(string a) const{
 	cout << id	<< ". It weights " << weight << " kilograms. It eats " << eat*weight << " kilograms of " << (type=='K'?"meats":(type=='O'?"meats and vegetables":"vegetables")) << endl;
 }
 
-void Move(int direction){
+void Animal::Move(int direction){
 	switch(direction){
 		case 0:
-			y--;
+			position.second--;
 			break;
 		case 1:
-			x--;
+			position.first--;
 			break;
 		case 2:
-			x++;
+			position.first++;
 			break;
 		case 3:
-			y++;
+			position.second++;
 			break;
 	}
 }

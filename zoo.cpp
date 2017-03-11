@@ -78,17 +78,104 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 	int counter = 1;
 	for(int i = 0; i < w; i++){
 		for(int j = 0; j < l; j++){
+			cout << "cek" << i << " " << j << endl;
 			if(CageM[i][j] == -99){
 				char c = Cells[i][j]->GetSymbol();
 				if(c != 'W' && c != 'A' && c != 'L'){
 					CageM[i][j] = 0;
 				}
 				else{
+					int ai[4], aj[4];
+					for(int kk = 0; kk < 4; kk++){
+						ai[kk] = i, aj[kk] = j;
+					}
+					bool cek = true;
 					CageM[i][j] = counter;
 					srand(time(NULL));
+					pair<int,int> movable[12];
+					int ii, jj, icek = i, jcek = j, count = 0;
+					for(int times = 0; times < 3; times++){
+						for(int k = 0; k < 4; k++){
+							bool dum = false;
+							if(k == 0 && icek != 0) ii = icek - 1, jj = jcek, dum = true;
+							else if(k == 1 && jcek != 0) ii = icek, jj = jcek - 1, dum = true;
+							else if(k == 2 && icek != w - 1) ii = icek + 1, jj = jcek, dum = true;
+							else if(k == 3 && jcek != l - 1) ii = icek , jj = jcek + 1, dum = true;
+							if(dum){
+								if(Cells[ii][jj]->GetSymbol() == c && CageM[ii][jj] == -99){
+									cout << "put " << ii << '&' << jj << endl;
+									movable[count] = make_pair(ii,jj);
+									count++;
+								}
+							}
+						}
+						if(count == 0){
+							cek = false;
+							cout << "break\n";
+							break;
+						}
+						cout << "move\n";
+						int move = rand() % count;
+						icek = movable[move].first;
+						jcek = movable[move].second;
+						ai[times] = icek;
+						aj[times] = jcek;
+						movable[move] = make_pair(movable[count-1].first, movable[count-1].second);
+						CageM[icek][jcek] = counter;
+						count--;
+						if(times == 2) counter++;
+					}
+					cout << "asdf : " << cek << endl;
+					if(!cek){
+						cout << "print " << counter << ":\n";
+						for(int k = 0; k < 4; k++){
+							cout << ai[k] << " - " << aj[k] << endl;
+							CageM[ai[k]][aj[k]] = -99;
+						}
+					}
 				}
 			}
 		}
+	}
+	bool stop = false;
+	while (!stop){
+		stop = true;
+		for(int i = 0; i < w; i++){
+			for(int j = 0; j < l; j++){
+				if(CageM[i][j] == -99){
+					pair<int,int> movable[4];
+					int count = 0, ii, jj;
+					for(int k = 0; k < 4; k++){
+						bool dum = false;
+						if(k == 0 && i != 0) ii = i - 1, jj = j, dum = true;
+						else if(k == 1 && j != 0) ii = i, jj = j - 1, dum = true;
+						else if(k == 2 && i != w - 1) ii = i + 1, jj = j, dum = true;
+						else if(k == 3 && j != l - 1) ii = i , jj = j + 1, dum = true;
+						if(dum){
+							if(Cells[ii][jj]->GetSymbol() == Cells[i][j]->GetSymbol() && CageM[ii][jj] != -99){
+								movable[count] = make_pair(ii,jj);
+								count++;
+							}
+						}
+					}
+					if(count > 0){
+						int move = rand() % count;
+						ii = movable[move].first;
+						jj = movable[move].second;
+						CageM[i][j] = CageM[ii][jj];
+					}
+					else{
+						stop = false;
+					}
+				}
+			}
+		}
+	}
+	for(int i = 0; i < w; i++){
+		for(int j = 0; j < l; j++){
+			cout << CageM[i][j] << "|";
+		}
+		cout << endl;
 	}
 }
 
