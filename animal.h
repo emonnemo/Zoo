@@ -12,7 +12,7 @@ class Animal {
 		/** @brief Constructor.
 		  * Menciptakan Animal
 		  */
-		Animal(string ID, int weight, char type);
+		Animal(string _ID, float _eat, int _weight, char _type);
 
 		/** @brief Destructor.
 		  */
@@ -48,29 +48,22 @@ class Animal {
 		  */
 		void SetWeight(int _weight);
 
-		/** @brief SetType
-		  * Mengatur type dari suatu animal
-		  * @param _type nilai type yang ingin ditetapkan untuk suatu Animal
-		  */
-		void SetType(char _type);
-
-		/** @brief SetID
-		  * Mengatur ID dari suatu Animal
-		  * @param _id nilai id yang ingin ditetapkan untuk suatu animal
-		  */
-		void SetID(string _id);
-
 		/**
 		 * \brief Print
 		 * \details mengoutput data data animal
 		 */
-		void Print();
+		void Print() const;
+
+		virtual void Interact() const = 0;
 
 	private:
 		string ID;
+		int id;
 		int weight;
+		float eat;
 		char type;
-
+		int x;
+		int y;
 };
 
 
