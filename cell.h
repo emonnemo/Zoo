@@ -53,25 +53,26 @@ class Cell{
 		friend ostream& operator<< (ostream& os, const Cell& c);
 
 		/**
+		 * \brief GetInitSymbol.
+		 * \details membalikan nilai initsymbol cell.
+		 * \return init symbol.
+		 */
+		virtual char GetInitSymbol() const = 0;
+
+		/**
 		 * \brief GetSymbol.
 		 * \details mengembalikan nilai simbol cell.
 		 * \return symbol.
 		 */
-		char GetSymbol() const;
+		virtual char GetSymbol() const = 0;
 
 		/**
-		 * \brief SetInitSymbol
-		 * \details mengubah initsymbol dengan is
-		 * \param is initial symbol baru
+		 * \brief SetSymbol.
+		 * \details mengubah symbol dengan s.
+		 * \param s symbol yang baru.
 		 */
-		void SetInitSymbol(char is);
+		virtual void SetSymbol(char s)=0;
 
-		/**
-		 * \brief SetSymbol
-		 * \details mengubah symbol dengan s
-		 * \param s symbol yang baru
-		 */
-		void SetSymbol(char s);
 	protected :
 		char initsymbol;
 		char symbol;
