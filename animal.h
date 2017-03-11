@@ -1,6 +1,7 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
+#include <string>
 
 using namespace std;
 /** @class Animal
@@ -11,7 +12,7 @@ class Animal {
 		/** @brief Constructor.
 		  * Menciptakan Animal
 		  */
-		Animal();
+		Animal(string ID, int weight, char type);
 
 		/** @brief Destructor.
 		  */
@@ -29,7 +30,7 @@ class Animal {
 		  */
 		Animal& operator= (const Animal& a); 
 
-		int GetID() const;
+		string GetID() const;
 
 		/** @brief GetWeight
 		  * mengembalikan nilai weight dari suatu Animal
@@ -57,11 +58,16 @@ class Animal {
 		  * Mengatur ID dari suatu Animal
 		  * @param _id nilai id yang ingin ditetapkan untuk suatu animal
 		  */
-		void SetID(int _id);
-		
+		void SetID(string _id);
+
+		/**
+		 * \brief Print
+		 * \details mengoutput data data animal
+		 */
+		void Print();
 
 	private:
-		int ID;
+		string ID;
 		int weight;
 		char type;
 

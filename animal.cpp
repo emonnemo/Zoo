@@ -3,17 +3,24 @@
  */
 
 #include "animal.h"
+#include <iostream>
+using namespace std;
 
-Animal::Animal(){
 
+Animal::Animal(string _ID, int _weight, char _type){
+	ID = _ID;
+	weight = _weight;
+	type = _type;
 }
 
 Animal::Animal(const Animal& a){
-
+	ID = a.ID;
+	weight = a.weight;
+	type = a.type;
 }
 
 Animal::~Animal(){
-	
+
 }
 
 Animal& Animal::operator=(const Animal& a){
@@ -23,7 +30,7 @@ Animal& Animal::operator=(const Animal& a){
 	return *this;
 }
 
-int Animal::GetID() const {
+string Animal::GetID() const {
 	return ID;
 }
 
@@ -35,7 +42,7 @@ char Animal::GetType() const {
 	return type;
 }
 
-void Animal::SetID(int _ID){
+void Animal::SetID(string _ID){
 	ID = _ID;
 }
 
@@ -47,3 +54,7 @@ void Animal::SetType(char _type){
 	type = _type;
 }
 
+void Animal::Print(){
+	cout << "This is " << "tiger " << ID << ". It is " << weight << " kilograms. It eats " << (type=='K'?"meats":(type=='O'?"meats and vegetables":"vegetables"))
+	<< ".\n";
+}
