@@ -20,7 +20,7 @@ class Zoo{
 		  * \param w width lebar kebun binatang, default 16
 		  * \param l length panjang kebun binatang, default 6
 		  */
-		Zoo(bool Auto = 1, int w = 16, int l = 6);
+		Zoo(bool = 1 , int = 16, int = 6);
 
 		/** @brief cctor
 		  */
@@ -33,12 +33,12 @@ class Zoo{
 		/** @brief Operator =
 		  * Menjamin bukan bitwise copy
 		  */
-		Zoo operator=(const Zoo z);
+		Zoo& operator=(const Zoo& z);
 
 		/** @brief Render
 		  * Menampilkan kebun binatang ke layar
 		  */
-		void Render();
+		void Display(int x1, int y1, int x2, int y2);
 
 		/** @brief AddAnimal
 		  * Menambahkan hewan pada kebun binatang

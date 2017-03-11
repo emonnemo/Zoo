@@ -13,12 +13,13 @@ using namespace std;
   * Kelas exit turunan dari kelas road yang merupakan pintu keluar di zoo
   */
 class Exit : public Road{
+public:
 	/** @brief Constructor.
 	  * Menciptakan exit dengan posisi (x,y)
 	  * @param x nilai posisi x yang diinginkan
 	  * @param x nilai posisi y yang diinginkan
 	  */
-	Exit(int x, int y);
+	Exit();
 
 	/** @brief Destructor.
 	  */
