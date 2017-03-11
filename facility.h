@@ -51,13 +51,6 @@ class Facility : public Cell{
 		 * \param f facility yang ingin dioutput.
 		 */
 		friend ostream& operator<< (ostream& os, const Facility& f);
-
-		/**
-		 * \brief GetSymbol.
-		 * \details mengembalikan nilai simbol facility.
-		 * \return symbol.
-		 */
-		virtual char GetSymbol() const;
 };
 
 #endif
