@@ -10,7 +10,7 @@ Restaurant::Restaurant(){
 	open = false;
 }
 
-Restauramt::Restaurant(string f, bool o){
+Restaurant::Restaurant(string f, bool o){
 	symbol = 'R';
 	initsymbol = 'R';
 	food = f;
@@ -28,9 +28,9 @@ Restaurant::~Restaurant(){
 }
 
 void Restaurant::Interact(){
-	if (o){
-		cout << "This restaurant sells " << f << endl;
+	if (open){
+		cout << "This restaurant sells " << food << endl;
 	} else{
-		cout << "This restaurant is closed"
+		cout << "This restaurant is closed" << endl;
 	}
 }

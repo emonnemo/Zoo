@@ -11,7 +11,9 @@
 #include "entrance.h"
 #include "park.h"
 #include "restaurant.h"
+#include <time.h>
 #include <list>
+#include <set>
 #include <fstream>
 #include <iostream>
 
@@ -66,7 +68,29 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 				Cells[i][j] = new Road();
 			}
 		}
-	cout << "zoo.ctor\n";
+	}
+	// caging
+	CageM = new int*[w];
+	for(int i = 0; i < w; i++){
+		CageM[i] = new int[l];
+		for(int j = 0; j < l; j++){
+			CageM[i][j] = -99;
+		}
+	}
+	int counter = 1;
+	for(int i = 0; i < w; i++){
+		for(int j = 0; j < l; j++){
+			if(CageM[i][j] == -99){
+				char c = Cells[i][j]->GetSymbol();
+				if(c != 'W' && c != 'A' && c != 'L'){
+					CageM[i][j] = 0;
+				}
+				else{
+					CageM[i][j] = counter;
+					srand(time(NULL));
+				}
+			}
+		}
 	}
 }
 
@@ -142,6 +166,7 @@ Zoo& Zoo::operator=(const Zoo& z){
 	}
 	return *this;
 }
+
 void Zoo::Display(int x1, int y1, int x2, int y2){
 	for (int i=x1; i<=x2; ++i){
 		for (int j=y1; j<=y2; ++j){

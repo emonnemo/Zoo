@@ -16,11 +16,11 @@ Animal::Animal(string _ID, float _eat, int _weight, char _type){
 
 Animal::Animal(const Animal& a){
 	ID = a.ID;
-	eat = _eat;
+	eat = a.eat;
 	weight = a.weight;
 	type = a.type;
 	x = a.x;
-	y = y.x;
+	y = a.x;
 }
 
 Animal::~Animal(){
@@ -49,14 +49,10 @@ void Animal::SetWeight(int _weight){
 	weight = _weight;
 }
 
-void Animal::SetType(char _type){
-	type = _type;
-}
-
-void Animal::Print(){
+void Animal::Interact(){
 	cout << "This is " << ID << "-";
 	if (id < 10){
-		cout << '0'; 
+		cout << "0"; 
 	}
-	cout id	<< ". It weights " << weight << " kilograms. It eats " << eat*weight << " kilograms of" << (type=='K'?"meats":(type=='O'?"meats and vegetables":"vegetables")) << endl;
+	cout << id	<< ". It weights " << weight << " kilograms. It eats " << eat*weight << " kilograms of " << (type=='K'?"meats":(type=='O'?"meats and vegetables":"vegetables")) << endl;
 }

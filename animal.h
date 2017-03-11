@@ -52,9 +52,12 @@ class Animal {
 		 * \brief Print
 		 * \details mengoutput data data animal
 		 */
-		void Print() const;
 
-		virtual void Interact() const = 0;
+		/**
+		 * \brief Interact
+		 * \details mengoutput hasil interaksi dengan Animal
+		 */
+		virtual void Interact();
 
 	private:
 		string ID;

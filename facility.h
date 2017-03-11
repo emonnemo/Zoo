@@ -39,7 +39,7 @@ public:
 		 */
 		Facility& operator= (const Facility& f);
 
-		virtual void Interact()=0;
+		virtual void Interact();
 };
 
 #endif
