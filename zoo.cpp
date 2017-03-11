@@ -21,10 +21,10 @@ using namespace std;
 Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 	Cells = new Cell**[width];
 	for(int i = 0; i<width; ++i) Cells[i] = new Cell* [length];
+	string line;
 	if (Auto){
 		ifstream ifile("map.txt");
 		if (ifile.is_open()){
-			string line;
 			int i = 0;
 			while(getline(ifile, line)){
 				for (int j=0; j<length; ++j){
@@ -61,9 +61,35 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 		ifile.close();
 	}
 	else{
-		for(int i = 0; i < w; i++){
-			for(int j = 0; j < l; j++){
-				Cells[i][j] = new Road();
+		for (int i = 0; i < width; ++i){
+			getline(cin, line);
+			for(int j = 0; j < length; ++j){
+				switch (line[j]){
+					case 'W':
+							Cells[i][j] = new Habitat('W');
+							break;
+						case 'A':
+							Cells[i][j] = new Habitat('A');
+							break;
+						case 'L':
+							Cells[i][j] = new Habitat('L');
+							break;
+						case 'X':
+							Cells[i][j] = new Road('X');
+							break;
+						case 'N':
+							Cells[i][j] = new Road('N');
+							break;
+						case 'r':
+							Cells[i][j] = new Road('r');
+							break;
+						case 'R':
+							Cells[i][j] = new Restaurant();
+							break;
+						case 'P':
+							Cells[i][j] = new Park();
+							break;
+				}
 			}
 		}
 	}
