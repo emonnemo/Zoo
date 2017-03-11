@@ -64,3 +64,20 @@ void Animal::Interact() const{
 	cout << id	<< ". It weights " << weight << " kilograms. It eats " << eat*weight << " kilograms of " << (type=='K'?"meats":(type=='O'?"meats and vegetables":"vegetables")) << endl;
 	Act();
 }
+
+void Move(int direction){
+	switch(direction){
+		case 0:
+			y--;
+			break;
+		case 1:
+			x--;
+			break;
+		case 2:
+			x++;
+			break;
+		case 3:
+			y++;
+			break;
+	}
+}
