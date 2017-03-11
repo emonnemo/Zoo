@@ -61,6 +61,8 @@ class Animal {
 		 * \details mengoutput data data animal
 		 */
 
+		virtual void Act() const;
+
 		/**
 		 * \brief Interact
 		 * \details mengoutput hasil interaksi dengan Animal
