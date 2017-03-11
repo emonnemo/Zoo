@@ -70,8 +70,16 @@ class Animal {
 		virtual void Interact() const;
 
 		/**
+		 * \brief Description
+		 * \details mengoutput deskripsi Animal tersebut
+		 * \param a jenis binatang
+		 */
+		void Description(string a) const;
+
+		/**
 		 * \brief Move
 		 * \details Berpindah sejauh 1 langkah ke arah sesuai direction
+		 * \I.S.: arah untuk direction sudah pasti masih dalam cage
 		 * \param direction 0 ke atas, 1 ke kiri, 2 ke kanan, 3 ke bawah
 		 */
 		void Move(int direction);

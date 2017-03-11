@@ -56,13 +56,14 @@ void Animal::Act() const{
 
 }
 
-void Animal::Interact() const{
-	cout << "This is " << ID << "-";
+void Animal::Interact() const {}
+
+void Animal::Description(string a) const{
+	cout << "This is a(n) " << a << " called " << ID << "-";
 	if (id < 10){
 		cout << "0"; 
 	}
 	cout << id	<< ". It weights " << weight << " kilograms. It eats " << eat*weight << " kilograms of " << (type=='K'?"meats":(type=='O'?"meats and vegetables":"vegetables")) << endl;
-	Act();
 }
 
 void Move(int direction){
