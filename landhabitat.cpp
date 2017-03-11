@@ -2,9 +2,6 @@
  * File			: landhabitat.cpp
  */
 
-#ifndef HABITAT_H
-#define HABITAT_H
-
 #include <iostream>
 #include "landhabitat.h"
 using namespace std;

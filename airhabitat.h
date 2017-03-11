@@ -2,8 +2,8 @@
  * File			: airhabitat.h
  */
 
-#ifndef HABITAT_H
-#define HABITAT_H
+#ifndef AIRHABITAT_H
+#define AIRHABITAT_H
 
 #include <iostream>
 #include "habitat.h"
@@ -14,7 +14,7 @@ using namespace std;
  * \details real class untuk habitat udara
  * \return suatu sel yang memiliki karakteristik habitat udara
  */
-class AirHabitat: public Habitat () {
+class AirHabitat: public Habitat {
 public:
 	/**
 	 * \brief Constructor

@@ -3,6 +3,7 @@
  */
 
 #include "zoo.h"
+#include <list>
 #include <iostream>
 
 using namespace std;
@@ -34,15 +35,15 @@ Zoo Zoo::operator=(const Zoo z){
 void Zoo::Render(){
 	for (int i=0; i<width; ++i){
 		for (int j=0; j<length; ++j){
-			cout << Cells.symbol;
+			cout << Cells[i][j]->GetSymbol();
 		}
 	}
 }
-void Zoo::AddAnimal(Animal a){
+void Zoo::AddAnimal(Animal& a){
 	Animals.push_back(a);
 }
 void Zoo::DelAnimal(int id){
-	Animals.remove_if(ID = id);
+	
 }
 
 int Zoo::GetWidth() const{

@@ -2,9 +2,6 @@
  * File			: airhabitat.cpp
  */
 
-#ifndef HABITAT_H
-#define HABITAT_H
-
 #include <iostream>
 #include "habitat.h"
 using namespace std;
