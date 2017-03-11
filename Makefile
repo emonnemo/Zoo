@@ -12,12 +12,6 @@ facility.o: facility.cpp facility.h cell.h
 road.o: road.cpp road.h facility.h
 	$(CXX) $(CFLAGS) -c road.cpp
 
-entrance.o: entrance.cpp entrance.h road.h
-	$(CXX) $(CFLAGS) -c entrance.cpp
-
-exit.o: exit.cpp exit.h cell.h road.h
-	$(CXX) $(CFLAGS) -c exit.cpp
-
 restaurant.o: restaurant.cpp restaurant.h facility.h
 	$(CXX) $(CFLAGS) -c restaurant.cpp
 
