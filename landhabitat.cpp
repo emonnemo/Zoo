@@ -10,17 +10,15 @@
 using namespace std;
 
  
-LandHabitat::LandHabitat() {
-	symbol = 'x';
-}
-
-LandHabitat::~LandHabitat(){}
+LandHabitat::LandHabitat(): Habitat('x') {}
 
 LandHabitat::LandHabitat(const LandHabitat& lh){
 	symbol = lh.symbol;
+	initsymbol = lh.symbol;
 }
 
 LandHabitat& LandHabitat::operator= (const LandHabitat& lh) {
 	symbol = lh.symbol;
+	initsymbol = lh.initsymbol;
 	return (*this);
 }

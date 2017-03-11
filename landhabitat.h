@@ -23,11 +23,6 @@ public:
 	 */
 	LandHabitat();
 	/**
-	 * \brief Destructor
-	 * \details Mengembalikan memori kepada sistem
-	 */
-	~LandHabitat();
-	/**
 	 * \brief Copy Constructor
 	 * \details copy constructor menjamin tidak bitwise copy.
 	 * 

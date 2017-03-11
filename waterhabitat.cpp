@@ -9,17 +9,15 @@
 #include "habitat.h"
 using namespace std;
 
-WaterHabitat::WaterHabitat() {
-	symbol = '#';
-}
-
-WaterHabitat::~WaterHabitat(){}
+WaterHabitat::WaterHabitat(): Habitat('#'){}
 
 WaterHabitat::WaterHabitat(const WaterHabitat& wh) {
 	symbol = wh.symbol;
+	initsymbol = wh.initsymbol;
 }
 
 WaterHabitat& WaterHabitat::operator= (const WaterHabitat& wh){
 	symbol = wh.symbol;
+	initsymbol = wh.initsymbol;
 	return (*this);
 }
