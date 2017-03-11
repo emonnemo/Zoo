@@ -35,7 +35,7 @@ class Cell{
 		/**
 		 * \brief destructor.
 		 */
-		~Cell();
+		virtual ~Cell();
 		
 		/**
 		 * \brief Operator =.

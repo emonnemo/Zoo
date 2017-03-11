@@ -104,7 +104,6 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 	int counter = 1;
 	for(int i = 0; i < w; i++){
 		for(int j = 0; j < l; j++){
-			cout << "cek" << i << " " << j << endl;
 			if(CageM[i][j] == -99){
 				char c = Cells[i][j]->GetSymbol();
 				if(c != 'W' && c != 'A' && c != 'L'){
@@ -129,7 +128,6 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 							else if(k == 3 && jcek != l - 1) ii = icek , jj = jcek + 1, dum = true;
 							if(dum){
 								if(Cells[ii][jj]->GetSymbol() == c && CageM[ii][jj] == -99){
-									cout << "put " << ii << '&' << jj << endl;
 									movable[count] = make_pair(ii,jj);
 									count++;
 								}
@@ -137,10 +135,8 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 						}
 						if(count == 0){
 							cek = false;
-							cout << "break\n";
 							break;
 						}
-						cout << "move\n";
 						int move = rand() % count;
 						icek = movable[move].first;
 						jcek = movable[move].second;
@@ -151,11 +147,8 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 						count--;
 						if(times == 2) counter++;
 					}
-					cout << "asdf : " << cek << endl;
 					if(!cek){
-						cout << "print " << counter << ":\n";
 						for(int k = 0; k < 4; k++){
-							cout << ai[k] << " - " << aj[k] << endl;
 							CageM[ai[k]][aj[k]] = -99;
 						}
 					}
@@ -163,9 +156,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 			}
 		}
 	}
-	bool stop = false;
-	while (!stop){
-		stop = true;
+	int change = -1;
+	while (change != 0){
+		change = 0;
 		for(int i = 0; i < w; i++){
 			for(int j = 0; j < l; j++){
 				if(CageM[i][j] == -99){
@@ -189,19 +182,11 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 						ii = movable[move].first;
 						jj = movable[move].second;
 						CageM[i][j] = CageM[ii][jj];
-					}
-					else{
-						stop = false;
+						change++;
 					}
 				}
 			}
 		}
-	}
-	for(int i = 0; i < w; i++){
-		for(int j = 0; j < l; j++){
-			cout << CageM[i][j] << "|";
-		}
-		cout << endl;
 	}
 }
 
@@ -238,11 +223,22 @@ Zoo::Zoo(const Zoo& z) : width(z.width), length(z.length){
 			}
 		}
 	}
+	for(int i = 0; i < width; i++){
+		for(int j = 0; j < length; j++){
+			CageM[i][j] = z.CageM[i][j];
+		}
+	}
 }
 Zoo::~Zoo(){
-	for(int i = 0; i < width; i++) delete [] Cells[i];
+	for(int i = 0; i < width; i++) delete [] CageM[i];
+	delete [] CageM;
+	for(int i = 0; i < width; i++){
+		for(int j = 0; j < length; j++){
+			delete Cells[i][j];
+		}
+		delete [] Cells[i];
+	}
 	delete [] Cells;
-	cout << "zoo.dtor\n";
 }
 Zoo& Zoo::operator=(const Zoo& z){
 	for(int i = 0; i < width; i++){
