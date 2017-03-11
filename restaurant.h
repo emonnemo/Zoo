@@ -18,7 +18,7 @@ class Restaurant : public Facility{
 	  * @param x nilai posisi x yang diinginkan
 	  * @param x nilai posisi y yang diinginkan
 	  */
-	Restaurant(int x, int y);
+	Restaurant();
 
 	/** @brief Destructor.
 	  */
