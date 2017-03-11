@@ -7,8 +7,6 @@
 #include "road.h"
 #include "facility.h"
 #include "habitat.h"
-#include "exit.h"
-#include "entrance.h"
 #include "park.h"
 #include "restaurant.h"
 #include <time.h>
@@ -41,13 +39,13 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 							Cells[i][j] = new Habitat('L');
 							break;
 						case 'X':
-							Cells[i][j] = new Exit();
+							Cells[i][j] = new Road('X');
 							break;
 						case 'N':
-							Cells[i][j] = new Entrance();
+							Cells[i][j] = new Road('N');
 							break;
 						case 'r':
-							Cells[i][j] = new Road();
+							Cells[i][j] = new Road('r');
 							break;
 						case 'R':
 							Cells[i][j] = new Restaurant();
@@ -110,13 +108,13 @@ Zoo::Zoo(const Zoo& z) : width(z.width), length(z.length){
 					Cells[i][j] = new Habitat('L');
 					break;
 				case 'X':
-					Cells[i][j] = new Exit();
+					Cells[i][j] = new Road('X');
 					break;
 				case 'N':
-					Cells[i][j] = new Entrance();
+					Cells[i][j] = new Road('N');
 					break;
 				case 'r':
-					Cells[i][j] = new Road();
+					Cells[i][j] = new Road('r');
 					break;
 				case 'R':
 					Cells[i][j] = new Restaurant();
@@ -147,13 +145,13 @@ Zoo& Zoo::operator=(const Zoo& z){
 					Cells[i][j] = new Habitat('L');
 					break;
 				case 'X':
-					Cells[i][j] = new Exit();
+					Cells[i][j] = new Road('X');
 					break;
 				case 'N':
-					Cells[i][j] = new Entrance();
+					Cells[i][j] = new Road('N');
 					break;
 				case 'r':
-					Cells[i][j] = new Road();
+					Cells[i][j] = new Road('r');
 					break;
 				case 'R':
 					Cells[i][j] = new Restaurant();

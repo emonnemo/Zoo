@@ -29,8 +29,6 @@ public :
 	/** \brief Destructor.
 	  */
 	~Road();
-
-	virtual void Interact() const=0;
 private :
 	char type;
 };

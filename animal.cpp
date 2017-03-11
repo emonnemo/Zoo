@@ -7,20 +7,23 @@
 using namespace std;
 
 
-Animal::Animal(string _ID, float _eat, int _weight, char _type){
+Animal::Animal(string _ID, int _id, int _weight, float _eat, char _type, pair<int,int> _position){
 	ID = _ID;
-	eat = _eat;
+	id = _id;
 	weight = _weight;
+	eat = _eat;
 	type = _type;
+	position.first = _position.first;
+	position.second = _position.second;
 }
 
 Animal::Animal(const Animal& a){
 	ID = a.ID;
-	eat = a.eat;
+	id = a.id;
 	weight = a.weight;
+	eat = a.eat;
 	type = a.type;
-	x = a.x;
-	y = a.x;
+	position = a.position;
 }
 
 Animal::~Animal(){
@@ -29,11 +32,11 @@ Animal::~Animal(){
 
 Animal& Animal::operator=(const Animal& a){
 	ID = a.ID;
-	eat = a.eat;
+	id = a.id;
 	weight = a.weight;
+	eat = a.eat;
 	type = a.type;
-	x = a.x;
-	y = a.y;
+	position = a.position;
 	return *this;
 }
 
@@ -49,7 +52,7 @@ void Animal::SetWeight(int _weight){
 	weight = _weight;
 }
 
-void Animal::Interact(){
+void Animal::Interact() const{
 	cout << "This is " << ID << "-";
 	if (id < 10){
 		cout << "0"; 

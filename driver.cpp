@@ -3,6 +3,7 @@
 #include <iostream>
 
 int main(){
+	/*
 	Zoo z;
 	//z.Display(0,0,15,5);
 	Zoo x;
@@ -10,6 +11,6 @@ int main(){
 	x.Display(0,0,15,5);
 	Animal a("TG01", 0.1, 100, 'K');
 	x.AddAnimal(a);
-	a.Interact();
+	a.Interact();*/
 	return 0;
 }
