@@ -32,12 +32,12 @@ ostream& operator<< (ostream& os, const Cell& c){
 	return os;
 }
 
-char Cell::GetSymbol() const{
-	return symbol;
+char Cell::GetInitSymbol() const{
+	return initsymbol;
 }
 
-void Cell::SetInitSymbol(char is){
-	initsymbol = is;
+char Cell::GetSymbol() const{
+	return symbol;
 }
 
 void Cell::SetSymbol(char s){
