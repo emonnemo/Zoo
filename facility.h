@@ -20,11 +20,6 @@ public:
 		 */
 		Facility();
 
-		/** \brief Constructor dengan parameter.
-		  * \details Menciptakan facility dengan symbol c.
-		  * \param c symbol facility.
-		  */
-		Facility(char c);
 
 		/**
 		 * \brief Copy Constructor.

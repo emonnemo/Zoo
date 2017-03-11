@@ -5,7 +5,10 @@
 #include "habitat.h"
 using namespace std;
 
-Habitat::Habitat(char s): Cell(s){}
+Habitat::Habitat(char s){
+	symbol = s;
+	initsymbol = s;
+}
 
 Habitat::Habitat(const Habitat& h){
 	symbol = h.symbol;

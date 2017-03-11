@@ -4,12 +4,9 @@
 
 using namespace std;
 
-Facility::Facility() : Cell() {
-
-}
-
-Facility::Facility(char c) : Cell(c) {
-
+Facility::Facility() {
+	symbol = 'F';
+	initsymbol = 'F';
 }
 
 Facility::Facility(const Facility& f){

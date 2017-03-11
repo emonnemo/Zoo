@@ -5,6 +5,7 @@ using namespace std;
 
 Cell::Cell(){
 	symbol = ' ';
+	initsymbol = ' ';
 }
 
 Cell::Cell(char c){

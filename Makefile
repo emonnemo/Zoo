@@ -1,7 +1,7 @@
 CXX = g++
 CFLAGS = -g -Wall -std=c++11
-driver: driver.o facility.o cell.o road.o entrance.o exit.o restaurant.o park.o zoo.o animal.o
-	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o entrance.o exit.o restaurant.o park.o zoo.o animal.o
+driver: driver.o facility.o cell.o road.o entrance.o exit.o restaurant.o park.o zoo.o animal.o habitat.o
+	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o entrance.o exit.o restaurant.o park.o zoo.o animal.o habitat.o
 	
 cell.o: cell.cpp cell.h
 	$(CXX) $(CFLAGS) -c cell.cpp
@@ -30,16 +30,7 @@ zoo.o: zoo.cpp zoo.h
 habitat.o: habitat.cpp habitat.h
 	$(CXX) $(CFLAGS) -c habitat.cpp
 
-landhabitat.o: landhabitat.cpp landhabitat.h
-	$(CXX) $(CFLAGS) -c landhabitat.cpp
-
-waterhabitat.o: waterhabitat.cpp waterhabitat.h
-	$(CXX) $(CFLAGS) -c waterhabitat.cpp
-
-airhabitat.o: airhabitat.cpp airhabitat.h
-	$(CXX) $(CFLAGS) -c airhabitat.cpp
-
-driver.o: driver.cpp facility.h
+driver.o: driver.cpp
 	$(CXX) $(CFLAGS) -c driver.cpp
 
 clean: 

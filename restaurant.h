@@ -13,12 +13,13 @@ using namespace std;
   * Kelas restaurant turunan dari kelas facility berupa restoran di zoo
   */
 class Restaurant : public Facility{
+public:
 	/** @brief Constructor.
 	  * Menciptakan restaurant dengan posisi (x,y)
 	  * @param x nilai posisi x yang diinginkan
 	  * @param x nilai posisi y yang diinginkan
 	  */
-	Restaurant(int x, int y);
+	Restaurant();
 
 	/** @brief Destructor.
 	  */

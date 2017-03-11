@@ -13,12 +13,13 @@ using namespace std;
   * Kelas entrance turunan dari kelas road yang merupakan pintu masuk ke zoo
   */
 class Entrance : public Road{
+public:
 	/** @brief Constructor.
 	  * Menciptakan Entrance dengan posisi (x,y)
 	  * @param x nilai posisi x yang diinginkan
 	  * @param x nilai posisi y yang diinginkan
 	  */
-	Entrance(int x, int y);
+	Entrance();
 
 	/** @brief Destructor.
 	  */
