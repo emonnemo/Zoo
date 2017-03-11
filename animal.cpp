@@ -46,3 +46,4 @@ void Animal::SetWeight(int _weight){
 void Animal::SetType(char _type){
 	type = _type;
 }
+
