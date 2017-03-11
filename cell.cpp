@@ -9,6 +9,9 @@ Cell::Cell(){
 Cell::~Cell(){
 	cout << "cell dtor\n";
 }
+Cell& Cell::operator=(const Cell& c){
+	cout << "cell opr=\n";
+}
 char Cell::GetSymbol() const{
 	return symbol;
 }

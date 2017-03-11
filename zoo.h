@@ -5,6 +5,7 @@
 
 #include "animal.h"
 #include "cell.h"
+#include <list>
 using namespace std;
 
 /** @class Zoo
@@ -56,7 +57,7 @@ class Zoo{
 		const int width;
 		const int length;
 		Cell** Cells;
-		Animal* Animals;
+		list<Animal> Animals;
 
 };
 
