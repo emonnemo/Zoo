@@ -15,7 +15,7 @@ using namespace std;
 class Restaurant : public Facility{
 public:
 	/** @brief Constructor tanpa parameter
-	  * Menciptakan restaurant dengan food string kosong
+	  * Menciptakan restaurant dengan food string kosong dan restaurant tutup
 	  */
 	Restaurant();
 
@@ -23,8 +23,9 @@ public:
 	 * \brief Constructor dengan parameter
 	 * \details Menciptakan restaurant dengan 
 	 * \param f makanan yang dijual oleh restaurant
+	 * \param o true jika restaurant buka
 	 */
-	Restaurant(string f);
+	Restaurant(string f, bool o);
 
 	/**
 	 * \brief CopyConstructor
@@ -39,12 +40,13 @@ public:
 
 	/**
 	 * \brief Interact
-	 * \details Memunculkan dialog tentang makanan apa yang dijual suatu restaurant
+	 * \details Memunculkan dialog tentang makanan apa yang dijual suatu restaurant jika restaurant buka, jika tidak katakan restaurant tutup
 	 */
 	void Interact();
-	
+
 private:
-	string food;	
+	string food;
+	bool open;	
 };
 
 #endif
