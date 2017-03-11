@@ -32,10 +32,6 @@ class Cell{
 		 */
 		Cell(const Cell& c);
 
-		/** \brief Destructor.
-		  */
-		~Cell();
-
 		/**
 		 * \brief Operator =.
 		 * \details operator = menjamin tidak bitwise copy.
@@ -56,8 +52,23 @@ class Cell{
 		 * \details mengembalikan nilai simbol cell.
 		 * \return symbol.
 		 */
-		virtual char GetSymbol() const;
+		char GetSymbol() const;
+
+		/**
+		 * \brief SetInitSymbol
+		 * \details mengubah initsymbol dengan is
+		 * \param is initial symbol baru
+		 */
+		void SetInitSymbol(char is);
+
+		/**
+		 * \brief SetSymbol
+		 * \details mengubah symbol dengan s
+		 * \param s symbol yang baru
+		 */
+		void SetSymbol(char s);
 	private :
+		char initsymbol;
 		char symbol;
 };
 
