@@ -20,7 +20,6 @@ public:
 		 */
 		Facility();
 
-
 		/**
 		 * \brief Copy Constructor.
 		 * \details Copy constructor menjamin tidak bitwise copy.
@@ -40,13 +39,7 @@ public:
 		 */
 		Facility& operator= (const Facility& f);
 
-		/**
-		 * \brief Operator <<.
-		 * \details mengoutput symbol facility.
-		 * \param os output stream.
-		 * \param f facility yang ingin dioutput.
-		 */
-		friend ostream& operator<< (ostream& os, const Facility& f);
+		virtual void Interact()=0;
 };
 
 #endif

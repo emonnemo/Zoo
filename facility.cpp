@@ -4,9 +4,8 @@
 
 using namespace std;
 
-Facility::Facility() {
-	symbol = 'F';
-	initsymbol = 'F';
+Facilty::Facility(){
+	
 }
 
 Facility::Facility(const Facility& f){
