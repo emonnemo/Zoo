@@ -32,14 +32,19 @@ Zoo Zoo::operator=(const Zoo z){
 	return *this;
 }
 void Zoo::Render(){
-	cout << "zoo.render\n";
+	for (int i=0; i<width; ++i){
+		for (int j=0; j<length; ++j){
+			cout << Cells.symbol;
+		}
+	}
 }
 void Zoo::AddAnimal(Animal a){
-	cout << "zoo.add\n";
+	Animals.push_back(a);
 }
-void Zoo::DelAnimal(int i){
-	cout << "zoo.del\n";
+void Zoo::DelAnimal(int id){
+	Animals.remove_if(ID = id);
 }
+
 int Zoo::GetWidth() const{
 	return width;
 }

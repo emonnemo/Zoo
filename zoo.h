@@ -45,12 +45,12 @@ class Zoo{
 		  * Menambahkan hewan pada kebun binatang
 		  * @param Animal a, hewan yang akan ditambahkan
 		  */
-		void AddAnimal(Animal a);
+		void AddAnimal(Animal& a);
 
 		/** @brief DelAnimal
-		  * Menghapus hewan dengan ID = i, jika tidak ada maka tidak ad hewan yang dihapus
+		  * Menghapus hewan dengan ID = id, jika tidak ada maka tidak ad hewan yang dihapus
 		  */
-		void DelAnimal(int i);
+		void DelAnimal(int id);
 
 		/**
 		 * \brief GetWidth
