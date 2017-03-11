@@ -4,7 +4,7 @@
 
 #include "animal.h"
 
-Animal::Animal(int x, int y){
+Animal::Animal(){
 
 }
 
@@ -12,7 +12,7 @@ Animal::Animal(const Animal& a){
 
 }
 
-Animal::operator=(const Animal& a){
+Animal& Animal::operator=(const Animal& a){
 	ID = a.ID;
 	weight = a.weight;
 	type = a.type;

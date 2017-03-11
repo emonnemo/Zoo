@@ -13,6 +13,10 @@ class Animal {
 		  */
 		Animal();
 
+		/** @brief Destructor.
+		  */
+		~Animal();
+
 		/** @brief Copy Constructor
 		  * copy constructor menjamin tidak bitwise copy.
 		  * @param a Animal yang ingin di-copy
@@ -35,7 +39,7 @@ class Animal {
 		/** @brief GetType
 		  * mengembalikan type dari suatu Animal
 		  */
-		int GetType() const;
+		char GetType() const;
 
 		/** @brief SetWeight
 		  * mengatur berat badan suatu Animal
