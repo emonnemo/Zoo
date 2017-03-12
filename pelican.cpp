@@ -1,0 +1,45 @@
+//File pelican.cpp
+
+#include "Pelican.h"
+#include "../animal.h"
+#include <iostream>
+using namespace std;
+
+int Pelican::PelicanNB = 0;
+
+Pelican::Pelican(pair<int,int> _position): Animal("PLC",++PelicanNB,'?',7,food,'K',_position) {
+	eat = food;
+	habitat.insert('W');	
+	habitat.insert('A');
+}
+
+Pelican::Pelican(float _weight, pair<int,int> _position): Animal("PLC",++PelicanNB,'?',_weight,food,'K',_position) {
+	eat = food;
+	habitat.insert('W');
+	habitat.insert('A');
+}
+
+Pelican::~Pelican(){}
+
+Pelican::Pelican(const Pelican& p): Animal(p.ID,p.id,p.legend,p.weight,p.eat,p.type,p.position) {
+	habitat = p.habitat;
+}
+
+Pelican& Pelican::operator= (const Pelican& p) {
+	SetWeight(p.GetWeight());
+	SetPos(p.GetPos());
+	return *this;
+}
+
+void Pelican::Act() const {
+	cout << ID << "-";
+	if (id < 10){
+		cout << "0"; 
+	}
+	cout << id	<< ": *hrraa-hrraa*" << endl;
+}
+
+void Pelican::Interact() const {
+	Description("Pelican");
+	Act();
+}
