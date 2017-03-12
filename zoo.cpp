@@ -300,7 +300,10 @@ list<Animal>::iterator Zoo::FindAnimal(pair<int,int> pos){
 	while(it->GetPos() != pos && it != e){
 		++it;
 	}
-	return it;
+	if(it->GetPos() == pos){
+		return it;
+	}
+	else return ++e;
 }
 
 void Zoo::AddAnimal(Animal& a){
@@ -317,7 +320,7 @@ void Zoo::AddAnimal(Animal& a){
 			for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
 				if(cage == CageM[it->GetPos().first][it->GetPos().second]){
 					count++;
-					if(compability.find(a.GetID()) != compability.end()){
+					if(compability.find(a.GetID()) == compability.end()){
 						compatible = false;
 					}
 				}

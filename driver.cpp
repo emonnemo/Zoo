@@ -28,7 +28,7 @@ int main(){
 		}
 	}
 	x.DelAnimal(0,5);
-	Hog b(make_pair(0,5));
+	Wolf b(make_pair(0,5));
 	x.AddAnimal(b);
 	//x.DelAnimal("WF", 12);
 	cout << endl;
@@ -41,7 +41,7 @@ int main(){
 	//a.Interact();
 	x.ToggleSekat(1, 5, 3);
 	x.MoveAnimal(make_pair(1,5), 3);
-	x.Display(0,0,15,5);
-	x.Tour();
+	//x.Display(0,0,15,5);
+	//x.Tour();
 	return 0;
 }
