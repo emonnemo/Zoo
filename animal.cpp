@@ -104,7 +104,9 @@ void Animal::Act() const{
 
 }
 
-void Animal::Interact() const {}
+void Animal::Interact() const {
+	cout << "interact" << endl;
+}
 
 void Animal::Description(string a) const{
 	cout << "This is a(n) " << a << " called " << ID << "-";

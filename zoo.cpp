@@ -590,6 +590,10 @@ void Zoo::Tour(){
 		VisCage[i] = false;
 	}
 	while(!route.empty()){
+		for (int i = 0; i < NBCage; ++i){
+			cout << VisCage[i];
+		}
+		cout << endl;
 		cout << "on " << i << " " << j << endl;
 		if (i-1 >= 0){
 			char c = Cells[i-1][j]->GetInitSymbol();
@@ -607,7 +611,7 @@ void Zoo::Tour(){
 			if (c == 'P' || c == 'R'){
 				Cells[i][j-1]->Interact();
 			} else if (c == 'W' || c == 'L' || c == 'A'){
-				if (!VisCage[CageM[i][j]]){
+				if (!VisCage[CageM[i][j-1]]){
 					InteractCage(make_pair(i,j-1), CageM[i][j-1]);
 					VisCage[CageM[i][j-1]] = true;
 				}
@@ -654,15 +658,15 @@ void Zoo::Tour(){
 }
 
 void Zoo::InteractCage(pair<int,int> pos, int cnumber){
-	bool VisCage[width][length];
+	bool Vis[width][length];
 	for (int i = 0; i < width; ++i){
 		for (int j = 0; j < length; ++j){
-			VisCage[i][j] = false;
+			Vis[i][j] = false;
 		}
 	}
 	queue<pair<int, int>> bqueue;
 	bqueue.push(pos);
-	VisCage[pos.first][pos.second] = true;
+	Vis[pos.first][pos.second] = true;
 	while(!bqueue.empty()){
 		int i = bqueue.front().first, j = bqueue.front().second;
 		bqueue.pop();
@@ -672,33 +676,33 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber){
 		}	
 		if (i-1 >= 0){
 			if (CageM[i-1][j] == cnumber){
-				if (!VisCage[i-1][j]){
+				if (!Vis[i-1][j]){
 					bqueue.push(make_pair(i-1,j));
-					VisCage[i-1][j] = true;
+					Vis[i-1][j] = true;
 				}
 			}
 		}
 		if (j-1 >= 0){
 			if (CageM[i][j-1] == cnumber){
-				if (!VisCage[i][j-1]){
+				if (!Vis[i][j-1]){
 					bqueue.push(make_pair(i,j-1));
-					VisCage[i][j-1] = true;
+					Vis[i][j-1] = true;
 				}
 			}
 		}
 		if (j+1 < length){
 			if (CageM[i][j+1] == cnumber){
-				if (!VisCage[i][j+1]){
+				if (!Vis[i][j+1]){
 					bqueue.push(make_pair(i,j+1));
-					VisCage[i][j+1] = true;
+					Vis[i][j+1] = true;
 				}
 			}
 		}
 		if (i+1 < width){
 			if (CageM[i+1][j] == cnumber){
-				if (!VisCage[i+1][j]){
+				if (!Vis[i+1][j]){
 					bqueue.push(make_pair(i+1,j));
-					VisCage[i+1][j] = true;
+					Vis[i+1][j] = true;
 				}
 			}
 		}	
