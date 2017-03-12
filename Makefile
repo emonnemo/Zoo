@@ -1,7 +1,7 @@
 CXX = g++
 CFLAGS = -g -Wall -std=c++11
-driver: driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o
-	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o
+driver: driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o
+	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o
 	
 cell.o: cell.cpp cell.h
 	$(CXX) $(CFLAGS) -c cell.cpp
@@ -41,6 +41,9 @@ elephant.o: realAnimals/elephant.cpp
 
 hog.o: realAnimals/hog.cpp
 	$(CXX) $(CFLAGS) -c realAnimals/hog.cpp
+
+macaque.o: realAnimals/macaque.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/macaque.cpp
 
 clean: 
 	$(RM) count *.o *~

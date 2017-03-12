@@ -7,12 +7,12 @@ using namespace std;
 
 int Zebra::zebraNB = 0;
 
-Zebra::Zebra(pair<int,int> _position): Animal("ZBR",++zebraNB,'/',226,food,'H',_position) {
+Zebra::Zebra(pair<int,int> _position): Animal("ZBR",++zebraNB,'3',226,food,'H',_position) {
 	eat = food;
 	habitat.insert('L');
 }
 
-Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR",++zebraNB,'/',_weight,food,'H',_position) {
+Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR",++zebraNB,'3',_weight,food,'H',_position) {
 	eat = food;
 	habitat.insert('L');
 }
