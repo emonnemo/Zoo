@@ -20,6 +20,7 @@ int main(){
 		a.Interact();
 	}
 	cout << "meat :" << x.GetTotalMeat() << endl;
+	x.DelAnimal("WF", 11);
 	//x.AddAnimal(a);
 	//a.Interact();
 	return 0;

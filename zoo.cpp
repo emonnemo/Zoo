@@ -287,7 +287,15 @@ void Zoo::AddAnimal(Animal& a){
 }
 
 void Zoo::DelAnimal(string _ID, int _id){
-	
+	list<Animal>::iterator it = Animals.begin();
+	list<Animal>::iterator e = Animals.end();
+	--e;
+	while (it->GetID() != _ID && it->Getid() != _id && it != e){
+		++it;
+	}
+	if (it->GetID() == _ID && it->Getid() == _id){
+		Animals.erase(it);
+	}
 }
 
 int Zoo::GetWidth() const{
