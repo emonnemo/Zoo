@@ -102,7 +102,7 @@ class Animal {
 		 */
 		void Move(int direction);
 
-	private:
+	protected:
 		string ID;
 		int id;
 		float weight;
