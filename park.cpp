@@ -19,8 +19,23 @@ Park::~Park(){
 
 }
 
+string Park::GetPlant() const{
+	return plant;
+}
+
+void Park::SetPlant(string p){
+	plant = p;
+}
+
 void Park::Interact() const{
-	cout << "This park has " << plant << " planted on it" << endl;
+	cout << "This park has ";
+	if (plant != ""){
+		 cout << plant;
+	} else{
+		cout << "nothing";
+	}
+	cout << " planted on it" << endl;
+	
 }
 
 void Park::ToggleSekat(int direction){

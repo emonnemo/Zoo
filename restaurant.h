@@ -32,6 +32,33 @@ public:
 	~Restaurant();
 
 	/**
+	 * \brief GetFood
+	 * \details Mengembalikan jenis makanan yang dijual restoran
+	 * \return string
+	 */
+	string GetFood() const;
+
+	/**
+	 * \brief GetOpen
+	 * \details Mengembalikan status restoran
+	 * \return bool true jika buka, false jika tutu
+	 */
+	bool GetOpen() const;
+
+	/**
+	 * \brief SetFood
+	 * \details Mengubah jenis makanan yang dijual restoran
+	 * \param f Jenis makanan yang akan dijual
+	 */
+	void SetFood(string f);
+
+	/**
+	 * \brief ToggleOpen
+	 * \details Mengubah status restoran
+	 */
+	void ToggleOpen();
+
+	/**
 	 * \brief Interact
 	 * \details Memunculkan dialog tentang makanan apa yang dijual suatu restaurant jika restaurant buka, jika tidak katakan restaurant tutup
 	 */

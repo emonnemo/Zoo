@@ -21,6 +21,28 @@ Restaurant::~Restaurant(){
 	
 }
 
+string Restaurant::GetFood() const{
+	return food;
+}
+
+
+bool Restaurant::GetOpen() const{
+	return open;
+}
+
+void Restaurant::SetFood(string f){
+	food = f;
+}
+
+void Restaurant::ToggleOpen(){
+	if (open){
+		open = false;
+	} else{
+		open = true;
+	}
+}
+
+
 void Restaurant::Interact() const{
 	if (open){
 		cout << "This restaurant sells " << food << endl;

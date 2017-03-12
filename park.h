@@ -31,6 +31,20 @@ public:
 	~Park();
 
 	/**
+	 * \brief GetPlant
+	 * \details Mengembalikan tanaman yang tertanam pada taman
+	 * \return string
+	 */
+	string GetPlant() const;
+
+	/**
+	 * \brief SetPlant
+	 * \details Mengubah tanaman yang tertanam pada taman dengan p
+	 * \param p Tanaman yang ingin ditanam
+	 */
+	void SetPlant(string p);
+
+	/**
 	 * \brief Interact
 	 * \details Menunjukkan tanaman apa yang ditanam di taman tersebut
 	 */
