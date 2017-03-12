@@ -90,6 +90,10 @@ void Animal::DelCompatible(string ID){
 	compatible.erase(ID);
 }
 
+set<string> Animal::GetCompatible() const {
+	return compatible;
+}
+
 void Animal::Act() const{
 
 }

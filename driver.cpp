@@ -18,7 +18,6 @@ int main(){
 			x.AddAnimal(a);
 			//a.Interact();
 		}
-
 	}
 	x.Display(0,0,15,5);
 	cout << "meat :" << x.GetTotalMeat() << endl;
