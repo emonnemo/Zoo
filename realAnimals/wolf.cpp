@@ -10,11 +10,13 @@ int Wolf::wolfNB = 0;
 Wolf::Wolf(pair<int,int> _position): Animal("WF",++wolfNB,'1',45,food,'K',_position) {
 	eat = food;
 	habitat.insert('L');
+	compatible.insert("LI");
 }
 
 Wolf::Wolf(float _weight, pair<int,int> _position): Animal("WF",++wolfNB,'1',_weight,food,'K',_position) {
 	eat = food;
 	habitat.insert('L');
+	compatible.insert("LI");
 }
 
 Wolf::~Wolf(){}
