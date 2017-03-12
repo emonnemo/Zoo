@@ -10,11 +10,25 @@ int Elephant::elephantNB = 0;
 Elephant::Elephant(pair<int,int> _position): Animal("ELP",++elephantNB,'4',5000,food,'H',_position) {
 	eat = food;
 	habitat.insert('L');
+	compatible.insert("WF");
+	compatible.insert("ZBR");
+	compatible.insert("ELP");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
 }
 
 Elephant::Elephant(float _weight, pair<int,int> _position): Animal("ELP",++elephantNB,'4',_weight,food,'H',_position) {
 	eat = food;
 	habitat.insert('L');
+	compatible.insert("WF");
+	compatible.insert("ZBR");
+	compatible.insert("ELP");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
 }
 
 Elephant::~Elephant(){}

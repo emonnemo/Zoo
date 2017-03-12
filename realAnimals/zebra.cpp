@@ -10,11 +10,29 @@ int Zebra::zebraNB = 0;
 Zebra::Zebra(pair<int,int> _position): Animal("ZBR",++zebraNB,'3',226,food,'H',_position) {
 	eat = food;
 	habitat.insert('L');
+	compatible.insert("ZBR");
+	compatible.insert("ELP");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("DRL");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
 }
 
 Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR",++zebraNB,'3',_weight,food,'H',_position) {
 	eat = food;
 	habitat.insert('L');
+	compatible.insert("ZBR");
+	compatible.insert("ELP");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("DRL");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
 }
 
 Zebra::~Zebra(){}

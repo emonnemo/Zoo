@@ -10,11 +10,21 @@ int Hog::HogNB = 0;
 Hog::Hog(pair<int,int> _position): Animal("HG",++HogNB,'6',68,food,'O',_position) {
 	eat = food;
 	habitat.insert('L');
+	compatible.insert("ZBR");
+	compatible.insert("ELP");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("HPP");
 }
 
 Hog::Hog(float _weight, pair<int,int> _position): Animal("HG",++HogNB,'6',_weight,food,'O',_position) {
 	eat = food;
 	habitat.insert('L');
+	compatible.insert("ZBR");
+	compatible.insert("ELP");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("HPP");
 }
 
 Hog::~Hog(){}
