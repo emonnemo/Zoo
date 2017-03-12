@@ -64,6 +64,21 @@ class Zoo{
 		 * \return int
 		 */
 		int GetLength() const;
+
+		/**
+		 * \brief GetTotalMeat
+		 * \details mengeluarkan total daging yang diperlukan di zoo dalam kilogram
+		 * \return Total daging yang dibutuhkan zoo
+		 */
+		float GetTotalMeat() const;
+
+		/**
+		 * \brief GetTotalVegetables
+		 * \details mengeluarkan total sayur yang diperlukan di zoo dalam kilogram
+		 * \return Total sayur yang dibutuhkan zoo
+		 */
+		float GetTotalVegetables() const;
+
 	private:
 		const int width;
 		const int length;

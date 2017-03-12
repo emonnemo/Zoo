@@ -45,6 +45,13 @@ class Animal {
 		  */
 		int GetWeight() const;
 
+		/**
+		 * \brief GetFood
+		 * \details mengembalikan nilai persentase makanan animal
+		 * \return eat
+		 */
+		float GetEat() const;
+
 		/** @brief GetPos
 		  * mengembalikan nilai posisi dari suatu Animal
 		  */

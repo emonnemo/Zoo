@@ -15,6 +15,10 @@ Habitat::Habitat(const Habitat& h){
 	initsymbol = h.initsymbol;
 }
 
+Habitat::~Habitat(){
+	
+}
+
 Habitat& Habitat::operator= (const Habitat& h){
 	symbol = h.symbol;
 	initsymbol = h.initsymbol;

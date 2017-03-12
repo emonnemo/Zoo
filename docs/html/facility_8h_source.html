@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>&#39;Helloworld&#39;: facility.h Source File</title>
+<title>&#39;VirtualZoo&#39;: facility.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">&#39;Helloworld&#39;
+   <div id="projectname">&#39;VirtualZoo&#39;
    </div>
   </td>
  </tr>
@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Friends</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,61 +90,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define FACILITY_H</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classFacility.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFacility.html">Facility</a> : <span class="keyword">public</span> Cell{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classFacility.html">Facility</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ~<a class="code" href="classFacility.html">Facility</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;cell.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classFacility.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classFacility.html">Facility</a> : <span class="keyword">public</span> <a class="code" href="classCell.html">Cell</a>{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="classFacility.html">Facility</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        ~<a class="code" href="classFacility.html">Facility</a>();</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classRoad.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRoad.html">Road</a> : <span class="keyword">public</span> <a class="code" href="classFacility.html">Facility</a>{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classRoad.html">Road</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ~<a class="code" href="classRoad.html">Road</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classEntrance.html">   48</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEntrance.html">Entrance</a> : <span class="keyword">public</span> <a class="code" href="classRoad.html">Road</a>{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classEntrance.html">Entrance</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    ~<a class="code" href="classEntrance.html">Entrance</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classExit.html">   65</a></span>&#160;<span class="keyword">class </span><a class="code" href="classExit.html">Exit</a> : <span class="keyword">public</span> <a class="code" href="classRoad.html">Road</a>{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="classExit.html">Exit</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    ~<a class="code" href="classExit.html">Exit</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classRestaurant.html">   82</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRestaurant.html">Restaurant</a> : <span class="keyword">public</span> <a class="code" href="classFacility.html">Facility</a>{</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="classRestaurant.html">Restaurant</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    ~<a class="code" href="classRestaurant.html">Restaurant</a>();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classPark.html">   99</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPark.html">Park</a> : <span class="keyword">public</span> <a class="code" href="classFacility.html">Facility</a>{</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="classPark.html">Park</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    ~<a class="code" href="classPark.html">Park</a>();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classExit_html"><div class="ttname"><a href="classExit.html">Exit</a></div><div class="ttdef"><b>Definition:</b> facility.h:65</div></div>
-<div class="ttc" id="classRestaurant_html"><div class="ttname"><a href="classRestaurant.html">Restaurant</a></div><div class="ttdef"><b>Definition:</b> facility.h:82</div></div>
-<div class="ttc" id="classFacility_html"><div class="ttname"><a href="classFacility.html">Facility</a></div><div class="ttdef"><b>Definition:</b> facility.h:14</div></div>
-<div class="ttc" id="classEntrance_html"><div class="ttname"><a href="classEntrance.html">Entrance</a></div><div class="ttdef"><b>Definition:</b> facility.h:48</div></div>
-<div class="ttc" id="classPark_html"><div class="ttname"><a href="classPark.html">Park</a></div><div class="ttdef"><b>Definition:</b> facility.h:99</div></div>
-<div class="ttc" id="classRoad_html"><div class="ttname"><a href="classRoad.html">Road</a></div><div class="ttdef"><b>Definition:</b> facility.h:31</div></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> Interact() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classCell_html"><div class="ttname"><a href="classCell.html">Cell</a></div><div class="ttdef"><b>Definition:</b> cell.h:14</div></div>
+<div class="ttc" id="classFacility_html"><div class="ttname"><a href="classFacility.html">Facility</a></div><div class="ttdef"><b>Definition:</b> facility.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 1 2017 10:12:51 for &#39;Helloworld&#39; by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 12 2017 13:10:36 for &#39;VirtualZoo&#39; by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

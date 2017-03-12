@@ -60,6 +60,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 		}
 		ifile.close();
 	}
+	/*
 	else{
 		for (int i = 0; i < width; ++i){
 			getline(cin, line);
@@ -93,6 +94,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 			}
 		}
 	}
+	*/
 	// caging
 	CageM = new int*[w];
 	for(int i = 0; i < w; i++){
@@ -294,4 +296,30 @@ int Zoo::GetWidth() const{
 }
 int Zoo::GetLength() const{
 	return length;
+}
+
+float Zoo::GetTotalMeat() const{
+	float sum = 0;
+	for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
+		if(it->GetType() == 'K'){
+			sum += it->GetWeight() * it->GetEat();
+		}
+		else if(it->GetType() == 'O'){
+			sum += 0.5 * it->GetWeight() * it->GetEat();
+		}
+	}
+	return sum;
+}
+
+float Zoo::GetTotalVegetables() const{
+	float sum = 0;
+	for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
+		if(it->GetType() == 'H'){
+			sum += it->GetWeight() * it->GetEat();
+		}
+		else if(it->GetType() == 'O'){
+			sum += 0.5 * it->GetWeight() * it->GetEat();
+		}
+	}
+	return sum;
 }

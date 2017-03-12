@@ -48,8 +48,16 @@ int Animal::GetWeight() const {
 	return weight;
 }
 
+float Animal::GetEat() const {
+	return eat;
+}
+
 pair<int,int> Animal::GetPos() const {
 	return position;
+}
+
+char Animal::GetType() const {
+	return type;
 }
 
 void Animal::SetPos(pair<int,int> _position){
