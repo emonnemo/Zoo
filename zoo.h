@@ -58,6 +58,8 @@ class Zoo{
 		 */
 		void DelAnimal(string _ID, int _id);
 
+		void DelAnimal(int x, int y);
+
 		/**
 		 * \brief GetWidth
 		 * \details mengembalikan width
