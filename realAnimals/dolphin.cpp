@@ -7,12 +7,12 @@ using namespace std;
 
 int Dolphin::DolphinNB = 0;
 
-Dolphin::Dolphin(pair<int,int> _position): Animal("DLP",++DolphinNB,'!',226,food,'O',_position) {
+Dolphin::Dolphin(pair<int,int> _position): Animal("DLP",++DolphinNB,'!',226,food,'K',_position) {
 	eat = food;
 	habitat.insert('W');
 }
 
-Dolphin::Dolphin(float _weight, pair<int,int> _position): Animal("DLP",++DolphinNB,'!',_weight,food,'O',_position) {
+Dolphin::Dolphin(float _weight, pair<int,int> _position): Animal("DLP",++DolphinNB,'!',_weight,food,'K',_position) {
 	eat = food;
 	habitat.insert('W');
 }

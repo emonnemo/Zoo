@@ -38,15 +38,15 @@ public:
 	 * \brief Copy Constructor
 	 * \details copy constructor, menjamin tidak bitwise copy
 	 * 
-	 * \param z Crane yang ingin dikopi
+	 * \param c Crane yang ingin dikopi
 	 */
 	Crane(const Crane& c);
 	/**
 	 * \brief Operator =
 	 * \details operator=, menjamin tidak bitwise copy
 	 * 
-	 * \param z Crane yang ingin dikopi
-	 * \return Crane yang sama dengan z
+	 * \param c Crane yang ingin dikopi
+	 * \return Crane yang sama dengan c
 	 */
 	Crane& operator= (const Crane& c);
 	/**
