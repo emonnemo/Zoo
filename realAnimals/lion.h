@@ -5,6 +5,7 @@
 
 #include "../animal.h"
 #include <iostream>
+#include <set>
 using namespace std;
 
 /**

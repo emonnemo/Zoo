@@ -16,12 +16,13 @@ class Animal {
 		 * 
 		 * \param _ID ID jenis animal
 		 * \param _id nomor pada jenisnya
+		 * \param _legend penanda hewan pada peta
 		 * \param _weight berat badan
 		 * \param _eat persentase makan 0-100%
 		 * \param _type karnivor, herbivor, omnivor
 		 * \param _position posisi hewan
 		 */
-		Animal(string _ID, int _id, float _weight, float _eat, char _type, pair<int,int> _position);
+		Animal(string _ID, int _id, char _legend, float _weight, float _eat, char _type, pair<int,int> _position);
 
 		/** @brief Destructor.
 		  */
@@ -54,7 +55,7 @@ class Animal {
 		int Getid() const;
 
 		/** @brief GetWeight
-		  * mengembalikan nilai weight dari suatu Animal
+		  * \details mengembalikan nilai weight dari suatu Animal
 		  */
 		int GetWeight() const;
 
@@ -66,15 +67,20 @@ class Animal {
 		float GetEat() const;
 
 		/** @brief GetPos
-		  * mengembalikan nilai posisi dari suatu Animal
+		  * \details mengembalikan nilai posisi dari suatu Animal
 		  */
 		pair<int,int> GetPos() const;
 
 		/** @brief GetType
-		  * \ details mengembalikan type dari suatu Animal
+		  * \details mengembalikan type dari suatu Animal
 		  */
 		char GetType() const;
 
+		/**
+		 * \brief GetLegend
+		 * \details mengembalikan legenda suatu Animal
+		 * \return legenda Animal tersebut
+		 */
 		virtual char GetLegend() const;
 
 		virtual set<char> GetHabitat() const;
@@ -138,6 +144,8 @@ class Animal {
 		char type;
 		pair<int,int> position;
 		set<string> compatible;
+		char legend;
+		set<char> habitat;
 };
 
 #endif

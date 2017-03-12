@@ -7,9 +7,10 @@
 using namespace std;
 
 
-Animal::Animal(string _ID, int _id, float _weight, float _eat, char _type, pair<int,int> _position){
+Animal::Animal(string _ID, int _id, char _legend, float _weight, float _eat, char _type, pair<int,int> _position){
 	ID = _ID;
 	id = _id;
+	legend = _legend;
 	weight = _weight;
 	eat = _eat;
 	type = _type;
@@ -65,12 +66,11 @@ char Animal::GetType() const {
 }
 
 char Animal::GetLegend() const {
-	return ' ';
+	return legend;
 }
 
 set<char> Animal::GetHabitat() const{
-	set<char> x;
-	return x;
+	return habitat;
 }
 
 void Animal::SetPos(pair<int,int> _position){
