@@ -340,6 +340,13 @@ void Zoo::DelAnimal(string _ID, int _id){
 	if (it->GetID() == _ID && it->Getid() == _id){
 		Animals.erase(it);
 	}
+	int posx = it->GetPos().first;
+	int posy = it->GetPos().second;
+	Cells[posx][posy]->SetSymbol(Cells[posx][posy]->GetInitSymbol());
+}
+
+void Zoo::DelAnimal(int x, int y){
+	DelAnimal(FindAnimal(make_pair(x,y)).first, FindAnimal(make_pair(x,y)).second);
 }
 
 int Zoo::GetWidth() const{

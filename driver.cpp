@@ -19,17 +19,8 @@ int main(){
 			//a.Interact();
 		}
 	}
-	for(int i = 0; i < 3; i++){
-		Wolf a(make_pair(i+1,0));
-		Lion b(make_pair(i+1,1));
-		Zebra c(make_pair(i+1,2));
-		x.AddAnimal(c);
-		c.Interact();
-		x.AddAnimal(b);
-		b.Interact();
-		x.AddAnimal(a);
-		a.Interact();
-	}
+	x.DelAnimal(0,5);
+	x.DelAnimal("WF", 12);
 	x.Display(0,0,15,5);
 	cout << "meat :" << x.GetTotalMeat() << endl;
 	x.DelAnimal("WF", 11);
