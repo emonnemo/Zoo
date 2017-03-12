@@ -7,18 +7,20 @@ using namespace std;
 
 int Zebra::zebraNB = 0;
 
-Zebra::Zebra(pair<int,int> _position): Animal("ZBR",++zebraNB,226,food,'H',_position) {
+Zebra::Zebra(pair<int,int> _position): Animal("ZBR",++zebraNB,'/',226,food,'H',_position) {
 	eat = food;
+	habitat.insert('L');
 }
 
-Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR",++zebraNB,_weight,food,'H',_position) {
+Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR",++zebraNB,'/',_weight,food,'H',_position) {
 	eat = food;
+	habitat.insert('L');
 }
 
 Zebra::~Zebra(){}
 
-Zebra::Zebra(const Zebra& z): Animal(z.ID,z.id,z.weight,z.eat,z.type,z.position) {
-	
+Zebra::Zebra(const Zebra& z): Animal(z.ID,z.id,z.legend,z.weight,z.eat,z.type,z.position) {
+	habitat = z.habitat;
 }
 
 Zebra& Zebra::operator= (const Zebra& z) {

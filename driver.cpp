@@ -21,6 +21,7 @@ int main(){
 	}
 	x.DelAnimal(0,5);
 	x.DelAnimal("WF", 12);
+	cout << endl;
 	x.Display(0,0,15,5);
 	cout << "meat :" << x.GetTotalMeat() << endl;
 	x.DelAnimal("WF", 11);
