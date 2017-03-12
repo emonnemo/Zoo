@@ -283,16 +283,17 @@ void Zoo::Display(int x1, int y1, int x2, int y2){
 	}
 }
 
-pair<int,int> Zoo::FindAnimal(pair<int,int> pos){
-	pair<int,int> hsl;
-	hsl = make_pair(-1,-1);
+pair<string, int> Zoo::FindAnimal(pair<int,int> pos){
+	string ID = " ";
+	int id = -1;
 	for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
 		if(it->GetPos() == pos){
-			hsl = pos;
+			ID = it->GetID();
+			id = it->Getid();
 			break;
 		}
 	}
-	return pos;
+	return make_pair(ID,id);
 }
 
 void Zoo::AddAnimal(Animal& a){
