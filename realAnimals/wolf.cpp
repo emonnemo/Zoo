@@ -8,11 +8,11 @@ using namespace std;
 int Wolf::wolfNB = 0;
 
 Wolf::Wolf(pair<int,int> _position): Animal("WF",++wolfNB,45,food,'K',_position) {
-	//wolfNB++;
+	eat = food;
 }
 
 Wolf::Wolf(float _weight, pair<int,int> _position): Animal("WF",++wolfNB,_weight,food,'K',_position) {
-	//wolfNB++;
+	eat = food;
 }
 
 Wolf::~Wolf(){}

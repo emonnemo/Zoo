@@ -60,7 +60,7 @@ public:
 	void Interact() const;
 private:
 	static int wolfNB;
-	const float food=0.2;
+	const float food = 0.2;
 };
 
 #endif
