@@ -22,5 +22,6 @@ int main(){
 	file << "//File " << hewan << ".h\n\n";
 	file << "#ifndef " << hewan << "_H" << endl;
 	file << "#define " << hewan << "_H" << endl;
+	file << 
 	return 0;
 }
