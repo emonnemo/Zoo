@@ -38,6 +38,6 @@ void Elephant::Act() const {
 }
 
 void Elephant::Interact() const {
-	Description("Elephant");
+	Description("elephant");
 	Act();
 }
