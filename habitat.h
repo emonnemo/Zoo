@@ -36,7 +36,14 @@ public:
 	 */
 	void ToggleSekat(int direction);
 
-
+	/**
+	 * \brief GetSekat
+	 * \details Mengembalikan kondisi sekat ke arah direction
+	 * \param direction 0 u ntuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
+	 * \return bool true jika terbuka, false jika tertutup
+	 */
+	bool GetSekat(int direction);
+	
 protected:
 	bool sekat[4];
 };

@@ -330,3 +330,53 @@ float Zoo::GetTotalVegetables() const{
 	}
 	return sum;
 }	
+
+void Zoo::MoveAnimal(string _ID, int _id, int direction){
+
+}
+
+void Zoo::MoveAnimal(int i, int j, int direction){
+
+}
+
+void Zoo::ToggleSekat(int i, int j, int direction){
+	if (i >=0 && i <= width && j >= 0 && j <= length){
+		char c = Cells[i][j].GetInitSymbol;
+		if (c == 'W' || c == 'L' || c == 'A'){
+			switch (direction){
+				case 0:
+					if (i-1 >= 0){
+						if (CageM[i-1][j] == CageM[i][j]){
+							Cells[i][j].ToggleSekat(0);
+							Cells[i-1][j].ToggleSekat(3);
+						}
+					}
+					break;
+				case 1:
+					if (j-1 >= 0){
+						if (CageM[i][j-1] == CageM[i][j]){
+							Cells[i][j].ToggleSekat(1);
+							Cells[i][j-1].ToggleSekat(2);
+						}
+					}
+					break;
+				case 2:
+					if (j+1 <= length){
+						if (CageM[i][j+1] == CageM[i][j]){
+							Cells[i][j].ToggleSekat(2);
+							Cells[i][j+1].ToggleSekat(1);
+						}
+					}
+					break;
+				case 3:
+					if (i+1 <= width){
+						if (Cage[i+1][j] == CageM[i][j]){
+							Cells[i][j].ToggleSekat(3);
+							Cells[i+1][j].ToggleSekat(0);
+						}
+					}
+					break;
+			}
+		}
+	}
+}

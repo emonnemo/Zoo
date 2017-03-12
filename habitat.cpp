@@ -24,3 +24,7 @@ void Habitat::ToggleSekat(int direction){
 		sekat[direction] = true;
 	}
 }
+
+bool Habitat::GetSekat(int direction){
+	return sekat[direction];
+}
