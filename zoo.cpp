@@ -313,16 +313,14 @@ list<Animal*>::iterator Zoo::FindAnimal(pair<int,int> pos){
 }
 
 void Zoo::AddAnimal(Animal& animal){
-	Animal* a = &animal;
+	Animal* a = new Animal(animal);
  	int posx = a->GetPos().first;
 	int posy = a->GetPos().second;
 	int cage = CageM[posx][posy];
 	// cek if habitat dlu
 	set<char> hab = a->GetHabitat();
 	set<string> compability = a->GetCompatible();
-	cout << "1" << endl;
 	if(FindAnimal(make_pair(posx,posy)) == Animals.end()){
-		cout << "2" << endl;
 		if(hab.find(Cells[posx][posy]->GetSymbol()) != hab.end()){
 			bool compatible = true; // cek apakah ada hewan yang tidak kompatible dengan hewan a
 			int count = 0; // count animal yang ada di cage yang sama
@@ -343,6 +341,7 @@ void Zoo::AddAnimal(Animal& animal){
 				}
 			}
 			if(0.3*max>=(count+1) && compatible){ // masih muat cagenya
+				cout << "pushed" << endl;
 				Animals.push_back(a);
 				Cells[posx][posy]->SetSymbol(a->GetLegend());
 			}
@@ -531,6 +530,7 @@ void Zoo::Tour(){
 		vis[i][j] = true;
 		if (Cells[i][j]->GetSymbol() == 'X'){
 			found = true;
+			route.push_back(4);
 		} else{
 			char c;
 			set<int> choice;
@@ -662,6 +662,7 @@ void Zoo::Tour(){
 				++i;
 				break;
 		}
+		cout << "go " << route.front() << endl;
 		route.pop_front();
 	}
 }
@@ -682,6 +683,7 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber){
 		cout << i << " " << j << endl;
 		if (FindAnimal(make_pair(i,j)) != Animals.end()){
 			(*FindAnimal(make_pair(i,j)))->Interact();
+			cout << (*FindAnimal(make_pair(i,j)))->GetID() << endl;
 		}	
 		if (i-1 >= 0){
 			if (CageM[i-1][j] == cnumber){
