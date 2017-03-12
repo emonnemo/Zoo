@@ -430,6 +430,7 @@ void Zoo::MoveAnimal(pair<int, int> pos, int direction){
 			if (valid){
 				if (FindAnimal(make_pair(i,j)) == Animals.end()){
 					it->Move(direction);
+					cout << it->GetID() << endl;
 					Cells[pos.first][pos.second]->SetSymbol(Cells[pos.first][pos.second]->GetInitSymbol());
 					Cells[it->GetPos().first][it->GetPos().second]->SetSymbol(it->GetLegend());
 				}
@@ -589,6 +590,7 @@ void Zoo::Tour(){
 		VisCage[i] = false;
 	}
 	while(!route.empty()){
+		cout << "on " << i << " " << j << endl;
 		if (i-1 >= 0){
 			char c = Cells[i-1][j]->GetInitSymbol();
 			if (c == 'P' || c == 'R'){
@@ -623,9 +625,9 @@ void Zoo::Tour(){
 			}
 		}
 		if (i+1 < width){
-			char c = Cells[i][j-1]->GetInitSymbol();
+			char c = Cells[i+1][j]->GetInitSymbol();
 			if (c == 'P' || c == 'R'){
-				Cells[i][j-1]->Interact();
+				Cells[i+1][j]->Interact();
 			} else if (c == 'W' || c == 'L' || c == 'A'){
 				if (!VisCage[CageM[i+1][j]]){
 					InteractCage(make_pair(i+1,j), CageM[i+1][j]);
@@ -664,6 +666,7 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber){
 	while(!bqueue.empty()){
 		int i = bqueue.front().first, j = bqueue.front().second;
 		bqueue.pop();
+		cout << i << " " << j << endl;
 		if (FindAnimal(make_pair(i,j)) != Animals.end()){
 			(FindAnimal(make_pair(i,j))->Interact());
 		}	
@@ -692,7 +695,7 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber){
 			}
 		}
 		if (i+1 < width){
-			if (CageM[i][j+1] == cnumber){
+			if (CageM[i+1][j] == cnumber){
 				if (!VisCage[i+1][j]){
 					bqueue.push(make_pair(i+1,j));
 					VisCage[i+1][j] = true;

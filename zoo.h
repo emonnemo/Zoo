@@ -130,6 +130,8 @@ class Zoo{
 		 */
 		void Tour();
 
+		void InteractCage(pair<int, int> pos, int cnumber);
+
 	private:
 		const int width;
 		const int length;
@@ -138,7 +140,6 @@ class Zoo{
 		int** CageM;
 		int NBCage;
 
-		void InteractCage(pair<int, int> pos, int cnumber);
 };
 
 #endif
