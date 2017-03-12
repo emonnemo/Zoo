@@ -7,7 +7,7 @@ using namespace std;
 
 int Zebra::zebraNB = 0;
 
-Zebra::Zebra(pair<int,int> _position): Animal("ZBR",++zebraNB,226./,food,'H',_position) {
+Zebra::Zebra(pair<int,int> _position): Animal("ZBR",++zebraNB,226,food,'H',_position) {
 	eat = food;
 }
 
