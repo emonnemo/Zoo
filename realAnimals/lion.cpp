@@ -10,11 +10,15 @@ int Lion::lionNB = 0;
 Lion::Lion(pair<int,int> _position): Animal("LI",++lionNB,'2',158,food,'K',_position) {
 	eat = food;
 	habitat.insert('L');
+	compatible.insert("LI");
+	compatible.insert("WF");
 }
 
 Lion::Lion(float _weight, pair<int,int> _position): Animal("LI",++lionNB,'2',_weight,food,'K',_position) {
 	eat = food;
 	habitat.insert('L');
+	compatible.insert("LI");
+	compatible.insert("WF");
 }
 
 Lion::~Lion(){}
