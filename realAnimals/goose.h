@@ -38,15 +38,15 @@ public:
 	 * \brief Copy Constructor
 	 * \details copy constructor, menjamin tidak bitwise copy
 	 * 
-	 * \param z Goose yang ingin dikopi
+	 * \param g Goose yang ingin dikopi
 	 */
 	Goose(const Goose& g);
 	/**
 	 * \brief Operator =
 	 * \details operator=, menjamin tidak bitwise copy
 	 * 
-	 * \param z Goose yang ingin dikopi
-	 * \return Goose yang sama dengan z
+	 * \param g Goose yang ingin dikopi
+	 * \return Goose yang sama dengan g
 	 */
 	Goose& operator= (const Goose& g);
 	/**

@@ -1,19 +1,19 @@
 //File crane.cpp
 
-#include "Crane.h"
+#include "crane.h"
 #include "../animal.h"
 #include <iostream>
 using namespace std;
 
 int Crane::CraneNB = 0;
 
-Crane::Crane(pair<int,int> _position): Animal("CRN",++CraneNB,'~',3,food,'O',_position) {
+Crane::Crane(pair<int,int> _position): Animal("CRN",++CraneNB,'-',3,food,'O',_position) {
 	eat = food;
 	habitat.insert('W');	
 	habitat.insert('A');
 }
 
-Crane::Crane(float _weight, pair<int,int> _position): Animal("CRN",++CraneNB,'~',_weight,food,'O',_position) {
+Crane::Crane(float _weight, pair<int,int> _position): Animal("CRN",++CraneNB,'-',_weight,food,'O',_position) {
 	eat = food;
 	habitat.insert('W');
 	habitat.insert('A');
@@ -40,6 +40,6 @@ void Crane::Act() const {
 }
 
 void Crane::Interact() const {
-	Description("Crane");
+	Description("crane");
 	Act();
 }

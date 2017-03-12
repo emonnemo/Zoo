@@ -1,6 +1,6 @@
 //File goose.cpp
 
-#include "Goose.h"
+#include "goose.h"
 #include "../animal.h"
 #include <iostream>
 using namespace std;
@@ -40,6 +40,6 @@ void Goose::Act() const {
 }
 
 void Goose::Interact() const {
-	Description("Goose");
+	Description("goose");
 	Act();
 }

@@ -38,15 +38,15 @@ public:
 	 * \brief Copy Constructor
 	 * \details copy constructor, menjamin tidak bitwise copy
 	 * 
-	 * \param z Pelican yang ingin dikopi
+	 * \param p Pelican yang ingin dikopi
 	 */
 	Pelican(const Pelican& p);
 	/**
 	 * \brief Operator =
 	 * \details operator=, menjamin tidak bitwise copy
 	 * 
-	 * \param z Pelican yang ingin dikopi
-	 * \return Pelican yang sama dengan z
+	 * \param p Pelican yang ingin dikopi
+	 * \return Pelican yang sama dengan p
 	 */
 	Pelican& operator= (const Pelican& p);
 	/**
