@@ -25,6 +25,10 @@ public:
 		 */
 		~Facility();
 
+		/**
+		 * \brief Interact
+		 * \details Menampilkan interaksi facility
+		 */
 		virtual void Interact() const;
 };
 

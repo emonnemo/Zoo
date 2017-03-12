@@ -20,14 +20,16 @@ using namespace std;
 
 Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 	Cells = new Cell**[width];
-	for(int i = 0; i<width; ++i) Cells[i] = new Cell* [length];
+	for (int i = 0; i<width; ++i){
+		Cells[i] = new Cell* [length];
+	}
 	string line;
 	if (Auto){
 		ifstream ifile("map.txt");
 		if (ifile.is_open()){
 			int i = 0;
 			while(getline(ifile, line)){
-				for (int j=0; j<length; ++j){
+				for (int j=0; j < length; ++j){
 					switch (line[j]){
 						case 'W':
 							Cells[i][j] = new Habitat('W');
@@ -59,36 +61,35 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 			}
 		}
 		ifile.close();
-	}
-	else{
+	} else{
 		for (int i = 0; i < width; ++i){
 			getline(cin, line);
 			for(int j = 0; j < length; ++j){
 				switch (line[j]){
 					case 'W':
-							Cells[i][j] = new Habitat('W');
-							break;
-						case 'A':
-							Cells[i][j] = new Habitat('A');
-							break;
-						case 'L':
-							Cells[i][j] = new Habitat('L');
-							break;
-						case 'X':
-							Cells[i][j] = new Road('X');
-							break;
-						case 'N':
-							Cells[i][j] = new Road('N');
-							break;
-						case 'r':
-							Cells[i][j] = new Road('r');
-							break;
-						case 'R':
-							Cells[i][j] = new Restaurant();
-							break;
-						case 'P':
-							Cells[i][j] = new Park();
-							break;
+						Cells[i][j] = new Habitat('W');
+						break;
+					case 'A':
+						Cells[i][j] = new Habitat('A');
+						break;
+					case 'L':
+						Cells[i][j] = new Habitat('L');
+						break;
+					case 'X':
+						Cells[i][j] = new Road('X');
+						break;
+					case 'N':
+						Cells[i][j] = new Road('N');
+						break;
+					case 'r':
+						Cells[i][j] = new Road('r');
+						break;
+					case 'R':
+						Cells[i][j] = new Restaurant();
+						break;
+					case 'P':
+						Cells[i][j] = new Park();
+						break;
 				}
 			}
 		}
@@ -104,6 +105,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 	int counter = 1;
 	for(int i = 0; i < w; i++){
 		for(int j = 0; j < l; j++){
+			cout << "cek" << i << " " << j << endl;
 			if(CageM[i][j] == -99){
 				char c = Cells[i][j]->GetSymbol();
 				if(c != 'W' && c != 'A' && c != 'L'){
@@ -128,6 +130,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 							else if(k == 3 && jcek != l - 1) ii = icek , jj = jcek + 1, dum = true;
 							if(dum){
 								if(Cells[ii][jj]->GetSymbol() == c && CageM[ii][jj] == -99){
+									cout << "put " << ii << '&' << jj << endl;
 									movable[count] = make_pair(ii,jj);
 									count++;
 								}
@@ -135,8 +138,10 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 						}
 						if(count == 0){
 							cek = false;
+							cout << "break\n";
 							break;
 						}
+						cout << "move\n";
 						int move = rand() % count;
 						icek = movable[move].first;
 						jcek = movable[move].second;
@@ -147,8 +152,11 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 						count--;
 						if(times == 2) counter++;
 					}
+					cout << "asdf : " << cek << endl;
 					if(!cek){
+						cout << "print " << counter << ":\n";
 						for(int k = 0; k < 4; k++){
+							cout << ai[k] << " - " << aj[k] << endl;
 							CageM[ai[k]][aj[k]] = -99;
 						}
 					}
@@ -156,9 +164,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 			}
 		}
 	}
-	int change = -1;
-	while (change != 0){
-		change = 0;
+	bool stop = false;
+	while (!stop){
+		stop = true;
 		for(int i = 0; i < w; i++){
 			for(int j = 0; j < l; j++){
 				if(CageM[i][j] == -99){
@@ -182,11 +190,19 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 						ii = movable[move].first;
 						jj = movable[move].second;
 						CageM[i][j] = CageM[ii][jj];
-						change++;
+					}
+					else{
+						stop = false;
 					}
 				}
 			}
 		}
+	}
+	for(int i = 0; i < w; i++){
+		for(int j = 0; j < l; j++){
+			cout << CageM[i][j] << "|";
+		}
+		cout << endl;
 	}
 }
 
@@ -223,22 +239,11 @@ Zoo::Zoo(const Zoo& z) : width(z.width), length(z.length){
 			}
 		}
 	}
-	for(int i = 0; i < width; i++){
-		for(int j = 0; j < length; j++){
-			CageM[i][j] = z.CageM[i][j];
-		}
-	}
 }
 Zoo::~Zoo(){
-	for(int i = 0; i < width; i++) delete [] CageM[i];
-	delete [] CageM;
-	for(int i = 0; i < width; i++){
-		for(int j = 0; j < length; j++){
-			delete Cells[i][j];
-		}
-		delete [] Cells[i];
-	}
+	for(int i = 0; i < width; i++) delete [] Cells[i];
 	delete [] Cells;
+	cout << "zoo.dtor\n";
 }
 Zoo& Zoo::operator=(const Zoo& z){
 	for(int i = 0; i < width; i++){
@@ -285,8 +290,14 @@ void Zoo::Display(int x1, int y1, int x2, int y2){
 void Zoo::AddAnimal(Animal& a){
 	Animals.push_back(a);
 }
-void Zoo::DelAnimal(int id){
-
+void Zoo::DelAnimal(string _ID, int _id){
+	list<Animal>::iterator it = Animals.begin();
+	while(it->GetID() != _ID && it->Getid() != _id && it != Animals.end()){
+		++it;
+	}
+	if (it->GetID() == _ID && it->Getid() == _id){
+		Animals.erase(it);
+	}
 }
 
 int Zoo::GetWidth() const{

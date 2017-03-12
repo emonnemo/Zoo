@@ -38,7 +38,19 @@ class Animal {
 		  */
 		Animal& operator= (const Animal& a); 
 
+		/**
+		 * \brief GetID
+		 * \details Mengembalikan ID jenis hewan
+		 * \return string
+		 */
 		string GetID() const;
+
+		/**
+		 * \brief Getid
+		 * \details Mengembalikan nomor id pada jenis hewan tersebut
+		 * \return int
+		 */
+		int Getid() const;
 
 		/** @brief GetWeight
 		  * mengembalikan nilai weight dari suatu Animal
@@ -68,10 +80,9 @@ class Animal {
 		void SetPos(pair<int,int> _position);
 
 		/**
-		 * \brief Print
-		 * \details mengoutput data data animal
+		 * @brief Act
+		 * @details Mengoutput aksi dari animal
 		 */
-
 		virtual void Act() const;
 
 		/**

@@ -10,13 +10,6 @@ Habitat::Habitat(char s){
 	initsymbol = s;
 }
 
-Habitat::Habitat(const Habitat& h){
-	symbol = h.symbol;
-	initsymbol = h.initsymbol;
-}
-
-Habitat& Habitat::operator= (const Habitat& h){
-	symbol = h.symbol;
-	initsymbol = h.initsymbol;
-	return (*this);
+Habitat::~Habitat(){
+	
 }

@@ -44,6 +44,10 @@ string Animal::GetID() const {
 	return ID;
 }
 
+int Animal::Getid() const{
+	return id;
+}
+
 int Animal::GetWeight() const {
 	return weight;
 }
