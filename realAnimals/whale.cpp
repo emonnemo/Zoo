@@ -7,7 +7,7 @@ using namespace std;
 
 int Whale::WhaleNB = 0;
 
-Whale::Whale(pair<int,int> _position): Animal("WHL",++WhaleNB,'@',1360,food,'O',_position) {
+Whale::Whale(pair<int,int> _position): Animal("WHL",++WhaleNB,'@',40000,food,'O',_position) {
 	eat = food;
 	habitat.insert('W');
 }
