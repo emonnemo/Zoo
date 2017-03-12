@@ -32,3 +32,7 @@ char Cell::GetSymbol() const{
 void Cell::SetSymbol(char s){
 	symbol = s;
 }
+
+void Cell::ToggleSekat(int direction){
+	
+}
