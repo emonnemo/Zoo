@@ -1,7 +1,7 @@
-//File dLidard.h
+//File dLizard.h
 
-#ifndef DLIdARD_H
-#define DLIdARD_H
+#ifndef DLIZARD_H
+#define DLIZARD_H
 
 #include "../animal.h"
 #include <iostream>
@@ -9,10 +9,10 @@
 using namespace std;
 
 /**
- * \class DLidard
+ * \class DLizard
  * \details real class dari animal, yaitu kadal terbang
  */
-class DLidard: public Animal {
+class DLizard: public Animal {
 public:
 	/**
 	 * \brief Constructor default weight
@@ -21,7 +21,7 @@ public:
 	 * \param _weight berat badan
 	 * \param _position posisi kadal terbang
 	 */
-	DLidard(pair<int,int> _position);
+	DLizard(pair<int,int> _position);
 	/**
 	 * \brief Constructor dengan weight
 	 * \details Menciptakan objek kadal terbang dengan weight sebagai parameter
@@ -29,38 +29,38 @@ public:
 	 * \param _weight berat badan
 	 * \param _position posisi kadal terbang
 	 */
-	DLidard(float _weight, pair<int,int> _position);
+	DLizard(float _weight, pair<int,int> _position);
 	/**
 	 * \brief Destructor
 	 */
-	~DLidard();
+	~DLizard();
 	/**
 	 * \brief Copy Constructor
 	 * \details copy constructor, menjamin tidak bitwise copy
 	 * 
-	 * \param d DLidard yang ingin dikopi
+	 * \param d DLizard yang ingin dikopi
 	 */
-	DLidard(const DLidard& d);
+	DLizard(const DLizard& d);
 	/**
 	 * \brief Operator =
 	 * \details operator=, menjamin tidak bitwise copy
 	 * 
-	 * \param d DLidard yang ingin dikopi
-	 * \return DLidard yang sama dengan d
+	 * \param d DLizard yang ingin dikopi
+	 * \return DLizard yang sama dengan d
 	 */
-	DLidard& operator= (const DLidard& d);
+	DLizard& operator= (const DLizard& d);
 	/**
 	 * \brief Act
-	 * \details DLidard's behaviour
+	 * \details DLizard's behaviour
 	 */
 	void Act() const;
 	/**
 	 * \brief Interact
-	 * \details mengoutput hasil interaksi dengan DLidard
+	 * \details mengoutput hasil interaksi dengan DLizard
 	 */
 	void Interact() const;
 private:
-	static int dLidardNB;
+	static int dLizardNB;
 	const float food = 0.2;
 };
 

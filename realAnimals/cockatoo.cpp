@@ -10,11 +10,27 @@ int Cockatoo::cockatooNB = 0;
 Cockatoo::Cockatoo(pair<int,int> _position): Animal("CKT",++cockatooNB,'^',0.09,food,'H',_position) {
 	eat = food;
 	habitat.insert('A');
+	compatible.insert("HMB");
+	compatible.insert("CKT");
+	compatible.insert("RBN");
+	compatible.insert("BT");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
+	compatible.insert("CLG");
 }
 
 Cockatoo::Cockatoo(float _weight, pair<int,int> _position): Animal("CKT",++cockatooNB,'^',_weight,food,'H',_position) {
 	eat = food;
 	habitat.insert('A');
+	compatible.insert("HMB");
+	compatible.insert("CKT");
+	compatible.insert("RBN");
+	compatible.insert("BT");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
+	compatible.insert("CLG");
 }
 
 Cockatoo::~Cockatoo(){}

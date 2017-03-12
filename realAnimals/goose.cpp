@@ -11,12 +11,44 @@ Goose::Goose(pair<int,int> _position): Animal("GSE",++GooseNB,'+',4,food,'H',_po
 	eat = food;
 	habitat.insert('W');	
 	habitat.insert('A');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
+	compatible.insert("HMB");
+	compatible.insert("CKT");
+	compatible.insert("RBN");
+	compatible.insert("BT");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
 }
 
 Goose::Goose(float _weight, pair<int,int> _position): Animal("GSE",++GooseNB,'+',_weight,food,'H',_position) {
 	eat = food;
 	habitat.insert('W');
 	habitat.insert('A');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
+	compatible.insert("HMB");
+	compatible.insert("CKT");
+	compatible.insert("RBN");
+	compatible.insert("BT");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
 }
 
 Goose::~Goose(){}

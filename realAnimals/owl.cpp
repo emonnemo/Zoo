@@ -10,11 +10,19 @@ int Owl::owlNB = 0;
 Owl::Owl(pair<int,int> _position): Animal("OW",++owlNB,'$',2,food,'K',_position) {
 	eat = food;
 	habitat.insert('A');
+	compatible.insert("EGL");
+	compatible.insert("OW");
+	compatible.insert("PLC");
+	compatible.insert("DRL");
 }
 
 Owl::Owl(float _weight, pair<int,int> _position): Animal("OW",++owlNB,'$',_weight,food,'K',_position) {
 	eat = food;
 	habitat.insert('A');
+	compatible.insert("EGL");
+	compatible.insert("OW");
+	compatible.insert("PLC");
+	compatible.insert("DRL");
 }
 
 Owl::~Owl(){}

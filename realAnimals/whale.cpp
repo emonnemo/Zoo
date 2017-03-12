@@ -10,11 +10,33 @@ int Whale::WhaleNB = 0;
 Whale::Whale(pair<int,int> _position): Animal("WHL",++WhaleNB,'@',40000,food,'O',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("SHK");
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Whale::Whale(float _weight, pair<int,int> _position): Animal("WHL",++WhaleNB,'@',_weight,food,'O',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("SHK");
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Whale::~Whale(){}
