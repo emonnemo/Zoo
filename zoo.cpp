@@ -22,7 +22,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 	Cells = new Cell**[width];
 	for(int i = 0; i<width; ++i) Cells[i] = new Cell* [length];
 	string line;
-	if (Auto){
+	if (Auto){ // automatis ctor dari file eksternal
 		ifstream ifile("map.txt");
 		if (ifile.is_open()){
 			int i = 0;
@@ -60,7 +60,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 		}
 		ifile.close();
 	}
-	else{
+	else{ // membaca input dari user
 		for (int i = 0; i < width; ++i){
 			getline(cin, line);
 			for(int j = 0; j < length; ++j){
@@ -100,54 +100,54 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 		for(int j = 0; j < l; j++){
 			CageM[i][j] = -99;
 		}
-	}
-	int counter = 1;
+	} // alokasi memori CageM
+	int counter = 1; // counter cage ke - i
 	for(int i = 0; i < w; i++){
 		for(int j = 0; j < l; j++){
-			if(CageM[i][j] == -99){
+			if(CageM[i][j] == -99){ // jika belum terisi
 				char c = Cells[i][j]->GetSymbol();
-				if(c != 'W' && c != 'A' && c != 'L'){
+				if(c != 'W' && c != 'A' && c != 'L'){ // jika bukan merupakan habitat akan diisi  0
 					CageM[i][j] = 0;
 				}
-				else{
-					int ai[4], aj[4];
+				else{ // habitat
+					int ai[4], aj[4]; // array menyimpan posisi yang akan dirubah
 					for(int kk = 0; kk < 4; kk++){
-						ai[kk] = i, aj[kk] = j;
+						ai[kk] = i, aj[kk] = j; // inisialisasi
 					}
-					bool cek = true;
-					CageM[i][j] = counter;
+					bool cek = true; // boolean apakah bisa membentuk cage atau tidak
+					CageM[i][j] = counter; // dimasukkan ke cage counter
 					srand(time(NULL));
-					pair<int,int> movable[12];
+					pair<int,int> movable[12]; // array pair jalan yang mungkin
 					int ii, jj, icek = i, jcek = j, count = 0;
-					for(int times = 0; times < 3; times++){
-						for(int k = 0; k < 4; k++){
+					for(int times = 0; times < 3; times++){ // cukup 3x karena akan dibuat cage dengan jumlah cell 4 terlebih dahulu
+						for(int k = 0; k < 4; k++){ // ada 4 sel bersebelahan
 							bool dum = false;
-							if(k == 0 && icek != 0) ii = icek - 1, jj = jcek, dum = true;
-							else if(k == 1 && jcek != 0) ii = icek, jj = jcek - 1, dum = true;
-							else if(k == 2 && icek != w - 1) ii = icek + 1, jj = jcek, dum = true;
-							else if(k == 3 && jcek != l - 1) ii = icek , jj = jcek + 1, dum = true;
-							if(dum){
-								if(Cells[ii][jj]->GetSymbol() == c && CageM[ii][jj] == -99){
-									movable[count] = make_pair(ii,jj);
-									count++;
+							if(k == 0 && icek != 0) ii = icek - 1, jj = jcek, dum = true; // atas
+							else if(k == 1 && jcek != 0) ii = icek, jj = jcek - 1, dum = true; // kiri
+							else if(k == 2 && icek != w - 1) ii = icek + 1, jj = jcek, dum = true; // bawah
+							else if(k == 3 && jcek != l - 1) ii = icek , jj = jcek + 1, dum = true; // kanan
+							if(dum){ // jika ada sel disebelahnya
+								if(Cells[ii][jj]->GetSymbol() == c && CageM[ii][jj] == -99){ // jika sama habitatnya dan belum masuk ke cage
+									movable[count] = make_pair(ii,jj); // menjadi salah satu pilihan
+									count++; // jumlah pilihan
 								}
 							}
 						}
-						if(count == 0){
+						if(count == 0){ // gaada pilihan, maka akan direturn salah
 							cek = false;
 							break;
 						}
-						int move = rand() % count;
+						int move = rand() % count; // random jalan
 						icek = movable[move].first;
 						jcek = movable[move].second;
-						ai[times] = icek;
+						ai[times] = icek; // pengisian posisi yang sudah dirubah
 						aj[times] = jcek;
 						movable[move] = make_pair(movable[count-1].first, movable[count-1].second);
 						CageM[icek][jcek] = counter;
 						count--;
-						if(times == 2) counter++;
+						if(times == 2) counter++; // jika sudah selesai dengan cage dengan 4 cell counter ditambah
 					}
-					if(!cek){
+					if(!cek){ // jumlah cell tidak sampai 4, semua yang sudah diisi dikembalikan ke -99
 						for(int k = 0; k < 4; k++){
 							CageM[ai[k]][aj[k]] = -99;
 						}
@@ -156,29 +156,30 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 			}
 		}
 	}
-	int change = -1;
-	while (change != 0){
-		change = 0;
+	// mengurus habitat yang belum masuk ke cage
+	int change = -1; // banyak perubahan yang dilakukan
+	while (change != 0){ // jika sudah tidak ada perubahan berhenti
+		change = 0; // inisialisasi
 		for(int i = 0; i < w; i++){
 			for(int j = 0; j < l; j++){
-				if(CageM[i][j] == -99){
-					pair<int,int> movable[4];
+				if(CageM[i][j] == -99){ // masih belum terisi
+					pair<int,int> movable[4]; // array jalan yang mungkin
 					int count = 0, ii, jj;
-					for(int k = 0; k < 4; k++){
-						bool dum = false;
-						if(k == 0 && i != 0) ii = i - 1, jj = j, dum = true;
-						else if(k == 1 && j != 0) ii = i, jj = j - 1, dum = true;
-						else if(k == 2 && i != w - 1) ii = i + 1, jj = j, dum = true;
-						else if(k == 3 && j != l - 1) ii = i , jj = j + 1, dum = true;
-						if(dum){
-							if(Cells[ii][jj]->GetSymbol() == Cells[i][j]->GetSymbol() && CageM[ii][jj] != -99){
+					for(int k = 0; k < 4; k++){ // ada 4 kemungkinan, atas, bawah, kiri, kanan
+						bool dum = false; // boolean mungkin atau tidak
+						if(k == 0 && i != 0) ii = i - 1, jj = j, dum = true; // atas mungkin
+						else if(k == 1 && j != 0) ii = i, jj = j - 1, dum = true; // kiri mungkin
+						else if(k == 2 && i != w - 1) ii = i + 1, jj = j, dum = true; // bawah mungkin
+						else if(k == 3 && j != l - 1) ii = i , jj = j + 1, dum = true; // kanan mungkin
+						if(dum){ // jika jalan mungkin
+							if(Cells[ii][jj]->GetSymbol() == Cells[i][j]->GetSymbol() && CageM[ii][jj] != -99){ // jika habitatnya sama, dan sudah masuk ke cage
 								movable[count] = make_pair(ii,jj);
 								count++;
 							}
 						}
 					}
-					if(count > 0){
-						int move = rand() % count;
+					if(count > 0){ // jika ada pilihan
+						int move = rand() % count; // random
 						ii = movable[move].first;
 						jj = movable[move].second;
 						CageM[i][j] = CageM[ii][jj];
@@ -303,28 +304,30 @@ void Zoo::AddAnimal(Animal& a){
 	// cek if habitat dlu
 	set<char> hab = a.GetHabitat();
 	set<string> compability = a.GetCompatible();
-	if(hab.find(Cells[posx][posy]->GetSymbol()) != hab.end()){
-		bool compatible = true; // cek apakah ada hewan yang tidak kompatible dengan hewan a
-		int count = 0; // count animal yang ada di cage yang sama
-		for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
-			if(cage == CageM[it->GetPos().first][it->GetPos().second]){
-				count++;
-				if(compability.find(a.GetID()) != compability.end()){
-					compatible = false;
+	if(FindAnimal(make_pair(posx,posy)).first == " "){
+		if(hab.find(Cells[posx][posy]->GetSymbol()) != hab.end()){
+			bool compatible = true; // cek apakah ada hewan yang tidak kompatible dengan hewan a
+			int count = 0; // count animal yang ada di cage yang sama
+			for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
+				if(cage == CageM[it->GetPos().first][it->GetPos().second]){
+					count++;
+					if(compability.find(a.GetID()) != compability.end()){
+						compatible = false;
+					}
 				}
 			}
-		}
-		int max = 0;
-		for(int i = 0; i < width; i++){
-			for(int j = 0; j < length; j++){
-				if(CageM[i][j] == cage){
-					max++;
+			int max = 0;
+			for(int i = 0; i < width; i++){
+				for(int j = 0; j < length; j++){
+					if(CageM[i][j] == cage){
+						max++;
+					}
 				}
 			}
-		}
-		if(0.3*max>=(count+1) && compatible){ // masih muat cagenya
-			Animals.push_back(a);
-			Cells[posx][posy]->SetSymbol(a.GetLegend());
+			if(0.3*max>=(count+1) && compatible){ // masih muat cagenya
+				Animals.push_back(a);
+				Cells[posx][posy]->SetSymbol(a.GetLegend());
+			}
 		}
 	}
 }
@@ -339,6 +342,13 @@ void Zoo::DelAnimal(string _ID, int _id){
 	if (it->GetID() == _ID && it->Getid() == _id){
 		Animals.erase(it);
 	}
+	int posx = it->GetPos().first;
+	int posy = it->GetPos().second;
+	Cells[posx][posy]->SetSymbol(Cells[posx][posy]->GetInitSymbol());
+}
+
+void Zoo::DelAnimal(int x, int y){
+	DelAnimal(FindAnimal(make_pair(x,y)).first, FindAnimal(make_pair(x,y)).second);
 }
 
 int Zoo::GetWidth() const{
