@@ -51,13 +51,19 @@ class Zoo{
 		void AddAnimal(Animal& a);
 
 		/**
-		 * \brief DelAnimal
+		 * \brief DelAnimal dengan ID
 		 * \details Menghapus hewan denagn ID=_ID dan id=_id
 		 * \param _ID ID jenis hewan
 		 * \param id no pada jenis hewan tersebut
 		 */
 		void DelAnimal(string _ID, int _id);
 
+		/**
+		 * \brief DelAnimal
+		 * \details Menghapus hewan pada posisi x y
+		 * \param x posisi pada width
+		 * \param y posisi pada length
+		 */
 		void DelAnimal(int x, int y);
 
 		/**
@@ -115,6 +121,13 @@ class Zoo{
 		 * \param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
 		 */
 		void ToggleSekat(int i, int j, int direction);
+
+		/**
+		 * \brief Melakukan tour pada kebun binatang
+		 * \details Jalur tour akan dipilih secara acak
+		 * \details Settiap cell yang ada di samping road yang dilalui akan diinteract. Suatu cell adalah bagian dari suatu cage, maka semua binatang pada cage tersebut akan diinteract
+		 */
+		void Tour();
 
 	private:
 		const int width;

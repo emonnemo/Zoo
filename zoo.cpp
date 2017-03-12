@@ -391,7 +391,7 @@ void Zoo::MoveAnimal(pair<int, int> pos, int direction){
 	while(it->GetPos() != pos && it != e){
 		++it;
 	}
-	if (it->GetPos() == pos && it != e){
+	if (it->GetPos() == pos){
 		if (Cells[pos.first][pos.second]->GetSekat(direction)){
 			bool valid = false;
 			int i = pos.first, j = pos.second;
@@ -487,5 +487,22 @@ void Zoo::ToggleSekat(int i, int j, int direction){
 					break;
 			}
 		}
+	}
+}
+
+void Zoo::Tour(){
+	set<pair<int,int>> entrance;
+	for (int i=0; i < width; ++i){
+		for (int j=0; j < length; ++j){
+			if (Cells[i][j]->GetSymbol() == 'N'){
+				entrance.insert(make_pair(i, j));
+			}
+		}
+	}
+	srand(time(NULL));
+	int selection = rand() % entrance.size();
+	set<pair<int,int>>::iterator it;
+	for (int i=0; i < selection; ++i){
+		++it;
 	}
 }

@@ -139,12 +139,12 @@ class Animal {
 	protected:
 		string ID;
 		int id;
+		char legend;
 		float weight;
 		float eat;
 		char type;
 		pair<int,int> position;
 		set<string> compatible;
-		char legend;
 		set<char> habitat;
 };
 

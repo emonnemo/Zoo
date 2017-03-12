@@ -21,10 +21,13 @@ Animal::Animal(string _ID, int _id, char _legend, float _weight, float _eat, cha
 Animal::Animal(const Animal& a){
 	ID = a.ID;
 	id = a.id;
+	legend = a.legend;
 	weight = a.weight;
 	eat = a.eat;
 	type = a.type;
 	position = a.position;
+	compatible = a.compatible;
+	habitat = a.habitat;
 }
 
 Animal::~Animal(){
@@ -34,10 +37,13 @@ Animal::~Animal(){
 Animal& Animal::operator=(const Animal& a){
 	ID = a.ID;
 	id = a.id;
+	legend = a.legend;
 	weight = a.weight;
 	eat = a.eat;
 	type = a.type;
 	position = a.position;
+	compatible = a.compatible;
+	habitat = a.habitat;
 	return *this;
 }
 
@@ -111,16 +117,16 @@ void Animal::Description(string a) const{
 void Animal::Move(int direction){
 	switch(direction){
 		case 0:
-			position.second--;
-			break;
-		case 1:
 			position.first--;
 			break;
+		case 1:
+			position.second--;
+			break;
 		case 2:
-			position.first++;
+			position.second++;
 			break;
 		case 3:
-			position.second++;
+			position.first++;
 			break;
 	}
 }

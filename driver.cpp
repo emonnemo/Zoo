@@ -14,9 +14,8 @@ int main(){
 	//Animal a("TG", 1, 100, 0.1, 'K', make_pair(1,1));
 	for(int i = 0; i < 16; i++){
 		for(int j = 0; j < 6; j++){
-			Wolf a(100,make_pair(0,5));
+			Wolf a(100,make_pair(i,j));
 			x.AddAnimal(a);
-			//a.Interact();
 		}
 	}
 	//x.DelAnimal(0,5);
@@ -24,8 +23,12 @@ int main(){
 	cout << endl;
 	x.Display(0,0,15,5);
 	cout << "meat :" << x.GetTotalMeat() << endl;
+	cout << endl;
 	//x.DelAnimal("WF", 11);
 	//x.AddAnimal(a);
 	//a.Interact();
+	x.ToggleSekat(1, 5, 3);
+	x.MoveAnimal(make_pair(1,5), 3);
+	x.Display(0,0,15,5);
 	return 0;
 }
