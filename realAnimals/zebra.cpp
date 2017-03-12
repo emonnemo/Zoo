@@ -38,6 +38,6 @@ void Zebra::Act() const {
 }
 
 void Zebra::Interact() const {
-	Description("Zebra");
+	Description("zebra");
 	Act();
 }
