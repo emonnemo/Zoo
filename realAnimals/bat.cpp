@@ -10,6 +10,7 @@ int Bat::batNB = 0;
 Bat::Bat(pair<int,int> _position): Animal("BT",++batNB,'*',0.15,food,'O',_position) {
 	eat = food;
 	habitat.insert('A');
+	msg = " ";
 }
 
 Bat::Bat(float _weight, pair<int,int> _position): Animal("BT",++batNB,'*',_weight,food,'O',_position) {

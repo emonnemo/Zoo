@@ -148,6 +148,7 @@ class Animal {
 		pair<int,int> position;
 		set<string> compatible;
 		set<char> habitat;
+		string msg;
 };
 
 #endif
