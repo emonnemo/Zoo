@@ -293,34 +293,41 @@ void Zoo::Display(int x1, int y1, int x2, int y2){
 	}
 }
 
-list<Animal>::iterator Zoo::FindAnimal(pair<int,int> pos){
-	list<Animal>::iterator it = Animals.begin();
-	list<Animal>::iterator e = Animals.end();
+list<Animal*>::iterator Zoo::FindAnimal(pair<int,int> pos){
+	list<Animal*>::iterator it = Animals.begin();
+	list<Animal*>::iterator e = Animals.end();
 	--e;
-	while(it->GetPos() != pos && it != e){
+	if (it != Animals.end()){
+		while((*it)->GetPos() != pos && it != e){
 		++it;
-	}
-	if(it->GetPos() == pos){
+		}
+		if((*it)->GetPos() == pos){
+			return it;
+		} else{
+			return Animals.end();
+		}
+	} else{
 		return it;
 	}
-	else return ++e;
+	
 }
 
-void Zoo::AddAnimal(Animal& a){
-	int posx = a.GetPos().first;
-	int posy = a.GetPos().second;
+void Zoo::AddAnimal(Animal& animal){
+	Animal* a = new Animal(animal);
+ 	int posx = a->GetPos().first;
+	int posy = a->GetPos().second;
 	int cage = CageM[posx][posy];
 	// cek if habitat dlu
-	set<char> hab = a.GetHabitat();
-	set<string> compability = a.GetCompatible();
+	set<char> hab = a->GetHabitat();
+	set<string> compability = a->GetCompatible();
 	if(FindAnimal(make_pair(posx,posy)) == Animals.end()){
 		if(hab.find(Cells[posx][posy]->GetSymbol()) != hab.end()){
 			bool compatible = true; // cek apakah ada hewan yang tidak kompatible dengan hewan a
 			int count = 0; // count animal yang ada di cage yang sama
-			for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
-				if(cage == CageM[it->GetPos().first][it->GetPos().second]){
+			for(list<Animal*>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
+				if(cage == CageM[(*it)->GetPos().first][(*it)->GetPos().second]){
 					count++;
-					if(compability.find(a.GetID()) == compability.end()){
+					if(compability.find(a->GetID()) == compability.end()){
 						compatible = false;
 					}
 				}
@@ -334,31 +341,32 @@ void Zoo::AddAnimal(Animal& a){
 				}
 			}
 			if(0.3*max>=(count+1) && compatible){ // masih muat cagenya
+				cout << "pushed" << endl;
 				Animals.push_back(a);
-				Cells[posx][posy]->SetSymbol(a.GetLegend());
+				Cells[posx][posy]->SetSymbol(a->GetLegend());
 			}
 		}
 	}
 }
 
 void Zoo::DelAnimal(string _ID, int _id){
-	list<Animal>::iterator it = Animals.begin();
-	list<Animal>::iterator e = Animals.end();
+	list<Animal*>::iterator it = Animals.begin();
+	list<Animal*>::iterator e = Animals.end();
 	--e;
-	while (it->GetID() != _ID && it->Getid() != _id && it != e){
+	while ((*it)->GetID() != _ID && (*it)->Getid() != _id && it != e){
 		++it;
 	}
-	if (it->GetID() == _ID && it->Getid() == _id){
+	if ((*it)->GetID() == _ID && (*it)->Getid() == _id){
 		Animals.erase(it);
 	}
-	int posx = it->GetPos().first;
-	int posy = it->GetPos().second;
+	int posx = (*it)->GetPos().first;
+	int posy = (*it)->GetPos().second;
 	Cells[posx][posy]->SetSymbol(Cells[posx][posy]->GetInitSymbol());
 }
 
 void Zoo::DelAnimal(int x, int y){
 	if (FindAnimal(make_pair(x,y)) != Animals.end()){
-		DelAnimal(FindAnimal(make_pair(x,y))->GetID(), FindAnimal(make_pair(x,y))->Getid());
+		DelAnimal((*FindAnimal(make_pair(x,y)))->GetID(), (*FindAnimal(make_pair(x,y)))->Getid());
 	}
 }
 
@@ -371,12 +379,12 @@ int Zoo::GetLength() const{
 
 float Zoo::GetTotalMeat() const{
 	float sum = 0;
-	for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
-		if(it->GetType() == 'K'){
-			sum += it->GetWeight() * it->GetEat();
+	for(list<Animal*>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
+		if((*it)->GetType() == 'K'){
+			sum += (*it)->GetWeight() * (*it)->GetEat();
 		}
-		else if(it->GetType() == 'O'){
-			sum += 0.5 * it->GetWeight() * it->GetEat();
+		else if((*it)->GetType() == 'O'){
+			sum += 0.5 * (*it)->GetWeight() * (*it)->GetEat();
 		}
 	}
 	return sum;
@@ -384,19 +392,19 @@ float Zoo::GetTotalMeat() const{
 
 float Zoo::GetTotalVegetables() const{
 	float sum = 0;
-	for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
-		if(it->GetType() == 'H'){
-			sum += it->GetWeight() * it->GetEat();
+	for(list<Animal*>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
+		if((*it)->GetType() == 'H'){
+			sum += (*it)->GetWeight() * (*it)->GetEat();
 		}
-		else if(it->GetType() == 'O'){
-			sum += 0.5 * it->GetWeight() * it->GetEat();
+		else if((*it)->GetType() == 'O'){
+			sum += 0.5 * (*it)->GetWeight() * (*it)->GetEat();
 		}
 	}
 	return sum;
 }	
 
 void Zoo::MoveAnimal(pair<int, int> pos, int direction){
-	list<Animal>::iterator it = FindAnimal(pos);
+	list<Animal*>::iterator it = FindAnimal(pos);
 	if (it != Animals.end()){
 		if (Cells[pos.first][pos.second]->GetSekat(direction)){
 			bool valid = false;
@@ -429,10 +437,10 @@ void Zoo::MoveAnimal(pair<int, int> pos, int direction){
 			}
 			if (valid){
 				if (FindAnimal(make_pair(i,j)) == Animals.end()){
-					it->Move(direction);
-					cout << it->GetID() << endl;
+					(*it)->Move(direction);
+					cout << (*it)->GetID() << endl;
 					Cells[pos.first][pos.second]->SetSymbol(Cells[pos.first][pos.second]->GetInitSymbol());
-					Cells[it->GetPos().first][it->GetPos().second]->SetSymbol(it->GetLegend());
+					Cells[(*it)->GetPos().first][(*it)->GetPos().second]->SetSymbol((*it)->GetLegend());
 				}
 			}
 		}		
@@ -440,14 +448,14 @@ void Zoo::MoveAnimal(pair<int, int> pos, int direction){
 }
 
 void Zoo::MoveAnimal(string _ID, int _id, int direction){
-	list<Animal>::iterator it = Animals.begin();
-	list<Animal>::iterator e = Animals.end();
+	list<Animal*>::iterator it = Animals.begin();
+	list<Animal*>::iterator e = Animals.end();
 	--e;
-	while(it->GetID() != _ID && it->Getid() != _id && it != e){
+	while((*it)->GetID() != _ID && (*it)->Getid() != _id && it != e){
 		++it;
 	}
-	if (it->GetID() == _ID && it->Getid() == _id){
-		MoveAnimal(it->GetPos(), direction);
+	if ((*it)->GetID() == _ID && (*it)->Getid() == _id){
+		MoveAnimal((*it)->GetPos(), direction);
 	}
 }
 
@@ -522,6 +530,7 @@ void Zoo::Tour(){
 		vis[i][j] = true;
 		if (Cells[i][j]->GetSymbol() == 'X'){
 			found = true;
+			route.push_back(4);
 		} else{
 			char c;
 			set<int> choice;
@@ -653,6 +662,7 @@ void Zoo::Tour(){
 				++i;
 				break;
 		}
+		cout << "go " << route.front() << endl;
 		route.pop_front();
 	}
 }
@@ -672,7 +682,8 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber){
 		bqueue.pop();
 		cout << i << " " << j << endl;
 		if (FindAnimal(make_pair(i,j)) != Animals.end()){
-			(FindAnimal(make_pair(i,j))->Interact());
+			(*FindAnimal(make_pair(i,j)))->Interact();
+			cout << (*FindAnimal(make_pair(i,j)))->GetID() << endl;
 		}	
 		if (i-1 >= 0){
 			if (CageM[i-1][j] == cnumber){

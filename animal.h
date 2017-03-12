@@ -10,6 +10,8 @@ using namespace std;
   */
 class Animal {
 	public:
+		Animal();
+
 		/**
 		 * \brief Constructor
 		 * \details Menciptakan email

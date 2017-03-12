@@ -6,6 +6,9 @@
 #include <iostream>
 using namespace std;
 
+Animal::Animal(){
+	
+}
 
 Animal::Animal(string _ID, int _id, char _legend, float _weight, float _eat, char _type, pair<int,int> _position){
 	ID = _ID;

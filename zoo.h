@@ -47,9 +47,9 @@ class Zoo{
 		  * @param Animal a, hewan yang akan ditambahkan
 		  */
 
-		list<Animal>::iterator FindAnimal(pair<int,int> pos);
+		list<Animal*>::iterator FindAnimal(pair<int,int> pos);
 
-		void AddAnimal(Animal& a);
+		void AddAnimal(Animal& animal);
 
 		/**
 		 * \brief DelAnimal dengan ID
@@ -136,7 +136,7 @@ class Zoo{
 		const int width;
 		const int length;
 		Cell*** Cells;
-		list<Animal> Animals;
+		list<Animal*> Animals;
 		int** CageM;
 		int NBCage;
 
