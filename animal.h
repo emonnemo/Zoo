@@ -126,7 +126,7 @@ class Animal {
 		 * \details mengoutput deskripsi Animal tersebut
 		 * \param a jenis binatang
 		 */
-		void Description(string a) const;
+		virtual void Description(string a) const;
 
 		/**
 		 * \brief Move
