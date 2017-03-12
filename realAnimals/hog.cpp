@@ -38,6 +38,6 @@ void Hog::Act() const {
 }
 
 void Hog::Interact() const {
-	Description("Hog");
+	Description("hog");
 	Act();
 }
