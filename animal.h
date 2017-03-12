@@ -75,6 +75,10 @@ class Animal {
 		  */
 		char GetType() const;
 
+		virtual char GetLegend() const;
+
+		virtual set<char> GetHabitat() const;
+
 		/** @brief SetWeight
 		  * \details mengatur berat badan suatu Animal
 		  * @param _weight nilai berat badan yang ingin  di tetapkan untuk suatu Animal
@@ -100,6 +104,8 @@ class Animal {
 		 * \param ID yang akan dihapus
 		 */
 		void DelCompatible(string ID);
+
+		set<string> GetCompatible() const;
 
 		virtual void Act() const;
 

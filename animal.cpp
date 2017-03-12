@@ -64,6 +64,15 @@ char Animal::GetType() const {
 	return type;
 }
 
+char Animal::GetLegend() const {
+	return ' ';
+}
+
+set<char> Animal::GetHabitat() const{
+	set<char> x;
+	return x;
+}
+
 void Animal::SetPos(pair<int,int> _position){
 	position.first=_position.first;
 	position.second = _position.second;
@@ -79,6 +88,10 @@ void Animal::AddCompatible(string ID){
 
 void Animal::DelCompatible(string ID){
 	compatible.erase(ID);
+}
+
+set<string> Animal::GetCompatible() const {
+	return compatible;
 }
 
 void Animal::Act() const{

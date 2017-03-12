@@ -5,6 +5,7 @@
 
 #include "../animal.h"
 #include <iostream>
+#include <set>
 using namespace std;
 
 /**
@@ -48,6 +49,11 @@ public:
 	 * \return Wolf yang sama dengan w
 	 */
 	Wolf& operator= (const Wolf& w);
+
+	char GetLegend() const;
+
+	set<char> GetHabitat() const;
+
 	/**
 	 * \brief Act
 	 * \details Wolf's behaviour
@@ -61,6 +67,8 @@ public:
 private:
 	static int wolfNB;
 	const float food = 0.2;
+	const char legend = '=';
+	set<char> habitat;
 };
 
 #endif
