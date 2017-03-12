@@ -27,6 +27,18 @@ public:
 	 * \details Mengembalikan memori kepada sistem
 	 */
 	~Habitat();
+
+	/**
+	 * \brief OpenSekat
+	 * \details Membuka sekat dengan arah sesuai direction jika sedang tertutup. Menutup sekat jika sedang terbuka
+	 * \details I.S Sekat yang dibuka selalu valid (tidak membuka sekat ke luar cage)
+	 * \param direction 0 untuk atas, 1 untuk kiri, 2 untuk kanan, 3 untuk bawah
+	 */
+	void ToggleSekat(int direction);
+
+
+protected:
+	bool sekat[4];
 };
 
 #endif
