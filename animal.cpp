@@ -7,7 +7,7 @@
 using namespace std;
 
 
-Animal::Animal(string _ID, int _id, int _weight, float _eat, char _type, pair<int,int> _position){
+Animal::Animal(string _ID, int _id, float _weight, float _eat, char _type, pair<int,int> _position){
 	ID = _ID;
 	id = _id;
 	weight = _weight;
@@ -48,7 +48,16 @@ int Animal::GetWeight() const {
 	return weight;
 }
 
-void Animal::SetWeight(int _weight){
+pair<int,int> Animal::GetPos() const {
+	return position;
+}
+
+void Animal::SetPos(pair<int,int> _position){
+	position.first=_position.first;
+	position.second = _position.second;
+}
+
+void Animal::SetWeight(float _weight){
 	weight = _weight;
 }
 
@@ -56,13 +65,14 @@ void Animal::Act() const{
 
 }
 
-void Animal::Interact() const{
-	cout << "This is " << ID << "-";
+void Animal::Interact() const {}
+
+void Animal::Description(string a) const{
+	cout << "This is a(n) " << a << " called " << ID << "-";
 	if (id < 10){
 		cout << "0"; 
 	}
 	cout << id	<< ". It weights " << weight << " kilograms. It eats " << eat*weight << " kilograms of " << (type=='K'?"meats":(type=='O'?"meats and vegetables":"vegetables")) << endl;
-	Act();
 }
 
 void Animal::Move(int direction){

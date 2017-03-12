@@ -20,20 +20,20 @@ class Animal {
 		 * \param _type karnivor, herbivor, omnivor
 		 * \param _position posisi hewan
 		 */
-		Animal(string _ID, int _id, int _weight, float _eat, char _type, pair<int,int> _position);
+		Animal(string _ID, int _id, float _weight, float _eat, char _type, pair<int,int> _position);
 
 		/** @brief Destructor.
 		  */
 		~Animal();
 
 		/** @brief Copy Constructor
-		  * copy constructor menjamin tidak bitwise copy.
+		  * \details copy constructor menjamin tidak bitwise copy.
 		  * @param a Animal yang ingin di-copy
 		  */
 		Animal(const Animal& a);
 
 		/** @brief Operator =
-		  * operator sama dengan, menjamin tidak bitwise copy
+		  * \details operator sama dengan, menjamin tidak bitwise copy
 		  * @param a Animal yang ingin di-copy
 		  */
 		Animal& operator= (const Animal& a); 
@@ -45,16 +45,27 @@ class Animal {
 		  */
 		int GetWeight() const;
 
+		/** @brief GetPos
+		  * mengembalikan nilai posisi dari suatu Animal
+		  */
+		pair<int,int> GetPos() const;
+
 		/** @brief GetType
-		  * mengembalikan type dari suatu Animal
+		  * \ details mengembalikan type dari suatu Animal
 		  */
 		char GetType() const;
 
 		/** @brief SetWeight
-		  * mengatur berat badan suatu Animal
+		  * \details mengatur berat badan suatu Animal
 		  * @param _weight nilai berat badan yang ingin  di tetapkan untuk suatu Animal
 		  */
-		void SetWeight(int _weight);
+		void SetWeight(float _weight);
+
+		/** @brief SetPos
+		  * \details mengatur posisi suatu Animal
+		  * @param _position nilai posisi yang ingin  di tetapkan untuk suatu Animal
+		  */
+		void SetPos(pair<int,int> _position);
 
 		/**
 		 * \brief Print
@@ -70,8 +81,16 @@ class Animal {
 		virtual void Interact() const;
 
 		/**
+		 * \brief Description
+		 * \details mengoutput deskripsi Animal tersebut
+		 * \param a jenis binatang
+		 */
+		void Description(string a) const;
+
+		/**
 		 * \brief Move
 		 * \details Berpindah sejauh 1 langkah ke arah sesuai direction
+		 * \I.S.: arah untuk direction sudah pasti masih dalam cage
 		 * \param direction 0 ke atas, 1 ke kiri, 2 ke kanan, 3 ke bawah
 		 */
 		void Move(int direction);
@@ -79,7 +98,7 @@ class Animal {
 	private:
 		string ID;
 		int id;
-		int weight;
+		float weight;
 		float eat;
 		char type;
 		pair<int,int> position;
