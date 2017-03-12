@@ -4,6 +4,7 @@
 #define ZOO_H
 
 #include "animal.h"
+#include "realAnimals/wolf.h"
 #include "cell.h"
 #include <list>
 using namespace std;
