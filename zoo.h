@@ -103,7 +103,7 @@ class Zoo{
 		 * \param j posisi hewan pada length
 		 * \param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
 		 */
-		void MoveAnimal(int i, int j, int direction);
+		void MoveAnimal(pair<int,int> pos, int direction);
 
 		/**
 		 * \brief ToggleSekat

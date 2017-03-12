@@ -21,8 +21,8 @@ int main(){
 	}
 	for(int i = 0; i < 3; i++){
 		Wolf a(make_pair(i+1,0));
-		Lion b(make_pair(i+1,0));
-		Zebra c(make_pair(i+1,0));
+		Lion b(make_pair(i+1,1));
+		Zebra c(make_pair(i+1,2));
 		x.AddAnimal(c);
 		c.Interact();
 		x.AddAnimal(b);
