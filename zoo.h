@@ -49,7 +49,7 @@ class Zoo{
 
 		list<Animal*>::iterator FindAnimal(pair<int,int> pos);
 
-		void AddAnimal(Animal& animal);
+		void AddAnimal(Animal* a);
 
 		/**
 		 * \brief DelAnimal dengan ID

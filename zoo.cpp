@@ -243,9 +243,6 @@ Zoo::~Zoo(){
 		delete [] Cells[i];
 	}
 	delete [] Cells;
-	for (list<Animal*>::iterator it = Animals.begin(); it != Animals.end(); ++it){
-		delete (*it);
-	}
 }
 Zoo& Zoo::operator=(const Zoo& z){
 	for(int i = 0; i < width; i++){
@@ -315,8 +312,7 @@ list<Animal*>::iterator Zoo::FindAnimal(pair<int,int> pos){
 	
 }
 
-void Zoo::AddAnimal(Animal& animal){
-	Animal* a = new Animal(animal);
+void Zoo::AddAnimal(Animal* a){
  	int posx = a->GetPos().first;
 	int posy = a->GetPos().second;
 	int cage = CageM[posx][posy];
@@ -603,11 +599,6 @@ void Zoo::Tour(){
 		VisCage[i] = false;
 	}
 	while(!route.empty()){
-		for (int i = 0; i < NBCage; ++i){
-			cout << VisCage[i];
-		}
-		cout << endl;
-		cout << "on " << i << " " << j << endl;
 		if (i-1 >= 0){
 			char c = Cells[i-1][j]->GetInitSymbol();
 			if (c == 'P' || c == 'R'){
@@ -666,7 +657,6 @@ void Zoo::Tour(){
 				++i;
 				break;
 		}
-		cout << "go " << route.front() << endl;
 		route.pop_front();
 	}
 }
@@ -684,10 +674,8 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber){
 	while(!bqueue.empty()){
 		int i = bqueue.front().first, j = bqueue.front().second;
 		bqueue.pop();
-		cout << i << " " << j << endl;
 		if (FindAnimal(make_pair(i,j)) != Animals.end()){
 			(*FindAnimal(make_pair(i,j)))->Interact();
-			cout << (*FindAnimal(make_pair(i,j)))->GetID() << endl;
 		}	
 		if (i-1 >= 0){
 			if (CageM[i-1][j] == cnumber){
