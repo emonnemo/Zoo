@@ -7,12 +7,12 @@ using namespace std;
 
 int Elephant::elephantNB = 0;
 
-Elephant::Elephant(pair<int,int> _position): Animal("ELP",++elephantNB,'@',5000,food,'H',_position) {
+Elephant::Elephant(pair<int,int> _position): Animal("ELP",++elephantNB,'4',5000,food,'H',_position) {
 	eat = food;
 	habitat.insert('L');
 }
 
-Elephant::Elephant(float _weight, pair<int,int> _position): Animal("ELP",++elephantNB,'@',_weight,food,'H',_position) {
+Elephant::Elephant(float _weight, pair<int,int> _position): Animal("ELP",++elephantNB,'4',_weight,food,'H',_position) {
 	eat = food;
 	habitat.insert('L');
 }
@@ -38,6 +38,6 @@ void Elephant::Act() const {
 }
 
 void Elephant::Interact() const {
-	Description("Elephant");
+	Description("elephant");
 	Act();
 }
