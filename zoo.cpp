@@ -243,6 +243,9 @@ Zoo::~Zoo(){
 		delete [] Cells[i];
 	}
 	delete [] Cells;
+	for (list<Animal*>::iterator it = Animals.begin(); it != Animals.end(); ++it){
+		delete (*it);
+	}
 }
 Zoo& Zoo::operator=(const Zoo& z){
 	for(int i = 0; i < width; i++){
@@ -357,6 +360,7 @@ void Zoo::DelAnimal(string _ID, int _id){
 		++it;
 	}
 	if ((*it)->GetID() == _ID && (*it)->Getid() == _id){
+		delete (*it);
 		Animals.erase(it);
 	}
 	int posx = (*it)->GetPos().first;
