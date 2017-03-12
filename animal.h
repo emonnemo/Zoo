@@ -2,6 +2,7 @@
 #define ANIMAL_H
 
 #include <string>
+#include <set>
 
 using namespace std;
 /** @class Animal
@@ -61,6 +62,10 @@ class Animal {
 		  * \ details mengembalikan type dari suatu Animal
 		  */
 		char GetType() const;
+
+		virtual char GetLegend() const;
+
+		virtual set<char> GetHabitat() const;
 
 		/** @brief SetWeight
 		  * \details mengatur berat badan suatu Animal

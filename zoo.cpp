@@ -283,7 +283,31 @@ void Zoo::Display(int x1, int y1, int x2, int y2){
 	}
 }
 void Zoo::AddAnimal(Animal& a){
-	Animals.push_back(a);
+	int posx = a.GetPos().first;
+	int posy = a.GetPos().second;
+	int cage = CageM[posx][posy];
+	// cek if habitat dlu
+	set<char> hab = a.GetHabitat();
+	if(hab.find(Cells[posx][posy]->GetSymbol()) != hab.end()){
+		int count = 0; // count animal yang ada di cage yang sama
+		for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
+			if(cage == CageM[it->GetPos().first][it->GetPos().second]){
+				count++;
+			}
+		}
+		int max = 0;
+		for(int i = 0; i < width; i++){
+			for(int j = 0; j < length; j++){
+				if(CageM[i][j] == cage){
+					max++;
+				}
+			}
+		}
+		if(0.3*max>=(count+1)){ // masih muat cagenya
+			Animals.push_back(a);
+			Cells[posx][posy]->SetSymbol(a.GetLegend());
+		}
+	}
 }
 void Zoo::DelAnimal(string _ID, int _id){
 
