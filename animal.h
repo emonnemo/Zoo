@@ -2,6 +2,7 @@
 #define ANIMAL_H
 
 #include <string>
+#include <set>
 
 using namespace std;
 /** @class Animal
@@ -38,7 +39,19 @@ class Animal {
 		  */
 		Animal& operator= (const Animal& a); 
 
+		/**
+		 * \brief GetID
+		 * \details Mengembalikan ID hewan
+		 * \return string
+		 */
 		string GetID() const;
+
+		/**
+		 * \brief Getid
+		 * \details Mengembalikan nomor id di hewan tersebut
+		 * \return int
+		 */
+		int Getid() const;
 
 		/** @brief GetWeight
 		  * mengembalikan nilai weight dari suatu Animal
@@ -75,9 +88,18 @@ class Animal {
 		void SetPos(pair<int,int> _position);
 
 		/**
-		 * \brief Print
-		 * \details mengoutput data data animal
+		 * \brief AddCompatible
+		 * \details Menambahkan hewan dengan ID pada set compatible
+		 * \param ID hewan yang akan ditambah
 		 */
+		void AddCompatible(string ID);
+
+		/**
+		 * \brief DelCompatible
+		 * \details Menghapus hewan dengan ID pada set compatible
+		 * \param ID yang akan dihapus
+		 */
+		void DelCompatible(string ID);
 
 		virtual void Act() const;
 
@@ -109,6 +131,7 @@ class Animal {
 		float eat;
 		char type;
 		pair<int,int> position;
+		set<string> compatible;
 };
 
 #endif
