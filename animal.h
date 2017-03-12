@@ -28,7 +28,7 @@ class Animal {
 
 		/** @brief Destructor.
 		  */
-		~Animal();
+		virtual ~Animal();
 
 		/** @brief Copy Constructor
 		  * \details copy constructor menjamin tidak bitwise copy.
