@@ -1,33 +1,33 @@
-No. Habitat - Jenis - Animal - Kode - Berat - Act
+No. Habitat - Jenis - Animal - Kode - Berat - Act 	- Compatibility
 
-1. L - K - Wolf - WF - 45 - *howl*
-2. L - K - Lion - LI - 158 - *roar*
-3. L - H - Zebra - ZBR - 226 - *snort*
-4. L - H - Elephant - ELP - 5000 - *trumpet*
-5. L - O - Macaque - MCQ - 9 - *chatter*
-6. L - O - Hog - HG - 68 - *oink*
+1. L - K - Wolf - WF - 45 - *howl*					- WF ELP HPP
+2. L - K - Lion - LI - 158 - *roar*					- LI
+3. L - H - Zebra - ZBR - 226 - *snort*				- ZBR ELP MCQ HG PNG HPP DRL CLG SGL
+4. L - H - Elephant - ELP - 5000 - *trumpet*		- WF ZBR ELP MCQ HG PNG HPP
+5. L - O - Macaque - MCQ - 9 - *chatter*			- ZBR ELP MCQ HG HPP DRL CLG SGL
+6. L - O - Hog - HG - 68 - *oink*					- ZBR ELP MCQ HG HPP
 
-7. W - K - Shark - SHK - 771 - *cruise*
-8. W - K - Moray Eel - MRE - 13 - *hide into rocks*
-9. W - H - Dugong - DGG - 294 - *splash*
-10. W - H - Turtles - TRL - 453 - *swim*
-11. W - O - Dolphin - DLP - 226 - *click*
-12. W - O - Whale - WHL - 1360 - *sing*
+7. W - K - Shark - SHK - 771 - *cruise*				- SHK
+8. W - K - Moray Eel - MRE - 13 - *hide into rocks*	- 
+9. W - H - Dugong - DGG - 294 - *splash*			- 
+10. W - H - Turtles - TRL - 453 - *swim*			- 
+11. W - O - Dolphin - DLP - 226 - *click*			- 
+12. W - O - Whale - WHL - 40000 - *sing*			- 
 
-13. A - K - Eagle - EGL - 4 - *scream*
-14. A - K - Owl - OW - 2 - *hoot*
-15. A - H - Hummingbird - HMB - 0.0002 - *hum*
-16. A - H - Cockatoo - CKT - 0.09 - *talk*
-17. A - O - Robin - RBN - 0.06 - *chirp*
-18. A - O - Bat - BT - 0.15 - *screech*
+13. A - K - Eagle - EGL - 4 - *scream*				- 
+14. A - K - Owl - OW - 2 - *hoot*					- 
+15. A - H - Hummingbird - HMB - 0.0002 - *hum*		- 
+16. A - H - Cockatoo - CKT - 0.09 - *talk*			- 
+17. A - O - Robin - RBN - 0.06 - *chirp*			- 
+18. A - O - Bat - BT - 0.15 - *screech*				- 
 
-19. L/W - K - Penguin - PNG - 22 - *slide*
-20. L/W - H - Hippopotamus - HPP - 1469 - *grunt*
+19. L/W - K - Penguin - PNG - 22 - *slide*			- ZBR ELP PNG HPP DRL CLG SGL 
+20. L/W - H - Hippopotamus - HPP - 1469 - *grunt*	- 
 
-21. W/A - K - Pelican - PLC - 7 - “hrraa-hrraa”
-22. W/A - H - Goose - GSE - 4 - *quack*
-23. W/A - O - Crane - CRN - 3 - *soar*
+21. W/A - K - Pelican - PLC - 7 - “hrraa-hrraa”		- 
+22. W/A - H - Goose - GSE - 4 - *quack*				- 
+23. W/A - O - Crane - CRN - 3 - *soar*				- 
 
-24. L/A - K - Draco Lizard - DRL - 0.2 - *jump*
-25. L/A - H - Colugo - CLG - 0.035 - *glide*
-26. L/A - O - Sugar Glider - SGL - 0.12 - *crab*
+24. L/A - K - Draco Lizard - DRL - 0.2 - *jump*		- 
+25. L/A - H - Colugo - CLG - 0.035 - *glide*		- 
+26. L/A - O - Sugar Glider - SGL - 0.12 - *crab*	- 
