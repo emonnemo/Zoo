@@ -1,4 +1,4 @@
-//File Hog.cpp
+//File hog.cpp
 
 #include "hog.h"
 #include "../animal.h"

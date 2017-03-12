@@ -38,6 +38,6 @@ void Turtle::Act() const {
 }
 
 void Turtle::Interact() const {
-	Description("Turtle");
+	Description("turtle");
 	Act();
 }

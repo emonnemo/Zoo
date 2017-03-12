@@ -38,6 +38,6 @@ void Dolphin::Act() const {
 }
 
 void Dolphin::Interact() const {
-	Description("Dolphin");
+	Description("dolphin");
 	Act();
 }

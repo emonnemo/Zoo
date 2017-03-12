@@ -38,6 +38,6 @@ void Whale::Act() const {
 }
 
 void Whale::Interact() const {
-	Description("Whale");
+	Description("whale");
 	Act();
 }

@@ -38,6 +38,6 @@ void Shark::Act() const {
 }
 
 void Shark::Interact() const {
-	Description("Shark");
+	Description("shark");
 	Act();
 }

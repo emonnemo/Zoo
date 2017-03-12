@@ -38,6 +38,6 @@ void MorayEel::Act() const {
 }
 
 void MorayEel::Interact() const {
-	Description("MorayEel");
+	Description("morayeel");
 	Act();
 }

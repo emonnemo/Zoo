@@ -38,6 +38,6 @@ void Dugong::Act() const {
 }
 
 void Dugong::Interact() const {
-	Description("Dugong");
+	Description("dugong");
 	Act();
 }

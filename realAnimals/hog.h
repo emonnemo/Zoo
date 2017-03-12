@@ -10,24 +10,24 @@ using namespace std;
 
 /**
  * \class Hog
- * \details real class dari animal, yaitu Hog
+ * \details real class dari animal, yaitu babi hutan
  */
 class Hog: public Animal {
 public:
 	/**
 	 * \brief Constructor default weight
-	 * \details Menciptakan objek Hog dengan default weight untuk Hog 
+	 * \details Menciptakan objek babi hutan dengan default weight untuk babi hutan 
 	 * 
 	 * \param _weight berat badan
-	 * \param _position posisi Hog
+	 * \param _position posisi babi hutan
 	 */
 	Hog(pair<int,int> _position);
 	/**
 	 * \brief Constructor dengan weight
-	 * \details Menciptakan objek Hog dengan weight sebagai parameter
+	 * \details Menciptakan objek babi hutan dengan weight sebagai parameter
 	 * 
 	 * \param _weight berat badan
-	 * \param _position posisi Hog
+	 * \param _position posisi babi hutan
 	 */
 	Hog(float _weight, pair<int,int> _position);
 	/**

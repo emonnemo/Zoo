@@ -38,6 +38,6 @@ void Macaque::Act() const {
 }
 
 void Macaque::Interact() const {
-	Description("Macaque");
+	Description("macaque");
 	Act();
 }
