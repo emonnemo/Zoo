@@ -13,6 +13,7 @@
 #include "realAnimals/turtle.h"
 #include "realAnimals/dolphin.h"
 #include "realAnimals/whale.h"
+#include "realAnimals/eagle.h"
 
 int main(){
 
@@ -21,9 +22,11 @@ int main(){
 	Zoo x;
 	x.Display(0,0,15,5);
 	//Animal a("TG", 1, 100, 0.1, 'K', make_pair(1,1));
+	Shark a(make_pair(3,0));
+	x.AddAnimal(a);
 	for(int i = 0; i < 16; i++){
 		for(int j = 0; j < 6; j++){
-			Lion a(make_pair(i,j));
+			Eagle a(make_pair(i,j));
 			x.AddAnimal(a);
 		}
 	}
@@ -39,9 +42,9 @@ int main(){
 	//x.DelAnimal("WF", 11);
 	//x.AddAnimal(a);
 	//a.Interact();
-	x.ToggleSekat(1, 5, 3);
-	x.MoveAnimal(make_pair(1,5), 3);
-	//x.Display(0,0,15,5);
-	//x.Tour();
+	//x.ToggleSekat(1, 5, 3);
+	//x.MoveAnimal(make_pair(1,5), 3);
+	x.Display(0,0,15,5);
+	x.Tour();
 	return 0;
 }
