@@ -60,7 +60,6 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 		}
 		ifile.close();
 	}
-	/*
 	else{
 		for (int i = 0; i < width; ++i){
 			getline(cin, line);
@@ -94,7 +93,6 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 			}
 		}
 	}
-	*/
 	// caging
 	CageM = new int*[w];
 	for(int i = 0; i < w; i++){
@@ -287,7 +285,7 @@ void Zoo::Display(int x1, int y1, int x2, int y2){
 void Zoo::AddAnimal(Animal& a){
 	Animals.push_back(a);
 }
-void Zoo::DelAnimal(int id){
+void Zoo::DelAnimal(string _ID, int _id){
 
 }
 
@@ -322,4 +320,4 @@ float Zoo::GetTotalVegetables() const{
 		}
 	}
 	return sum;
-}
+}	

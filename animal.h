@@ -111,5 +111,4 @@ class Animal {
 		pair<int,int> position;
 };
 
-
 #endif

@@ -46,10 +46,13 @@ class Zoo{
 		  */
 		void AddAnimal(Animal& a);
 
-		/** @brief DelAnimal
-		  * Menghapus hewan dengan ID = id, jika tidak ada maka tidak ad hewan yang dihapus
-		  */
-		void DelAnimal(int id);
+		/**
+		 * \brief DelAnimal
+		 * \details Menghapus hewan denagn ID=_ID dan id=_id
+		 * \param _ID ID jenis hewan
+		 * \param id no pada jenis hewan tersebut
+		 */
+		void DelAnimal(string _ID, int _id);
 
 		/**
 		 * \brief GetWidth

@@ -27,21 +27,6 @@ public:
 	 * \details Mengembalikan memori kepada sistem
 	 */
 	~Habitat();
-	/**
-	 * \brief Copy Constructor
-	 * \details copy constructor menjamin tidak bitwise copy.
-	 * 
-	 * \param h habitat yang ingin dikopi
-	 */
-	Habitat(const Habitat& h);
-	/**
-	 * \brief Operator =
-	 * \details operator = menjamin tidak bitwise copy.
-	 * 
-	 * \param h habitat yang ingin di-copy
-	 * \return habitat yang sama dengan h
-	 */
-	Habitat& operator= (const Habitat& h);
 };
 
 #endif
