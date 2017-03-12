@@ -7,6 +7,7 @@
 #include "realAnimals/wolf.h"
 #include "cell.h"
 #include <list>
+#include <queue>
 using namespace std;
 
 /** @class Zoo
@@ -46,7 +47,7 @@ class Zoo{
 		  * @param Animal a, hewan yang akan ditambahkan
 		  */
 
-		pair<string,int> FindAnimal(pair<int,int> pos);
+		list<Animal>::iterator FindAnimal(pair<int,int> pos);
 
 		void AddAnimal(Animal& a);
 
@@ -135,6 +136,9 @@ class Zoo{
 		Cell*** Cells;
 		list<Animal> Animals;
 		int** CageM;
+		int NBCage;
+
+		void InteractCage(pair<int, int> pos, int cnumber);
 };
 
 #endif

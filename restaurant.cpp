@@ -34,6 +34,6 @@ void Restaurant::ToggleSekat(int direction){
 
 }
 		
-bool Restaurant::GetSekat(int direction){
+bool Restaurant::GetSekat(int direction) const{
 	return false;
 }

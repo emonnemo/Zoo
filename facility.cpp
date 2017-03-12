@@ -20,6 +20,6 @@ void Facility::ToggleSekat(int direction){
 
 }
 		
-bool Facility::GetSekat(int direction){
+bool Facility::GetSekat(int direction) const{
 	return false;
 }

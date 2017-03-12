@@ -22,6 +22,6 @@ void Road::ToggleSekat(int direction){
 
 }
 		
-bool Road::GetSekat(int direction){
+bool Road::GetSekat(int direction) const{
 	return false;
 }

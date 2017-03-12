@@ -27,6 +27,6 @@ void Park::ToggleSekat(int direction){
 
 }
 		
-bool Park::GetSekat(int direction){
+bool Park::GetSekat(int direction) const{
 	return false;
 }
