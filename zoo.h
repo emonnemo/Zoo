@@ -87,6 +87,15 @@ class Zoo{
 		 */
 		float GetTotalVegetables() const;
 
+			/**
+		 * \brief MoveAnimal dengan posisi
+		 * \details Menggerakkan animal dengan ID=_ID dan id=_id
+		 * \param i posisi hewan pada width
+		 * \param j posisi hewan pada length
+		 * \param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
+		 */
+		void MoveAnimal(pair<int,int> pos, int direction);
+
 		/**
 		 * \brief MoveAnimal dengan ID
 		 * \details Menggerakkan animal dengan ID=_ID dan id=_id ke arah sesuai direction sebanyak 1 langkah jika memungkinkan (tidak melewati sekat)
@@ -95,15 +104,6 @@ class Zoo{
 		 * \param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
 		 */
 		void MoveAnimal(string _ID, int _id, int direction);
-
-		/**
-		 * \brief MoveAnimal dengan posisi
-		 * \details Menggerakkan animal dengan ID=_ID dan id=_id
-		 * \param i posisi hewan pada width
-		 * \param j posisi hewan pada length
-		 * \param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
-		 */
-		void MoveAnimal(pair<int,int> pos, int direction);
 
 		/**
 		 * \brief ToggleSekat

@@ -374,12 +374,68 @@ float Zoo::GetTotalVegetables() const{
 	return sum;
 }	
 
-void Zoo::MoveAnimal(string _ID, int _id, int direction){
-
+void Zoo::MoveAnimal(pair<int, int> pos, int direction){
+	list<Animal>::iterator it = Animals.begin();
+	list<Animal>::iterator e = Animals.end();
+	--e;
+	while(it->GetPos() != pos && it != e){
+		++it;
+	}
+	if (it->GetPos() == pos && it != e){
+		if (Cells[pos.first][pos.second]->GetSekat(direction)){
+			bool valid = false;
+			int i = pos.first, j = pos.second;
+			switch(direction){
+				case 0:
+					if (i-1 >= 0){
+						valid = true;
+						--i;
+					}
+					break;
+				case 1:
+					if (j-1 >= 0){
+						valid = true;
+						--j;
+					}
+					break;
+				case 2:
+					if (j+1 <= length){
+						valid = true;
+						++j;
+					}
+					break;
+				case 3:
+					if (i+1 <= width){
+						valid = true;
+						++i;
+					}
+					break;
+			}
+			if (valid){
+				list<Animal>::iterator jt = Animals.begin();
+				while(jt->GetPos() != make_pair(i, j) && jt != e){
+					++jt;
+				}		
+				if (jt->GetPos() != make_pair(i,j)){
+					it->Move(direction);
+					Cells[pos.first][pos.second]->SetSymbol(Cells[pos.first][pos.second]->GetInitSymbol());
+					Cells[it->GetPos().first][it->GetPos().second]->SetSymbol(it->GetLegend());
+				}
+			}
+		}		
+	}
 }
 
-void Zoo::MoveAnimal(pair<int, int> pos, int direction){
-
+void Zoo::MoveAnimal(string _ID, int _id, int direction){
+	list<Animal>::iterator it = Animals.begin();
+	list<Animal>::iterator e = Animals.end();
+	--e;
+	while(it->GetID() != _ID && it->Getid() != _id && it != e){
+		++it;
+	}
+	if (it->GetID() == _ID && it->Getid() == _id){
+		MoveAnimal(it->GetPos(), direction);
+	}
 }
 
 void Zoo::ToggleSekat(int i, int j, int direction){

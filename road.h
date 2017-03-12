@@ -29,6 +29,12 @@ public :
 	/** \brief Destructor.
 	  */
 	~Road();
+
+	//Tidak diimplementtasi
+	void ToggleSekat(int direction);
+		
+	//Tidak diimplementasi
+	bool GetSekat(int direction);
 private :
 	char type;
 };

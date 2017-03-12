@@ -34,5 +34,9 @@ void Cell::SetSymbol(char s){
 }
 
 void Cell::ToggleSekat(int direction){
-	
+
+}
+		
+bool Cell::GetSekat(int direction){
+	return false;
 }

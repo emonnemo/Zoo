@@ -73,7 +73,11 @@ class Cell{
 		 */
 		void SetSymbol(char s);
 
+		//Tidak diimplementtasi
 		virtual void ToggleSekat(int direction);
+		
+		//Tidak diimplementasi
+		virtual bool GetSekat(int direction);
 
 	protected :
 		char initsymbol;

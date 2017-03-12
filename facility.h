@@ -30,6 +30,12 @@ public:
 		 * \details Menampilkan interaksi facility
 		 */
 		virtual void Interact() const;
+
+		//Tidak diimplementtasi
+		virtual void ToggleSekat(int direction);
+		
+		//Tidak diimplementasi
+		virtual bool GetSekat(int direction);
 };
 
 #endif

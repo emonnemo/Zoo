@@ -16,3 +16,12 @@ Road::Road(char t){
 Road::~Road(){
 
 }
+
+
+void Road::ToggleSekat(int direction){
+
+}
+		
+bool Road::GetSekat(int direction){
+	return false;
+}

@@ -37,6 +37,12 @@ public:
 	 */
 	void Interact() const;
 
+	//Tidak diimplementtasi
+	void ToggleSekat(int direction);
+		
+	//Tidak diimplementasi
+	bool GetSekat(int direction);
+
 private:
 	string food;
 	bool open;	

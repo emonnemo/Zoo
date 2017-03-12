@@ -28,3 +28,12 @@ void Restaurant::Interact() const{
 		cout << "This restaurant is closed" << endl;
 	}
 }
+
+
+void Restaurant::ToggleSekat(int direction){
+
+}
+		
+bool Restaurant::GetSekat(int direction){
+	return false;
+}

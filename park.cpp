@@ -22,3 +22,11 @@ Park::~Park(){
 void Park::Interact() const{
 	cout << "This park has " << plant << " planted on it" << endl;
 }
+
+void Park::ToggleSekat(int direction){
+
+}
+		
+bool Park::GetSekat(int direction){
+	return false;
+}
