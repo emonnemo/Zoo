@@ -282,17 +282,35 @@ void Zoo::Display(int x1, int y1, int x2, int y2){
 		cout << endl;
 	}
 }
+
+pair<int,int> Zoo::FindAnimal(pair<int,int> pos){
+	pair<int,int> hsl;
+	hsl = make_pair(-1,-1);
+	for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
+		if(it->GetPos() == pos){
+			hsl = pos;
+			break;
+		}
+	}
+	return pos;
+}
+
 void Zoo::AddAnimal(Animal& a){
 	int posx = a.GetPos().first;
 	int posy = a.GetPos().second;
 	int cage = CageM[posx][posy];
 	// cek if habitat dlu
 	set<char> hab = a.GetHabitat();
+	set<string> compability = a.GetCompatible();
 	if(hab.find(Cells[posx][posy]->GetSymbol()) != hab.end()){
+		bool compatible = true; // cek apakah adah hewan yang tidak kompatible dengan hewan a
 		int count = 0; // count animal yang ada di cage yang sama
 		for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
 			if(cage == CageM[it->GetPos().first][it->GetPos().second]){
 				count++;
+				if(compability.find(a.GetID()) != compability.end()){
+					compatible = false;
+				}
 			}
 		}
 		int max = 0;
@@ -303,7 +321,7 @@ void Zoo::AddAnimal(Animal& a){
 				}
 			}
 		}
-		if(0.3*max>=(count+1)){ // masih muat cagenya
+		if(0.3*max>=(count+1) && compatible){ // masih muat cagenya
 			Animals.push_back(a);
 			Cells[posx][posy]->SetSymbol(a.GetLegend());
 		}

@@ -105,6 +105,8 @@ class Animal {
 		 */
 		void DelCompatible(string ID);
 
+		set<string> GetCompatible() const;
+
 		virtual void Act() const;
 
 		/**

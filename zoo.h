@@ -45,6 +45,9 @@ class Zoo{
 		  * Menambahkan hewan pada kebun binatang
 		  * @param Animal a, hewan yang akan ditambahkan
 		  */
+
+		pair<int,int> FindAnimal(pair<int,int> pos);
+
 		void AddAnimal(Animal& a);
 
 		/**
