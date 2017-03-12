@@ -11,12 +11,34 @@ DLizard::DLizard(pair<int,int> _position): Animal("DRL",++dLizardNB,'=',0.2,food
 	eat = food;
 	habitat.insert('L');	
 	habitat.insert('A');
+	compatible.insert("ZBR");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("PNG");
+	compatible.insert("DRL");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
+	compatible.insert("OW");
+	compatible.insert("RBN");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 DLizard::DLizard(float _weight, pair<int,int> _position): Animal("DRL",++dLizardNB,'=',_weight,food,'K',_position) {
 	eat = food;
 	habitat.insert('L');
 	habitat.insert('A');
+	compatible.insert("ZBR");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("PNG");
+	compatible.insert("DRL");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
+	compatible.insert("OW");
+	compatible.insert("RBN");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 DLizard::~DLizard(){}

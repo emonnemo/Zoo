@@ -10,11 +10,29 @@ int Robin::robinNB = 0;
 Robin::Robin(pair<int,int> _position): Animal("RBN",++robinNB,'&',0.06,food,'O',_position) {
 	eat = food;
 	habitat.insert('A');
+	compatible.insert("HMB");
+	compatible.insert("CKT");
+	compatible.insert("RBN");
+	compatible.insert("BT");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
+	compatible.insert("CLG");
+	compatible.insert("DRL");
 }
 
 Robin::Robin(float _weight, pair<int,int> _position): Animal("RBN",++robinNB,'&',_weight,food,'O',_position) {
 	eat = food;
 	habitat.insert('A');
+	compatible.insert("HMB");
+	compatible.insert("CKT");
+	compatible.insert("RBN");
+	compatible.insert("BT");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
+	compatible.insert("CLG");
+	compatible.insert("DRL");
 }
 
 Robin::~Robin(){}

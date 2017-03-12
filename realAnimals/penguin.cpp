@@ -11,12 +11,40 @@ Penguin::Penguin(pair<int,int> _position): Animal("PNG",++penguinNB,'(',22,food,
 	eat = food;
 	habitat.insert('L');	
 	habitat.insert('W');
+	compatible.insert("ZBR");
+	compatible.insert("ELP");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("DRL");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Penguin::Penguin(float _weight, pair<int,int> _position): Animal("PNG",++penguinNB,'(',_weight,food,'K',_position) {
 	eat = food;
 	habitat.insert('L');
 	habitat.insert('W');
+	compatible.insert("ZBR");
+	compatible.insert("ELP");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("DRL");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Penguin::~Penguin(){}

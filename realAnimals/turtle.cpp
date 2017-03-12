@@ -10,11 +10,29 @@ int Turtle::TurtleNB = 0;
 Turtle::Turtle(pair<int,int> _position): Animal("TRL",++TurtleNB,'0',453,food,'H',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Turtle::Turtle(float _weight, pair<int,int> _position): Animal("TRL",++TurtleNB,'0',_weight,food,'H',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Turtle::~Turtle(){}

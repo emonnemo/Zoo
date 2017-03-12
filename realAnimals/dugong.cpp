@@ -10,11 +10,31 @@ int Dugong::DugongNB = 0;
 Dugong::Dugong(pair<int,int> _position): Animal("DGG",++DugongNB,'9',294,food,'H',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Dugong::Dugong(float _weight, pair<int,int> _position): Animal("DGG",++DugongNB,'9',_weight,food,'H',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Dugong::~Dugong(){}

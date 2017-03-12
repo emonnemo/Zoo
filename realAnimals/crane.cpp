@@ -11,12 +11,46 @@ Crane::Crane(pair<int,int> _position): Animal("CRN",++CraneNB,'-',3,food,'O',_po
 	eat = food;
 	habitat.insert('W');	
 	habitat.insert('A');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
+	compatible.insert("HMB");
+	compatible.insert("CKT");
+	compatible.insert("RBN");
+	compatible.insert("BT");
+	compatible.insert("DRL");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
 }
 
 Crane::Crane(float _weight, pair<int,int> _position): Animal("CRN",++CraneNB,'-',_weight,food,'O',_position) {
 	eat = food;
 	habitat.insert('W');
 	habitat.insert('A');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
+	compatible.insert("HMB");
+	compatible.insert("CKT");
+	compatible.insert("RBN");
+	compatible.insert("BT");
+	compatible.insert("DRL");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
 }
 
 Crane::~Crane(){}

@@ -10,11 +10,23 @@ int MorayEel::MorayEelNB = 0;
 MorayEel::MorayEel(pair<int,int> _position): Animal("MRE",++MorayEelNB,'8',13,food,'K',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("HPP");
 }
 
 MorayEel::MorayEel(float _weight, pair<int,int> _position): Animal("MRE",++MorayEelNB,'8',_weight,food,'K',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("HPP");
 }
 
 MorayEel::~MorayEel(){}

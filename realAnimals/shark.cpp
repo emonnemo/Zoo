@@ -10,11 +10,15 @@ int Shark::SharkNB = 0;
 Shark::Shark(pair<int,int> _position): Animal("SHK",++SharkNB,'7',771,food,'K',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("SHK");
+	compatible.insert("WHL");
 }
 
 Shark::Shark(float _weight, pair<int,int> _position): Animal("SHK",++SharkNB,'7',_weight,food,'K',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("SHK");
+	compatible.insert("WHL");
 }
 
 Shark::~Shark(){}

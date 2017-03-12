@@ -10,11 +10,31 @@ int Dolphin::DolphinNB = 0;
 Dolphin::Dolphin(pair<int,int> _position): Animal("DLP",++DolphinNB,'!',226,food,'K',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Dolphin::Dolphin(float _weight, pair<int,int> _position): Animal("DLP",++DolphinNB,'!',_weight,food,'K',_position) {
 	eat = food;
 	habitat.insert('W');
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Dolphin::~Dolphin(){}

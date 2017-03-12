@@ -11,12 +11,44 @@ Hippopotamus::Hippopotamus(pair<int,int> _position): Animal("HPP",++hippopotamus
 	eat = food;
 	habitat.insert('L');	
 	habitat.insert('W');
+	compatible.insert("WF");
+	compatible.insert("ZBR");
+	compatible.insert("ELP");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("CLG");
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Hippopotamus::Hippopotamus(float _weight, pair<int,int> _position): Animal("HPP",++hippopotamusNB,')',_weight,food,'H',_position) {
 	eat = food;
 	habitat.insert('L');
 	habitat.insert('W');
+	compatible.insert("WF");
+	compatible.insert("ZBR");
+	compatible.insert("ELP");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("PNG");
+	compatible.insert("HPP");
+	compatible.insert("CLG");
+	compatible.insert("MRE");
+	compatible.insert("DGG");
+	compatible.insert("TRL");
+	compatible.insert("DLP");
+	compatible.insert("WHL");
+	compatible.insert("PLC");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 Hippopotamus::~Hippopotamus(){}

@@ -24,10 +24,10 @@ No. Habitat - Jenis - Animal - Kode - Berat - Act 	- Compatibility
 19. L/W - K - Penguin - PNG - 22 - *slide*			- ZBR ELP PNG HPP DRL CLG SGL DGG TRL DLP WHL PLC GSE CRN
 20. L/W - H - Hippopotamus - HPP - 1469 - *grunt*	- WF ZBR ELP MCQ HG PNG HPP CLG MRE DGG TRL DLP WHL PLC GSE CRN
 
-21. W/A - K - Pelican - PLC - 7 - “hrraa-hrraa”		- MRE DGG DLP WHL PNG HPP PLC CRN GSE CRN EGL OW HMB CKT RBN BT CLG SGL
-22. W/A - H - Goose - GSE - 4 - *quack*				- MRE DGG TRL DLP WHL PNG HPP PLC CRN GSE CRN HMB CKT RBN BT CLG SGL
-23. W/A - O - Crane - CRN - 3 - *soar*				- MRE DGG TRL DLP WHL PNG HPP PLC CRN GSE CRN HMB CKT RBN BT DRL CLG SGL
+21. W/A - K - Pelican - PLC - 7 - “hrraa-hrraa”		- MRE DGG DLP WHL PNG HPP PLC GSE CRN EGL OW HMB CKT RBN BT CLG SGL
+22. W/A - H - Goose - GSE - 4 - *quack*				- MRE DGG TRL DLP WHL PNG HPP PLC GSE CRN HMB CKT RBN BT CLG SGL
+23. W/A - O - Crane - CRN - 3 - *soar*				- MRE DGG TRL DLP WHL PNG HPP PLC GSE CRN HMB CKT RBN BT DRL CLG SGL
 
-24. L/A - K - Draco Lizard - DRL - 0.2 - *jump*		- ZBR MCQ HG PNG DRL CLG SGL OW BT GSE CRN
+24. L/A - K - Draco Lizard - DRL - 0.2 - *jump*		- ZBR MCQ HG PNG DRL CLG SGL OW RBN GSE CRN
 25. L/A - H - Colugo - CLG - 0.035 - *glide*		- ZBR MCQ HG PNG HPP DRL CLG SGL HMB CKT RBN GSE CRN
 26. L/A - O - Sugar Glider - SGL - 0.12 - *crab*	- ZBR MCQ HG PNG DRL CLG SGL HMB GSE CRN
