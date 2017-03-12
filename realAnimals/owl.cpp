@@ -1,8 +1,8 @@
 //File owl.cpp
 
-$include "Owl.h"
-$include "../animal.h"
-$include <iostream>
+#include "owl.h"
+#include "../animal.h"
+#include <iostream>
 using namespace std;
 
 int Owl::owlNB = 0;
