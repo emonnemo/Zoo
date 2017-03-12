@@ -305,7 +305,7 @@ void Zoo::AddAnimal(Animal& a){
 	set<char> hab = a.GetHabitat();
 	set<string> compability = a.GetCompatible();
 	if(hab.find(Cells[posx][posy]->GetSymbol()) != hab.end()){
-		bool compatible = true; // cek apakah adah hewan yang tidak kompatible dengan hewan a
+		bool compatible = true; // cek apakah ada hewan yang tidak kompatible dengan hewan a
 		int count = 0; // count animal yang ada di cage yang sama
 		for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
 			if(cage == CageM[it->GetPos().first][it->GetPos().second]){
@@ -379,44 +379,44 @@ void Zoo::MoveAnimal(string _ID, int _id, int direction){
 
 }
 
-void Zoo::MoveAnimal(int i, int j, int direction){
+void Zoo::MoveAnimal(pair<int, int> pos, int direction){
 
 }
 
 void Zoo::ToggleSekat(int i, int j, int direction){
 	if (i >=0 && i <= width && j >= 0 && j <= length){
-		char c = Cells[i][j].GetInitSymbol;
+		char c = Cells[i][j]->GetInitSymbol();
 		if (c == 'W' || c == 'L' || c == 'A'){
 			switch (direction){
 				case 0:
 					if (i-1 >= 0){
 						if (CageM[i-1][j] == CageM[i][j]){
-							Cells[i][j].ToggleSekat(0);
-							Cells[i-1][j].ToggleSekat(3);
+							Cells[i][j]->ToggleSekat(0);
+							Cells[i-1][j]->ToggleSekat(3);
 						}
 					}
 					break;
 				case 1:
 					if (j-1 >= 0){
 						if (CageM[i][j-1] == CageM[i][j]){
-							Cells[i][j].ToggleSekat(1);
-							Cells[i][j-1].ToggleSekat(2);
+							Cells[i][j]->ToggleSekat(1);
+							Cells[i][j-1]->ToggleSekat(2);
 						}
 					}
 					break;
 				case 2:
 					if (j+1 <= length){
 						if (CageM[i][j+1] == CageM[i][j]){
-							Cells[i][j].ToggleSekat(2);
-							Cells[i][j+1].ToggleSekat(1);
+							Cells[i][j]->ToggleSekat(2);
+							Cells[i][j+1]->ToggleSekat(1);
 						}
 					}
 					break;
 				case 3:
 					if (i+1 <= width){
-						if (Cage[i+1][j] == CageM[i][j]){
-							Cells[i][j].ToggleSekat(3);
-							Cells[i+1][j].ToggleSekat(0);
+						if (CageM[i+1][j] == CageM[i][j]){
+							Cells[i][j]->ToggleSekat(3);
+							Cells[i+1][j]->ToggleSekat(0);
 						}
 					}
 					break;

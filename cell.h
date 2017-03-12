@@ -73,6 +73,8 @@ class Cell{
 		 */
 		void SetSymbol(char s);
 
+		virtual void ToggleSekat(int direction);
+
 	protected :
 		char initsymbol;
 		char symbol;
