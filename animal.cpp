@@ -44,6 +44,10 @@ string Animal::GetID() const {
 	return ID;
 }
 
+int Animal::Getid() const {
+	return id;
+}
+
 int Animal::GetWeight() const {
 	return weight;
 }
@@ -76,6 +80,14 @@ void Animal::SetPos(pair<int,int> _position){
 
 void Animal::SetWeight(float _weight){
 	weight = _weight;
+}
+
+void Animal::AddCompatible(string ID){
+	compatible.insert(ID);
+}
+
+void Animal::DelCompatible(string ID){
+	compatible.erase(ID);
 }
 
 void Animal::Act() const{
