@@ -285,8 +285,9 @@ void Zoo::Display(int x1, int y1, int x2, int y2){
 void Zoo::AddAnimal(Animal& a){
 	Animals.push_back(a);
 }
-void Zoo::DelAnimal(string _ID, int _id){
 
+void Zoo::DelAnimal(string _ID, int _id){
+	
 }
 
 int Zoo::GetWidth() const{
