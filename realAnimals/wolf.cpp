@@ -28,7 +28,11 @@ Wolf& Wolf::operator= (const Wolf& w) {
 }
 
 void Wolf::Act() const {
-	cout << "*howl*" << endl;
+	cout << ID << "-";
+	if (id < 10){
+		cout << "0"; 
+	}
+	cout << id	<< ": *howl*" << endl;
 }
 
 void Wolf::Interact() const {
