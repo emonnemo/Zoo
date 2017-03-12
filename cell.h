@@ -77,7 +77,10 @@ class Cell{
 		virtual void ToggleSekat(int direction);
 		
 		//Tidak diimplementasi
-		virtual bool GetSekat(int direction);
+		virtual bool GetSekat(int direction) const;
+
+		//Tidak diimplementasi
+		virtual void Interact() const;
 
 	protected :
 		char initsymbol;

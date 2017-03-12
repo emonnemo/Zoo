@@ -35,7 +35,7 @@ public:
 		virtual void ToggleSekat(int direction);
 		
 		//Tidak diimplementasi
-		virtual bool GetSekat(int direction);
+		virtual bool GetSekat(int direction) const;
 };
 
 #endif

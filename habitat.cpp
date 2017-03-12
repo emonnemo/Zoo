@@ -25,6 +25,10 @@ void Habitat::ToggleSekat(int direction){
 	}
 }
 
-bool Habitat::GetSekat(int direction){
+bool Habitat::GetSekat(int direction) const{
 	return sekat[direction];
+}
+
+void Habitat::Interact() const{
+	
 }

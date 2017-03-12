@@ -34,7 +34,7 @@ public :
 	void ToggleSekat(int direction);
 		
 	//Tidak diimplementasi
-	bool GetSekat(int direction);
+	bool GetSekat(int direction) const;
 private :
 	char type;
 };

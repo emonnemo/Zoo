@@ -37,6 +37,10 @@ void Cell::ToggleSekat(int direction){
 
 }
 		
-bool Cell::GetSekat(int direction){
+bool Cell::GetSekat(int direction) const{
 	return false;
+}
+
+void Cell::Interact() const{
+	
 }

@@ -12,6 +12,7 @@
 #include <time.h>
 #include <list>
 #include <set>
+#include <stack>
 #include <fstream>
 #include <iostream>
 
@@ -156,6 +157,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 			}
 		}
 	}
+	NBCage = counter-1;
 	// mengurus habitat yang belum masuk ke cage
 	int change = -1; // banyak perubahan yang dilakukan
 	while (change != 0){ // jika sudah tidak ada perubahan berhenti
@@ -229,6 +231,7 @@ Zoo::Zoo(const Zoo& z) : width(z.width), length(z.length){
 			CageM[i][j] = z.CageM[i][j];
 		}
 	}
+	NBCage = z.NBCage;
 }
 Zoo::~Zoo(){
 	for(int i = 0; i < width; i++) delete [] CageM[i];
@@ -272,6 +275,12 @@ Zoo& Zoo::operator=(const Zoo& z){
 			}
 		}
 	}
+	for(int i = 0; i < width; i++){
+		for(int j = 0; j < length; j++){
+			CageM[i][j] = z.CageM[i][j];
+		}
+	}
+	NBCage = z.NBCage;
 	return *this;
 }
 
@@ -284,17 +293,14 @@ void Zoo::Display(int x1, int y1, int x2, int y2){
 	}
 }
 
-pair<string, int> Zoo::FindAnimal(pair<int,int> pos){
-	string ID = " ";
-	int id = -1;
-	for(list<Animal>::const_iterator it = Animals.begin(); it != Animals.end(); ++it){
-		if(it->GetPos() == pos){
-			ID = it->GetID();
-			id = it->Getid();
-			break;
-		}
+list<Animal>::iterator Zoo::FindAnimal(pair<int,int> pos){
+	list<Animal>::iterator it = Animals.begin();
+	list<Animal>::iterator e = Animals.end();
+	--e;
+	while(it->GetPos() != pos && it != e){
+		++it;
 	}
-	return make_pair(ID,id);
+	return it;
 }
 
 void Zoo::AddAnimal(Animal& a){
@@ -304,7 +310,7 @@ void Zoo::AddAnimal(Animal& a){
 	// cek if habitat dlu
 	set<char> hab = a.GetHabitat();
 	set<string> compability = a.GetCompatible();
-	if(FindAnimal(make_pair(posx,posy)).first == " "){
+	if(FindAnimal(make_pair(posx,posy)) == Animals.end()){
 		if(hab.find(Cells[posx][posy]->GetSymbol()) != hab.end()){
 			bool compatible = true; // cek apakah ada hewan yang tidak kompatible dengan hewan a
 			int count = 0; // count animal yang ada di cage yang sama
@@ -348,7 +354,9 @@ void Zoo::DelAnimal(string _ID, int _id){
 }
 
 void Zoo::DelAnimal(int x, int y){
-	DelAnimal(FindAnimal(make_pair(x,y)).first, FindAnimal(make_pair(x,y)).second);
+	if (FindAnimal(make_pair(x,y)) != Animals.end()){
+		DelAnimal(FindAnimal(make_pair(x,y))->GetID(), FindAnimal(make_pair(x,y))->Getid());
+	}
 }
 
 int Zoo::GetWidth() const{
@@ -385,13 +393,8 @@ float Zoo::GetTotalVegetables() const{
 }	
 
 void Zoo::MoveAnimal(pair<int, int> pos, int direction){
-	list<Animal>::iterator it = Animals.begin();
-	list<Animal>::iterator e = Animals.end();
-	--e;
-	while(it->GetPos() != pos && it != e){
-		++it;
-	}
-	if (it->GetPos() == pos){
+	list<Animal>::iterator it = FindAnimal(pos);
+	if (it != Animals.end()){
 		if (Cells[pos.first][pos.second]->GetSekat(direction)){
 			bool valid = false;
 			int i = pos.first, j = pos.second;
@@ -409,24 +412,20 @@ void Zoo::MoveAnimal(pair<int, int> pos, int direction){
 					}
 					break;
 				case 2:
-					if (j+1 <= length){
+					if (j+1 < length){
 						valid = true;
 						++j;
 					}
 					break;
 				case 3:
-					if (i+1 <= width){
+					if (i+1 < width){
 						valid = true;
 						++i;
 					}
 					break;
 			}
 			if (valid){
-				list<Animal>::iterator jt = Animals.begin();
-				while(jt->GetPos() != make_pair(i, j) && jt != e){
-					++jt;
-				}		
-				if (jt->GetPos() != make_pair(i,j)){
+				if (FindAnimal(make_pair(i,j)) == Animals.end()){
 					it->Move(direction);
 					Cells[pos.first][pos.second]->SetSymbol(Cells[pos.first][pos.second]->GetInitSymbol());
 					Cells[it->GetPos().first][it->GetPos().second]->SetSymbol(it->GetLegend());
@@ -449,7 +448,7 @@ void Zoo::MoveAnimal(string _ID, int _id, int direction){
 }
 
 void Zoo::ToggleSekat(int i, int j, int direction){
-	if (i >=0 && i <= width && j >= 0 && j <= length){
+	if (i >=0 && i < width && j >= 0 && j < length){
 		char c = Cells[i][j]->GetInitSymbol();
 		if (c == 'W' || c == 'L' || c == 'A'){
 			switch (direction){
@@ -470,7 +469,7 @@ void Zoo::ToggleSekat(int i, int j, int direction){
 					}
 					break;
 				case 2:
-					if (j+1 <= length){
+					if (j+1 < length){
 						if (CageM[i][j+1] == CageM[i][j]){
 							Cells[i][j]->ToggleSekat(2);
 							Cells[i][j+1]->ToggleSekat(1);
@@ -478,7 +477,7 @@ void Zoo::ToggleSekat(int i, int j, int direction){
 					}
 					break;
 				case 3:
-					if (i+1 <= width){
+					if (i+1 < width){
 						if (CageM[i+1][j] == CageM[i][j]){
 							Cells[i][j]->ToggleSekat(3);
 							Cells[i+1][j]->ToggleSekat(0);
@@ -492,17 +491,210 @@ void Zoo::ToggleSekat(int i, int j, int direction){
 
 void Zoo::Tour(){
 	set<pair<int,int>> entrance;
+	bool vis[width][length];
 	for (int i=0; i < width; ++i){
 		for (int j=0; j < length; ++j){
 			if (Cells[i][j]->GetSymbol() == 'N'){
 				entrance.insert(make_pair(i, j));
 			}
+			vis[i][j] = false;
 		}
 	}
+	cout << "Search entrance done" << endl;
 	srand(time(NULL));
 	int selection = rand() % entrance.size();
-	set<pair<int,int>>::iterator it;
+	set<pair<int,int>>::iterator it = entrance.begin();
 	for (int i=0; i < selection; ++i){
 		++it;
+	}
+	cout << "Selection done" << endl;
+	stack<pair<int,int>> dstack;
+	list<int> route;
+	dstack.push(*it);
+	bool found = false;
+	cout << "Start searching route" << endl;
+	while (!found){
+		int i = dstack.top().first, j = dstack.top().second;
+		vis[i][j] = true;
+		if (Cells[i][j]->GetSymbol() == 'X'){
+			found = true;
+		} else{
+			char c;
+			set<int> choice;
+			if (i-1 >= 0){
+				c = Cells[i-1][j]->GetSymbol();
+				if (c == 'r' || c == 'X'){
+					if (!vis[i-1][j]){
+						choice.insert(0);
+					}
+				}
+			}
+			if (j-1 >= 0){
+				c = Cells[i][j-1]->GetSymbol();
+				if (c == 'r' || c == 'X'){
+					if (!vis[i][j-1]){
+						choice.insert(1);
+					}
+				}
+			}
+			if (j+1 < length){
+				c = Cells[i][j+1]->GetSymbol();
+				if (c == 'r' || c == 'X'){
+					if (!vis[i][j+1]){
+						choice.insert(2);
+					}
+				}
+			}
+			if (i+1 < width){
+				c = Cells[i+1][j]->GetSymbol();
+				if (c == 'r' || c == 'X'){
+					if (!vis[i+1][j]){
+						choice.insert(3);
+					}
+				}
+			}
+			if (choice.size() > 0){
+				selection = rand() % choice.size();
+				set<int>::iterator st = choice.begin();
+				for (int k = 0; k < selection; ++k){
+					++st;
+				}
+				route.push_back(*st);
+				switch(*st){
+					case 0:
+						dstack.push(make_pair(i-1, j));
+						break;
+					case 1:
+						dstack.push(make_pair(i, j-1));
+						break;
+					case 2:
+						dstack.push(make_pair(i, j+1));
+						break;
+					case 3:
+						dstack.push(make_pair(i+1, j));
+						break;
+				}
+			} else{
+				dstack.pop();
+				route.pop_back();
+			} 
+		}
+	}
+	int i = it->first, j = it->second;
+	bool VisCage[NBCage];
+	for (int i = 0; i < NBCage; ++i){
+		VisCage[i] = false;
+	}
+	while(!route.empty()){
+		if (i-1 >= 0){
+			char c = Cells[i-1][j]->GetInitSymbol();
+			if (c == 'P' || c == 'R'){
+				Cells[i-1][j]->Interact();
+			} else if (c == 'W' || c == 'L' || c == 'A'){
+				if (!VisCage[CageM[i-1][j]]){
+					InteractCage(make_pair(i-1,j), CageM[i-1][j]);
+					VisCage[CageM[i-1][j]] = true;
+				}
+			}
+		}
+		if (j-1 >= 0){
+			char c = Cells[i][j-1]->GetInitSymbol();
+			if (c == 'P' || c == 'R'){
+				Cells[i][j-1]->Interact();
+			} else if (c == 'W' || c == 'L' || c == 'A'){
+				if (!VisCage[CageM[i][j]]){
+					InteractCage(make_pair(i,j-1), CageM[i][j-1]);
+					VisCage[CageM[i][j-1]] = true;
+				}
+			}
+		}
+		if (j+1 < length){
+			char c = Cells[i][j+1]->GetInitSymbol();
+			if (c == 'P' || c == 'R'){
+				Cells[i][j+1]->Interact();
+			} else if (c == 'W' || c == 'L' || c == 'A'){
+				if (!VisCage[CageM[i][j+1]]){
+					InteractCage(make_pair(i,j+1), CageM[i][j+1]);
+					VisCage[CageM[i][j+1]] = true;
+				}
+			}
+		}
+		if (i+1 < width){
+			char c = Cells[i][j-1]->GetInitSymbol();
+			if (c == 'P' || c == 'R'){
+				Cells[i][j-1]->Interact();
+			} else if (c == 'W' || c == 'L' || c == 'A'){
+				if (!VisCage[CageM[i+1][j]]){
+					InteractCage(make_pair(i+1,j), CageM[i+1][j]);
+					VisCage[CageM[i+1][j]] = true;
+				}
+			}
+		}
+		switch (route.front()){
+			case 0:
+				--i;
+				break;
+			case 1:
+				--j;
+				break;
+			case 2:
+				++j;
+				break;
+			case 3:
+				++i;
+				break;
+		}
+		route.pop_front();
+	}
+}
+
+void Zoo::InteractCage(pair<int,int> pos, int cnumber){
+	bool VisCage[width][length];
+	for (int i = 0; i < width; ++i){
+		for (int j = 0; j < length; ++j){
+			VisCage[i][j] = false;
+		}
+	}
+	queue<pair<int, int>> bqueue;
+	bqueue.push(pos);
+	VisCage[pos.first][pos.second] = true;
+	while(!bqueue.empty()){
+		int i = bqueue.front().first, j = bqueue.front().second;
+		bqueue.pop();
+		if (FindAnimal(make_pair(i,j)) != Animals.end()){
+			(FindAnimal(make_pair(i,j))->Interact());
+		}	
+		if (i-1 >= 0){
+			if (CageM[i-1][j] == cnumber){
+				if (!VisCage[i-1][j]){
+					bqueue.push(make_pair(i-1,j));
+					VisCage[i-1][j] = true;
+				}
+			}
+		}
+		if (j-1 >= 0){
+			if (CageM[i][j-1] == cnumber){
+				if (!VisCage[i][j-1]){
+					bqueue.push(make_pair(i,j-1));
+					VisCage[i][j-1] = true;
+				}
+			}
+		}
+		if (j+1 < length){
+			if (CageM[i][j+1] == cnumber){
+				if (!VisCage[i][j+1]){
+					bqueue.push(make_pair(i,j+1));
+					VisCage[i][j+1] = true;
+				}
+			}
+		}
+		if (i+1 < width){
+			if (CageM[i][j+1] == cnumber){
+				if (!VisCage[i+1][j]){
+					bqueue.push(make_pair(i+1,j));
+					VisCage[i+1][j] = true;
+				}
+			}
+		}	
 	}
 }

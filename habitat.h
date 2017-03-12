@@ -42,8 +42,11 @@ public:
 	 * \param direction 0 u ntuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
 	 * \return bool true jika terbuka, false jika tertutup
 	 */
-	bool GetSekat(int direction);
+	bool GetSekat(int direction) const;
 	
+	//Tidak diimplementasi
+	void Interact() const;
+
 protected:
 	bool sekat[4];
 };

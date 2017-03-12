@@ -42,5 +42,6 @@ int main(){
 	x.ToggleSekat(1, 5, 3);
 	x.MoveAnimal(make_pair(1,5), 3);
 	x.Display(0,0,15,5);
+	x.Tour();
 	return 0;
 }
