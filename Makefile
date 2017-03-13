@@ -1,7 +1,7 @@
 CXX = g++
 CFLAGS = -g -Wall -std=c++11
-driver: driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sgrGlider.o
-	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sgrGlider.o
+driver: driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o moray_eel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sugar_glider.o
+	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o moray_eel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sugar_glider.o
 	
 cell.o: cell.cpp cell.h
 	$(CXX) $(CFLAGS) -c cell.cpp
@@ -48,8 +48,8 @@ macaque.o: realAnimals/macaque.cpp
 shark.o: realAnimals/shark.cpp
 	$(CXX) $(CFLAGS) -c realAnimals/shark.cpp
 
-morayeel.o: realAnimals/morayeel.cpp
-	$(CXX) $(CFLAGS) -c realAnimals/morayeel.cpp
+moray_eel.o: realAnimals/moray_eel.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/moray_eel.cpp
 
 dugong.o: realAnimals/dugong.cpp
 	$(CXX) $(CFLAGS) -c realAnimals/dugong.cpp
@@ -102,8 +102,8 @@ draco_lizard.o: realAnimals/draco_lizard.cpp
 colugo.o: realAnimals/colugo.cpp
 	$(CXX) $(CFLAGS) -c realAnimals/colugo.cpp
 
-sgrGlider.o: realAnimals/sgrGlider.cpp
-	$(CXX) $(CFLAGS) -c realAnimals/sgrGlider.cpp
+sugar_glider.o: realAnimals/sugar_glider.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/sugar_glider.cpp
 						
 clean: 
 	$(RM) count *.o *~
