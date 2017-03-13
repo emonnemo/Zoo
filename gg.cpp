@@ -73,6 +73,9 @@ int main(){
 	b[65] = (char *)"realAnimals/wolf.cpp";
 	b[66] = (char *)"realAnimals/zebra.h";
 	b[67] = (char *)"realAnimals/zebra.cpp";
+	b[68] = (char *)"main.cpp";
+	b[69] = (char *)"renderable.h";
+	b[70] = (char *)"renderable.cpp";
 
 	for(int j = 0; j <= 67; j++){
 
