@@ -14,54 +14,54 @@ using namespace std;
  */
 class Macaque: public Animal {
 public:
-	/**
-	 * \brief Constructor default weight
-	 * \details Menciptakan objek monyet dengan default weight untuk monyet 
-	 * 
-	 * \param _weight berat badan
-	 * \param _position posisi monyet
-	 */
-	Macaque(pair<int,int> _position);
-	/**
-	 * \brief Constructor dengan weight
-	 * \details Menciptakan objek monyet dengan weight sebagai parameter
-	 * 
-	 * \param _weight berat badan
-	 * \param _position posisi monyet
-	 */
-	Macaque(float _weight, pair<int,int> _position);
-	/**
-	 * \brief Destructor
-	 */
-	~Macaque();
-	/**
-	 * \brief Copy Constructor
-	 * \details copy constructor, menjamin tidak bitwise copy
-	 * 
-	 * \param w Macaque yang ingin dikopi
-	 */
-	Macaque(const Macaque& w);
-	/**
-	 * \brief Operator =
-	 * \details operator=, menjamin tidak bitwise copy
-	 * 
-	 * \param w Macaque yang ingin dikopi
-	 * \return Macaque yang sama dengan w
-	 */
-	Macaque& operator= (const Macaque& w);
-	/**
-	 * \brief Act
-	 * \details Macaque's behaviour
-	 */
-	void Act() const;
-	/**
-	 * \brief Interact
-	 * \details mengoutput hasil interaksi dengan Macaque
-	 */
-	void Interact() const;
+  /**
+   * \brief Constructor default weight
+   * \details Menciptakan objek monyet dengan default weight untuk monyet 
+   * 
+   * \param _weight berat badan
+   * \param _position posisi monyet
+   */
+  Macaque(pair<int,int> _position);
+  /**
+   * \brief Constructor dengan weight
+   * \details Menciptakan objek monyet dengan weight sebagai parameter
+   * 
+   * \param _weight berat badan
+   * \param _position posisi monyet
+   */
+  Macaque(float _weight, pair<int,int> _position);
+  /**
+   * \brief Destructor
+   */
+  ~Macaque();
+  /**
+   * \brief Copy Constructor
+   * \details copy constructor, menjamin tidak bitwise copy
+   * 
+   * \param w Macaque yang ingin dikopi
+   */
+  Macaque(const Macaque& w);
+  /**
+   * \brief Operator =
+   * \details operator=, menjamin tidak bitwise copy
+   * 
+   * \param w Macaque yang ingin dikopi
+   * \return Macaque yang sama dengan w
+   */
+  Macaque& operator= (const Macaque& w);
+  /**
+   * \brief Act
+   * \details Macaque's behaviour
+   */
+  void Act() const;
+  /**
+   * \brief Interact
+   * \details mengoutput hasil interaksi dengan Macaque
+   */
+  void Interact() const;
 private:
-	static int MacaqueNB;
-	const float food = 0.2;
+  static int MacaqueNB;
+  const float food = 0.2;
 };
 
 #endif
