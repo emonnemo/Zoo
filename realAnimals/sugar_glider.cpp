@@ -1,13 +1,13 @@
-//File sgrGlider.cpp
+//File sugar_glider.cpp
 
-#include "sgrGlider.h"
+#include "sugar_glider.h"
 #include "../animal.h"
 #include <iostream>
 using namespace std;
 
-int SgrGlider::sgrGliderNB = 0;
+int Sugar_Glider::sugarGliderNB = 0;
 
-SgrGlider::SgrGlider(pair<int,int> _position): Animal("SGL",++sgrGliderNB,'>',0.12,food,'O',_position) {
+Sugar_Glider::Sugar_Glider(pair<int,int> _position): Animal("SGL",++sugarGliderNB,'>',0.12,food,'O',_position) {
 	eat = food;
 	habitat.insert('L');	
 	habitat.insert('A');
@@ -23,7 +23,7 @@ SgrGlider::SgrGlider(pair<int,int> _position): Animal("SGL",++sgrGliderNB,'>',0.
 	compatible.insert("CRN");
 }
 
-SgrGlider::SgrGlider(float _weight, pair<int,int> _position): Animal("SGL",++sgrGliderNB,'>',_weight,food,'O',_position) {
+Sugar_Glider::Sugar_Glider(float _weight, pair<int,int> _position): Animal("SGL",++sugarGliderNB,'>',_weight,food,'O',_position) {
 	eat = food;
 	habitat.insert('L');
 	habitat.insert('A');
@@ -39,19 +39,19 @@ SgrGlider::SgrGlider(float _weight, pair<int,int> _position): Animal("SGL",++sgr
 	compatible.insert("CRN");
 }
 
-SgrGlider::~SgrGlider(){}
+Sugar_Glider::~Sugar_Glider(){}
 
-SgrGlider::SgrGlider(const SgrGlider& s): Animal(s.ID,s.id,s.legend,s.weight,s.eat,s.type,s.position) {
+Sugar_Glider::Sugar_Glider(const Sugar_Glider& s): Animal(s.ID,s.id,s.legend,s.weight,s.eat,s.type,s.position) {
 	habitat = s.habitat;
 }
 
-SgrGlider& SgrGlider::operator= (const SgrGlider& s) {
+Sugar_Glider& Sugar_Glider::operator= (const Sugar_Glider& s) {
 	SetWeight(s.GetWeight());
 	SetPos(s.GetPos());
 	return *this;
 }
 
-void SgrGlider::Act() const {
+void Sugar_Glider::Act() const {
 	cout << ID << "-";
 	if (id < 10){
 		cout << "0"; 
@@ -59,7 +59,7 @@ void SgrGlider::Act() const {
 	cout << id	<< ": *crab*" << endl;
 }
 
-void SgrGlider::Interact() const {
+void Sugar_Glider::Interact() const {
 	Description("sugar glider");
 	Act();
 }

@@ -12,8 +12,8 @@ using namespace std;
 /** \class Road
   * \details Kelas road turunan dari kelas facility berupa jalanan di zoo
   */
-class Road : public Facility{
-public :
+class Road : public Facility {
+public:
   /** \brief Constructor tanpa parameter
     * \details Menciptakan road dengan type=r (road biasa)
     */
@@ -35,7 +35,7 @@ public :
     
   //Tidak diimplementasi
   bool GetSekat(int direction) const;
-private :
+private:
   char type;
 };
 

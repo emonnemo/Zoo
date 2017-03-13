@@ -105,9 +105,9 @@ draco_lizard.o: realAnimals/draco_lizard.cpp
 colugo.o: realAnimals/colugo.cpp
 	$(CXX) $(CFLAGS) -c realAnimals/colugo.cpp
 
-sgrGlider.o: realAnimals/sgrGlider.cpp
-	$(CXX) $(CFLAGS) -c realAnimals/sgrGlider.cpp
-
+sugar_glider.o: realAnimals/sugar_glider.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/sugar_glider.cpp
+						
 renderable.o: renderable.cpp
 	$(CXX) $(CFLAGS) -c renderable.cpp			
 
