@@ -8,36 +8,58 @@ using namespace std;
 int Whale::WhaleNB = 0;
 
 Whale::Whale(pair<int,int> _position): Animal("WHL",++WhaleNB,'@',40000,food,'O',_position) {
-	eat = food;
-	habitat.insert('W');
+  eat = food;
+  habitat.insert('W');
+  compatible.insert("SHK");
+  compatible.insert("MRE");
+  compatible.insert("DGG");
+  compatible.insert("TRL");
+  compatible.insert("DLP");
+  compatible.insert("WHL");
+  compatible.insert("PNG");
+  compatible.insert("HPP");
+  compatible.insert("PLC");
+  compatible.insert("GSE");
+  compatible.insert("CRN");
 }
 
 Whale::Whale(float _weight, pair<int,int> _position): Animal("WHL",++WhaleNB,'@',_weight,food,'O',_position) {
-	eat = food;
-	habitat.insert('W');
+  eat = food;
+  habitat.insert('W');
+  compatible.insert("SHK");
+  compatible.insert("MRE");
+  compatible.insert("DGG");
+  compatible.insert("TRL");
+  compatible.insert("DLP");
+  compatible.insert("WHL");
+  compatible.insert("PNG");
+  compatible.insert("HPP");
+  compatible.insert("PLC");
+  compatible.insert("GSE");
+  compatible.insert("CRN");
 }
 
 Whale::~Whale(){}
 
 Whale::Whale(const Whale& w): Animal(w.ID,w.id,w.legend,w.weight,w.eat,w.type,w.position) {
-	habitat = w.habitat;
+  habitat = w.habitat;
 }
 
 Whale& Whale::operator= (const Whale& w) {
-	SetWeight(w.GetWeight());
-	SetPos(w.GetPos());
-	return *this;
+  SetWeight(w.GetWeight());
+  SetPos(w.GetPos());
+  return *this;
 }
 
 void Whale::Act() const {
-	cout << ID << "-";
-	if (id < 10){
-		cout << "0"; 
-	}
-	cout << id	<< ": *sing*" << endl;
+  cout << ID << "-";
+  if (id < 10){
+    cout << "0"; 
+  }
+  cout << id  << ": *sing*" << endl;
 }
 
 void Whale::Interact() const {
-	Description("whale");
-	Act();
+  Description("whale");
+  Act();
 }

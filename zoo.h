@@ -140,7 +140,6 @@ class Zoo: public Renderable {
 		list<Animal*> Animals;
 		int** CageM;
 		int NBCage;
-
 };
 
 #endif

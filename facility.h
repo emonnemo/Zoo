@@ -1,5 +1,5 @@
-/* Author		: Andika Kusuma / 13515033
- * File			: facility.h
+/* Author    : Andika Kusuma / 13515033
+ * File      : facility.h
  */
 
 #ifndef FACILITY_H
@@ -14,28 +14,28 @@ using namespace std;
   */
 class Facility : public Cell{
 public:
-		/**
-		 * \brief Constructor tanpa parameter.
-		 * \details Menciptakan facility dengan symbol c.
-		 */
-		Facility();
+    /**
+     * \brief Constructor tanpa parameter.
+     * \details Menciptakan facility dengan symbol c.
+     */
+    Facility();
 
-		/**
-		 * \brief destructor.
-		 */
-		~Facility();
+    /**
+     * \brief destructor.
+     */
+    ~Facility();
 
-		/**
-		 * \brief Interact
-		 * \details Menampilkan interaksi facility
-		 */
-		virtual void Interact() const;
+    /**
+     * \brief Interact
+     * \details Menampilkan interaksi facility
+     */
+    virtual void Interact() const;
 
-		//Tidak diimplementtasi
-		virtual void ToggleSekat(int direction);
-		
-		//Tidak diimplementasi
-		virtual bool GetSekat(int direction) const;
+    //Tidak diimplementtasi
+    virtual void ToggleSekat(int direction);
+    
+    //Tidak diimplementasi
+    virtual bool GetSekat(int direction) const;
 };
 
 #endif

@@ -1,7 +1,7 @@
 CXX = g++
 CFLAGS = -g -Wall -std=c++11
-driver: driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o
-	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o
+driver: driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sgrGlider.o
+	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sgrGlider.o
 	
 cell.o: cell.cpp cell.h
 	$(CXX) $(CFLAGS) -c cell.cpp
@@ -72,5 +72,38 @@ owl.o: realAnimals/owl.cpp
 hummingbird.o: realAnimals/hummingbird.cpp
 	$(CXX) $(CFLAGS) -c realAnimals/hummingbird.cpp
 
+cockatoo.o: realAnimals/cockatoo.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/cockatoo.cpp
+
+robin.o: realAnimals/robin.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/robin.cpp
+
+bat.o: realAnimals/bat.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/bat.cpp
+
+penguin.o: realAnimals/penguin.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/penguin.cpp
+
+hippopotamus.o: realAnimals/hippopotamus.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/hippopotamus.cpp			
+
+pelican.o: realAnimals/pelican.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/pelican.cpp
+
+goose.o: realAnimals/goose.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/goose.cpp
+
+crane.o: realAnimals/crane.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/crane.cpp
+
+draco_lizard.o: realAnimals/draco_lizard.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/draco_lizard.cpp
+
+colugo.o: realAnimals/colugo.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/colugo.cpp
+
+sgrGlider.o: realAnimals/sgrGlider.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/sgrGlider.cpp
+						
 clean: 
 	$(RM) count *.o *~

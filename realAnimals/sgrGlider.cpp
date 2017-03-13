@@ -11,12 +11,32 @@ SgrGlider::SgrGlider(pair<int,int> _position): Animal("SGL",++sgrGliderNB,'>',0.
 	eat = food;
 	habitat.insert('L');	
 	habitat.insert('A');
+	compatible.insert("ZBR");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("PNG");
+	compatible.insert("DRL");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
+	compatible.insert("HMB");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 SgrGlider::SgrGlider(float _weight, pair<int,int> _position): Animal("SGL",++sgrGliderNB,'>',_weight,food,'O',_position) {
 	eat = food;
 	habitat.insert('L');
 	habitat.insert('A');
+	compatible.insert("ZBR");
+	compatible.insert("MCQ");
+	compatible.insert("HG");
+	compatible.insert("PNG");
+	compatible.insert("DRL");
+	compatible.insert("CLG");
+	compatible.insert("SGL");
+	compatible.insert("HMB");
+	compatible.insert("GSE");
+	compatible.insert("CRN");
 }
 
 SgrGlider::~SgrGlider(){}

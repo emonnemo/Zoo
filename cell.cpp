@@ -4,12 +4,12 @@
 using namespace std;
 
 Cell::Cell(){
-	
+  
 }
 
 Cell::Cell(char c){
-	initsymbol = c;
-	symbol = c;
+  initsymbol = c;
+  symbol = c;
 }
 
 Cell::~Cell(){
@@ -17,30 +17,30 @@ Cell::~Cell(){
 }
 
 ostream& operator<< (ostream& os, const Cell& c){
-	os << c.symbol;
-	return os;
+  os << c.symbol;
+  return os;
 }
 
 char Cell::GetInitSymbol() const{
-	return initsymbol;
+  return initsymbol;
 }
 
 char Cell::GetSymbol() const{
-	return symbol;
+  return symbol;
 }
 
 void Cell::SetSymbol(char s){
-	symbol = s;
+  symbol = s;
 }
 
 void Cell::ToggleSekat(int direction){
 
 }
-		
+    
 bool Cell::GetSekat(int direction) const{
-	return false;
+  return false;
 }
 
 void Cell::Interact() const{
-	
+  
 }
