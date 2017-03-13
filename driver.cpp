@@ -19,9 +19,15 @@ int main(){
 
 	//Zoo z;
 	//z.Display(0,0,15,5);
-	Zoo x;
+	Zoo x, y;
+	/*x.Display(0,0,15,5);
+	cout << "1" << endl;
 	x.Display(0,0,15,5);
-	//Animal a("TG", 1, 100, 0.1, 'K', make_pair(1,1));
+	cout << "2" << endl;
+	x.Display(0,0,15,5);
+	cout << "3" << endl;
+	y.Display(0,0,15,5);*/
+ 	//Animal a("TG", 1, 100, 0.1, 'K', make_pair(1,1));
 	for(int i = 0; i < 16; i++){
 		for(int j = 0; j < 6; j++){
 			Eagle *pa;

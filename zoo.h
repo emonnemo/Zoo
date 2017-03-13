@@ -23,7 +23,7 @@ class Zoo{
 		  * \param w width lebar kebun binatang, default 16
 		  * \param l length panjang kebun binatang, default 6
 		  */
-		Zoo(bool = 1 , int = 16, int = 6);
+		Zoo(bool = 1 , int = 33, int = 32);
 
 		/** @brief cctor
 		  */
@@ -116,6 +116,12 @@ class Zoo{
 		void MoveAnimal(string _ID, int _id, int direction);
 
 		/**
+		 * \brief MoveAllAnimal
+		 * \details Menggerakkan semua hewan secara acak
+		 */
+		void MoveAllAnimal();
+
+		/**
 		 * \brief ToggleSekat
 		 * \details Membuka/menutup sekat pada posisi i,j ke arah direction jika memungkinkan (tidak membuka ke luar cage)
 		 * \param i posisi pada width
@@ -125,12 +131,24 @@ class Zoo{
 		void ToggleSekat(int i, int j, int direction);
 
 		/**
+		 * \brief ToggleAllSekat
+		 * \details Membuka/menutup semua sekat
+		 */
+		void ToggleAllSekat();
+
+		/**
 		 * \brief Melakukan tour pada kebun binatang
 		 * \details Jalur tour akan dipilih secara acak
 		 * \details Settiap cell yang ada di samping road yang dilalui akan diinteract. Suatu cell adalah bagian dari suatu cage, maka semua binatang pada cage tersebut akan diinteract
 		 */
 		void Tour();
 
+		/**
+		 * \brief InteractCage
+		 * \details Melakukan interaksi dengan semua hewan yang ada di cage yang sama. Cage memiliki posisi pos dan nomor cnumber
+		 * \param pos posisi cage
+		 * \param cnumber nomor cage
+		 */
 		void InteractCage(pair<int, int> pos, int cnumber);
 
 	private:

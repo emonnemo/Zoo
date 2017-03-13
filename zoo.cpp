@@ -372,8 +372,7 @@ void Zoo::AddAnimal(Animal* a) {
           }
         }
       }
-      if (0.3*max >= (count+1) && compatible) { // masih muat cagenya
-        cout << "pushed" << endl;
+      if(0.3*max>=(count+1) && compatible){ // masih muat cagenya
         Animals.push_back(a);
         Cells[posx][posy]->SetSymbol(a->GetLegend());
       }
@@ -472,11 +471,8 @@ void Zoo::MoveAnimal(pair<int, int> pos, int direction) {
       if (valid) {
         if (FindAnimal(make_pair(i,j)) == Animals.end()) {
           (*it)->Move(direction);
-          cout << (*it)->GetID() << endl;
-          Cells[pos.first][pos.second]->
-          SetSymbol(Cells[pos.first][pos.second]->GetInitSymbol());
-          Cells[(*it)->GetPos().first][(*it)->
-          GetPos().second]->SetSymbol((*it)->GetLegend());
+          Cells[pos.first][pos.second]->SetSymbol(Cells[pos.first][pos.second]->GetInitSymbol());
+          Cells[(*it)->GetPos().first][(*it)->GetPos().second]->SetSymbol((*it)->GetLegend());
         }
       }
     }
@@ -495,8 +491,15 @@ void Zoo::MoveAnimal(string _ID, int _id, int direction) {
   }
 }
 
-void Zoo::ToggleSekat(int i, int j, int direction) {
-  if (i >= 0 && i < width && j >= 0 && j < length) {
+void Zoo::MoveAllAnimal(){
+  srand(time(NULL));
+  for (list<Animal*>::iterator it = Animals.begin(); it != Animals.end(); ++it){
+    MoveAnimal((*it)->GetPos(), rand()%4);
+  }
+}
+
+void Zoo::ToggleSekat(int i, int j, int direction){
+  if (i >=0 && i < width && j >= 0 && j < length){
     char c = Cells[i][j]->GetInitSymbol();
     if (c == 'W' || c == 'L' || c == 'A') {
       switch (direction) {
@@ -537,7 +540,17 @@ void Zoo::ToggleSekat(int i, int j, int direction) {
   }
 }
 
-void Zoo::Tour() {
+void Zoo::ToggleAllSekat(){
+  for (int i = 0; i < width; ++i){
+    for (int j = 0; j < length; ++j){
+      for (int k = 0; k < 4; ++k){
+        ToggleSekat(i, j, k);
+      }
+    }
+  }
+}
+
+void Zoo::Tour(){
   set<pair<int,int>> entrance;
   bool vis[width][length];
   for (int i = 0; i < width; ++i) {
@@ -548,20 +561,17 @@ void Zoo::Tour() {
       vis[i][j] = false;
     }
   }
-  cout << "Search entrance done" << endl;
   srand(time(NULL));
   int selection = rand() % entrance.size();
   set<pair<int,int>>::iterator it = entrance.begin();
   for (int i = 0; i < selection; ++i) {
     ++it;
   }
-  cout << "Selection done" << endl;
   stack<pair<int,int>> dstack;
   list<int> route;
   dstack.push(*it);
   bool found = false;
-  cout << "Start searching route" << endl;
-  while (!found) {
+  while (!found){
     int i = dstack.top().first, j = dstack.top().second;
     vis[i][j] = true;
     if (Cells[i][j]->GetSymbol() == 'X') {
