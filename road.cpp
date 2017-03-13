@@ -3,25 +3,25 @@
 
 using namespace std;
 
-Road::Road(){
+Road::Road() {
   symbol = 'r';
   initsymbol = 'r';
 }
 
-Road::Road(char t){
+Road::Road(char t) {
   symbol = t;
   initsymbol = t;
 }
 
-Road::~Road(){
+Road::~Road() {
 
 }
 
 
-void Road::ToggleSekat(int direction){
+void Road::ToggleSekat(int direction) {
 
 }
     
-bool Road::GetSekat(int direction) const{
+bool Road::GetSekat(int direction) const {
   return false;
 }
