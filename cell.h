@@ -12,7 +12,7 @@ using namespace std;
   * Kelas abstrak cell.
   */
 class Cell{
-  public  :
+  public:
     /** \brief Constructor.
       * Menciptakan cell dengan symbol "-".
       */
@@ -50,7 +50,7 @@ class Cell{
      * \param os output stream.
      * \param c Cell yang ingin dioutput. 
      */
-    friend ostream& operator<< (ostream& os, const Cell& c);
+    friend ostream& operator<<(ostream& os, const Cell& c);
 
     /**
      * \brief GetInitSymbol.
@@ -82,7 +82,7 @@ class Cell{
     //Tidak diimplementasi
     virtual void Interact() const;
 
-  protected :
+  protected:
     char initsymbol;
     char symbol;
 };

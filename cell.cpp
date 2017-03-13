@@ -3,44 +3,42 @@
 
 using namespace std;
 
-Cell::Cell(){
-  
-}
+Cell::Cell() {}
 
-Cell::Cell(char c){
+Cell::Cell(char c) {
   initsymbol = c;
   symbol = c;
 }
 
-Cell::~Cell(){
+Cell::~Cell() {
 
 }
 
-ostream& operator<< (ostream& os, const Cell& c){
+ostream& operator<<(ostream& os, const Cell& c) {
   os << c.symbol;
   return os;
 }
 
-char Cell::GetInitSymbol() const{
+char Cell::GetInitSymbol() const {
   return initsymbol;
 }
 
-char Cell::GetSymbol() const{
+char Cell::GetSymbol() const {
   return symbol;
 }
 
-void Cell::SetSymbol(char s){
+void Cell::SetSymbol(char s) {
   symbol = s;
 }
 
-void Cell::ToggleSekat(int direction){
+void Cell::ToggleSekat(int direction) {
 
 }
     
-bool Cell::GetSekat(int direction) const{
+bool Cell::GetSekat(int direction) const {
   return false;
 }
 
-void Cell::Interact() const{
+void Cell::Interact() const {
   
 }
