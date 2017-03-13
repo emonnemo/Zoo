@@ -21,7 +21,7 @@ int main(){
 		z = temp;
 	}
 	do{
-		Menu m;	
+		Menu m;
 		switch (m.GetOption()){
 			case '1':
 				z.Display(0, 0, width-1, length-1);
