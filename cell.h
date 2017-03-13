@@ -51,7 +51,7 @@ class Cell: public Renderable{
      * \param os output stream.
      * \param c Cell yang ingin dioutput. 
      */
-    friend ostream& operator<< (ostream& os, const Cell& c);
+    friend ostream& operator<<(ostream& os, const Cell& c);
 
     /**
      * \brief GetInitSymbol.
@@ -89,7 +89,7 @@ class Cell: public Renderable{
     //Tidak diimplementasi
     virtual void Interact() const;
 
-  protected :
+  protected:
     char initsymbol;
     char symbol;
 };
