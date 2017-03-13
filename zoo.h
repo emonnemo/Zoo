@@ -3,6 +3,7 @@
 #ifndef ZOO_H
 #define ZOO_H
 
+#include "renderable.h"
 #include "animal.h"
 #include "realAnimals/wolf.h"
 #include "cell.h"
@@ -13,7 +14,7 @@ using namespace std;
 /** @class Zoo
   * Kelas Zoo yang berisi kebun binatang itu sendiri beserta hewan-hewannya
   */
-class Zoo{
+class Zoo: public Renderable {
 	public:
 		/**
 		  * \brief Constructor
