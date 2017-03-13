@@ -3,4 +3,4 @@
 #docs folder
 docs/*
 #driver
-*.c
+*.csh
