@@ -1,5 +1,5 @@
-/* Author    : Andika Kusuma / 13515033
- * File      : animal.cpp
+/* Author		: Andika Kusuma / 13515033
+ * File			: animal.cpp
  */
 
 #include "animal.h"
@@ -7,10 +7,16 @@
 using namespace std;
 
 Animal::Animal(){
-  
+
 }
 
-Animal::Animal(string _ID, int _id, char _legend, float _weight, float _eat, char _type, pair<int,int> _position){
+Animal::Animal(string _ID,
+               int _id,
+               char _legend,
+               float _weight,
+               float _eat,
+               char _type,
+               pair<int,int> _position) {
   ID = _ID;
   id = _id;
   legend = _legend;
@@ -21,7 +27,7 @@ Animal::Animal(string _ID, int _id, char _legend, float _weight, float _eat, cha
   position.second = _position.second;
 }
 
-Animal::Animal(const Animal& a){
+Animal::Animal(const Animal& a) {
   ID = a.ID;
   id = a.id;
   legend = a.legend;
@@ -33,11 +39,9 @@ Animal::Animal(const Animal& a){
   habitat = a.habitat;
 }
 
-Animal::~Animal(){
+Animal::~Animal() {}
 
-}
-
-Animal& Animal::operator=(const Animal& a){
+Animal& Animal::operator=(const Animal& a) {
   ID = a.ID;
   id = a.id;
   legend = a.legend;
@@ -78,24 +82,24 @@ char Animal::GetLegend() const {
   return legend;
 }
 
-set<char> Animal::GetHabitat() const{
+set<char> Animal::GetHabitat() const {
   return habitat;
 }
 
-void Animal::SetPos(pair<int,int> _position){
+void Animal::SetPos(pair<int,int> _position) {
   position.first=_position.first;
   position.second = _position.second;
 }
 
-void Animal::SetWeight(float _weight){
+void Animal::SetWeight(float _weight) {
   weight = _weight;
 }
 
-void Animal::AddCompatible(string ID){
+void Animal::AddCompatible(string ID) {
   compatible.insert(ID);
 }
 
-void Animal::DelCompatible(string ID){
+void Animal::DelCompatible(string ID) {
   compatible.erase(ID);
 }
 
@@ -103,23 +107,30 @@ set<string> Animal::GetCompatible() const {
   return compatible;
 }
 
-void Animal::Act() const{
-
-}
+void Animal::Act() const {}
 
 void Animal::Interact() const {
   cout << "interact" << endl;
 }
 
-void Animal::Description(string a) const{
+void Animal::Description(string a) const {
   cout << "This is a(n) " << a << " called " << ID << "-";
-  if (id < 10){
+  if (id < 10) {
     cout << "0"; 
   }
-  cout << id  << ". It weights " << weight << " kilograms. It eats " << eat*weight << " kilograms of " << (type=='K'?"meats":(type=='O'?"meats and vegetables":"vegetables")) << endl;
+  cout << id << ". It weights " << weight << " kilograms. It eats ";
+  cout << eat*weight << " kilograms of ";
+  if (type == 'K') {
+    cout << "meats";
+  } else if (type == 'O') {
+  	cout << "meats and vegetables";
+  } else {
+  	cout << "vegetables";
+  }
+  cout << endl;
 }
 
-void Animal::Move(int direction){
+void Animal::Move(int direction) {
   switch(direction){
     case 0:
       position.first--;
