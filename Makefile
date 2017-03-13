@@ -1,7 +1,7 @@
 CXX = g++
 CFLAGS = -g -Wall -std=c++11
-driver: driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o dLizard.o colugo.o sgrGlider.o
-	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o dLizard.o colugo.o sgrGlider.o
+driver: driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sgrGlider.o
+	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sgrGlider.o
 	
 cell.o: cell.cpp cell.h
 	$(CXX) $(CFLAGS) -c cell.cpp
@@ -96,8 +96,8 @@ goose.o: realAnimals/goose.cpp
 crane.o: realAnimals/crane.cpp
 	$(CXX) $(CFLAGS) -c realAnimals/crane.cpp
 
-dLizard.o: realAnimals/dLizard.cpp
-	$(CXX) $(CFLAGS) -c realAnimals/dLizard.cpp
+draco_lizard.o: realAnimals/draco_lizard.cpp
+	$(CXX) $(CFLAGS) -c realAnimals/draco_lizard.cpp
 
 colugo.o: realAnimals/colugo.cpp
 	$(CXX) $(CFLAGS) -c realAnimals/colugo.cpp

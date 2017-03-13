@@ -1,7 +1,7 @@
-//File dLizard.h
+//File draco_lizard.h
 
-#ifndef DLIZARD_H
-#define DLIZARD_H
+#ifndef DRACO_LIZARD_H
+#define DRACO_LIZARD_H
 
 #include "../animal.h"
 #include <iostream>
@@ -9,10 +9,10 @@
 using namespace std;
 
 /**
- * \class DLizard
+ * \class Draco_Lizard
  * \details real class dari animal, yaitu kadal terbang
  */
-class DLizard: public Animal {
+class Draco_Lizard: public Animal {
 public:
 	/**
 	 * \brief Constructor default weight
@@ -21,7 +21,7 @@ public:
 	 * \param _weight berat badan
 	 * \param _position posisi kadal terbang
 	 */
-	DLizard(pair<int,int> _position);
+	Draco_Lizard(pair<int,int> _position);
 	/**
 	 * \brief Constructor dengan weight
 	 * \details Menciptakan objek kadal terbang dengan weight sebagai parameter
@@ -29,38 +29,38 @@ public:
 	 * \param _weight berat badan
 	 * \param _position posisi kadal terbang
 	 */
-	DLizard(float _weight, pair<int,int> _position);
+	Draco_Lizard(float _weight, pair<int,int> _position);
 	/**
-	 * \brief Destructor
+	 * \brief DestructorD
 	 */
-	~DLizard();
+	~Draco_Lizard();
 	/**
 	 * \brief Copy Constructor
 	 * \details copy constructor, menjamin tidak bitwise copy
 	 * 
-	 * \param d DLizard yang ingin dikopi
+	 * \param d Draco_Lizard yang ingin dikopi
 	 */
-	DLizard(const DLizard& d);
+	Draco_Lizard(const Draco_Lizard& d);
 	/**
 	 * \brief Operator =
 	 * \details operator=, menjamin tidak bitwise copy
 	 * 
-	 * \param d DLizard yang ingin dikopi
-	 * \return DLizard yang sama dengan d
+	 * \param d Draco_Lizard yang ingin dikopi
+	 * \return Draco_Lizard yang sama dengan d
 	 */
-	DLizard& operator= (const DLizard& d);
+	Draco_Lizard& operator= (const Draco_Lizard& d);
 	/**
 	 * \brief Act
-	 * \details DLizard's behaviour
+	 * \details Draco_Lizard's behaviour
 	 */
 	void Act() const;
 	/**
 	 * \brief Interact
-	 * \details mengoutput hasil interaksi dengan DLizard
+	 * \details mengoutput hasil interaksi dengan Draco_Lizard
 	 */
 	void Interact() const;
 private:
-	static int dLizardNB;
+	static int dracoLizardNB;
 	const float food = 0.2;
 };
 
