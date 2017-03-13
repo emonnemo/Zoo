@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
 	char option;
-	int width = 16, length = 0;
+	int width = 33, length = 32;
 	Zoo z;
 	do{
 		cout << "Auto generate zoo? (y/n) ";

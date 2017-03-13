@@ -23,7 +23,7 @@ class Zoo{
 		  * \param w width lebar kebun binatang, default 16
 		  * \param l length panjang kebun binatang, default 6
 		  */
-		Zoo(bool = 1 , int = 16, int = 6);
+		Zoo(bool = 1 , int = 33, int = 32);
 
 		/** @brief cctor
 		  */
