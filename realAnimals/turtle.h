@@ -61,7 +61,7 @@ public:
   void Interact() const;
 private:
   static int TurtleNB;
-  const float food = 0.2;
+  const float food = 0.05;
 };
 
 #endif
