@@ -2,3 +2,5 @@
 *.o
 #docs folder
 docs/*
+#driver
+*.c
