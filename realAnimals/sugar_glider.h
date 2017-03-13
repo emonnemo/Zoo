@@ -1,7 +1,7 @@
-//File sgrGlider.h
+//File sugar_glider.h
 
-#ifndef SGRGLIDER_H
-#define SGRGLIDER_H
+#ifndef SUGAR_GLIDER_H
+#define SUGAR_GLIDER_H
 
 #include "../animal.h"
 #include <iostream>
@@ -9,10 +9,10 @@
 using namespace std;
 
 /**
- * \class SgrGlider
+ * \class Sugar_Glider
  * \details real class dari animal, yaitu sugar glider
  */
-class SgrGlider: public Animal {
+class Sugar_Glider: public Animal {
 public:
 	/**
 	 * \brief Constructor default weight
@@ -21,7 +21,7 @@ public:
 	 * \param _weight berat badan
 	 * \param _position posisi sugar glider
 	 */
-	SgrGlider(pair<int,int> _position);
+	Sugar_Glider(pair<int,int> _position);
 	/**
 	 * \brief Constructor dengan weight
 	 * \details Menciptakan objek sugar glider dengan weight sebagai parameter
@@ -29,38 +29,38 @@ public:
 	 * \param _weight berat badan
 	 * \param _position posisi sugar glider
 	 */
-	SgrGlider(float _weight, pair<int,int> _position);
+	Sugar_Glider(float _weight, pair<int,int> _position);
 	/**
 	 * \brief Destructor
 	 */
-	~SgrGlider();
+	~Sugar_Glider();
 	/**
 	 * \brief Copy Constructor
 	 * \details copy constructor, menjamin tidak bitwise copy
 	 * 
-	 * \param s SgrGlider yang ingin dikopi
+	 * \param s Sugar_Glider yang ingin dikopi
 	 */
-	SgrGlider(const SgrGlider& s);
+	Sugar_Glider(const Sugar_Glider& s);
 	/**
 	 * \brief Operator =
 	 * \details operator=, menjamin tidak bitwise copy
 	 * 
-	 * \param s SgrGlider yang ingin dikopi
-	 * \return SgrGlider yang sama dengan s
+	 * \param s Sugar_Glider yang ingin dikopi
+	 * \return Sugar_Glider yang sama dengan s
 	 */
-	SgrGlider& operator= (const SgrGlider& s);
+	Sugar_Glider& operator= (const Sugar_Glider& s);
 	/**
 	 * \brief Act
-	 * \details SgrGlider's behaviour
+	 * \details Sugar_Glider's behaviour
 	 */
 	void Act() const;
 	/**
 	 * \brief Interact
-	 * \details mengoutput hasil interaksi dengan SgrGlider
+	 * \details mengoutput hasil interaksi dengan Sugar_Glider
 	 */
 	void Interact() const;
 private:
-	static int sgrGliderNB;
+	static int sugarGliderNB;
 	const float food = 0.5;
 };
 
