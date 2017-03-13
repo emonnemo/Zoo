@@ -50,6 +50,6 @@ void MorayEel::Act() const {
 }
 
 void MorayEel::Interact() const {
-  Description("morayeel");
+  Description("moray eel");
   Act();
 }
