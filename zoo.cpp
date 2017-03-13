@@ -315,8 +315,11 @@ list<Animal*>::iterator Zoo::FindAnimal(pair<int,int> pos){
 	
 }
 
-void Zoo::AddAnimal(Animal& animal){
-	Animal* a = new Animal(animal);
+void Zoo::AddAnimal(Animal* animal){
+	Animal* a;
+	if (animal->GetID() == "WF"){
+		a = new Wolf (animal);
+	}
  	int posx = a->GetPos().first;
 	int posy = a->GetPos().second;
 	int cage = CageM[posx][posy];
