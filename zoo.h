@@ -14,7 +14,7 @@ using namespace std;
 /** @class Zoo
   * Kelas Zoo yang berisi kebun binatang itu sendiri beserta hewan-hewannya
   */
-class Zoo: public Renderable {
+class Zoo{
 	public:
 		/**
 		  * \brief Constructor

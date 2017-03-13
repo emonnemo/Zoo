@@ -5,13 +5,14 @@
 #ifndef CELL_H
 #define CELL_H
 
+#include "renderable.h"
 #include <iostream>
 
 using namespace std;
 /** \class Cell.
   * Kelas abstrak cell.
   */
-class Cell{
+class Cell: public Renderable{
   public  :
     /** \brief Constructor.
       * Menciptakan cell dengan symbol "-".
@@ -72,6 +73,12 @@ class Cell{
      * \param s symbol yang baru.
      */
     void SetSymbol(char s);
+
+    /**
+     * \brief Render
+     * \details Menampilkan represetnasi cell pada layar
+     */
+    void Render();
 
     //Tidak diimplementtasi
     virtual void ToggleSekat(int direction);

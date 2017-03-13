@@ -1,9 +1,9 @@
 CXX = g++
 CFLAGS = -g -Wall -std=c++11
-driver: driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sgrGlider.o
-	$(CXX) $(CFLAGS) -o driver driver.o facility.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sgrGlider.o
+driver: driver.o facility.o renderable.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sgrGlider.o
+	$(CXX) $(CFLAGS) -o driver driver.o facility.o renderable.o cell.o road.o restaurant.o park.o zoo.o animal.o habitat.o wolf.o lion.o zebra.o elephant.o hog.o macaque.o shark.o morayeel.o dugong.o turtle.o dolphin.o whale.o eagle.o owl.o hummingbird.o cockatoo.o robin.o bat.o penguin.o hippopotamus.o pelican.o goose.o crane.o draco_lizard.o colugo.o sgrGlider.o
 	
-cell.o: cell.cpp cell.h
+cell.o: cell.cpp cell.h renderable.h
 	$(CXX) $(CFLAGS) -c cell.cpp
 
 facility.o: facility.cpp facility.h cell.h
@@ -104,6 +104,9 @@ colugo.o: realAnimals/colugo.cpp
 
 sgrGlider.o: realAnimals/sgrGlider.cpp
 	$(CXX) $(CFLAGS) -c realAnimals/sgrGlider.cpp
-						
+
+renderable.o: renderable.cpp
+	$(CXX) $(CFLAGS) -c renderable.cpp			
+
 clean: 
 	$(RM) count *.o *~

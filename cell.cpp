@@ -33,6 +33,10 @@ void Cell::SetSymbol(char s){
   symbol = s;
 }
 
+void Cell::Render(){
+	cout << symbol;
+}
+
 void Cell::ToggleSekat(int direction){
 
 }
