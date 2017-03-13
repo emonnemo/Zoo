@@ -29,8 +29,8 @@ int main(){
 	b[21] = (char *)"realAnimals/colugo.cpp";
 	b[22] = (char *)"realAnimals/crane.h";
 	b[23] = (char *)"realAnimals/crane.cpp";
-	b[24] = (char *)"realAnimals/dLizard.h";
-	b[25] = (char *)"realAnimals/dLizard.cpp";
+	b[24] = (char *)"realAnimals/draco_Lizard.h";
+	b[25] = (char *)"realAnimals/draco_Lizard.cpp";
 	b[26] = (char *)"realAnimals/dolphin.h";
 	b[27] = (char *)"realAnimals/dolphin.cpp";
 	b[28] = (char *)"realAnimals/dugong.h";
