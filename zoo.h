@@ -3,6 +3,7 @@
 #ifndef ZOO_H
 #define ZOO_H
 
+#include "renderable.h"
 #include "animal.h"
 #include "realAnimals/wolf.h"
 #include "cell.h"
@@ -49,7 +50,7 @@ class Zoo{
 
 		list<Animal*>::iterator FindAnimal(pair<int,int> pos);
 
-		void AddAnimal(Animal* a);
+		void AddAnimal(Animal* animal);
 
 		/**
 		 * \brief DelAnimal dengan ID
@@ -139,7 +140,6 @@ class Zoo{
 		list<Animal*> Animals;
 		int** CageM;
 		int NBCage;
-
 };
 
 #endif

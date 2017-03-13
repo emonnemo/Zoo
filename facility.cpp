@@ -4,22 +4,22 @@
 
 using namespace std;
 
-Facility::Facility(){
-	
+Facility::Facility() {
+  
 }
 
-Facility::~Facility(){
+Facility::~Facility() {
 
 }
 
-void Facility::Interact() const{
-	
+void Facility::Interact() const {
+  
 }
 
-void Facility::ToggleSekat(int direction){
+void Facility::ToggleSekat(int direction) {
 
 }
-		
-bool Facility::GetSekat(int direction) const{
-	return false;
+    
+bool Facility::GetSekat(int direction) const {
+  return false;
 }

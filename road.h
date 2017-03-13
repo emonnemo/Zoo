@@ -1,5 +1,5 @@
-/* Author		: Andika Kusuma / 13515033
- * File			: road.h
+/* Author    : Andika Kusuma / 13515033
+ * File      : road.h
  */
 
 #ifndef ROAD_H
@@ -14,29 +14,29 @@ using namespace std;
   */
 class Road : public Facility{
 public :
-	/** \brief Constructor tanpa parameter
-	  * \details Menciptakan road dengan type=r (road biasa)
-	  */
-	Road();
+  /** \brief Constructor tanpa parameter
+    * \details Menciptakan road dengan type=r (road biasa)
+    */
+  Road();
 
-	/**
-	 * \brief Constructor dengan parameter
-	 * \details Menciptakan road dengan type=t
-	 * \param t type road (r untuk road biasa, n untuk entrance, dan x untuk exit);
-	 */
-	Road(char t);
+  /**
+   * \brief Constructor dengan parameter
+   * \details Menciptakan road dengan type=t
+   * \param t type road (r untuk road biasa, n untuk entrance, dan x untuk exit);
+   */
+  Road(char t);
 
-	/** \brief Destructor.
-	  */
-	~Road();
+  /** \brief Destructor.
+    */
+  ~Road();
 
-	//Tidak diimplementtasi
-	void ToggleSekat(int direction);
-		
-	//Tidak diimplementasi
-	bool GetSekat(int direction) const;
+  //Tidak diimplementtasi
+  void ToggleSekat(int direction);
+    
+  //Tidak diimplementasi
+  bool GetSekat(int direction) const;
 private :
-	char type;
+  char type;
 };
 
 #endif

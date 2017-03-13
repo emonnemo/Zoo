@@ -58,7 +58,7 @@ void Draco_Lizard::Act() const {
 	if (id < 10){
 		cout << "0"; 
 	}
-	cout << id	<< ": *jump*" << enDraco_L;
+	cout << id	<< ": *jump*" << endl;
 }
 
 void Draco_Lizard::Interact() const {
