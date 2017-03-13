@@ -840,7 +840,7 @@ void Zoo::MoveAnimal(string _ID, int _id, int direction) {
 void Zoo::MoveAllAnimal(){
   srand(time(NULL));
   for (list<Animal*>::iterator it = Animals.begin(); it != Animals.end(); ++it){
-    MoveAnimal((*it)->GetPos(), rand()%4);
+    MoveAnimal((*it)->GetPos(), (rand()%4));
   }
 }
 
@@ -889,7 +889,7 @@ void Zoo::ToggleSekat(int i, int j, int direction){
 void Zoo::ToggleAllSekat(){
   for (int i = 0; i < width; ++i){
     for (int j = 0; j < length; ++j){
-      for (int k = 0; k < 4; ++k){
+      for (int k = 0; k < 2; ++k){
         ToggleSekat(i, j, k);
       }
     }
