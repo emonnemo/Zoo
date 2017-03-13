@@ -10,6 +10,7 @@ int Bat::batNB = 0;
 Bat::Bat(pair<int,int> _position): Animal("BT",++batNB,'*',0.15,food,'O',_position) {
 	eat = food;
 	habitat.insert('A');
+	msg = " ";
 	compatible.insert("HMB");
 	compatible.insert("CKT");
 	compatible.insert("RBN");
