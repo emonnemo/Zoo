@@ -65,7 +65,7 @@ class Zoo {
       */
     Zoo& operator=(const Zoo& z);
 
-    /** \brief Render
+    /** \brief Display
       * \details Menampilkan kebun binatang ke layar
       */
     void Display(int x1, int y1, int x2, int y2);
