@@ -83,7 +83,7 @@ class Zoo{
 		 * \param _ID ID jenis hewan
 		 * \param id no pada jenis hewan tersebut
 		 */
-		void DelAnimal(string _ID, int _id);
+		void DelAnimal(string _id, int _number);
 
 		/**
 		 * \brief DelAnimal
@@ -124,7 +124,7 @@ class Zoo{
 		 * \param id no id pada jenis hewan
 		 * \param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
 		 */
-		void MoveAnimal(string _ID, int _id, int direction);
+		void MoveAnimal(string _id, int _number, int direction);
 
 		/**
 		 * \brief MoveAllAnimal
@@ -156,11 +156,11 @@ class Zoo{
 
 		/**
 		 * \brief InteractCage
-		 * \details Melakukan interaksi dengan semua hewan yang ada di cage yang sama. Cage memiliki posisi pos dan nomor cnumber
+		 * \details Melakukan interaksi dengan semua hewan yang ada di cage yang sama. Cage memiliki posisi pos dan nomor cage_number
 		 * \param pos posisi cage
-		 * \param cnumber nomor cage
+		 * \param cage_number nomor cage
 		 */
-		void InteractCage(pair<int, int> pos, int cnumber);
+		void InteractCage(pair<int, int> pos, int cage_number);
 
 	private:
 		const int width;
