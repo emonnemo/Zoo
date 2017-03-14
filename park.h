@@ -12,10 +12,10 @@ using namespace std;
 /** \brief Class Park
   * \details Kelas Park turunan dari kelas facility berupa taman di zoo
   */
-class Park : public Facility {
+class Park: public Facility {
 public:
   /** @brief Constructor tanpa parameter
-    * Menciptakan park yang berisi plant string kosong
+    * \details Menciptakan park yang berisi plant string kosong
     */
   Park();
 
@@ -50,14 +50,26 @@ public:
    */
   void Interact() const;
 
-  //Tidak diimplementtasi
+  /**
+   * \brief ToggleSekat
+   * \details Memasang atau menghilangkan sekat antar-Cell;
+   * tidak diimplementasi pada class ini, hanya pendukung ABC Cell dan Facility
+   * 
+   * \param direction arah yang ingin dibuka
+   */
   void ToggleSekat(int direction);
     
-  //Tidak diimplementasi
+  /**
+   * \brief GetSekat
+   * \details Mengecek apakah ke arah direction terdapat sekat;
+   * tidak diimplementasi pada class ini, hanya pendukung ABC Cell dan Facility
+   * 
+   * \param direction arah yang ingin dicek
+   */
   bool GetSekat(int direction) const;
 
 private:
-  string plant;
+  string plant; /**< tanaman yang ditanam di taman*/
 };
 
 #endif

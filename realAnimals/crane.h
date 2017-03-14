@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek Crane dengan default weight untuk Crane 
    * 
-   * \param _weight berat badan
    * \param _position posisi Crane
    */
   Crane(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int crane_nb;
-  const float food = 0.3;
+  static int crane_nb; /**< jumlah Crane yang sudah pernah terbentuk*/
+  const float food = 0.3; /**< persentase makanan yang dimakan Crane*/
 };
 
 #endif

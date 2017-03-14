@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek babi hutan dengan default weight untuk babi hutan 
    * 
-   * \param _weight berat badan
    * \param _position posisi babi hutan
    */
   Hog(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int hog_nb;
-  const float food = 0.2;
+  static int hog_nb; /**< jumlah Hog yang sudah pernah terbentuk*/
+  const float food = 0.2; /**< persentase makanan yang dimakan Hog*/
 };
 
 #endif

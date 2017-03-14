@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek kuda nil dengan default weight untuk kuda nil 
    * 
-   * \param _weight berat badan
    * \param _position posisi kuda nil
    */
   Hippopotamus(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int hippopotamus_nb;
-  const float food = 0.65;
+  static int hippopotamus_nb; /**< jumlah Hippopotamus yang sudah pernah terbentuk*/
+  const float food = 0.65; /**< persentase makanan yang dimakan Hippopotamus*/
 };
 
 #endif

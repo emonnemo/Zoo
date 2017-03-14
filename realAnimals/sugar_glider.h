@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek sugar glider dengan default weight untuk sugar glider 
    * 
-   * \param _weight berat badan
    * \param _position posisi sugar glider
    */
   SugarGlider(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int sugar_glider_nb;
-  const float food = 0.5;
+  static int sugar_glider_nb; /**< jumlah SugarGlider yang sudah pernah terbentuk*/
+  const float food = 0.5; /**< persentase makanan yang dimakan SugarGlider*/
 };
 
 #endif

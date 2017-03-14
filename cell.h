@@ -61,7 +61,7 @@ class Cell: public Renderable {
     /**
      * \brief ToggleSekat
      * \details Memasang atau menghilangkan sekat antar-Cell;
-     * tidak diimplementasi
+     * tidak diimplementasi pada class ini
      * 
      * \param direction arah yang ingin dibuka
      */
@@ -70,22 +70,21 @@ class Cell: public Renderable {
     /**
      * \brief GetSekat
      * \details Mengecek apakah ke arah direction terdapat sekat;
-     * tidak diimplementasi
+     * tidak diimplementasi pada class ini
      * 
      * \param direction arah yang ingin dicek
-     * \return true jika ada sekat, false jika tidak
      */
     virtual bool GetSekat(int direction) const = 0;
 
     /**
      * \brief Interact
-     * \details Interaksi dengan Cell; tidak diimplementasi
+     * \details Interaksi dengan Cell; tidak diimplementasi pada class ini
      */
     virtual void Interact() const = 0;
 
   protected:
-    char initsymbol;
-    char symbol;
+    char initsymbol; /**< simbol asli untuk sel dengan jenis tertentu*/
+    char symbol; /**< simbol yang akan ditampilkan pada layar (dapat dioverwrite animal)*/
 };
 
 #endif

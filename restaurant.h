@@ -41,7 +41,7 @@ public:
   /**
    * \brief GetOpen
    * \details Mengembalikan status restoran
-   * \return bool true jika buka, false jika tutu
+   * \return bool true jika buka, false jika tutup
    */
   bool GetOpen() const;
 
@@ -64,15 +64,27 @@ public:
    */
   void Interact() const;
 
-  //Tidak diimplementtasi
+  /**
+   * \brief ToggleSekat
+   * \details Memasang atau menghilangkan sekat antar-Cell;
+   * tidak diimplementasi pada class ini, hanya pendukung ABC Cell dan Facility
+   * 
+   * \param direction arah yang ingin dibuka
+   */
   void ToggleSekat(int direction);
     
-  //Tidak diimplementasi
+  /**
+   * \brief GetSekat
+   * \details Mengecek apakah ke arah direction terdapat sekat;
+   * tidak diimplementasi pada class ini, hanya pendukung ABC Cell dan Facility
+   * 
+   * \param direction arah yang ingin dicek
+   */
   bool GetSekat(int direction) const;
 
 private:
-  string food;
-  bool open;  
+  string food; /**< jenis makanan yang dijual di restoran*/
+  bool open; /**< penanda restoran buka atau tutup; true untuk buka, false untuk tutup*/
 };
 
 #endif

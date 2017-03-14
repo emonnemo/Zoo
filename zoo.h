@@ -44,29 +44,29 @@ class Zoo {
     /**
       * \brief Constructor
       * \details Mengenerate kebun binatang denangan list hewan kosong
-      * \param Auto, jika true maka kebun binatang akan digenerate secara otomatis, jika false maka kebun binatang didesain oleh pengguna
+      * \param Auto jika true maka kebun binatang akan digenerate secara otomatis, jika false maka kebun binatang didesain oleh pengguna
       * \param w width lebar kebun binatang, default 33
       * \param l length panjang kebun binatang, default 32
       */
     Zoo(bool = 1, int = 33, int = 32);
 
-    /** @brief Copy Constructor
+    /** \brief Copy Constructor
       * \details copy constructor, menjamin bukan bitwise copy
       */
     Zoo(const Zoo& z);
 
-    /** @brief Destructor
+    /** \brief Destructor
       */
     ~Zoo();
 
-    /** @brief Operator =
+    /** \brief Operator =
       * \details Menjamin bukan bitwise copy
       * \return Zoo yang sama dengan z
       */
     Zoo& operator=(const Zoo& z);
 
-    /** @brief Render
-      * Menampilkan kebun binatang ke layar
+    /** \brief Render
+      * \details Menampilkan kebun binatang ke layar
       */
     void Display(int x1, int y1, int x2, int y2);
 
@@ -79,15 +79,15 @@ class Zoo {
      */
     list<Animal*>::iterator FindAnimal(pair<int,int> pos);
 
-    /** @brief AddAnimal
+    /** \brief AddAnimal
       * \details Menambahkan hewan pada kebun binatang
-      * @param animal hewan yang akan ditambahkan
+      * \param animal hewan yang akan ditambahkan
       */
     void AddAnimal(Animal* animal);
 
     /**
      * \brief DelAnimal dengan id
-     * \details Menghapus hewan denagn id=_id dan number=_number
+     * \details Menghapus hewan dengan id=_id dan number=_number
      * \param _id id jenis hewan
      * \param _number nomor pada jenis hewan tersebut
      */
@@ -110,17 +110,15 @@ class Zoo {
 
     /**
      * \brief GetTotalVegetables
-    
      * \details mengeluarkan total sayur yang diperlukan di zoo dalam kilogram
      * \return Total sayur yang dibutuhkan zoo
      */
     float GetTotalVegetables() const;
 
-      /**
+    /**
      * \brief MoveAnimal dengan posisi
      * \details Menggerakkan animal dengan id=_id dan number=_number
-     * \param i posisi hewan pada width
-     * \param j posisi hewan pada length
+     * \param pos posisi hewan
      * \param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
      */
     void MoveAnimal(pair<int,int> pos, int direction);
@@ -129,7 +127,7 @@ class Zoo {
      * \brief MoveAnimal dengan id
      * \details Menggerakkan animal dengan id=_id dan number=_number ke arah sesuai direction sebanyak 1 langkah jika memungkinkan (tidak melewati sekat)
      * \param _id jenis hewan 
-     * \param number no number pada jenis hewan
+     * \param _number no number pada jenis hewan
      * \param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
      */
     void MoveAnimal(string _id, int _number, int direction);
@@ -171,12 +169,12 @@ class Zoo {
     void InteractCage(pair<int, int> pos, int cage_number);
 
   private:
-    const int width;
-    const int length;
-    Cell*** cells;
-    list<Animal*> animals;
-    int** cage_map;
-    int cage_nb;
+    const int width; /**< dimensi zoo; jumlah baris*/
+    const int length; /**< dimensi zoo; jumlah kolom*/
+    Cell*** cells; /**< matriks Cell yang dimiliki zoo*/
+    list<Animal*> animals; /**< daftar Animals yang ada dalam zoo*/
+    int** cage_map; /**< matriks penanda nomor cage dalam zoo*/
+    int cage_nb; /**< jumlah cage yang ada dalam zoo*/
 };
 
 #endif

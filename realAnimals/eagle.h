@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek elang dengan default weight untuk elang 
    * 
-   * \param _weight berat badan
    * \param _position posisi elang
    */
   Eagle(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int eagle_nb;
-  const float food = 0.7;
+  static int eagle_nb; /**< jumlah Eagle yang sudah pernah terbentuk*/
+  const float food = 0.7; /**< persentase makanan yang dimakan Eagle*/
 };
 
 #endif

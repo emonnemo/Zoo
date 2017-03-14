@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek paus dengan default weight untuk paus 
    * 
-   * \param _weight berat badan
    * \param _position posisi paus
    */
   Whale(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int whale_nb;
-  const float food = 0.1;
+  static int whale_nb; /**< jumlah Whale yang sudah pernah terbentuk*/
+  const float food = 0.1; /**< persentase makanan yang dimakan Whale*/
 };
 
 #endif

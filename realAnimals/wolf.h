@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek serigala dengan default weight untuk serigala 
    * 
-   * \param _weight berat badan
    * \param _position posisi serigala
    */
   Wolf(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int wolf_nb;
-  const float food = 0.2;
+  static int wolf_nb; /**< jumlah Wolf yang sudah pernah terbentuk*/
+  const float food = 0.2; /**< persentase makanan yang dimakan Wolf*/
 };
 
 #endif

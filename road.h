@@ -36,10 +36,22 @@ public:
      */
   void Interact() const;
 
-  //Tidak diimplementtasi
+  /**
+   * \brief ToggleSekat
+   * \details Memasang atau menghilangkan sekat antar-Cell;
+   * tidak diimplementasi pada class ini, hanya pendukung ABC Cell dan Facility
+   * 
+   * \param direction arah yang ingin dibuka
+   */
   void ToggleSekat(int direction);
     
-  //Tidak diimplementasi
+  /**
+   * \brief GetSekat
+   * \details Mengecek apakah ke arah direction terdapat sekat;
+   * tidak diimplementasi pada class ini, hanya pendukung ABC Cell dan Facility
+   * 
+   * \param direction arah yang ingin dicek
+   */
   bool GetSekat(int direction) const;
 };
 

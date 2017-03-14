@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek zebra dengan default weight untuk zebra 
    * 
-   * \param _weight berat badan
    * \param _position posisi zebra
    */
   Zebra(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int zebra_nb;
-  const float food = 0.3;
+  static int zebra_nb; /**< jumlah Zebra yang sudah pernah terbentuk*/
+  const float food = 0.3; /**< persentase makanan yang dimakan Zebra*/
 };
 
 #endif

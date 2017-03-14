@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek burung robin dengan default weight untuk burung robin 
    * 
-   * \param _weight berat badan
    * \param _position posisi burung robin
    */
   Robin(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int robin_nb;
-  const float food = 0.3;
+  static int robin_nb; /**< jumlah Robin yang sudah pernah terbentuk*/
+  const float food = 0.3; /**< persentase makanan yang dimakan Robin*/
 };
 
 #endif

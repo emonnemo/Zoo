@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek Goose dengan default weight untuk Goose 
    * 
-   * \param _weight berat badan
    * \param _position posisi Goose
    */
   Goose(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int goose_nb;
-  const float food = 0.3;
+  static int goose_nb; /**< jumlah Goose yang sudah pernah terbentuk*/
+  const float food = 0.3; /**< persentase makanan yang dimakan Goose*/
 };
 
 #endif

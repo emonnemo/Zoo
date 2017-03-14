@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek burung kakak tua dengan default weight untuk burung kakak tua 
    * 
-   * \param _weight berat badan
    * \param _position posisi burung kakak tua
    */
   Cockatoo(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int cockatoo_nb;
-  const float food = 0.3;
+  static int cockatoo_nb; /**< jumlah Cockatoo yang sudah pernah terbentuk*/
+  const float food = 0.3; /**< persentase makanan yang dimakan Cockatoo*/
 };
 
 #endif

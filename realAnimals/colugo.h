@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek lemur terbang Sunda dengan default weight untuk lemur terbang Sunda 
    * 
-   * \param _weight berat badan
    * \param _position posisi lemur terbang Sunda
    */
   Colugo(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int colugo_nb;
-  const float food = 0.25;
+  static int colugo_nb; /**< jumlah Colugo yang sudah pernah terbentuk*/
+  const float food = 0.25; /**< persentase makanan yang dimakan Colugo*/
 };
 
 #endif

@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek belut dengan default weight untuk belut 
    * 
-   * \param _weight berat badan
    * \param _position posisi belut
    */
   MorayEel(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int moray_eel_nb;
-  const float food = 0.2;
+  static int moray_eel_nb; /**< jumlah MorayEel yang sudah pernah terbentuk*/
+  const float food = 0.2; /**< persentase makanan yang dimakan MorayEel*/
 };
 
 #endif

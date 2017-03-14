@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek kadal terbang dengan default weight untuk kadal terbang 
    * 
-   * \param _weight berat badan
    * \param _position posisi kadal terbang
    */
   DracoLizard(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int draco_lizard_nb;
-  const float food = 0.2;
+  static int draco_lizard_nb; /**< jumlah DracoLizard yang sudah pernah terbentuk*/
+  const float food = 0.2; /**< persentase makanan yang dimakan DracoLizard*/
 };
 
 #endif

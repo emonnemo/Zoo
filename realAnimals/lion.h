@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek singa dengan default weight untuk singa 
    * 
-   * \param _weight berat badan
    * \param _position posisi singa
    */
   Lion(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int lion_nb;
-  const float food = 0.5;
+  static int lion_nb; /**< jumlah Lion yang sudah pernah terbentuk*/
+  const float food = 0.5; /**< persentase makanan yang dimakan Lion*/
 };
 
 #endif

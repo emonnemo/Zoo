@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek hiu dengan default weight untuk hiu 
    * 
-   * \param _weight berat badan
    * \param _position posisi hiu
    */
   Shark(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int shark_nb;
-  const float food = 0.2;
+  static int shark_nb; /**< jumlah Shark yang sudah pernah terbentuk*/
+  const float food = 0.2; /**< persentase makanan yang dimakan Shark*/
 };
 
 #endif

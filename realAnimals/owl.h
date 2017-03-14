@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek burung hantu dengan default weight untuk burung hantu 
    * 
-   * \param _weight berat badan
    * \param _position posisi burung hantu
    */
   Owl(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int owl_nb;
-  const float food = 0.3;
+  static int owl_nb; /**< jumlah Owl yang sudah pernah terbentuk*/
+  const float food = 0.3; /**< persentase makanan yang dimakan Owl*/
 };
 
 #endif

@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek kura-kura dengan default weight untuk kura-kura 
    * 
-   * \param _weight berat badan
    * \param _position posisi kura-kura
    */
   Turtle(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int turtle_nb;
-  const float food = 0.05;
+  static int turtle_nb; /**< jumlah Turtle yang sudah pernah terbentuk*/
+  const float food = 0.05; /**< persentase makanan yang dimakan Turtle*/
 };
 
 #endif

@@ -1,5 +1,5 @@
 PROJECT_NAME = 'Virtual Zoo'
-INPUT = .
+INPUT = . "realAnimals"
 OUTPUT_DIRECTORY = docs/
 GENERATE_HTML = YES
 HTML_OUTPUT = html/

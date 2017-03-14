@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek burung kiwi dengan default weight untuk burung kiwi 
    * 
-   * \param _weight berat badan
    * \param _position posisi burung kiwi
    */
   Hummingbird(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int hummingbird_nb;
-  const float food = 0.3;
+  static int hummingbird_nb; /**< jumlah Hummingbird yang sudah pernah terbentuk*/
+  const float food = 0.3; /**< persentase makanan yang dimakan Hummingbird*/
 };
 
 #endif

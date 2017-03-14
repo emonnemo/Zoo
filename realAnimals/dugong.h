@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek dugong dengan default weight untuk dugong 
    * 
-   * \param _weight berat badan
    * \param _position posisi dugong
    */
   Dugong(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int dugong_nb;
-  const float food = 0.2;
+  static int dugong_nb; /**< jumlah Dugong yang sudah pernah terbentuk*/
+  const float food = 0.2; /**< persentase makanan yang dimakan Dugong*/
 };
 
 #endif

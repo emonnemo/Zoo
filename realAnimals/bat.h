@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek kelelawar dengan default weight untuk kelelawar 
    * 
-   * \param _weight berat badan
    * \param _position posisi kelelawar
    */
   Bat(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int bat_nb;
-  const float food = 0.4;
+  static int bat_nb; /**< jumlah Bat yang sudah pernah terbentuk*/
+  const float food = 0.4; /**< persentase makanan yang dimakan Bat*/
 };
 
 #endif

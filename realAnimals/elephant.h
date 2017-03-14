@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek gajah dengan default weight untuk gajah 
    * 
-   * \param _weight berat badan
    * \param _position posisi gajah
    */
   Elephant(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int elephant_nb;
-  const float food = 0.7;
+  static int elephant_nb; /**< jumlah Elephant yang sudah pernah terbentuk*/
+  const float food = 0.7; /**< persentase makanan yang dimakan Elephant*/
 };
 
 #endif

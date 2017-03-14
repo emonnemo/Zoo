@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek penguin dengan default weight untuk penguin 
    * 
-   * \param _weight berat badan
    * \param _position posisi penguin
    */
   Penguin(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int penguin_nb;
-  const float food = 0.25;
+  static int penguin_nb; /**< jumlah Penguin yang sudah pernah terbentuk*/
+  const float food = 0.25; /**< persentase makanan yang dimakan Penguin*/
 };
 
 #endif

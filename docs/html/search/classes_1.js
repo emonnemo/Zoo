@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['b',['B',['../class_b.html',1,'']]]
+  ['bat',['Bat',['../class_bat.html',1,'']]]
 ];

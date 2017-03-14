@@ -18,7 +18,6 @@ public:
    * \brief Constructor default weight
    * \details Menciptakan objek monyet dengan default weight untuk monyet 
    * 
-   * \param _weight berat badan
    * \param _position posisi monyet
    */
   Macaque(pair<int,int> _position);
@@ -60,8 +59,8 @@ public:
    */
   void Interact() const;
 private:
-  static int macaque_nb;
-  const float food = 0.2;
+  static int macaque_nb; /**< jumlah Macaque yang sudah pernah terbentuk*/
+  const float food = 0.2; /**< persentase makanan yang dimakan Macaque*/
 };
 
 #endif

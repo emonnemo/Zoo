@@ -12,7 +12,7 @@ using namespace std;
 /** \brief Class Facility
   * \details Kelas abstrak facility turunan dari kelas cell berupa restoran, road, atau park
   */
-class Facility : public Cell {
+class Facility: public Cell {
 public:
     /**
      * \brief Constructor tanpa parameter.
@@ -27,26 +27,26 @@ public:
 
     /**
      * \brief Interact
-     * \details Menampilkan interaksi facility
+     * \details Menampilkan interaksi facility;
+     * tidak diimplementasi pada class ini
      */
     virtual void Interact() const = 0;
 
     /**
      * \brief ToggleSekat
      * \details Memasang atau menghilangkan sekat antar-Cell;
-     * tidak diimplementasi
+     * tidak diimplementasi pada class ini
      * 
      * \param direction arah yang ingin dibuka
      */
     virtual void ToggleSekat(int direction) = 0;
     
-     /**
+    /**
      * \brief GetSekat
      * \details Mengecek apakah ke arah direction terdapat sekat;
-     * tidak diimplementasi
+     * tidak diimplementasi pada class ini
      * 
      * \param direction arah yang ingin dicek
-     * \return true jika ada sekat, false jika tidak
      */
     virtual bool GetSekat(int direction) const = 0;
 };
