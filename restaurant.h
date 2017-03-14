@@ -9,8 +9,8 @@
 #include "facility.h"
 
 using namespace std;
-/** @class Restaurant
-  * Kelas restaurant turunan dari kelas facility berupa restoran di zoo
+/** \brief Class Restaurant
+  * \details Kelas restaurant turunan dari kelas facility berupa restoran di zoo
   */
 class Restaurant : public Facility {
 public:

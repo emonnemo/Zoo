@@ -9,7 +9,7 @@
 #include "facility.h"
 
 using namespace std;
-/** \class Road
+/** \brief Class Road
   * \details Kelas road turunan dari kelas facility berupa jalanan di zoo
   */
 class Road : public Facility {

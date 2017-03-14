@@ -36,7 +36,7 @@
 #include <queue>
 using namespace std;
 
-/** @class Zoo
+/** \brief Class Zoo
   * \details Kelas Zoo yang berisi kebun binatang itu sendiri beserta hewan-hewannya
   */
 class Zoo {

@@ -9,7 +9,7 @@
 #include "cell.h"
 
 using namespace std;
-/** \class Facility
+/** \brief Class Facility
   * \details Kelas abstrak facility turunan dari kelas cell berupa restoran, road, atau park
   */
 class Facility : public Cell {

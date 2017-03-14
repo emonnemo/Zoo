@@ -5,7 +5,7 @@
 #include <set>
 
 using namespace std;
-/** @class Animal
+/** \brief Class Animal
   * \details Kelas abstrak untuk hewan dalam zoo
   */
 class Animal {
@@ -29,19 +29,19 @@ class Animal {
            char _type,
            pair<int,int> _position);
 
-    /** @brief Destructor.
+    /** \brief Destructor.
       */
     virtual ~Animal();
 
-    /** @brief Copy Constructor
+    /** \brief Copy Constructor
       * \details copy constructor menjamin tidak bitwise copy.
-      * @param a Animal yang ingin di-copy
+      * \param a Animal yang ingin di-copy
       */
     Animal(const Animal& a);
 
-    /** @brief Operator =
+    /** \brief Operator =
       * \details operator sama dengan, menjamin tidak bitwise copy
-      * @param a Animal yang ingin di-copy
+      * \param a Animal yang ingin di-copy
       * \return Animal yang sama dengan a
       */
     Animal& operator=(const Animal& a); 
@@ -60,7 +60,7 @@ class Animal {
       */
     int GetNumber() const;
 
-    /** @brief GetWeight
+    /** \brief GetWeight
       * \details mengembalikan nilai weight dari suatu Animal
       */
     float GetWeight() const;
@@ -72,13 +72,13 @@ class Animal {
       */
     float GetEat() const;
 
-    /** @brief GetPos
+    /** \brief GetPos
       * \details mengembalikan nilai posisi dari suatu Animal
       * \return posisi Animal saat itu
       */
     pair<int,int> GetPos() const;
 
-    /** @brief GetType
+    /** \brief GetType
       * \details mengembalikan type dari suatu Animal
       * \return tipe dari Animal (karnivor, herbivor, omnivor)
       */
@@ -98,15 +98,15 @@ class Animal {
      */
     set<char> GetHabitat() const;
 
-    /** @brief SetWeight
+    /** \brief SetWeight
       * \details mengatur berat badan suatu Animal
-      * @param _weight nilai berat badan yang ingin  di tetapkan untuk suatu Animal
+      * \param _weight nilai berat badan yang ingin  di tetapkan untuk suatu Animal
       */
     void SetWeight(float _weight);
 
-    /** @brief SetPos
+    /** \brief SetPos
       * \details mengatur posisi suatu Animal
-      * @param _position nilai posisi yang ingin  di tetapkan untuk suatu Animal
+      * \param _position nilai posisi yang ingin  di tetapkan untuk suatu Animal
       */
     void SetPos(pair<int,int> _position);
 
@@ -145,15 +145,15 @@ class Animal {
     void Move(int direction);
 
     protected:
-      string id;
-      int number;
-      char legend;
-      float weight;
-      float eat;
-      char type;
-      pair<int,int> position;
-      set<string> compatible;
-      set<char> habitat;
+      string id; /**< identifier unik untuk jenis hewan tersebut*/
+      int number; /**< identifier unik untuk hewan pada jenisnya tersebut*/
+      char legend; /**< legenda hewan pada peta*/
+      float weight; /**< berat hewan tersebut dalam kilogram*/
+      float eat; /**< persentase makanan terhadap berat hewan*/
+      char type; /**< karnivor, herbivor, atau omnivor*/
+      pair<int,int> position; /**< posisi baris dan kolom hewan*/
+      set<string> compatible; /**< list jenis hewan lain yang dapat disatukan dengan hewan tersebut*/
+      set<char> habitat; /**< list habitat yang dapat ditinggali hewan*/
 };
 
 #endif

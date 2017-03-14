@@ -9,7 +9,7 @@
 #include <iostream>
 
 using namespace std;
-/** \class Cell.
+/** \brief Class Cell.
   * \details Kelas abstrak cell.
   */
 class Cell: public Renderable {
