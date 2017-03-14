@@ -1,0 +1,33 @@
+No. Habitat - Jenis - Animal - Kode - Berat - Act 	- Compatibility
+
+1. L - K - Wolf - WF - 45 - *howl*					- WF ELP HPP
+2. L - K - Lion - LI - 158 - *roar*					- LI
+3. L - H - Zebra - ZBR - 226 - *snort*				- ZBR ELP MCQ HG PNG HPP DRL CLG SGL
+4. L - H - Elephant - ELP - 5000 - *trumpet*		- WF ZBR ELP MCQ HG PNG HPP
+5. L - O - Macaque - MCQ - 9 - *chatter*			- ZBR ELP MCQ HG HPP DRL CLG SGL
+6. L - O - Hog - HG - 68 - *oink*					- ZBR ELP MCQ HG HPP
+
+7. W - K - Shark - SHK - 771 - *cruise*				- SHK WHL
+8. W - K - Moray Eel - MRE - 13 - *hide into rocks*	- MRE DGG TRL DLP WHL HPP
+9. W - H - Dugong - DGG - 294 - *splash*			- MRE DGG TRL DLP WHL PNG HPP PLC GSE CRN
+10. W - H - Turtles - TRL - 453 - *swim*			- MRE DGG TRL DLP WHL PNG HPP GSE CRN
+11. W - O - Dolphin - DLP - 226 - *click*			- MRE DGG TRL DLP WHL PNG HPP PLC GSE CRN
+12. W - O - Whale - WHL - 40000 - *sing*			- SHK MRE DGG TRL DLP WHL PNG HPP PLC GSE CRN
+
+13. A - K - Eagle - EGL - 4 - *scream*				- EGL OW PLC
+14. A - K - Owl - OW - 2 - *hoot*					- EGL OW PLC DRL
+15. A - H - Hummingbird - HMB - 0.0002 - *hum*		- HMB CKT RBN BT PLC GSE CRN CLG SGL
+16. A - H - Cockatoo - CKT - 0.09 - *talk*			- HMB CKT RBN BT PLC GSE CRN CLG
+17. A - O - Robin - RBN - 0.06 - *chirp*			- HMB CKT RBN BT PLC GSE CRN DRL CLG
+18. A - O - Bat - BT - 0.15 - *screech*				- HMB CKT RBN BT PLC GSE CRN
+
+19. L/W - K - Penguin - PNG - 22 - *slide*			- ZBR ELP PNG HPP DRL CLG SGL DGG TRL DLP WHL PLC GSE CRN
+20. L/W - H - Hippopotamus - HPP - 1469 - *grunt*	- WF ZBR ELP MCQ HG PNG HPP CLG MRE DGG TRL DLP WHL PLC GSE CRN
+
+21. W/A - K - Pelican - PLC - 7 - “hrraa-hrraa”		- MRE DGG DLP WHL PNG HPP PLC GSE CRN EGL OW HMB CKT RBN BT CLG SGL
+22. W/A - H - Goose - GSE - 4 - *quack*				- MRE DGG TRL DLP WHL PNG HPP PLC GSE CRN HMB CKT RBN BT CLG SGL
+23. W/A - O - Crane - CRN - 3 - *soar*				- MRE DGG TRL DLP WHL PNG HPP PLC GSE CRN HMB CKT RBN BT DRL CLG SGL
+
+24. L/A - K - Draco Lizard - DRL - 0.2 - *jump*		- ZBR MCQ HG PNG DRL CLG SGL OW RBN GSE CRN
+25. L/A - H - Colugo - CLG - 0.035 - *glide*		- ZBR MCQ HG PNG HPP DRL CLG SGL HMB CKT RBN GSE CRN
+26. L/A - O - Sugar Glider - SGL - 0.12 - *crab*	- ZBR MCQ HG PNG DRL CLG SGL HMB GSE CRN
