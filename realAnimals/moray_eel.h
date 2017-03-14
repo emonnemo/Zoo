@@ -1,7 +1,7 @@
-//File MorayEel.h
+//File moray_eel.h
 
-#ifndef MORAYEEL_H
-#define MORAYEEL_H
+#ifndef Moray_EEL_H
+#define Moray_EEL_H
 
 #include "../animal.h"
 #include <iostream>
@@ -9,10 +9,10 @@
 using namespace std;
 
 /**
- * \class MorayEel
+ * \class Moray_Eel
  * \details real class dari animal, yaitu belut
  */
-class MorayEel: public Animal {
+class Moray_Eel: public Animal {
 public:
   /**
    * \brief Constructor default weight
@@ -21,7 +21,7 @@ public:
    * \param _weight berat badan
    * \param _position posisi belut
    */
-  MorayEel(pair<int,int> _position);
+  Moray_Eel(pair<int,int> _position);
   /**
    * \brief Constructor dengan weight
    * \details Menciptakan objek belut dengan weight sebagai parameter
@@ -29,38 +29,38 @@ public:
    * \param _weight berat badan
    * \param _position posisi belut
    */
-  MorayEel(float _weight, pair<int,int> _position);
+  Moray_Eel(float _weight, pair<int,int> _position);
   /**
    * \brief Destructor
    */
-  ~MorayEel();
+  ~Moray_Eel();
   /**
    * \brief Copy Constructor
    * \details copy constructor, menjamin tidak bitwise copy
    * 
-   * \param w MorayEel yang ingin dikopi
+   * \param w Moray_Eel yang ingin dikopi
    */
-  MorayEel(const MorayEel& w);
+  Moray_Eel(const Moray_Eel& w);
   /**
    * \brief Operator =
    * \details operator=, menjamin tidak bitwise copy
    * 
-   * \param w MorayEel yang ingin dikopi
-   * \return MorayEel yang sama dengan w
+   * \param w Moray_Eel yang ingin dikopi
+   * \return Moray_Eel yang sama dengan w
    */
-  MorayEel& operator= (const MorayEel& w);
+  Moray_Eel& operator= (const Moray_Eel& w);
   /**
    * \brief Act
-   * \details MorayEel's behaviour
+   * \details Moray_Eel's behaviour
    */
   void Act() const;
   /**
    * \brief Interact
-   * \details mengoutput hasil interaksi dengan MorayEel
+   * \details mengoutput hasil interaksi dengan Moray_Eel
    */
   void Interact() const;
 private:
-  static int MorayEelNB;
+  static int morayEelNB;
   const float food = 0.2;
 };
 

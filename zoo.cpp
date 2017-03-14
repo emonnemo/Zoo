@@ -314,8 +314,8 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           AddAnimal(pa);
         }
         else if(id == "MRE"){
-          MorayEel* pa;
-          pa = new MorayEel(make_pair(py,px));
+          Moray_Eel* pa;
+          pa = new Moray_Eel(make_pair(py,px));
           AddAnimal(pa);
         }
         else if(id == "DGG"){
@@ -486,9 +486,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           AddAnimal(pa);
         }
         else if(id == "MRE"){
-          MorayEel* pa;
-          if(weight != -1) pa = new MorayEel(weight,make_pair(py,px));
-          else pa = new MorayEel(make_pair(py,px));
+          Moray_Eel* pa;
+          if(weight != -1) pa = new Moray_Eel(weight,make_pair(py,px));
+          else pa = new Moray_Eel(make_pair(py,px));
           AddAnimal(pa);
         }
         else if(id == "DGG"){

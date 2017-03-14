@@ -29,8 +29,8 @@ int main(){
 	b[21] = (char *)"realAnimals/colugo.cpp";
 	b[22] = (char *)"realAnimals/crane.h";
 	b[23] = (char *)"realAnimals/crane.cpp";
-	b[24] = (char *)"realAnimals/draco_Lizard.h";
-	b[25] = (char *)"realAnimals/draco_Lizard.cpp";
+	b[24] = (char *)"realAnimals/draco_lizard.h";
+	b[25] = (char *)"realAnimals/draco_lizard.cpp";
 	b[26] = (char *)"realAnimals/dolphin.h";
 	b[27] = (char *)"realAnimals/dolphin.cpp";
 	b[28] = (char *)"realAnimals/dugong.h";
@@ -51,8 +51,8 @@ int main(){
 	b[43] = (char *)"realAnimals/lion.cpp";
 	b[44] = (char *)"realAnimals/macaque.h";
 	b[45] = (char *)"realAnimals/macaque.cpp";
-	b[46] = (char *)"realAnimals/morayeel.h";
-	b[47] = (char *)"realAnimals/morayeel.cpp";
+	b[46] = (char *)"realAnimals/moray_eel.h";
+	b[47] = (char *)"realAnimals/moray_eel.cpp";
 	b[48] = (char *)"realAnimals/owl.h";
 	b[49] = (char *)"realAnimals/owl.cpp";
 	b[50] = (char *)"realAnimals/pelican.h";
@@ -61,8 +61,8 @@ int main(){
 	b[53] = (char *)"realAnimals/penguin.cpp";
 	b[54] = (char *)"realAnimals/robin.h";
 	b[55] = (char *)"realAnimals/robin.cpp";
-	b[56] = (char *)"realAnimals/sugarglider.h";
-	b[57] = (char *)"realAnimals/sugarglider.cpp";
+	b[56] = (char *)"realAnimals/sugar_glider.h";
+	b[57] = (char *)"realAnimals/sugar_glider.cpp";
 	b[58] = (char *)"realAnimals/shark.h";
 	b[59] = (char *)"realAnimals/shark.cpp";
 	b[60] = (char *)"realAnimals/turtle.h";
@@ -73,6 +73,9 @@ int main(){
 	b[65] = (char *)"realAnimals/wolf.cpp";
 	b[66] = (char *)"realAnimals/zebra.h";
 	b[67] = (char *)"realAnimals/zebra.cpp";
+	b[68] = (char *)"main.cpp";
+	b[69] = (char *)"renderable.h";
+	b[70] = (char *)"renderable.cpp";
 
 	for(int j = 0; j <= 67; j++){
 
