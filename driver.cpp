@@ -1,52 +1,48 @@
-#include "facility.h"
-#include "zoo.h"
+#include "driver.h"
 #include <iostream>
-#include "realAnimals/wolf.h"
-#include "realAnimals/lion.h"
-#include "realAnimals/zebra.h"
-#include "realAnimals/elephant.h"
-#include "realAnimals/macaque.h"
-#include "realAnimals/hog.h"
-#include "realAnimals/shark.h"
-#include "realAnimals/morayeel.h"
-#include "realAnimals/dugong.h"
-#include "realAnimals/turtle.h"
-#include "realAnimals/dolphin.h"
-#include "realAnimals/whale.h"
-#include "realAnimals/eagle.h"
+using namespace std;
 
-int main(){
+Driver::Driver() {
+	char option;
+	int width = 33, length = 32;
+	Zoo z;
+	do{
+		cout << "Auto generate zoo? (y/n) ";
+		cin >> option;	
+	} while(option != 'Y' && option != 'y' && option != 'N' && option != 'n');
 
-	//Zoo z;
-	//z.Display(0,0,15,5);
-	Zoo x, y;
-	/*x.Display(0,0,15,5);
-	cout << "1" << endl;
-	x.Display(0,0,15,5);
-	cout << "2" << endl;
-	x.Display(0,0,15,5);
-	cout << "3" << endl;
-	y.Display(0,0,15,5);*/
- 	//Animal a("TG", 1, 100, 0.1, 'K', make_pair(1,1));
-	for(int i = 0; i < 16; i++){
-		for(int j = 0; j < 6; j++){
-			Eagle *pa;
-			pa = new Eagle(make_pair(i,j));
-			x.AddAnimal(pa);
-		}
+	if (option == 'N' || option == 'n'){
+		do{
+			cout << "Input lebar dan panjang zoo: ";
+			cin >> width >> length;
+		} while (width <= 0 || length <= 0);
+		Zoo temp (0, width, length);
+		z = temp;
 	}
-	//x.DelAnimal("WF", 12);
-	cout << endl;
-	x.Display(0,0,15,5);
-	cout << "meat :" << x.GetTotalMeat() << endl;
-	cout << "vege :" << x.GetTotalVegetables() << endl;
-	cout << endl;
-	//x.DelAnimal("WF", 11);
-	//x.AddAnimal(a);
-	//a.Interact();
-	x.ToggleSekat(4, 0, 3);
-	x.MoveAnimal(make_pair(4,0), 3);
-	x.Display(0,0,15,5);
-	x.Tour();
-	return 0;
+	do{
+		cout << "Apa yang ingin anda lakukan?" << endl
+		<< "1. Tampilkan zoo" << endl
+		<< "2. Tampilkan total konsumsi makanan semua hewan di zoo" << endl
+		<< "3. Tour zoo" << endl
+		<< "4. Buka/tutup semua sekat" << endl
+		<< "5. Tutup zoo" << endl;
+		cin >> option;
+		switch (option) {
+			case '1':
+				z.Display(0, 0, width-1, length-1);
+				break;
+			case '2':
+				cout << "Daging: " << z.GetTotalMeat() << " kg"<< endl << "Tumbuhan: " << z.GetTotalVegetables() << "kg" << endl;
+				break;
+			case '3':
+				z.Tour();
+				break;
+			case '4':
+				z.ToggleAllSekat();
+				break;
+		}
+		z.MoveAllAnimal();
+	} while (option != '5');
 }
+
+Driver::~Driver() {}

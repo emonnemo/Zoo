@@ -21,7 +21,9 @@ using namespace std;
 
 Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
   cells = new Cell**[width];
-  for (int i = 0; i < width; ++i) cells[i] = new Cell* [length];
+  for (int i = 0; i < width; ++i) {
+    cells[i] = new Cell* [length];
+  }
   string line;
   if (Auto) { // automatis ctor dari file eksternal
     ifstream ifile("map.txt");
