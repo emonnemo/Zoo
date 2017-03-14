@@ -63,7 +63,7 @@ class Animal {
     /** @brief GetWeight
       * \details mengembalikan nilai weight dari suatu Animal
       */
-    int GetWeight() const;
+    float GetWeight() const;
 
     /**
       * \brief GetFood

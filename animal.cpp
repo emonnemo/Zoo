@@ -62,7 +62,7 @@ int Animal::Getid() const {
   return id;
 }
 
-int Animal::GetWeight() const {
+float Animal::GetWeight() const {
   return weight;
 }
 
