@@ -27,31 +27,9 @@ class Cell: public Renderable {
     Cell(char c);
 
     /**
-     * \brief Copy Constructor.
-     * \details copy constructor menjamin tidak bitwise copy.
-     * \param c cell yang ingin dicopy.
-     */
-    Cell(const Cell& c);
-
-    /**
      * \brief destructor.
      */
     virtual ~Cell();
-    
-    /**
-     * \brief Operator =.
-     * \details operator = menjamin tidak bitwise copy.
-     * \param c cell yang ingin dicopy.
-     */
-    Cell& operator=(const Cell& c);
-
-    /**
-     * \brief Operator <<.
-     * \details mengoutput symbol Cell.
-     * \param os output stream.
-     * \param c Cell yang ingin dioutput. 
-     */
-    friend ostream& operator<<(ostream& os, const Cell& c);
 
     /**
      * \brief GetInitSymbol.

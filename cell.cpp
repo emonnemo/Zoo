@@ -12,11 +12,6 @@ Cell::Cell(char c) {
 
 Cell::~Cell() {}
 
-ostream& operator<<(ostream& os, const Cell& c) {
-  os << c.symbol;
-  return os;
-}
-
 char Cell::GetInitSymbol() const {
   return initsymbol;
 }

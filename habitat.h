@@ -50,7 +50,7 @@ public:
      */
   void Interact() const;
 
-protected:
+private:
   bool sekat[4];
 };
 
