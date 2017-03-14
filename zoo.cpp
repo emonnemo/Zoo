@@ -622,7 +622,7 @@ Zoo::~Zoo() {
   }
   delete [] cells;
 }
-
+  
 Zoo& Zoo::operator=(const Zoo& z) {
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < length; j++) {
