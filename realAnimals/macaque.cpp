@@ -35,7 +35,7 @@ Macaque::Macaque(float _weight, pair<int,int> _position): Animal("MCQ",++Macaque
 
 Macaque::~Macaque(){}
 
-Macaque::Macaque(const Macaque& w): Animal(w.ID,w.id,w.legend,w.weight,w.eat,w.type,w.position) {
+Macaque::Macaque(const Macaque& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
   habitat = w.habitat;
 }
 
@@ -46,11 +46,11 @@ Macaque& Macaque::operator= (const Macaque& w) {
 }
 
 void Macaque::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *chatter*" << endl;
+  cout << number  << ": *chatter*" << endl;
 }
 
 void Macaque::Interact() const {

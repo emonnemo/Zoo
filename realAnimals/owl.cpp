@@ -27,7 +27,7 @@ Owl::Owl(float _weight, pair<int,int> _position): Animal("OW",++owlNB,'$',_weigh
 
 Owl::~Owl(){}
 
-Owl::Owl(const Owl& o): Animal(o.ID,o.id,o.legend,o.weight,o.eat,o.type,o.position) {
+Owl::Owl(const Owl& o): Animal(o.id,o.number,o.legend,o.weight,o.eat,o.type,o.position) {
   habitat = o.habitat;
 }
 
@@ -38,11 +38,11 @@ Owl& Owl::operator= (const Owl& o) {
 }
 
 void Owl::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *hoot*" << endl;
+  cout << number  << ": *hoot*" << endl;
 }
 
 void Owl::Interact() const {

@@ -49,7 +49,7 @@ Penguin::Penguin(float _weight, pair<int,int> _position): Animal("PNG",++penguin
 
 Penguin::~Penguin(){}
 
-Penguin::Penguin(const Penguin& p): Animal(p.ID,p.id,p.legend,p.weight,p.eat,p.type,p.position) {
+Penguin::Penguin(const Penguin& p): Animal(p.id,p.number,p.legend,p.weight,p.eat,p.type,p.position) {
   habitat = p.habitat;
 }
 
@@ -60,11 +60,11 @@ Penguin& Penguin::operator= (const Penguin& p) {
 }
 
 void Penguin::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *slide*" << endl;
+  cout << number  << ": *slide*" << endl;
 }
 
 void Penguin::Interact() const {

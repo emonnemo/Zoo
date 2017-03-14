@@ -33,7 +33,7 @@ Elephant::Elephant(float _weight, pair<int,int> _position): Animal("ELP",++eleph
 
 Elephant::~Elephant(){}
 
-Elephant::Elephant(const Elephant& e): Animal(e.ID,e.id,e.legend,e.weight,e.eat,e.type,e.position) {
+Elephant::Elephant(const Elephant& e): Animal(e.id,e.number,e.legend,e.weight,e.eat,e.type,e.position) {
   habitat = e.habitat;
 }
 
@@ -44,11 +44,11 @@ Elephant& Elephant::operator= (const Elephant& e) {
 }
 
 void Elephant::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *trumpet*" << endl;
+  cout << number  << ": *trumpet*" << endl;
 }
 
 void Elephant::Interact() const {

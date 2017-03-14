@@ -4,7 +4,7 @@
 using namespace std;
 
 Park::Park() {
-  symbol = 'P';
+  symbol = 'P'; 
   initsymbol = 'P';
   plant = "";
 }

@@ -53,7 +53,7 @@ Hippopotamus::Hippopotamus(float _weight, pair<int,int> _position): Animal("HPP"
 
 Hippopotamus::~Hippopotamus(){}
 
-Hippopotamus::Hippopotamus(const Hippopotamus& h): Animal(h.ID,h.id,h.legend,h.weight,h.eat,h.type,h.position) {
+Hippopotamus::Hippopotamus(const Hippopotamus& h): Animal(h.id,h.number,h.legend,h.weight,h.eat,h.type,h.position) {
   habitat = h.habitat;
 }
 
@@ -64,11 +64,11 @@ Hippopotamus& Hippopotamus::operator= (const Hippopotamus& h) {
 }
 
 void Hippopotamus::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *grunt*" << endl;
+  cout << number  << ": *grunt*" << endl;
 }
 
 void Hippopotamus::Interact() const {

@@ -30,13 +30,17 @@ public:
     */
   ~Road();
 
+  /**
+     * \brief Interact
+     * \details Menampilkan interaksi road
+     */
+  void Interact() const;
+
   //Tidak diimplementtasi
   void ToggleSekat(int direction);
     
   //Tidak diimplementasi
   bool GetSekat(int direction) const;
-private:
-  char type;
 };
 
 #endif

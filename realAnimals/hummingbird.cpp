@@ -37,7 +37,7 @@ Hummingbird::Hummingbird(float _weight, pair<int,int> _position): Animal("HMB",+
 
 Hummingbird::~Hummingbird(){}
 
-Hummingbird::Hummingbird(const Hummingbird& h): Animal(h.ID,h.id,h.legend,h.weight,h.eat,h.type,h.position) {
+Hummingbird::Hummingbird(const Hummingbird& h): Animal(h.id,h.number,h.legend,h.weight,h.eat,h.type,h.position) {
   habitat = h.habitat;
 }
 
@@ -48,11 +48,11 @@ Hummingbird& Hummingbird::operator= (const Hummingbird& h) {
 }
 
 void Hummingbird::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *hum*" << endl;
+  cout << number  << ": *hum*" << endl;
 }
 
 void Hummingbird::Interact() const {

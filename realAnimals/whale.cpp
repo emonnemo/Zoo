@@ -41,7 +41,7 @@ Whale::Whale(float _weight, pair<int,int> _position): Animal("WHL",++WhaleNB,'@'
 
 Whale::~Whale(){}
 
-Whale::Whale(const Whale& w): Animal(w.ID,w.id,w.legend,w.weight,w.eat,w.type,w.position) {
+Whale::Whale(const Whale& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
   habitat = w.habitat;
 }
 
@@ -52,11 +52,11 @@ Whale& Whale::operator= (const Whale& w) {
 }
 
 void Whale::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *sing*" << endl;
+  cout << number  << ": *sing*" << endl;
 }
 
 void Whale::Interact() const {

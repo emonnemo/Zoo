@@ -55,7 +55,7 @@ Pelican::Pelican(float _weight, pair<int,int> _position): Animal("PLC",++Pelican
 
 Pelican::~Pelican(){}
 
-Pelican::Pelican(const Pelican& p): Animal(p.ID,p.id,p.legend,p.weight,p.eat,p.type,p.position) {
+Pelican::Pelican(const Pelican& p): Animal(p.id,p.number,p.legend,p.weight,p.eat,p.type,p.position) {
   habitat = p.habitat;
 }
 
@@ -66,11 +66,11 @@ Pelican& Pelican::operator= (const Pelican& p) {
 }
 
 void Pelican::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": “hrraa-hrraa”" << endl;
+  cout << number  << ": “hrraa-hrraa”" << endl;
 }
 
 void Pelican::Interact() const {

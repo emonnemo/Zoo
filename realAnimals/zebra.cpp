@@ -37,7 +37,7 @@ Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR",++zebraNB,'3'
 
 Zebra::~Zebra(){}
 
-Zebra::Zebra(const Zebra& z): Animal(z.ID,z.id,z.legend,z.weight,z.eat,z.type,z.position) {
+Zebra::Zebra(const Zebra& z): Animal(z.id,z.number,z.legend,z.weight,z.eat,z.type,z.position) {
   habitat = z.habitat;
 }
 
@@ -48,11 +48,11 @@ Zebra& Zebra::operator= (const Zebra& z) {
 }
 
 void Zebra::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *snort*" << endl;
+  cout << number  << ": *snort*" << endl;
 }
 
 void Zebra::Interact() const {

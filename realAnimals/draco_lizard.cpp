@@ -43,7 +43,7 @@ Draco_Lizard::Draco_Lizard(float _weight, pair<int,int> _position): Animal("DRL"
 
 Draco_Lizard::~Draco_Lizard(){}
 
-Draco_Lizard::Draco_Lizard(const Draco_Lizard& d): Animal(d.ID,d.id,d.legend,d.weight,d.eat,d.type,d.position) {
+Draco_Lizard::Draco_Lizard(const Draco_Lizard& d): Animal(d.id,d.number,d.legend,d.weight,d.eat,d.type,d.position) {
 	habitat = d.habitat;
 }
 
@@ -54,11 +54,11 @@ Draco_Lizard& Draco_Lizard::operator= (const Draco_Lizard& d) {
 }
 
 void Draco_Lizard::Act() const {
-	cout << ID << "-";
-	if (id < 10){
+	cout << id << "-";
+	if (number < 10){
 		cout << "0"; 
 	}
-	cout << id	<< ": *jump*" << endl;
+	cout << number	<< ": *jump*" << endl;
 }
 
 void Draco_Lizard::Interact() const {

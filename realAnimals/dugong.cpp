@@ -39,7 +39,7 @@ Dugong::Dugong(float _weight, pair<int,int> _position): Animal("DGG",++DugongNB,
 
 Dugong::~Dugong(){}
 
-Dugong::Dugong(const Dugong& w): Animal(w.ID,w.id,w.legend,w.weight,w.eat,w.type,w.position) {
+Dugong::Dugong(const Dugong& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
   habitat = w.habitat;
 }
 
@@ -50,11 +50,11 @@ Dugong& Dugong::operator= (const Dugong& w) {
 }
 
 void Dugong::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *splash*" << endl;
+  cout << number  << ": *splash*" << endl;
 }
 
 void Dugong::Interact() const {

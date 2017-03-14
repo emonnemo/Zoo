@@ -37,7 +37,7 @@ Turtle::Turtle(float _weight, pair<int,int> _position): Animal("TRL",++TurtleNB,
 
 Turtle::~Turtle(){}
 
-Turtle::Turtle(const Turtle& w): Animal(w.ID,w.id,w.legend,w.weight,w.eat,w.type,w.position) {
+Turtle::Turtle(const Turtle& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
   habitat = w.habitat;
 }
 
@@ -48,11 +48,11 @@ Turtle& Turtle::operator= (const Turtle& w) {
 }
 
 void Turtle::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *swim*" << endl;
+  cout << number  << ": *swim*" << endl;
 }
 
 void Turtle::Interact() const {

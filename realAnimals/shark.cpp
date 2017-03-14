@@ -23,7 +23,7 @@ Shark::Shark(float _weight, pair<int,int> _position): Animal("SHK",++SharkNB,'7'
 
 Shark::~Shark(){}
 
-Shark::Shark(const Shark& w): Animal(w.ID,w.id,w.legend,w.weight,w.eat,w.type,w.position) {
+Shark::Shark(const Shark& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
   habitat = w.habitat;
 }
 
@@ -34,11 +34,11 @@ Shark& Shark::operator= (const Shark& w) {
 }
 
 void Shark::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *cruise*" << endl;
+  cout << number  << ": *cruise*" << endl;
 }
 
 void Shark::Interact() const {

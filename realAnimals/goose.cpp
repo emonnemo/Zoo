@@ -53,7 +53,7 @@ Goose::Goose(float _weight, pair<int,int> _position): Animal("GSE",++GooseNB,'+'
 
 Goose::~Goose(){}
 
-Goose::Goose(const Goose& g): Animal(g.ID,g.id,g.legend,g.weight,g.eat,g.type,g.position) {
+Goose::Goose(const Goose& g): Animal(g.id,g.number,g.legend,g.weight,g.eat,g.type,g.position) {
   habitat = g.habitat;
 }
 
@@ -64,11 +64,11 @@ Goose& Goose::operator= (const Goose& g) {
 }
 
 void Goose::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *quack*" << endl;
+  cout << number  << ": *quack*" << endl;
 }
 
 void Goose::Interact() const {

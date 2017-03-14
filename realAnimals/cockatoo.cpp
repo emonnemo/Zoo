@@ -35,7 +35,7 @@ Cockatoo::Cockatoo(float _weight, pair<int,int> _position): Animal("CKT",++cocka
 
 Cockatoo::~Cockatoo(){}
 
-Cockatoo::Cockatoo(const Cockatoo& c): Animal(c.ID,c.id,c.legend,c.weight,c.eat,c.type,c.position) {
+Cockatoo::Cockatoo(const Cockatoo& c): Animal(c.id,c.number,c.legend,c.weight,c.eat,c.type,c.position) {
   habitat = c.habitat;
 }
 
@@ -46,11 +46,11 @@ Cockatoo& Cockatoo::operator= (const Cockatoo& c) {
 }
 
 void Cockatoo::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *talk*" << endl;
+  cout << number  << ": *talk*" << endl;
 }
 
 void Cockatoo::Interact() const {

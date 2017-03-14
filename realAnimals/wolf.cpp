@@ -25,7 +25,7 @@ Wolf::Wolf(float _weight, pair<int,int> _position): Animal("WF",++wolfNB,'1',_we
 
 Wolf::~Wolf(){}
 
-Wolf::Wolf(const Wolf& w): Animal(w.ID,w.id,w.legend,w.weight,w.eat,w.type,w.position) {
+Wolf::Wolf(const Wolf& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
   habitat = w.habitat;
 }
 
@@ -36,11 +36,11 @@ Wolf& Wolf::operator= (const Wolf& w) {
 }
 
 void Wolf::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *howl*" << endl;
+  cout << number  << ": *howl*" << endl;
 }
 
 void Wolf::Interact() const {

@@ -21,7 +21,7 @@ Lion::Lion(float _weight, pair<int,int> _position): Animal("LI",++lionNB,'2',_we
 
 Lion::~Lion(){}
 
-Lion::Lion(const Lion& l): Animal(l.ID,l.id,l.legend,l.weight,l.eat,l.type,l.position) {
+Lion::Lion(const Lion& l): Animal(l.id,l.number,l.legend,l.weight,l.eat,l.type,l.position) {
   habitat = l.habitat;
 }
 
@@ -32,11 +32,11 @@ Lion& Lion::operator= (const Lion& l) {
 }
 
 void Lion::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *roar*" << endl;
+  cout << number  << ": *roar*" << endl;
 }
 
 void Lion::Interact() const {

@@ -47,7 +47,7 @@ Colugo::Colugo(float _weight, pair<int,int> _position): Animal("CLG",++colugoNB,
 
 Colugo::~Colugo(){}
 
-Colugo::Colugo(const Colugo& c): Animal(c.ID,c.id,c.legend,c.weight,c.eat,c.type,c.position) {
+Colugo::Colugo(const Colugo& c): Animal(c.id,c.number,c.legend,c.weight,c.eat,c.type,c.position) {
   habitat = c.habitat;
 }
 
@@ -58,11 +58,11 @@ Colugo& Colugo::operator= (const Colugo& c) {
 }
 
 void Colugo::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *glide*" << endl;
+  cout << number  << ": *glide*" << endl;
 }
 
 void Colugo::Interact() const {

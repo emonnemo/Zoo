@@ -31,7 +31,7 @@ Moray_Eel::Moray_Eel(float _weight, pair<int,int> _position): Animal("MRE",++mor
 
 Moray_Eel::~Moray_Eel(){}
 
-Moray_Eel::Moray_Eel(const Moray_Eel& w): Animal(w.ID,w.id,w.legend,w.weight,w.eat,w.type,w.position) {
+Moray_Eel::Moray_Eel(const Moray_Eel& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
   habitat = w.habitat;
 }
 
@@ -42,11 +42,11 @@ Moray_Eel& Moray_Eel::operator= (const Moray_Eel& w) {
 }
 
 void Moray_Eel::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *hide into rocks*" << endl;
+  cout << number  << ": *hide into rocks*" << endl;
 }
 
 void Moray_Eel::Interact() const {

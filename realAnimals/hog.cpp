@@ -29,7 +29,7 @@ Hog::Hog(float _weight, pair<int,int> _position): Animal("HG",++HogNB,'6',_weigh
 
 Hog::~Hog(){}
 
-Hog::Hog(const Hog& w): Animal(w.ID,w.id,w.legend,w.weight,w.eat,w.type,w.position) {
+Hog::Hog(const Hog& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
   habitat = w.habitat;
 }
 
@@ -40,11 +40,11 @@ Hog& Hog::operator= (const Hog& w) {
 }
 
 void Hog::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *oink*" << endl;
+  cout << number  << ": *oink*" << endl;
 }
 
 void Hog::Interact() const {

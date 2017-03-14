@@ -41,7 +41,7 @@ Sugar_Glider::Sugar_Glider(float _weight, pair<int,int> _position): Animal("SGL"
 
 Sugar_Glider::~Sugar_Glider(){}
 
-Sugar_Glider::Sugar_Glider(const Sugar_Glider& s): Animal(s.ID,s.id,s.legend,s.weight,s.eat,s.type,s.position) {
+Sugar_Glider::Sugar_Glider(const Sugar_Glider& s): Animal(s.id,s.number,s.legend,s.weight,s.eat,s.type,s.position) {
 	habitat = s.habitat;
 }
 
@@ -52,11 +52,11 @@ Sugar_Glider& Sugar_Glider::operator= (const Sugar_Glider& s) {
 }
 
 void Sugar_Glider::Act() const {
-	cout << ID << "-";
-	if (id < 10){
+	cout << id << "-";
+	if (number < 10){
 		cout << "0"; 
 	}
-	cout << id	<< ": *crab*" << endl;
+	cout << number	<< ": *crab*" << endl;
 }
 
 void Sugar_Glider::Interact() const {

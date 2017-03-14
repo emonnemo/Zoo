@@ -34,15 +34,3 @@ void Cell::SetSymbol(char s) {
 void Cell::Render(){
 	cout << symbol;
 }
-
-void Cell::ToggleSekat(int direction){
-
-}
-    
-bool Cell::GetSekat(int direction) const {
-  return false;
-}
-
-void Cell::Interact() const {
-  
-}

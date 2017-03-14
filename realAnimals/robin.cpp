@@ -37,7 +37,7 @@ Robin::Robin(float _weight, pair<int,int> _position): Animal("RBN",++robinNB,'&'
 
 Robin::~Robin(){}
 
-Robin::Robin(const Robin& r): Animal(r.ID,r.id,r.legend,r.weight,r.eat,r.type,r.position) {
+Robin::Robin(const Robin& r): Animal(r.id,r.number,r.legend,r.weight,r.eat,r.type,r.position) {
   habitat = r.habitat;
 }
 
@@ -48,11 +48,11 @@ Robin& Robin::operator= (const Robin& r) {
 }
 
 void Robin::Act() const {
-  cout << ID << "-";
-  if (id < 10){
+  cout << id << "-";
+  if (number < 10){
     cout << "0"; 
   }
-  cout << id  << ": *hoot*" << endl;
+  cout << number  << ": *hoot*" << endl;
 }
 
 void Robin::Interact() const {
