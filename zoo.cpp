@@ -29,7 +29,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
     ifstream ifile("map.txt");
     if (ifile.is_open()) {
       int i = 0;
-      while(getline(ifile, line)) {
+      while (getline(ifile, line)) {
         for (int j = 0; j < length; ++j) {
           switch (line[j]) {
             case 'W':
@@ -98,9 +98,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
   }
   // caging
   cage_map = new int*[w];
-  for(int i = 0; i < w; i++) {
+  for (int i = 0; i < w; i++) {
     cage_map[i] = new int[l];
-    for(int j = 0; j < l; j++) {
+    for (int j = 0; j < l; j++) {
       cage_map[i][j] = -99;
     }
   } // alokasi memori cage_map
@@ -114,37 +114,37 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           cage_map[i][j] = 0;
         }
         else { // habitat
-          int ai[4], aj[4]; // array menyimpan posisi yang akan dirubah
-          for (int kk = 0; kk < 4; kk++) {
-            ai[kk] = i, aj[kk] = j; // inisialisasi
+          int array_i[4], array_j[4]; // array menyimpan posisi yang akan dirubah
+          for (int k = 0; k < 4; k++) {
+            array_i[k] = i, array_j[k] = j; // inisialisasi
           }
           bool cek = true; // boolean apakah bisa membentuk cage atau tidak
           cage_map[i][j] = counter; // dimasukkan ke cage counter
           srand(time(NULL));
           pair<int,int> movable[12]; // array pair jalan yang mungkin
-          int ii, jj, icek = i, jcek = j, count = 0;
+          int ii, jj, i_temp = i, j_temp = j, count = 0;
           for (int times = 0; times < 3; times++) {
           // cukup 3x karena akan dibuat cage dengan
           // jumlah cell 4 terlebih dahulu
             for (int k = 0; k < 4; k++) { // ada 4 sel bersebelahan
-              bool dum = false;
+              bool dummy = false;
               // atas
-              if (k == 0 && icek != 0) {
-                ii = icek - 1, jj = jcek, dum = true;
+              if (k == 0 && i_temp != 0) {
+                ii = i_temp - 1, jj = j_temp, dummy = true;
               }
               // kiri
-              else if (k == 1 && jcek != 0) {
-                ii = icek, jj = jcek - 1, dum = true;
+              else if (k == 1 && j_temp != 0) {
+                ii = i_temp, jj = j_temp - 1, dummy = true;
               }
               // bawah
-              else if (k == 2 && icek != w - 1) {
-                ii = icek + 1, jj = jcek, dum = true;
+              else if (k == 2 && i_temp != w - 1) {
+                ii = i_temp + 1, jj = j_temp, dummy = true;
               }
               // kanan
-              else if (k == 3 && jcek != l - 1) {
-                ii = icek , jj = jcek + 1, dum = true;
+              else if (k == 3 && j_temp != l - 1) {
+                ii = i_temp , jj = j_temp + 1, dummy = true;
               }
-              if (dum) { // jika ada sel disebelahnya
+              if (dummy) { // jika ada sel disebelahnya
                 if (cells[ii][jj]->GetSymbol() == c && cage_map[ii][jj] == -99) {
                 // jika sama habitatnya dan belum masuk ke cage
                   movable[count] = make_pair(ii,jj);
@@ -158,13 +158,13 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
               break;
             }
             int move = rand() % count; // random jalan
-            icek = movable[move].first;
-            jcek = movable[move].second;
-            ai[times] = icek; // pengisian posisi yang sudah dirubah
-            aj[times] = jcek;
+            i_temp = movable[move].first;
+            j_temp = movable[move].second;
+            array_i[times] = i_temp; // pengisian posisi yang sudah dirubah
+            array_j[times] = j_temp;
             movable[move] = make_pair(movable[count-1].first,
                                       movable[count-1].second);
-            cage_map[icek][jcek] = counter;
+            cage_map[i_temp][j_temp] = counter;
             count--;
             if (times == 2) counter++; 
             // jika sudah selesai dengan cage dengan 4 cell counter ditambah
@@ -172,7 +172,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           if (!cek) { 
           // jumlah cell tidak sampai 4, semua yang sudah diisi dikembalikan ke -99
             for (int k = 0; k < 4; k++) {
-              cage_map[ai[k]][aj[k]] = -99;
+              cage_map[array_i[k]][array_j[k]] = -99;
             }
           }
         }
@@ -228,25 +228,25 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
     // membaca animals dari animals.txt
     ifstream in("animals.txt");
     if (in.is_open()) {
-      while(getline(in, line)) {
+      while (getline(in, line)) {
         string id = "";
         int px = 0;
         int py = 0;
         int j = 0;
         // membaca id
-        while(line[j] != '|') {
+        while (line[j] != '|') {
           id += line[j];
           j++;
         }
         j++;
         // membaca px
-        while(line[j] != '|') {
+        while (line[j] != '|') {
           px = 10*px + line[j] - '0';
           j++;
         }
         j++;
         //membaca py
-        while(j < (int)line.length()) {
+        while (j < (int)line.length()) {
           py = 10*py + line[j] - '0';
           j++;
         }
@@ -315,7 +315,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           pa = new Shark(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "MRE"){
+        else if (id == "MRE"){
           MorayEel* pa;
           pa = new MorayEel(make_pair(py,px));
           AddAnimal(pa);
@@ -365,7 +365,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           pa = new Crane(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "DRL"){
+        else if (id == "DRL"){
           DracoLizard* pa;
           pa = new DracoLizard(make_pair(py,px));
           AddAnimal(pa);
@@ -375,7 +375,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           pa = new Colugo(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "SGL"){
+        else if (id == "SGL"){
           SugarGlider* pa;
           pa = new SugarGlider(make_pair(py,px));
           AddAnimal(pa);
@@ -407,7 +407,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           do{
             cout << "Input berat : (>0)";
             cin >> weight;
-          } while(weight <= 0);
+          } while (weight <= 0);
         }
         if (id == "WF") {
           Wolf* pa;
@@ -487,9 +487,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           else pa = new Shark(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "MRE"){
+        else if (id == "MRE"){
           MorayEel* pa;
-          if(weight != -1) pa = new MorayEel(weight,make_pair(py,px));
+          if (weight != -1) pa = new MorayEel(weight,make_pair(py,px));
           else pa = new MorayEel(make_pair(py,px));
           AddAnimal(pa);
         }
@@ -547,9 +547,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           else pa = new Crane(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "DRL"){
+        else if (id == "DRL"){
           DracoLizard* pa;
-          if(weight != -1) pa = new DracoLizard(weight,make_pair(py,px));
+          if (weight != -1) pa = new DracoLizard(weight,make_pair(py,px));
           else pa = new DracoLizard(make_pair(py,px));
           AddAnimal(pa);
         }
@@ -559,9 +559,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           else pa = new Colugo(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "SGL"){
+        else if (id == "SGL"){
           SugarGlider* pa;
-          if(weight != -1) pa = new SugarGlider(weight,make_pair(py,px));
+          if (weight != -1) pa = new SugarGlider(weight,make_pair(py,px));
           else pa = new SugarGlider(make_pair(py,px));
           AddAnimal(pa);
         }
@@ -610,8 +610,9 @@ Zoo::Zoo(const Zoo& z) : width(z.width), length(z.length) {
   }
   NBCage = z.NBCage;
 }
+
 Zoo::~Zoo() {
-  for(int i = 0; i < width; i++) delete [] cage_map[i];
+  for (int i = 0; i < width; i++) delete [] cage_map[i];
   delete [] cage_map;
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < length; j++) {
@@ -621,6 +622,7 @@ Zoo::~Zoo() {
   }
   delete [] cells;
 }
+
 Zoo& Zoo::operator=(const Zoo& z) {
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < length; j++) {
@@ -1048,7 +1050,7 @@ void Zoo::Tour() {
   }
 }
 
-void Zoo::InteractCage(pair<int,int> pos, int cnumber) {
+void Zoo::InteractCage(pair<int,int> pos, int cage_number) {
   bool Vis[width][length];
   for (int i = 0; i < width; ++i) {
     for (int j = 0; j < length; ++j) {
@@ -1065,7 +1067,7 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber) {
       (*FindAnimal(make_pair(i,j)))->Interact();
     }  
     if (i-1 >= 0) {
-      if (cage_map[i-1][j] == cnumber) {
+      if (cage_map[i-1][j] == cage_number) {
         if (!Vis[i-1][j]) {
           bqueue.push(make_pair(i - 1, j));
           Vis[i-1][j] = true;
@@ -1073,7 +1075,7 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber) {
       }
     }
     if (j - 1 >= 0) {
-      if (cage_map[i][j-1] == cnumber) {
+      if (cage_map[i][j-1] == cage_number) {
         if (!Vis[i][j-1]) {
           bqueue.push(make_pair(i,j - 1));
           Vis[i][j-1] = true;
@@ -1081,7 +1083,7 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber) {
       }
     }
     if (j+1 < length) {
-      if (cage_map[i][j+1] == cnumber) {
+      if (cage_map[i][j+1] == cage_number) {
         if (!Vis[i][j+1]) {
           bqueue.push(make_pair(i,j + 1));
           Vis[i][j+1] = true;
@@ -1089,7 +1091,7 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber) {
       }
     }
     if (i+1 < width) {
-      if (cage_map[i+1][j] == cnumber) {
+      if (cage_map[i+1][j] == cage_number) {
         if (!Vis[i+1][j]) {
           bqueue.push(make_pair(i + 1,j));
           Vis[i+1][j] = true;
