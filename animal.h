@@ -23,12 +23,12 @@ class Animal {
       * \param _position posisi hewan
       */
     Animal(string _ID,
-    	   int _id,
-    	   char _legend,
-    	   float _weight,
-    	   float _eat,
-    	   char _type,
-    	   pair<int,int> _position);
+           int _id,
+           char _legend,
+           float _weight,
+           float _eat,
+           char _type,
+           pair<int,int> _position);
 
     /** @brief Destructor.
       */
@@ -44,7 +44,7 @@ class Animal {
       * \details operator sama dengan, menjamin tidak bitwise copy
       * @param a Animal yang ingin di-copy
       */
-    Animal& operator= (const Animal& a); 
+    Animal& operator=(const Animal& a); 
 
     /**
       * \brief GetID

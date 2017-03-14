@@ -7,13 +7,8 @@ using namespace std;
 
 int Bat::bat_nb = 0;
 
-Bat::Bat(pair<int,int> _position): Animal("BT",
-                                          ++bat_nb,
-                                          '*',
-                                          0.15,
-                                          food,
-                                          'O',
-                                          _position) {
+Bat::Bat(pair<int,int> _position):
+     Animal("BT", ++bat_nb, '*', 0.15, food, 'O', _position) {
   eat = food;
   habitat.insert('A');
   msg = " ";
@@ -26,13 +21,8 @@ Bat::Bat(pair<int,int> _position): Animal("BT",
   compatible.insert("CRN");
 }
 
-Bat::Bat(float _weight, pair<int,int> _position): Animal("BT",
-                                                         ++bat_nb,
-                                                         '*',
-                                                         _weight,
-                                                         food,
-                                                         'O',
-                                                         _position) {
+Bat::Bat(float _weight, pair<int,int> _position):
+     Animal("BT", ++bat_nb, '*', _weight, food, 'O', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");
@@ -46,17 +36,12 @@ Bat::Bat(float _weight, pair<int,int> _position): Animal("BT",
 
 Bat::~Bat(){}
 
-Bat::Bat(const Bat& b): Animal(b.ID,
-                               b.id,
-                               b.legend,
-                               b.weight,
-                               b.eat,
-                               b.type,
-                               b.position) {
+Bat::Bat(const Bat& b): 
+     Animal(b.ID, b.id, b.legend, b.weight, b.eat, b.type, b.position) {
   habitat = b.habitat;
 }
 
-Bat& Bat::operator= (const Bat& b) {
+Bat& Bat::operator=(const Bat& b) {
   SetWeight(b.GetWeight());
   SetPos(b.GetPos());
   return *this;
