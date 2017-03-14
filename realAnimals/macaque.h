@@ -48,7 +48,7 @@ public:
    * \param m Macaque yang ingin dikopi
    * \return Macaque yang sama dengan m
    */
-  Macaque& operator= (const Macaque& m);
+  Macaque& operator=(const Macaque& m);
   /**
    * \brief Act
    * \details Macaque's behaviour

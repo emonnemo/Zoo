@@ -7,7 +7,8 @@ using namespace std;
 
 int Wolf::wolf_nb = 0;
 
-Wolf::Wolf(pair<int,int> _position): Animal("WF", ++wolf_nb, '1', 45, food, 'K', _position) {
+Wolf::Wolf(pair<int,int> _position):
+      Animal("WF", ++wolf_nb, '1', 45, food, 'K', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("LI");
@@ -15,7 +16,8 @@ Wolf::Wolf(pair<int,int> _position): Animal("WF", ++wolf_nb, '1', 45, food, 'K',
   compatible.insert("HPP");
 }
 
-Wolf::Wolf(float _weight, pair<int,int> _position): Animal("WF", ++wolf_nb, '1', _weight, food, 'K', _position) {
+Wolf::Wolf(float _weight, pair<int,int> _position):
+      Animal("WF", ++wolf_nb, '1', _weight, food, 'K', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("LI");
@@ -23,13 +25,14 @@ Wolf::Wolf(float _weight, pair<int,int> _position): Animal("WF", ++wolf_nb, '1',
   compatible.insert("HPP");
 }
 
-Wolf::~Wolf(){}
+Wolf::~Wolf() {}
 
-Wolf::Wolf(const Wolf& w): Animal(w.id, w.number, w.legend, w.weight, w.eat, w.type, w.position) {
+Wolf::Wolf(const Wolf& w):
+      Animal(w.id, w.number, w.legend, w.weight, w.eat, w.type, w.position) {
   habitat = w.habitat;
 }
 
-Wolf& Wolf::operator= (const Wolf& w) {
+Wolf& Wolf::operator=(const Wolf& w) {
   SetWeight(w.GetWeight());
   SetPos(w.GetPos());
   return *this;
@@ -37,8 +40,8 @@ Wolf& Wolf::operator= (const Wolf& w) {
 
 void Wolf::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *howl*" << endl;
 }

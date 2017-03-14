@@ -34,7 +34,7 @@ Bat::Bat(float _weight, pair<int,int> _position):
   compatible.insert("CRN");
 }
 
-Bat::~Bat(){}
+Bat::~Bat() {}
 
 Bat::Bat(const Bat& b): 
      Animal(b.id, b.number, b.legend, b.weight, b.eat, b.type, b.position) {
@@ -49,8 +49,8 @@ Bat& Bat::operator=(const Bat& b) {
 
 void Bat::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *screech*" << endl;
 }

@@ -48,7 +48,7 @@ public:
    * \param w Wolf yang ingin dikopi
    * \return Wolf yang sama dengan w
    */
-  Wolf& operator= (const Wolf& w);
+  Wolf& operator=(const Wolf& w);
   /**
    * \brief Act
    * \details Wolf's behaviour

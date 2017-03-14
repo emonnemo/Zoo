@@ -48,7 +48,7 @@ public:
    * \param p Pelican yang ingin dikopi
    * \return Pelican yang sama dengan p
    */
-  Pelican& operator= (const Pelican& p);
+  Pelican& operator=(const Pelican& p);
   /**
    * \brief Act
    * \details Pelican's behaviour

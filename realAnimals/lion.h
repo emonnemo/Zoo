@@ -48,7 +48,7 @@ public:
    * \param l Lion yang ingin dikopi
    * \return Lion yang sama dengan l
    */
-  Lion& operator= (const Lion& l);
+  Lion& operator=(const Lion& l);
   /**
    * \brief Act
    * \details Lion's behaviour

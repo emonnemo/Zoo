@@ -48,7 +48,7 @@ public:
    * \param z Zebra yang ingin dikopi
    * \return Zebra yang sama dengan z
    */
-  Zebra& operator= (const Zebra& z);
+  Zebra& operator=(const Zebra& z);
   /**
    * \brief Act
    * \details Zebra's behaviour

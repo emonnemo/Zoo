@@ -7,7 +7,8 @@ using namespace std;
 
 int Turtle::turtle_nb = 0;
 
-Turtle::Turtle(pair<int,int> _position): Animal("TRL", ++turtle_nb, '0', 453, food, 'H', _position) {
+Turtle::Turtle(pair<int,int> _position):
+        Animal("TRL", ++turtle_nb, '0', 453, food, 'H', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("MRE");
@@ -21,7 +22,8 @@ Turtle::Turtle(pair<int,int> _position): Animal("TRL", ++turtle_nb, '0', 453, fo
   compatible.insert("CRN");
 }
 
-Turtle::Turtle(float _weight, pair<int,int> _position): Animal("TRL", ++turtle_nb, '0', _weight, food, 'H', _position) {
+Turtle::Turtle(float _weight, pair<int,int> _position):
+        Animal("TRL", ++turtle_nb, '0', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("MRE");
@@ -35,13 +37,14 @@ Turtle::Turtle(float _weight, pair<int,int> _position): Animal("TRL", ++turtle_n
   compatible.insert("CRN");
 }
 
-Turtle::~Turtle(){}
+Turtle::~Turtle() {}
 
-Turtle::Turtle(const Turtle& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
-  habitat = w.habitat;
+Turtle::Turtle(const Turtle& t):
+        Animal(t.id, t.number, t.legend, t.weight, t.eat, t.type, t.position) {
+  habitat = t.habitat;
 }
 
-Turtle& Turtle::operator= (const Turtle& t) {
+Turtle& Turtle::operator=(const Turtle& t) {
   SetWeight(t.GetWeight());
   SetPos(t.GetPos());
   return *this;
@@ -49,8 +52,8 @@ Turtle& Turtle::operator= (const Turtle& t) {
 
 void Turtle::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *swim*" << endl;
 }

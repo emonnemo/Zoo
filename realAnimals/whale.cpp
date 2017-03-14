@@ -7,7 +7,8 @@ using namespace std;
 
 int Whale::whale_nb = 0;
 
-Whale::Whale(pair<int,int> _position): Animal("WHL", ++whale_nb, '@', 40000, food, 'O', _position) {
+Whale::Whale(pair<int,int> _position):
+       Animal("WHL", ++whale_nb, '@', 40000, food, 'O', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("SHK");
@@ -23,7 +24,8 @@ Whale::Whale(pair<int,int> _position): Animal("WHL", ++whale_nb, '@', 40000, foo
   compatible.insert("CRN");
 }
 
-Whale::Whale(float _weight, pair<int,int> _position): Animal("WHL", ++whale_nb, '@', _weight, food, 'O', _position) {
+Whale::Whale(float _weight, pair<int,int> _position):
+       Animal("WHL", ++whale_nb, '@', _weight, food, 'O', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("SHK");
@@ -39,13 +41,14 @@ Whale::Whale(float _weight, pair<int,int> _position): Animal("WHL", ++whale_nb, 
   compatible.insert("CRN");
 }
 
-Whale::~Whale(){}
+Whale::~Whale() {}
 
-Whale::Whale(const Whale& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
+Whale::Whale(const Whale& w):
+       Animal(w.id, w.number, w.legend, w.weight, w.eat, w.type, w.position) {
   habitat = w.habitat;
 }
 
-Whale& Whale::operator= (const Whale& w) {
+Whale& Whale::operator=(const Whale& w) {
   SetWeight(w.GetWeight());
   SetPos(w.GetPos());
   return *this;
@@ -53,8 +56,8 @@ Whale& Whale::operator= (const Whale& w) {
 
 void Whale::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *sing*" << endl;
 }

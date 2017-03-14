@@ -7,7 +7,8 @@ using namespace std;
 
 int Eagle::eagle_nb = 0;
 
-Eagle::Eagle(pair<int,int> _position): Animal("EGL", ++eagle_nb, '#', 4, food, 'K', _position) {
+Eagle::Eagle(pair<int,int> _position):
+       Animal("EGL", ++eagle_nb, '#', 4, food, 'K', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("EGL");
@@ -15,7 +16,8 @@ Eagle::Eagle(pair<int,int> _position): Animal("EGL", ++eagle_nb, '#', 4, food, '
   compatible.insert("PLC");
 }
 
-Eagle::Eagle(float _weight, pair<int,int> _position): Animal("EGL", ++eagle_nb, '#', _weight, food, 'K', _position) {
+Eagle::Eagle(float _weight, pair<int,int> _position):
+       Animal("EGL", ++eagle_nb, '#', _weight, food, 'K', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("EGL");
@@ -23,13 +25,14 @@ Eagle::Eagle(float _weight, pair<int,int> _position): Animal("EGL", ++eagle_nb, 
   compatible.insert("PLC");
 }
 
-Eagle::~Eagle(){}
+Eagle::~Eagle() {}
 
-Eagle::Eagle(const Eagle& e): Animal(e.id,e.number,e.legend,e.weight,e.eat,e.type,e.position) {
+Eagle::Eagle(const Eagle& e):
+       Animal(e.id, e.number, e.legend, e.weight, e.eat, e.type, e.position) {
   habitat = e.habitat;
 }
 
-Eagle& Eagle::operator= (const Eagle& e) {
+Eagle& Eagle::operator=(const Eagle& e) {
   SetWeight(e.GetWeight());
   SetPos(e.GetPos());
   return *this;
@@ -37,8 +40,8 @@ Eagle& Eagle::operator= (const Eagle& e) {
 
 void Eagle::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *scream*" << endl;
 }

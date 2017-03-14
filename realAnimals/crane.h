@@ -48,7 +48,7 @@ public:
    * \param c Crane yang ingin dikopi
    * \return Crane yang sama dengan c
    */
-  Crane& operator= (const Crane& c);
+  Crane& operator=(const Crane& c);
   /**
    * \brief Act
    * \details Crane's behaviour

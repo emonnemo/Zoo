@@ -48,7 +48,7 @@ public:
 	 * \param d DracoLizard yang ingin dikopi
 	 * \return DracoLizard yang sama dengan d
 	 */
-	DracoLizard& operator= (const DracoLizard& d);
+	DracoLizard& operator=(const DracoLizard& d);
 	/**
 	 * \brief Act
 	 * \details DracoLizard's behaviour

@@ -7,7 +7,14 @@ using namespace std;
 
 int Hummingbird::hummingbird_nb = 0;
 
-Hummingbird::Hummingbird(pair<int,int> _position): Animal("HMB", ++hummingbird_nb, '%', 0.0002, food, 'H', _position) {
+Hummingbird::Hummingbird(pair<int,int> _position):
+             Animal("HMB",
+              ++hummingbird_nb,
+              '%',
+              0.0002,
+              food,
+              'H',
+              _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");
@@ -21,7 +28,14 @@ Hummingbird::Hummingbird(pair<int,int> _position): Animal("HMB", ++hummingbird_n
   compatible.insert("SGL");
 }
 
-Hummingbird::Hummingbird(float _weight, pair<int,int> _position): Animal("HMB", ++hummingbird_nb, '%', _weight, food, 'H', _position) {
+Hummingbird::Hummingbird(float _weight, pair<int,int> _position):
+             Animal("HMB",
+                    ++hummingbird_nb,
+                    '%',
+                    _weight,
+                    food,
+                    'H',
+                    _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");
@@ -35,13 +49,20 @@ Hummingbird::Hummingbird(float _weight, pair<int,int> _position): Animal("HMB", 
   compatible.insert("SGL");
 }
 
-Hummingbird::~Hummingbird(){}
+Hummingbird::~Hummingbird() {}
 
-Hummingbird::Hummingbird(const Hummingbird& h): Animal(h.id,h.number,h.legend,h.weight,h.eat,h.type,h.position) {
+Hummingbird::Hummingbird(const Hummingbird& h):
+             Animal(h.id,
+                    h.number,
+                    h.legend,
+                    h.weight,
+                    h.eat,
+                    h.type,
+                    h.position) {
   habitat = h.habitat;
 }
 
-Hummingbird& Hummingbird::operator= (const Hummingbird& h) {
+Hummingbird& Hummingbird::operator=(const Hummingbird& h) {
   SetWeight(h.GetWeight());
   SetPos(h.GetPos());
   return *this;
@@ -49,8 +70,8 @@ Hummingbird& Hummingbird::operator= (const Hummingbird& h) {
 
 void Hummingbird::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *hum*" << endl;
 }

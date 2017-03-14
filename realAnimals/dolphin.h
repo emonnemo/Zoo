@@ -48,7 +48,7 @@ public:
    * \param d Dolphin yang ingin dikopi
    * \return Dolphin yang sama dengan d
    */
-  Dolphin& operator= (const Dolphin& d);
+  Dolphin& operator=(const Dolphin& d);
   /**
    * \brief Act
    * \details Dolphin's behaviour

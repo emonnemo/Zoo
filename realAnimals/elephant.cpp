@@ -7,7 +7,8 @@ using namespace std;
 
 int Elephant::elephant_nb = 0;
 
-Elephant::Elephant(pair<int,int> _position): Animal("ELP", ++elephant_nb, '4', 5000, food, 'H', _position) {
+Elephant::Elephant(pair<int,int> _position):
+          Animal("ELP", ++elephant_nb, '4', 5000, food, 'H', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("WF");
@@ -19,7 +20,8 @@ Elephant::Elephant(pair<int,int> _position): Animal("ELP", ++elephant_nb, '4', 5
   compatible.insert("HPP");
 }
 
-Elephant::Elephant(float _weight, pair<int,int> _position): Animal("ELP", ++elephant_nb, '4', _weight, food, 'H', _position) {
+Elephant::Elephant(float _weight, pair<int,int> _position):
+          Animal("ELP", ++elephant_nb, '4', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("WF");
@@ -31,13 +33,20 @@ Elephant::Elephant(float _weight, pair<int,int> _position): Animal("ELP", ++elep
   compatible.insert("HPP");
 }
 
-Elephant::~Elephant(){}
+Elephant::~Elephant() {}
 
-Elephant::Elephant(const Elephant& e): Animal(e.id,e.number,e.legend,e.weight,e.eat,e.type,e.position) {
+Elephant::Elephant(const Elephant& e):
+          Animal(e.id,
+                 e.number,
+                 e.legend,
+                 e.weight,
+                 e.eat,
+                 e.type,
+                 e.position) {
   habitat = e.habitat;
 }
 
-Elephant& Elephant::operator= (const Elephant& e) {
+Elephant& Elephant::operator=(const Elephant& e) {
   SetWeight(e.GetWeight());
   SetPos(e.GetPos());
   return *this;
@@ -45,8 +54,8 @@ Elephant& Elephant::operator= (const Elephant& e) {
 
 void Elephant::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *trumpet*" << endl;
 }

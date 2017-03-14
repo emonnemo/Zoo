@@ -48,7 +48,7 @@ public:
    * \param g Goose yang ingin dikopi
    * \return Goose yang sama dengan g
    */
-  Goose& operator= (const Goose& g);
+  Goose& operator=(const Goose& g);
   /**
    * \brief Act
    * \details Goose's behaviour

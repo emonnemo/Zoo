@@ -7,7 +7,8 @@ using namespace std;
 
 int Dolphin::dolphin_nb = 0;
 
-Dolphin::Dolphin(pair<int,int> _position): Animal("DLP", ++dolphin_nb, '!', 226, food, 'K', _position) {
+Dolphin::Dolphin(pair<int,int> _position):
+         Animal("DLP", ++dolphin_nb, '!', 226, food, 'K', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("MRE");
@@ -22,7 +23,8 @@ Dolphin::Dolphin(pair<int,int> _position): Animal("DLP", ++dolphin_nb, '!', 226,
   compatible.insert("CRN");
 }
 
-Dolphin::Dolphin(float _weight, pair<int,int> _position): Animal("DLP", ++dolphin_nb, '!', _weight, food, 'K', _position) {
+Dolphin::Dolphin(float _weight, pair<int,int> _position):
+         Animal("DLP", ++dolphin_nb, '!', _weight, food, 'K', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("MRE");
@@ -37,13 +39,14 @@ Dolphin::Dolphin(float _weight, pair<int,int> _position): Animal("DLP", ++dolphi
   compatible.insert("CRN");
 }
 
-Dolphin::~Dolphin(){}
+Dolphin::~Dolphin() {}
 
-Dolphin::Dolphin(const Dolphin& d): Animal(d.id, d.number, d.legend, d.weight, d.eat, d.type, d.position) {
+Dolphin::Dolphin(const Dolphin& d):
+         Animal(d.id, d.number, d.legend, d.weight, d.eat, d.type, d.position) {
   habitat = d.habitat;
 }
 
-Dolphin& Dolphin::operator= (const Dolphin& d) {
+Dolphin& Dolphin::operator=(const Dolphin& d) {
   SetWeight(d.GetWeight());
   SetPos(d.GetPos());
   return *this;
@@ -51,8 +54,8 @@ Dolphin& Dolphin::operator= (const Dolphin& d) {
 
 void Dolphin::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *click*" << endl;
 }

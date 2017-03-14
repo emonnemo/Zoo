@@ -7,7 +7,8 @@ using namespace std;
 
 int Crane::crane_nb = 0;
 
-Crane::Crane(pair<int,int> _position): Animal("CRN", ++crane_nb, '-', 3, food, 'O', _position) {
+Crane::Crane(pair<int,int> _position):
+       Animal("CRN", ++crane_nb, '-', 3, food, 'O', _position) {
   eat = food;
   habitat.insert('W');  
   habitat.insert('A');
@@ -30,7 +31,8 @@ Crane::Crane(pair<int,int> _position): Animal("CRN", ++crane_nb, '-', 3, food, '
   compatible.insert("SGL");
 }
 
-Crane::Crane(float _weight, pair<int,int> _position): Animal("CRN", ++crane_nb, '-', _weight, food, 'O', _position) {
+Crane::Crane(float _weight, pair<int,int> _position):
+       Animal("CRN", ++crane_nb, '-', _weight, food, 'O', _position) {
   eat = food;
   habitat.insert('W');
   habitat.insert('A');
@@ -53,13 +55,14 @@ Crane::Crane(float _weight, pair<int,int> _position): Animal("CRN", ++crane_nb, 
   compatible.insert("SGL");
 }
 
-Crane::~Crane(){}
+Crane::~Crane() {}
 
-Crane::Crane(const Crane& c): Animal(c.id,c.number,c.legend,c.weight,c.eat,c.type,c.position) {
+Crane::Crane(const Crane& c):
+       Animal(c.id, c.number, c.legend, c.weight, c.eat, c.type, c.position) {
   habitat = c.habitat;
 }
 
-Crane& Crane::operator= (const Crane& c) {
+Crane& Crane::operator=(const Crane& c) {
   SetWeight(c.GetWeight());
   SetPos(c.GetPos());
   return *this;
@@ -67,8 +70,8 @@ Crane& Crane::operator= (const Crane& c) {
 
 void Crane::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *soar*" << endl;
 }

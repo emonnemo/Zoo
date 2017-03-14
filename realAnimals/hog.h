@@ -48,7 +48,7 @@ public:
    * \param h Hog yang ingin dikopi
    * \return Hog yang sama dengan h
    */
-  Hog& operator= (const Hog& h);
+  Hog& operator=(const Hog& h);
   /**
    * \brief Act
    * \details Hog's behaviour

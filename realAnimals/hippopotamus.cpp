@@ -7,7 +7,14 @@ using namespace std;
 
 int Hippopotamus::hippopotamus_nb = 0;
 
-Hippopotamus::Hippopotamus(pair<int,int> _position): Animal("HPP", ++hippopotamus_nb, ')', 1496, food, 'H', _position) {
+Hippopotamus::Hippopotamus(pair<int,int> _position):
+              Animal("HPP",
+                     ++hippopotamus_nb,
+                     ')',
+                     1496,
+                     food,
+                     'H',
+                     _position) {
   eat = food;
   habitat.insert('L');  
   habitat.insert('W');
@@ -29,7 +36,14 @@ Hippopotamus::Hippopotamus(pair<int,int> _position): Animal("HPP", ++hippopotamu
   compatible.insert("CRN");
 }
 
-Hippopotamus::Hippopotamus(float _weight, pair<int,int> _position): Animal("HPP", ++hippopotamus_nb, ')', _weight, food, 'H', _position) {
+Hippopotamus::Hippopotamus(float _weight, pair<int,int> _position):
+              Animal("HPP",
+                ++hippopotamus_nb,
+                ')',
+                _weight,
+                food,
+                'H',
+                _position) {
   eat = food;
   habitat.insert('L');
   habitat.insert('W');
@@ -51,13 +65,20 @@ Hippopotamus::Hippopotamus(float _weight, pair<int,int> _position): Animal("HPP"
   compatible.insert("CRN");
 }
 
-Hippopotamus::~Hippopotamus(){}
+Hippopotamus::~Hippopotamus() {}
 
-Hippopotamus::Hippopotamus(const Hippopotamus& h): Animal(h.id,h.number,h.legend,h.weight,h.eat,h.type,h.position) {
+Hippopotamus::Hippopotamus(const Hippopotamus& h):
+              Animal(h.id,
+                     h.number,
+                     h.legend,
+                     h.weight,
+                     h.eat,
+                     h.type,
+                     h.position) {
   habitat = h.habitat;
 }
 
-Hippopotamus& Hippopotamus::operator= (const Hippopotamus& h) {
+Hippopotamus& Hippopotamus::operator=(const Hippopotamus& h) {
   SetWeight(h.GetWeight());
   SetPos(h.GetPos());
   return *this;
@@ -65,8 +86,8 @@ Hippopotamus& Hippopotamus::operator= (const Hippopotamus& h) {
 
 void Hippopotamus::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *grunt*" << endl;
 }

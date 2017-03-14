@@ -48,7 +48,7 @@ public:
    * \param e Elephant yang ingin dikopi
    * \return Elephant yang sama dengan e
    */
-  Elephant& operator= (const Elephant& e);
+  Elephant& operator=(const Elephant& e);
   /**
    * \brief Act
    * \details Elephant's behaviour

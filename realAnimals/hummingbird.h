@@ -48,7 +48,7 @@ public:
    * \param h Hummingbird yang ingin dikopi
    * \return Hummingbird yang sama dengan h
    */
-  Hummingbird& operator= (const Hummingbird& h);
+  Hummingbird& operator=(const Hummingbird& h);
   /**
    * \brief Act
    * \details Hummingbird's behaviour

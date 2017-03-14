@@ -48,7 +48,7 @@ public:
    * \param m MorayEel yang ingin dikopi
    * \return MorayEel yang sama dengan m
    */
-  MorayEel& operator= (const MorayEel& m);
+  MorayEel& operator=(const MorayEel& m);
   /**
    * \brief Act
    * \details MorayEel's behaviour

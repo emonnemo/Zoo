@@ -48,7 +48,7 @@ public:
    * \param h Hippopotamus yang ingin dikopi
    * \return Hippopotamus yang sama dengan h
    */
-  Hippopotamus& operator= (const Hippopotamus& h);
+  Hippopotamus& operator=(const Hippopotamus& h);
   /**
    * \brief Act
    * \details Hippopotamus's behaviour

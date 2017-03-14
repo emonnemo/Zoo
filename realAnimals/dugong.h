@@ -48,7 +48,7 @@ public:
    * \param d Dugong yang ingin dikopi
    * \return Dugong yang sama dengan d
    */
-  Dugong& operator= (const Dugong& d);
+  Dugong& operator=(const Dugong& d);
   /**
    * \brief Act
    * \details Dugong's behaviour

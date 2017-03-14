@@ -7,7 +7,8 @@ using namespace std;
 
 int Penguin::penguin_nb = 0;
 
-Penguin::Penguin(pair<int,int> _position): Animal("PNG", ++penguin_nb, '(', 22, food, 'K', _position) {
+Penguin::Penguin(pair<int,int> _position):
+         Animal("PNG", ++penguin_nb, '(', 22, food, 'K', _position) {
   eat = food;
   habitat.insert('L');  
   habitat.insert('W');
@@ -27,7 +28,8 @@ Penguin::Penguin(pair<int,int> _position): Animal("PNG", ++penguin_nb, '(', 22, 
   compatible.insert("CRN");
 }
 
-Penguin::Penguin(float _weight, pair<int,int> _position): Animal("PNG", ++penguin_nb, '(', _weight, food, 'K', _position) {
+Penguin::Penguin(float _weight, pair<int,int> _position):
+         Animal("PNG", ++penguin_nb, '(', _weight, food, 'K', _position) {
   eat = food;
   habitat.insert('L');
   habitat.insert('W');
@@ -47,13 +49,14 @@ Penguin::Penguin(float _weight, pair<int,int> _position): Animal("PNG", ++pengui
   compatible.insert("CRN");
 }
 
-Penguin::~Penguin(){}
+Penguin::~Penguin() {}
 
-Penguin::Penguin(const Penguin& p): Animal(p.id,p.number,p.legend,p.weight,p.eat,p.type,p.position) {
+Penguin::Penguin(const Penguin& p):
+         Animal(p.id, p.number, p.legend, p.weight, p.eat, p.type, p.position) {
   habitat = p.habitat;
 }
 
-Penguin& Penguin::operator= (const Penguin& p) {
+Penguin& Penguin::operator=(const Penguin& p) {
   SetWeight(p.GetWeight());
   SetPos(p.GetPos());
   return *this;
@@ -61,8 +64,8 @@ Penguin& Penguin::operator= (const Penguin& p) {
 
 void Penguin::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *slide*" << endl;
 }

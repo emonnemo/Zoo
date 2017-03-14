@@ -7,7 +7,8 @@ using namespace std;
 
 int Colugo::colugo_nb = 0;
 
-Colugo::Colugo(pair<int,int> _position): Animal("CLG", ++colugo_nb, '<', 0.035, food, 'H', _position) {
+Colugo::Colugo(pair<int,int> _position):
+        Animal("CLG", ++colugo_nb, '<', 0.035, food, 'H', _position) {
   eat = food;
   habitat.insert('L');  
   habitat.insert('A');
@@ -26,7 +27,8 @@ Colugo::Colugo(pair<int,int> _position): Animal("CLG", ++colugo_nb, '<', 0.035, 
   compatible.insert("CRN");
 }
 
-Colugo::Colugo(float _weight, pair<int,int> _position): Animal("CLG", ++colugo_nb, '<', _weight, food,'H', _position) {
+Colugo::Colugo(float _weight, pair<int,int> _position):
+        Animal("CLG", ++colugo_nb, '<', _weight, food,'H', _position) {
   eat = food;
   habitat.insert('L');
   habitat.insert('A');
@@ -45,13 +47,14 @@ Colugo::Colugo(float _weight, pair<int,int> _position): Animal("CLG", ++colugo_n
   compatible.insert("CRN");
 }
 
-Colugo::~Colugo(){}
+Colugo::~Colugo() {}
 
-Colugo::Colugo(const Colugo& c): Animal(c.id,c.number,c.legend,c.weight,c.eat,c.type,c.position) {
+Colugo::Colugo(const Colugo& c):
+        Animal(c.id, c.number, c.legend, c.weight, c.eat, c.type, c.position) {
   habitat = c.habitat;
 }
 
-Colugo& Colugo::operator= (const Colugo& c) {
+Colugo& Colugo::operator=(const Colugo& c) {
   SetWeight(c.GetWeight());
   SetPos(c.GetPos());
   return *this;
@@ -59,8 +62,8 @@ Colugo& Colugo::operator= (const Colugo& c) {
 
 void Colugo::Act() const {
   cout << id << "-";
-  if (number < 10){
-    cout << "0"; 
+  if (number < 10) {
+    cout << "0";
   }
   cout << number  << ": *glide*" << endl;
 }

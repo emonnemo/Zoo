@@ -48,7 +48,7 @@ public:
    * \param c Colugo yang ingin dikopi
    * \return Colugo yang sama dengan c
    */
-  Colugo& operator= (const Colugo& c);
+  Colugo& operator=(const Colugo& c);
   /**
    * \brief Act
    * \details Colugo's behaviour
