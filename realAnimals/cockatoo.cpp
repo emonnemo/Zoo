@@ -7,13 +7,8 @@ using namespace std;
 
 int Cockatoo::cockatoo_nb = 0;
 
-Cockatoo::Cockatoo(pair<int,int> _position): Animal("CKT",
-                                                    ++cockatoo_nb,
-                                                    '^',
-                                                    0.09,
-                                                    food,
-                                                    'H',
-                                                    _position) {
+Cockatoo::Cockatoo(pair<int,int> _position):
+          Animal("CKT", ++cockatoo_nb, '^', 0.09, food, 'H', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");
@@ -26,7 +21,7 @@ Cockatoo::Cockatoo(pair<int,int> _position): Animal("CKT",
   compatible.insert("CLG");
 }
 
-Cockatoo::Cockatoo(float _weight, pair<int,int> _position): 
+Cockatoo::Cockatoo(float _weight, pair<int,int> _position):
           Animal("CKT", ++cockatoo_nb, '^', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('A');
@@ -42,11 +37,12 @@ Cockatoo::Cockatoo(float _weight, pair<int,int> _position):
 
 Cockatoo::~Cockatoo(){}
 
-Cockatoo::Cockatoo(const Cockatoo& c): Animal(c.ID, c.id, c.legend, c.weight, c.eat, c.type, c.position) {
+Cockatoo::Cockatoo(const Cockatoo& c):
+          Animal(c.ID, c.id, c.legend, c.weight, c.eat, c.type, c.position) {
   habitat = c.habitat;
 }
 
-Cockatoo& Cockatoo::operator= (const Cockatoo& c) {
+Cockatoo& Cockatoo::operator=(const Cockatoo& c) {
   SetWeight(c.GetWeight());
   SetPos(c.GetPos());
   return *this;

@@ -48,7 +48,7 @@ public:
    * \param c Cockatoo yang ingin dikopi
    * \return Cockatoo yang sama dengan c
    */
-  Cockatoo& operator= (const Cockatoo& c);
+  Cockatoo& operator=(const Cockatoo& c);
   /**
    * \brief Act
    * \details Cockatoo's behaviour

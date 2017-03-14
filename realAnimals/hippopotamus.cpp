@@ -7,7 +7,8 @@ using namespace std;
 
 int Hippopotamus::hippopotamus_nb = 0;
 
-Hippopotamus::Hippopotamus(pair<int,int> _position): Animal("HPP", ++hippopotamus_nb, ')', 1496, food, 'H', _position) {
+Hippopotamus::Hippopotamus(pair<int,int> _position):
+              Animal("HPP", ++hippopotamus_nb, ')', 996, food, 'H', _position) {
   eat = food;
   habitat.insert('L');  
   habitat.insert('W');
@@ -29,7 +30,8 @@ Hippopotamus::Hippopotamus(pair<int,int> _position): Animal("HPP", ++hippopotamu
   compatible.insert("CRN");
 }
 
-Hippopotamus::Hippopotamus(float _weight, pair<int,int> _position): Animal("HPP", ++hippopotamus_nb, ')', _weight, food, 'H', _position) {
+Hippopotamus::Hippopotamus(float _weight, pair<int,int> _position):
+              Animal("HPP", ++hippopotamus_nb, ')', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('L');
   habitat.insert('W');

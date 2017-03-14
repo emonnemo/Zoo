@@ -7,7 +7,8 @@ using namespace std;
 
 int DracoLizard::draco_lizard_nb = 0;
 
-DracoLizard::DracoLizard(pair<int,int> _position): Animal("DRL", ++draco_lizard_nb, '=', 0.2, food, 'K', _position) {
+DracoLizard::DracoLizard(pair<int,int> _position):
+             Animal("DRL", ++draco_lizard_nb, '=', 0.2, food, 'K', _position) {
 	eat = food;
 	habitat.insert('L');	
 	habitat.insert('A');
@@ -24,7 +25,8 @@ DracoLizard::DracoLizard(pair<int,int> _position): Animal("DRL", ++draco_lizard_
 	compatible.insert("CRN");
 }
 
-DracoLizard::DracoLizard(float _weight, pair<int,int> _position): Animal("DRL", ++draco_lizard_nb, '=', _weight, food, 'K', _position) {
+DracoLizard::DracoLizard(float _weight, pair<int,int> _position):
+             Animal("DRL", ++draco_lizard_nb, '=', _weight, food, 'K', _position) {
 	eat = food;
 	habitat.insert('L');
 	habitat.insert('A');
@@ -43,11 +45,12 @@ DracoLizard::DracoLizard(float _weight, pair<int,int> _position): Animal("DRL", 
 
 DracoLizard::~DracoLizard(){}
 
-DracoLizard::DracoLizard(const DracoLizard& d): Animal(d.ID, d.id, d.legend, d.weight, d.eat, d.type, d.position) {
+DracoLizard::DracoLizard(const DracoLizard& d):
+             Animal(d.ID, d.id, d.legend, d.weight, d.eat, d.type, d.position) {
 	habitat = d.habitat;
 }
 
-DracoLizard& DracoLizard::operator= (const DracoLizard& d) {
+DracoLizard& DracoLizard::operator=(const DracoLizard& d) {
 	SetWeight(d.GetWeight());
 	SetPos(d.GetPos());
 	return *this;

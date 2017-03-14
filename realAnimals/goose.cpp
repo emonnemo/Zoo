@@ -7,7 +7,8 @@ using namespace std;
 
 int Goose::goose_nb = 0;
 
-Goose::Goose(pair<int,int> _position): Animal("GSE", ++goose_nb, '+', 4, food, 'H', _position) {
+Goose::Goose(pair<int,int> _position):
+       Animal("GSE", ++goose_nb, '+', 4, food, 'H', _position) {
   eat = food;
   habitat.insert('W');  
   habitat.insert('A');
@@ -29,7 +30,8 @@ Goose::Goose(pair<int,int> _position): Animal("GSE", ++goose_nb, '+', 4, food, '
   compatible.insert("SGL");
 }
 
-Goose::Goose(float _weight, pair<int,int> _position): Animal("GSE", ++goose_nb, '+', _weight, food, 'H', _position) {
+Goose::Goose(float _weight, pair<int,int> _position):
+       Animal("GSE", ++goose_nb, '+', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('W');
   habitat.insert('A');
@@ -53,11 +55,12 @@ Goose::Goose(float _weight, pair<int,int> _position): Animal("GSE", ++goose_nb, 
 
 Goose::~Goose(){}
 
-Goose::Goose(const Goose& g): Animal(g.ID, g.id, g.legend, g.weight, g.eat, g.type, g.position) {
+Goose::Goose(const Goose& g):
+       Animal(g.ID, g.id, g.legend, g.weight, g.eat, g.type, g.position) {
   habitat = g.habitat;
 }
 
-Goose& Goose::operator= (const Goose& g) {
+Goose& Goose::operator=(const Goose& g) {
   SetWeight(g.GetWeight());
   SetPos(g.GetPos());
   return *this;

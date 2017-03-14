@@ -48,7 +48,7 @@ public:
    * \param e Eagle yang ingin dikopi
    * \return Eagle yang sama dengan e
    */
-  Eagle& operator= (const Eagle& e);
+  Eagle& operator=(const Eagle& e);
   /**
    * \brief Act
    * \details Eagle's behaviour

@@ -7,7 +7,8 @@ using namespace std;
 
 int Dugong::dugong_nb = 0;
 
-Dugong::Dugong(pair<int,int> _position): Animal("DGG", ++dugong_nb, '9', 294, food, 'H', _position) {
+Dugong::Dugong(pair<int,int> _position):
+        Animal("DGG", ++dugong_nb, '9', 294, food, 'H', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("MRE");
@@ -22,7 +23,8 @@ Dugong::Dugong(pair<int,int> _position): Animal("DGG", ++dugong_nb, '9', 294, fo
   compatible.insert("CRN");
 }
 
-Dugong::Dugong(float _weight, pair<int,int> _position): Animal("DGG", ++dugong_nb, '9', _weight, food, 'H', _position) {
+Dugong::Dugong(float _weight, pair<int,int> _position):
+        Animal("DGG", ++dugong_nb, '9', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("MRE");
@@ -39,11 +41,12 @@ Dugong::Dugong(float _weight, pair<int,int> _position): Animal("DGG", ++dugong_n
 
 Dugong::~Dugong(){}
 
-Dugong::Dugong(const Dugong& d): Animal(d.ID, d.id, d.legend, d.weight, d.eat, d.type, d.position) {
+Dugong::Dugong(const Dugong& d):
+        Animal(d.ID, d.id, d.legend, d.weight, d.eat, d.type, d.position) {
   habitat = d.habitat;
 }
 
-Dugong& Dugong::operator= (const Dugong& d) {
+Dugong& Dugong::operator=(const Dugong& d) {
   SetWeight(d.GetWeight());
   SetPos(d.GetPos());
   return *this;
