@@ -6,16 +6,16 @@
 
 using namespace std;
 /** @class Animal
-  * Kelas Animal
+  * \details Kelas abstrak untuk hewan dalam zoo
   */
 class Animal {
   public:
     Animal();
     /**
       * \brief Constructor
-      * \details Menciptakan email
-      * \param _ID id jenis animal
-      * \param _id nomor pada jenisnya
+      * \details Menciptakan Animal
+      * \param _id id jenis animal
+      * \param _number nomor pada jenisnya
       * \param _legend penanda hewan pada peta
       * \param _weight berat badan* \param _eat persentase makan 0-100%
       * \param _type karnivor, herbivor, omnivor
@@ -42,20 +42,21 @@ class Animal {
     /** @brief Operator =
       * \details operator sama dengan, menjamin tidak bitwise copy
       * @param a Animal yang ingin di-copy
+      * \return Animal yang sama dengan a
       */
     Animal& operator=(const Animal& a); 
 
     /**
-      * \brief GetID
-      * \details Mengembalikan id hewan
-      * \return string
+      * \brief GetId
+      * \details Mengembalikan id Animal
+      * \return kode unik untuk jenis Animal tersebut
       */
     string GetId() const;
 
     /**
-      * \brief Getid
-      * \details Mengembalikan nomor number di hewan tersebut
-      * \return int
+      * \brief GetNumber
+      * \details Mengembalikan nomor number di Animal tersebut
+      * \return nomor number Animal, pembeda dengan Animal lain yang sejenis 
       */
     int GetNumber() const;
 
@@ -65,19 +66,21 @@ class Animal {
     float GetWeight() const;
 
     /**
-      * \brief GetFood
-      * \details mengembalikan nilai persentase makanan animal
-      * \return eat
+      * \brief GetEat
+      * \details mengembalikan nilai persentase makanan Animal
+      * \return persentase makanan yang dikonsumsi Animal
       */
     float GetEat() const;
 
     /** @brief GetPos
       * \details mengembalikan nilai posisi dari suatu Animal
+      * \return posisi Animal saat itu
       */
     pair<int,int> GetPos() const;
 
     /** @brief GetType
       * \details mengembalikan type dari suatu Animal
+      * \return tipe dari Animal (karnivor, herbivor, omnivor)
       */
     char GetType() const;
 
@@ -91,7 +94,7 @@ class Animal {
     /**
      * \brief GetHabitat
      * \details mengembalikan habitat
-     * \return habitat
+     * \return habitat yang dapat ditinggali hewan
      */
     set<char> GetHabitat() const;
 
@@ -110,10 +113,14 @@ class Animal {
     /**
      * \brief GetCompatible
      * \details mengembalikan set compatible
-     * \return compatible
+     * \return hewan yang dapat tinggal bersama Animal ini dalam 1 kandang
      */
     set<string> GetCompatible() const;
 
+    /**
+    * \brief Act
+    * \details mengoutput kelakuan Animal tersebut
+    */
     virtual void Act() const = 0;
 
     /**

@@ -37,20 +37,21 @@
 using namespace std;
 
 /** @class Zoo
-  * Kelas Zoo yang berisi kebun binatang itu sendiri beserta hewan-hewannya
+  * \details Kelas Zoo yang berisi kebun binatang itu sendiri beserta hewan-hewannya
   */
-class Zoo{
+class Zoo {
   public:
     /**
       * \brief Constructor
       * \details Mengenerate kebun binatang denangan list hewan kosong
-      * \param Auto, jika true maka kebun binatang akan 1digenerate secara otomatis, jika false maka kebun binatang didesain oleh pengguna
-      * \param w width lebar kebun binatang, default 16
-      * \param l length panjang kebun binatang, default 6
+      * \param Auto, jika true maka kebun binatang akan digenerate secara otomatis, jika false maka kebun binatang didesain oleh pengguna
+      * \param w width lebar kebun binatang, default 33
+      * \param l length panjang kebun binatang, default 32
       */
     Zoo(bool = 1, int = 33, int = 32);
 
-    /** @brief cctor
+    /** @brief Copy Constructor
+      * \details copy constructor, menjamin bukan bitwise copy
       */
     Zoo(const Zoo& z);
 
@@ -59,7 +60,8 @@ class Zoo{
     ~Zoo();
 
     /** @brief Operator =
-      * Menjamin bukan bitwise copy
+      * \details Menjamin bukan bitwise copy
+      * \return Zoo yang sama dengan z
       */
     Zoo& operator=(const Zoo& z);
 
@@ -68,20 +70,26 @@ class Zoo{
       */
     void Display(int x1, int y1, int x2, int y2);
 
-    /** @brief AddAnimal
-      * Menambahkan hewan pada kebun binatang
-      * @param Animal a, hewan yang akan ditambahkan
-      */
-
+    /**
+     * \brief FindAnimal
+     * \details Mengembalikan iterator hewan yang berada di pos
+     * 
+     * \param pos posisi Animal saat itu
+     * \return iterator untuk list Animal
+     */
     list<Animal*>::iterator FindAnimal(pair<int,int> pos);
 
+    /** @brief AddAnimal
+      * \details Menambahkan hewan pada kebun binatang
+      * @param animal hewan yang akan ditambahkan
+      */
     void AddAnimal(Animal* animal);
 
     /**
-     * \brief DelAnimal dengan ID
-     * \details Menghapus hewan denagn ID=_ID dan id=_id
-     * \param _ID ID jenis hewan
-     * \param id no pada jenis hewan tersebut
+     * \brief DelAnimal dengan id
+     * \details Menghapus hewan denagn id=_id dan number=_number
+     * \param _id id jenis hewan
+     * \param _number nomor pada jenis hewan tersebut
      */
     void DelAnimal(string _id, int _number);
 
@@ -110,7 +118,7 @@ class Zoo{
 
       /**
      * \brief MoveAnimal dengan posisi
-     * \details Menggerakkan animal dengan ID=_ID dan id=_id
+     * \details Menggerakkan animal dengan id=_id dan number=_number
      * \param i posisi hewan pada width
      * \param j posisi hewan pada length
      * \param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
@@ -118,10 +126,10 @@ class Zoo{
     void MoveAnimal(pair<int,int> pos, int direction);
 
     /**
-     * \brief MoveAnimal dengan ID
-     * \details Menggerakkan animal dengan ID=_ID dan id=_id ke arah sesuai direction sebanyak 1 langkah jika memungkinkan (tidak melewati sekat)
-     * \param _ID jenis hewan 
-     * \param id no id pada jenis hewan
+     * \brief MoveAnimal dengan id
+     * \details Menggerakkan animal dengan id=_id dan number=_number ke arah sesuai direction sebanyak 1 langkah jika memungkinkan (tidak melewati sekat)
+     * \param _id jenis hewan 
+     * \param number no number pada jenis hewan
      * \param direction 0 untuk ke atas, 1 untuk ke kiri, 2 untuk ke kanan, 3 untuk ke bawah
      */
     void MoveAnimal(string _id, int _number, int direction);
