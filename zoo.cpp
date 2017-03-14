@@ -233,6 +233,8 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
         int px = 0;
         int py = 0;
         int j = 0;
+        int weight = 0;
+        int decimal_weight = 0;
         // membaca id
         while (line[j] != '|') {
           id += line[j];
@@ -246,138 +248,180 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
         }
         j++;
         //membaca py
-        while (j < (int)line.length()) {
+        while (j < (int)line.length() && line[j] != '|') {
           py = 10*py + line[j] - '0';
           j++;
         }
+        if (line[j] == '|') {
+          j++;
+          while (line[j] != '.' && j < (int)line.length()) {
+            weight = 10*weight + line[j] - '0';
+            j++;
+          }
+          if (line[j] == '.') {
+            int multiplier = 1;
+            while (j < (int)line.length()) {
+              multiplier *= 0.1;
+              decimal_weight += multiplier*line[j];
+              j++;
+            }
+          }
+          weight += decimal_weight;
+        }
         if (id == "WF") {
           Wolf* pa;
-          pa = new Wolf(make_pair(py,px));
+          if (weight != 0) pa = new Wolf(weight,make_pair(py,px));
+          else pa = new Wolf(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "LI") {
           Lion* pa;
-          pa = new Lion(make_pair(py,px));
+          if (weight != 0) pa = new Lion(weight,make_pair(py,px));
+          else pa = new Lion(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "ZBR") {
           Zebra* pa;
-          pa = new Zebra(make_pair(py,px));
+          if (weight != 0) pa = new Zebra(weight,make_pair(py,px));
+          else pa = new Zebra(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "ELP") {
           Elephant* pa;
-          pa = new Elephant(make_pair(py,px));
+          if (weight != 0) pa = new Elephant(weight,make_pair(py,px));
+          else pa = new Elephant(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "MCQ") {
           Macaque* pa;
-          pa = new Macaque(make_pair(py,px));
+          if (weight != 0) pa = new Macaque(weight,make_pair(py,px));
+          else pa = new Macaque(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "HG") {
           Hog* pa;
-          pa = new Hog(make_pair(py,px));
+          if (weight != 0) pa = new Hog(weight,make_pair(py,px));
+          else pa = new Hog(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "EGL") {
           Eagle* pa;
-          pa = new Eagle(make_pair(py,px));
+          if (weight != 0) pa = new Eagle(weight,make_pair(py,px));
+          else pa = new Eagle(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "OW") {
           Owl* pa;
-          pa = new Owl(make_pair(py,px));
+          if (weight != 0) pa = new Owl(weight,make_pair(py,px));
+          else pa = new Owl(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "HMB") {
           Hummingbird* pa;
-          pa = new Hummingbird(make_pair(py,px));
+          if (weight != 0) pa = new Hummingbird(weight,make_pair(py,px));
+          else pa = new Hummingbird(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "CKT") {
           Cockatoo* pa;
-          pa = new Cockatoo(make_pair(py,px));
+          if (weight != 0) pa = new Cockatoo(weight,make_pair(py,px));
+          else pa = new Cockatoo(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "RBN") {
           Robin* pa;
-          pa = new Robin(make_pair(py,px));
+          if (weight != 0) pa = new Robin(weight,make_pair(py,px));
+          else pa = new Robin(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "BT") {
           Bat* pa;
-          pa = new Bat(make_pair(py,px));
+          if (weight != 0) pa = new Bat(weight,make_pair(py,px));
+          else pa = new Bat(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "SHK") {
           Shark* pa;
-          pa = new Shark(make_pair(py,px));
+          if (weight != 0) pa = new Shark(weight,make_pair(py,px));
+          else pa = new Shark(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "MRE"){
           MorayEel* pa;
-          pa = new MorayEel(make_pair(py,px));
+          if (weight != 0) pa = new MorayEel(weight,make_pair(py,px));
+          else pa = new MorayEel(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "DGG") {
           Dugong* pa;
-          pa = new Dugong(make_pair(py,px));
+          if (weight != 0) pa = new Dugong(weight,make_pair(py,px));
+          else pa = new Dugong(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "TRL") {
           Turtle* pa;
-          pa = new Turtle(make_pair(py,px));
+          if (weight != 0) pa = new Turtle(weight,make_pair(py,px));
+          else pa = new Turtle(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "DLP") {
           Dolphin* pa;
-          pa = new Dolphin(make_pair(py,px));
+          if (weight != 0) pa = new Dolphin(weight,make_pair(py,px));
+          else pa = new Dolphin(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "WHL") {
           Whale* pa;
-          pa = new Whale(make_pair(py,px));
+          if (weight != 0) pa = new Whale(weight,make_pair(py,px));
+          else pa = new Whale(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "PNG") {
           Penguin* pa;
-          pa = new Penguin(make_pair(py,px));
+          if (weight != 0) pa = new Penguin(weight,make_pair(py,px));
+          else pa = new Penguin(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "HPP") {
           Hippopotamus* pa;
-          pa = new Hippopotamus(make_pair(py,px));
+          if (weight != 0) pa = new Hippopotamus(weight,make_pair(py,px));
+          else pa = new Hippopotamus(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "PLC") {
           Pelican* pa;
-          pa = new Pelican(make_pair(py,px));
+          if (weight != 0) pa = new Pelican(weight,make_pair(py,px));
+          else pa = new Pelican(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "GSE") {
           Goose* pa;
-          pa = new Goose(make_pair(py,px));
+          if (weight != 0) pa = new Goose(weight,make_pair(py,px));
+          else pa = new Goose(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "CRN") {
           Crane* pa;
-          pa = new Crane(make_pair(py,px));
+          if (weight != 0) pa = new Crane(weight,make_pair(py,px));
+          else pa = new Crane(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "DRL"){
           DracoLizard* pa;
-          pa = new DracoLizard(make_pair(py,px));
+          if (weight != 0) pa = new DracoLizard(weight,make_pair(py,px));
+          else pa = new DracoLizard(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "CLG") {
           Colugo* pa;
-          pa = new Colugo(make_pair(py,px));
+          if (weight != 0) pa = new Colugo(weight,make_pair(py,px));
+          else pa = new Colugo(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "SGL"){
           SugarGlider* pa;
-          pa = new SugarGlider(make_pair(py,px));
+          if (weight != 0) pa = new SugarGlider(weight,make_pair(py,px));
+          else pa = new SugarGlider(make_pair(py,px));
           AddAnimal(pa);
         }
       }
