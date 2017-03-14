@@ -9,7 +9,7 @@
 using namespace std;
 
 /**
- * \class Cockatoo
+ * \brief class Cockatoo
  * \details real class dari animal, yaitu burung kakak tua
  */
 class Cockatoo: public Animal {
