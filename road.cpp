@@ -13,9 +13,7 @@ Road::Road(char t) {
   initsymbol = t;
 }
 
-Road::~Road() {
-
-}
+Road::~Road() {}
 
 void Road::Interact() const {}
 

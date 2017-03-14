@@ -4,13 +4,9 @@
 
 using namespace std;
 
-Facility::Facility() {
-  
-}
+Facility::Facility() {}
 
-Facility::~Facility() {
-	
-}
+Facility::~Facility() {}
 
 bool Facility::GetSekat(int direction) const {
   return false;

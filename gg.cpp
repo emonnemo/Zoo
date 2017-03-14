@@ -76,8 +76,10 @@ int main(){
 	b[68] = (char *)"main.cpp";
 	b[69] = (char *)"renderable.h";
 	b[70] = (char *)"renderable.cpp";
+	b[71] = (char *)"driver.h";
+	b[72] = (char *)"driver.cpp";
 
-	for(int j = 0; j <= 67; j++){
+	for(int j = 0; j <= 72; j++){
 
 		char* a;
 		a = new char[30];

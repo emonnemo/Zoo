@@ -11,7 +11,6 @@ Bat::Bat(pair<int,int> _position):
      Animal("BT", ++bat_nb, '*', 0.15, food, 'O', _position) {
   eat = food;
   habitat.insert('A');
-  msg = " ";
   compatible.insert("HMB");
   compatible.insert("CKT");
   compatible.insert("RBN");

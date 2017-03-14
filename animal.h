@@ -22,12 +22,12 @@ class Animal {
       * \param _position posisi hewan
       */
     Animal(string _id,
-    	   int _number,
-    	   char _legend,
-    	   float _weight,
-    	   float _eat,
-    	   char _type,
-    	   pair<int,int> _position);
+           int _number,
+           char _legend,
+           float _weight,
+           float _eat,
+           char _type,
+           pair<int,int> _position);
 
     /** @brief Destructor.
       */
@@ -147,7 +147,6 @@ class Animal {
       pair<int,int> position;
       set<string> compatible;
       set<char> habitat;
-      string msg;
 };
 
 #endif

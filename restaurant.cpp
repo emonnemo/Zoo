@@ -17,9 +17,7 @@ Restaurant::Restaurant(string f, bool o) {
   open = 0;
 }
 
-Restaurant::~Restaurant() {
-  
-}
+Restaurant::~Restaurant() {}
 
 string Restaurant::GetFood() const {
   return food;

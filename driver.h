@@ -9,16 +9,16 @@ using namespace std;
  * \details Class yang digunakan untuk menginisiasi zoo
  */
 class Driver {
-	public:
-		/**
-		 * \brief Constructor
-		 */
-		Driver();
+  public:
+    /**
+     * \brief Constructor
+     */
+    Driver();
 
-		/**
-		 * \brief Destructor
-		 */
-		~Driver();
+    /**
+     * \brief Destructor
+     */
+    ~Driver();
 };
 
 #endif

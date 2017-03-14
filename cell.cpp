@@ -10,9 +10,7 @@ Cell::Cell(char c) {
   symbol = c;
 }
 
-Cell::~Cell() {
-
-}
+Cell::~Cell() {}
 
 ostream& operator<<(ostream& os, const Cell& c) {
   os << c.symbol;
@@ -31,6 +29,6 @@ void Cell::SetSymbol(char s) {
   symbol = s;
 }
 
-void Cell::Render(){
-	cout << symbol;
+void Cell::Render() {
+  cout << symbol;
 }
