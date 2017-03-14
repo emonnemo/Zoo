@@ -12,6 +12,7 @@ class Driver {
   public:
     /**
      * \brief Constructor
+     * \details proses inisiasi Zoo
      */
     Driver();
 

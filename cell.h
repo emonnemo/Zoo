@@ -10,18 +10,18 @@
 
 using namespace std;
 /** \class Cell.
-  * Kelas abstrak cell.
+  * \details Kelas abstrak cell.
   */
-class Cell: public Renderable{
+class Cell: public Renderable {
   public  :
     /** \brief Constructor.
-      * Menciptakan cell dengan symbol "-".
+      * \details Menciptakan cell dengan symbol "-".
       */
     Cell();
 
     /**
      * \brief Constructor dengan parameter.
-     * \details Menciptakan cell dengan symbol "c".
+     * \details Menciptakan cell dengan symbol c.
      * \param c symbol input.
      */
     Cell(char c);
@@ -76,17 +76,33 @@ class Cell: public Renderable{
 
     /**
      * \brief Render
-     * \details Menampilkan represetnasi cell pada layar
+     * \details Menampilkan representasi cell pada layar
      */
     void Render();
 
-    //Tidak diimplementtasi
+    /**
+     * \brief ToggleSekat
+     * \details Memasang atau menghilangkan sekat antar-Cell;
+     * tidak diimplementasi
+     * 
+     * \param direction arah yang ingin dibuka
+     */
     virtual void ToggleSekat(int direction) = 0;
     
-    //Tidak diimplementasi
+    /**
+     * \brief GetSekat
+     * \details Mengecek apakah ke arah direction terdapat sekat;
+     * tidak diimplementasi
+     * 
+     * \param direction arah yang ingin dicek
+     * \return true jika ada sekat, false jika tidak
+     */
     virtual bool GetSekat(int direction) const = 0;
 
-    //Tidak diimplementasi
+    /**
+     * \brief Interact
+     * \details Interaksi dengan Cell; tidak diimplementasi
+     */
     virtual void Interact() const = 0;
 
   protected:
