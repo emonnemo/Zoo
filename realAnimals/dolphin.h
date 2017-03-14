@@ -38,17 +38,17 @@ public:
    * \brief Copy Constructor
    * \details copy constructor, menjamin tidak bitwise copy
    * 
-   * \param w Dolphin yang ingin dikopi
+   * \param d Dolphin yang ingin dikopi
    */
-  Dolphin(const Dolphin& w);
+  Dolphin(const Dolphin& d);
   /**
    * \brief Operator =
    * \details operator=, menjamin tidak bitwise copy
    * 
-   * \param w Dolphin yang ingin dikopi
-   * \return Dolphin yang sama dengan w
+   * \param d Dolphin yang ingin dikopi
+   * \return Dolphin yang sama dengan d
    */
-  Dolphin& operator= (const Dolphin& w);
+  Dolphin& operator= (const Dolphin& d);
   /**
    * \brief Act
    * \details Dolphin's behaviour
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int DolphinNB;
+  static int dolphin_nb;
   const float food = 0.2;
 };
 

@@ -14,7 +14,6 @@ class Animal {
     /**
       * \brief Constructor
       * \details Menciptakan email
-      * 
       * \param _ID id jenis animal
       * \param _id nomor pada jenisnya
       * \param _legend penanda hewan pada peta
@@ -44,7 +43,7 @@ class Animal {
       * \details operator sama dengan, menjamin tidak bitwise copy
       * @param a Animal yang ingin di-copy
       */
-    Animal& operator= (const Animal& a); 
+    Animal& operator=(const Animal& a); 
 
     /**
       * \brief GetID

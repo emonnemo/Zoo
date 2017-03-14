@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Crane::CraneNB = 0;
+int Crane::crane_nb = 0;
 
-Crane::Crane(pair<int,int> _position): Animal("CRN",++CraneNB,'-',3,food,'O',_position) {
+Crane::Crane(pair<int,int> _position): Animal("CRN", ++crane_nb, '-', 3, food, 'O', _position) {
   eat = food;
   habitat.insert('W');  
   habitat.insert('A');
@@ -30,7 +30,7 @@ Crane::Crane(pair<int,int> _position): Animal("CRN",++CraneNB,'-',3,food,'O',_po
   compatible.insert("SGL");
 }
 
-Crane::Crane(float _weight, pair<int,int> _position): Animal("CRN",++CraneNB,'-',_weight,food,'O',_position) {
+Crane::Crane(float _weight, pair<int,int> _position): Animal("CRN", ++crane_nb, '-', _weight, food, 'O', _position) {
   eat = food;
   habitat.insert('W');
   habitat.insert('A');

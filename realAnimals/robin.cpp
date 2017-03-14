@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Robin::robinNB = 0;
+int Robin::robin_nb = 0;
 
-Robin::Robin(pair<int,int> _position): Animal("RBN",++robinNB,'&',0.06,food,'O',_position) {
+Robin::Robin(pair<int,int> _position): Animal("RBN", ++robin_nb, '&', 0.06, food, 'O', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");
@@ -21,7 +21,7 @@ Robin::Robin(pair<int,int> _position): Animal("RBN",++robinNB,'&',0.06,food,'O',
   compatible.insert("DRL");
 }
 
-Robin::Robin(float _weight, pair<int,int> _position): Animal("RBN",++robinNB,'&',_weight,food,'O',_position) {
+Robin::Robin(float _weight, pair<int,int> _position): Animal("RBN", ++robin_nb, '&', _weight, food, 'O', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");

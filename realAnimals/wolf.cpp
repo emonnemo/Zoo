@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Wolf::wolfNB = 0;
+int Wolf::wolf_nb = 0;
 
-Wolf::Wolf(pair<int,int> _position): Animal("WF",++wolfNB,'1',45,food,'K',_position) {
+Wolf::Wolf(pair<int,int> _position): Animal("WF", ++wolf_nb, '1', 45, food, 'K', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("LI");
@@ -15,7 +15,7 @@ Wolf::Wolf(pair<int,int> _position): Animal("WF",++wolfNB,'1',45,food,'K',_posit
   compatible.insert("HPP");
 }
 
-Wolf::Wolf(float _weight, pair<int,int> _position): Animal("WF",++wolfNB,'1',_weight,food,'K',_position) {
+Wolf::Wolf(float _weight, pair<int,int> _position): Animal("WF", ++wolf_nb, '1', _weight, food, 'K', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("LI");
@@ -25,7 +25,7 @@ Wolf::Wolf(float _weight, pair<int,int> _position): Animal("WF",++wolfNB,'1',_we
 
 Wolf::~Wolf(){}
 
-Wolf::Wolf(const Wolf& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.type,w.position) {
+Wolf::Wolf(const Wolf& w): Animal(w.id, w.number, w.legend, w.weight, w.eat, w.type, w.position) {
   habitat = w.habitat;
 }
 

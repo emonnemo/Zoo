@@ -1,7 +1,7 @@
 //File pelican.h
 
-#ifndef Pelican_H
-#define Pelican_H
+#ifndef PELICAN_H
+#define PELICAN_H
 
 #include "../animal.h"
 #include <iostream>
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int PelicanNB;
+  static int pelican_nb;
   const float food = 0.3;
 };
 

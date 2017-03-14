@@ -9,10 +9,10 @@
 using namespace std;
 
 /**
- * \class Sugar_Glider
+ * \class SugarGlider
  * \details real class dari animal, yaitu sugar glider
  */
-class Sugar_Glider: public Animal {
+class SugarGlider: public Animal {
 public:
 	/**
 	 * \brief Constructor default weight
@@ -21,7 +21,7 @@ public:
 	 * \param _weight berat badan
 	 * \param _position posisi sugar glider
 	 */
-	Sugar_Glider(pair<int,int> _position);
+	SugarGlider(pair<int,int> _position);
 	/**
 	 * \brief Constructor dengan weight
 	 * \details Menciptakan objek sugar glider dengan weight sebagai parameter
@@ -29,38 +29,38 @@ public:
 	 * \param _weight berat badan
 	 * \param _position posisi sugar glider
 	 */
-	Sugar_Glider(float _weight, pair<int,int> _position);
+	SugarGlider(float _weight, pair<int,int> _position);
 	/**
 	 * \brief Destructor
 	 */
-	~Sugar_Glider();
+	~SugarGlider();
 	/**
 	 * \brief Copy Constructor
 	 * \details copy constructor, menjamin tidak bitwise copy
 	 * 
-	 * \param s Sugar_Glider yang ingin dikopi
+	 * \param s SugarGlider yang ingin dikopi
 	 */
-	Sugar_Glider(const Sugar_Glider& s);
+	SugarGlider(const SugarGlider& s);
 	/**
 	 * \brief Operator =
 	 * \details operator=, menjamin tidak bitwise copy
 	 * 
-	 * \param s Sugar_Glider yang ingin dikopi
-	 * \return Sugar_Glider yang sama dengan s
+	 * \param s SugarGlider yang ingin dikopi
+	 * \return SugarGlider yang sama dengan s
 	 */
-	Sugar_Glider& operator= (const Sugar_Glider& s);
+	SugarGlider& operator= (const SugarGlider& s);
 	/**
 	 * \brief Act
-	 * \details Sugar_Glider's behaviour
+	 * \details SugarGlider's behaviour
 	 */
 	void Act() const;
 	/**
 	 * \brief Interact
-	 * \details mengoutput hasil interaksi dengan Sugar_Glider
+	 * \details mengoutput hasil interaksi dengan SugarGlider
 	 */
 	void Interact() const;
 private:
-	static int sugarGliderNB;
+	static int sugar_glider_nb;
 	const float food = 0.5;
 };
 

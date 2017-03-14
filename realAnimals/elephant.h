@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int elephantNB;
+  static int elephant_nb;
   const float food = 0.7;
 };
 

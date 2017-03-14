@@ -38,17 +38,17 @@ public:
    * \brief Copy Constructor
    * \details copy constructor, menjamin tidak bitwise copy
    * 
-   * \param w Hog yang ingin dikopi
+   * \param h Hog yang ingin dikopi
    */
-  Hog(const Hog& w);
+  Hog(const Hog& h);
   /**
    * \brief Operator =
    * \details operator=, menjamin tidak bitwise copy
    * 
-   * \param w Hog yang ingin dikopi
-   * \return Hog yang sama dengan w
+   * \param h Hog yang ingin dikopi
+   * \return Hog yang sama dengan h
    */
-  Hog& operator= (const Hog& w);
+  Hog& operator= (const Hog& h);
   /**
    * \brief Act
    * \details Hog's behaviour
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int HogNB;
+  static int hog_nb;
   const float food = 0.2;
 };
 

@@ -313,9 +313,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           pa = new Shark(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if (id == "MRE") {
-          Moray_Eel* pa;
-          pa = new Moray_Eel(make_pair(py,px));
+        else if(id == "MRE"){
+          MorayEel* pa;
+          pa = new MorayEel(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "DGG") {
@@ -363,9 +363,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           pa = new Crane(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if (id == "DRL") {
-          Draco_Lizard* pa;
-          pa = new Draco_Lizard(make_pair(py,px));
+        else if(id == "DRL"){
+          DracoLizard* pa;
+          pa = new DracoLizard(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "CLG") {
@@ -373,9 +373,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           pa = new Colugo(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if (id == "SGL") {
-          Sugar_Glider* pa;
-          pa = new Sugar_Glider(make_pair(py,px));
+        else if(id == "SGL"){
+          SugarGlider* pa;
+          pa = new SugarGlider(make_pair(py,px));
           AddAnimal(pa);
         }
       }
@@ -485,10 +485,10 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           else pa = new Shark(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if (id == "MRE") {
-          Moray_Eel* pa;
-          if (weight != -1) pa = new Moray_Eel(weight,make_pair(py,px));
-          else pa = new Moray_Eel(make_pair(py,px));
+        else if(id == "MRE"){
+          MorayEel* pa;
+          if(weight != -1) pa = new MorayEel(weight,make_pair(py,px));
+          else pa = new MorayEel(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "DGG") {
@@ -545,10 +545,10 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           else pa = new Crane(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if (id == "DRL") {
-          Draco_Lizard* pa;
-          if (weight != -1) pa = new Draco_Lizard(weight,make_pair(py,px));
-          else pa = new Draco_Lizard(make_pair(py,px));
+        else if(id == "DRL"){
+          DracoLizard* pa;
+          if(weight != -1) pa = new DracoLizard(weight,make_pair(py,px));
+          else pa = new DracoLizard(make_pair(py,px));
           AddAnimal(pa);
         }
         else if (id == "CLG") {
@@ -557,10 +557,10 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           else pa = new Colugo(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if (id == "SGL") {
-          Sugar_Glider* pa;
-          if (weight != -1) pa = new Sugar_Glider(weight,make_pair(py,px));
-          else pa = new Sugar_Glider(make_pair(py,px));
+        else if(id == "SGL"){
+          SugarGlider* pa;
+          if(weight != -1) pa = new SugarGlider(weight,make_pair(py,px));
+          else pa = new SugarGlider(make_pair(py,px));
           AddAnimal(pa);
         }
       }

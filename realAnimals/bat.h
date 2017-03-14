@@ -48,7 +48,7 @@ public:
    * \param b Bat yang ingin dikopi
    * \return Bat yang sama dengan b
    */
-  Bat& operator= (const Bat& b);
+  Bat& operator=(const Bat& b);
   /**
    * \brief Act
    * \details Bat's behaviour
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int batNB;
+  static int bat_nb;
   const float food = 0.4;
 };
 

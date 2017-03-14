@@ -1,7 +1,7 @@
 //File hippopotamus.h
 
-#ifndef HIPPO_H
-#define HIPPO_H
+#ifndef HIPPOPOTAMUS_H
+#define HIPPOPOTAMUS_H
 
 #include "../animal.h"
 #include <iostream>
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int hippopotamusNB;
+  static int hippopotamus_nb;
   const float food = 0.65;
 };
 

@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Hummingbird::humbirdNB = 0;
+int Hummingbird::hummingbird_nb = 0;
 
-Hummingbird::Hummingbird(pair<int,int> _position): Animal("HMB",++humbirdNB,'%',0.0002,food,'H',_position) {
+Hummingbird::Hummingbird(pair<int,int> _position): Animal("HMB", ++hummingbird_nb, '%', 0.0002, food, 'H', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");
@@ -21,7 +21,7 @@ Hummingbird::Hummingbird(pair<int,int> _position): Animal("HMB",++humbirdNB,'%',
   compatible.insert("SGL");
 }
 
-Hummingbird::Hummingbird(float _weight, pair<int,int> _position): Animal("HMB",++humbirdNB,'%',_weight,food,'H',_position) {
+Hummingbird::Hummingbird(float _weight, pair<int,int> _position): Animal("HMB", ++hummingbird_nb, '%', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");

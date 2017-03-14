@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Owl::owlNB = 0;
+int Owl::owl_nb = 0;
 
-Owl::Owl(pair<int,int> _position): Animal("OW",++owlNB,'$',2,food,'K',_position) {
+Owl::Owl(pair<int,int> _position): Animal("OW",++owl_nb,'$',2,food,'K',_position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("EGL");
@@ -16,7 +16,7 @@ Owl::Owl(pair<int,int> _position): Animal("OW",++owlNB,'$',2,food,'K',_position)
   compatible.insert("DRL");
 }
 
-Owl::Owl(float _weight, pair<int,int> _position): Animal("OW",++owlNB,'$',_weight,food,'K',_position) {
+Owl::Owl(float _weight, pair<int,int> _position): Animal("OW",++owl_nb,'$',_weight,food,'K',_position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("EGL");

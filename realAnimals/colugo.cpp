@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Colugo::colugoNB = 0;
+int Colugo::colugo_nb = 0;
 
-Colugo::Colugo(pair<int,int> _position): Animal("CLG",++colugoNB,'<',0.035,food,'H',_position) {
+Colugo::Colugo(pair<int,int> _position): Animal("CLG", ++colugo_nb, '<', 0.035, food, 'H', _position) {
   eat = food;
   habitat.insert('L');  
   habitat.insert('A');
@@ -26,7 +26,7 @@ Colugo::Colugo(pair<int,int> _position): Animal("CLG",++colugoNB,'<',0.035,food,
   compatible.insert("CRN");
 }
 
-Colugo::Colugo(float _weight, pair<int,int> _position): Animal("CLG",++colugoNB,'<',_weight,food,'H',_position) {
+Colugo::Colugo(float _weight, pair<int,int> _position): Animal("CLG", ++colugo_nb, '<', _weight, food,'H', _position) {
   eat = food;
   habitat.insert('L');
   habitat.insert('A');

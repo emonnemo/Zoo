@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Whale::WhaleNB = 0;
+int Whale::whale_nb = 0;
 
-Whale::Whale(pair<int,int> _position): Animal("WHL",++WhaleNB,'@',40000,food,'O',_position) {
+Whale::Whale(pair<int,int> _position): Animal("WHL", ++whale_nb, '@', 40000, food, 'O', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("SHK");
@@ -23,7 +23,7 @@ Whale::Whale(pair<int,int> _position): Animal("WHL",++WhaleNB,'@',40000,food,'O'
   compatible.insert("CRN");
 }
 
-Whale::Whale(float _weight, pair<int,int> _position): Animal("WHL",++WhaleNB,'@',_weight,food,'O',_position) {
+Whale::Whale(float _weight, pair<int,int> _position): Animal("WHL", ++whale_nb, '@', _weight, food, 'O', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("SHK");

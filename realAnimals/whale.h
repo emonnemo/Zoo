@@ -60,8 +60,8 @@ public:
    */
   void Interact() const;
 private:
-  static int WhaleNB;
-  const float food = 0.2;
+  static int whale_nb;
+  const float food = 0.1;
 };
 
 #endif

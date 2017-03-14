@@ -5,9 +5,15 @@
 #include <iostream>
 using namespace std;
 
-int Cockatoo::cockatooNB = 0;
+int Cockatoo::cockatoo_nb = 0;
 
-Cockatoo::Cockatoo(pair<int,int> _position): Animal("CKT",++cockatooNB,'^',0.09,food,'H',_position) {
+Cockatoo::Cockatoo(pair<int,int> _position): Animal("CKT",
+                                                    ++cockatoo_nb,
+                                                    '^',
+                                                    0.09,
+                                                    food,
+                                                    'H',
+                                                    _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");
@@ -20,7 +26,8 @@ Cockatoo::Cockatoo(pair<int,int> _position): Animal("CKT",++cockatooNB,'^',0.09,
   compatible.insert("CLG");
 }
 
-Cockatoo::Cockatoo(float _weight, pair<int,int> _position): Animal("CKT",++cockatooNB,'^',_weight,food,'H',_position) {
+Cockatoo::Cockatoo(float _weight, pair<int,int> _position): 
+          Animal("CKT", ++cockatoo_nb, '^', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");

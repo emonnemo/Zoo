@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Turtle::TurtleNB = 0;
+int Turtle::turtle_nb = 0;
 
-Turtle::Turtle(pair<int,int> _position): Animal("TRL",++TurtleNB,'0',453,food,'H',_position) {
+Turtle::Turtle(pair<int,int> _position): Animal("TRL", ++turtle_nb, '0', 453, food, 'H', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("MRE");
@@ -21,7 +21,7 @@ Turtle::Turtle(pair<int,int> _position): Animal("TRL",++TurtleNB,'0',453,food,'H
   compatible.insert("CRN");
 }
 
-Turtle::Turtle(float _weight, pair<int,int> _position): Animal("TRL",++TurtleNB,'0',_weight,food,'H',_position) {
+Turtle::Turtle(float _weight, pair<int,int> _position): Animal("TRL", ++turtle_nb, '0', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("MRE");
@@ -41,9 +41,9 @@ Turtle::Turtle(const Turtle& w): Animal(w.id,w.number,w.legend,w.weight,w.eat,w.
   habitat = w.habitat;
 }
 
-Turtle& Turtle::operator= (const Turtle& w) {
-  SetWeight(w.GetWeight());
-  SetPos(w.GetPos());
+Turtle& Turtle::operator= (const Turtle& t) {
+  SetWeight(t.GetWeight());
+  SetPos(t.GetPos());
   return *this;
 }
 
