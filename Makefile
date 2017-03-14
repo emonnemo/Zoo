@@ -35,7 +35,7 @@ restaurant.o: $(FACILPATH)/restaurant/restaurant.cpp $(FACILPATH)/restaurant/res
 park.o: $(FACILPATH)/park/park.cpp $(FACILPATH)/park/park.h $(FACILPATH)/facility/facility.h
 	$(CXX) $(CFLAGS) -c $(FACILPATH)/park/park.cpp
  
-zoo.o: $(ZOOPATH)/zoo.cpp $(ZOOPATH)/zoo.h
+zoo.o: $(ZOOPATH)/zoo.cpp $(ZOOPATH)/zoo.h $(ZOOPATH)/utility.h
 	$(CXX) $(CFLAGS) -c $(ZOOPATH)/zoo.cpp
  
 animal.o: $(ANIMALPATH)/animal/animal.cpp $(ANIMALPATH)/animal/animal.h
