@@ -7,7 +7,8 @@ using namespace std;
 
 int Zebra::zebra_nb = 0;
 
-Zebra::Zebra(pair<int,int> _position): Animal("ZBR", ++zebra_nb, '3', 226, food, 'H', _position) {
+Zebra::Zebra(pair<int,int> _position):
+       Animal("ZBR", ++zebra_nb, '3', 226, food, 'H', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("ZBR");
@@ -21,7 +22,8 @@ Zebra::Zebra(pair<int,int> _position): Animal("ZBR", ++zebra_nb, '3', 226, food,
   compatible.insert("SGL");
 }
 
-Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR", ++zebra_nb, '3', _weight, food, 'H', _position) {
+Zebra::Zebra(float _weight, pair<int,int> _position):
+       Animal("ZBR", ++zebra_nb, '3', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("ZBR");
@@ -35,24 +37,25 @@ Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR", ++zebra_nb, 
   compatible.insert("SGL");
 }
 
-Zebra::~Zebra(){}
+Zebra::~Zebra() {}
 
-Zebra::Zebra(const Zebra& z): Animal(z.ID, z.id, z.legend, z.weight, z.eat, z.type, z.position) {
+Zebra::Zebra(const Zebra& z):
+       Animal(z.id, z.number, z.legend, z.weight, z.eat, z.type, z.position) {
   habitat = z.habitat;
 }
 
-Zebra& Zebra::operator= (const Zebra& z) {
+Zebra& Zebra::operator=(const Zebra& z) {
   SetWeight(z.GetWeight());
   SetPos(z.GetPos());
   return *this;
 }
 
 void Zebra::Act() const {
-  cout << ID << "-";
-  if (id < 10){
-    cout << "0"; 
+  cout << id << "-";
+  if (number < 10) {
+    cout << "0";
   }
-  cout << id  << ": *snort*" << endl;
+  cout << number  << ": *snort*" << endl;
 }
 
 void Zebra::Interact() const {

@@ -48,7 +48,7 @@ public:
    * \param r Robin yang ingin dikopi
    * \return Robin yang sama dengan r
    */
-  Robin& operator= (const Robin& r);
+  Robin& operator=(const Robin& r);
   /**
    * \brief Act
    * \details Robin's behaviour

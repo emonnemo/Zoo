@@ -26,7 +26,13 @@ DracoLizard::DracoLizard(pair<int,int> _position):
 }
 
 DracoLizard::DracoLizard(float _weight, pair<int,int> _position):
-             Animal("DRL", ++draco_lizard_nb, '=', _weight, food, 'K', _position) {
+             Animal("DRL",
+             	    ++draco_lizard_nb,
+             	    '=',
+             	    _weight,
+             	    food,
+             	    'K',
+             	    _position) {
 	eat = food;
 	habitat.insert('L');
 	habitat.insert('A');
@@ -43,10 +49,16 @@ DracoLizard::DracoLizard(float _weight, pair<int,int> _position):
 	compatible.insert("CRN");
 }
 
-DracoLizard::~DracoLizard(){}
+DracoLizard::~DracoLizard() {}
 
 DracoLizard::DracoLizard(const DracoLizard& d):
-             Animal(d.ID, d.id, d.legend, d.weight, d.eat, d.type, d.position) {
+             Animal(d.id,
+             	    d.number,
+             	    d.legend,
+             	    d.weight,
+             	    d.eat,
+             	    d.type,
+             	    d.position) {
 	habitat = d.habitat;
 }
 
@@ -57,11 +69,11 @@ DracoLizard& DracoLizard::operator=(const DracoLizard& d) {
 }
 
 void DracoLizard::Act() const {
-	cout << ID << "-";
-	if (id < 10){
-		cout << "0"; 
+	cout << id << "-";
+	if (number < 10) {
+		cout << "0";
 	}
-	cout << id	<< ": *jump*" << endl;
+	cout << number	<< ": *jump*" << endl;
 }
 
 void DracoLizard::Interact() const {

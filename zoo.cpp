@@ -20,8 +20,8 @@ using namespace std;
 
 
 Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
-  Cells = new Cell**[width];
-  for (int i = 0; i < width; ++i) Cells[i] = new Cell* [length];
+  cells = new Cell**[width];
+  for (int i = 0; i < width; ++i) cells[i] = new Cell* [length];
   string line;
   if (Auto) { // automatis ctor dari file eksternal
     ifstream ifile("map.txt");
@@ -31,28 +31,28 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
         for (int j = 0; j < length; ++j) {
           switch (line[j]) {
             case 'W':
-              Cells[i][j] = new Habitat('W');
+              cells[i][j] = new Habitat('W');
               break;
             case 'A':
-              Cells[i][j] = new Habitat('A');
+              cells[i][j] = new Habitat('A');
               break;
             case 'L':
-              Cells[i][j] = new Habitat('L');
+              cells[i][j] = new Habitat('L');
               break;
             case 'X':
-              Cells[i][j] = new Road('X');
+              cells[i][j] = new Road('X');
               break;
             case 'N':
-              Cells[i][j] = new Road('N');
+              cells[i][j] = new Road('N');
               break;
             case 'r':
-              Cells[i][j] = new Road('r');
+              cells[i][j] = new Road('r');
               break;
             case 'R':
-              Cells[i][j] = new Restaurant();
+              cells[i][j] = new Restaurant();
               break;
             case 'P':
-              Cells[i][j] = new Park();
+              cells[i][j] = new Park();
               break;
           }
         }
@@ -67,49 +67,49 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
       for (int j = 0; j < length; ++j) {
         switch (line[j]) {
           case 'W':
-            Cells[i][j] = new Habitat('W');
+            cells[i][j] = new Habitat('W');
             break;
           case 'A':
-            Cells[i][j] = new Habitat('A');
+            cells[i][j] = new Habitat('A');
             break;
           case 'L':
-            Cells[i][j] = new Habitat('L');
+            cells[i][j] = new Habitat('L');
             break;
           case 'X':
-            Cells[i][j] = new Road('X');
+            cells[i][j] = new Road('X');
             break;
           case 'N':
-            Cells[i][j] = new Road('N');
+            cells[i][j] = new Road('N');
             break;
           case 'r':
-            Cells[i][j] = new Road('r');
+            cells[i][j] = new Road('r');
             break;
           case 'R':
-            Cells[i][j] = new Restaurant();
+            cells[i][j] = new Restaurant();
             break;
           case 'P':
-            Cells[i][j] = new Park();
+            cells[i][j] = new Park();
             break;
         }
       }
     }
   }
   // caging
-  CageM = new int*[w];
+  cage_map = new int*[w];
   for(int i = 0; i < w; i++) {
-    CageM[i] = new int[l];
+    cage_map[i] = new int[l];
     for(int j = 0; j < l; j++) {
-      CageM[i][j] = -99;
+      cage_map[i][j] = -99;
     }
-  } // alokasi memori CageM
+  } // alokasi memori cage_map
   int counter = 1; // counter cage ke - i
   for (int i = 0; i < w; i++) {
     for (int j = 0; j < l; j++) {
-      if (CageM[i][j] == -99) { // jika belum terisi
-        char c = Cells[i][j]->GetSymbol();
+      if (cage_map[i][j] == -99) { // jika belum terisi
+        char c = cells[i][j]->GetSymbol();
         if (c != 'W' && c != 'A' && c != 'L') {
         // jika bukan merupakan habitat akan diisi  0
-          CageM[i][j] = 0;
+          cage_map[i][j] = 0;
         }
         else { // habitat
           int ai[4], aj[4]; // array menyimpan posisi yang akan dirubah
@@ -117,7 +117,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
             ai[kk] = i, aj[kk] = j; // inisialisasi
           }
           bool cek = true; // boolean apakah bisa membentuk cage atau tidak
-          CageM[i][j] = counter; // dimasukkan ke cage counter
+          cage_map[i][j] = counter; // dimasukkan ke cage counter
           srand(time(NULL));
           pair<int,int> movable[12]; // array pair jalan yang mungkin
           int ii, jj, icek = i, jcek = j, count = 0;
@@ -131,7 +131,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
                 ii = icek - 1, jj = jcek, dum = true;
               }
               // kiri
-              else if(k == 1 && jcek != 0) {
+              else if (k == 1 && jcek != 0) {
                 ii = icek, jj = jcek - 1, dum = true;
               }
               // bawah
@@ -143,7 +143,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
                 ii = icek , jj = jcek + 1, dum = true;
               }
               if (dum) { // jika ada sel disebelahnya
-                if (Cells[ii][jj]->GetSymbol() == c && CageM[ii][jj] == -99) {
+                if (cells[ii][jj]->GetSymbol() == c && cage_map[ii][jj] == -99) {
                 // jika sama habitatnya dan belum masuk ke cage
                   movable[count] = make_pair(ii,jj);
                   // menjadi salah satu pilihan
@@ -162,7 +162,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
             aj[times] = jcek;
             movable[move] = make_pair(movable[count-1].first,
                                       movable[count-1].second);
-            CageM[icek][jcek] = counter;
+            cage_map[icek][jcek] = counter;
             count--;
             if (times == 2) counter++; 
             // jika sudah selesai dengan cage dengan 4 cell counter ditambah
@@ -170,7 +170,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           if (!cek) { 
           // jumlah cell tidak sampai 4, semua yang sudah diisi dikembalikan ke -99
             for (int k = 0; k < 4; k++) {
-              CageM[ai[k]][aj[k]] = -99;
+              cage_map[ai[k]][aj[k]] = -99;
             }
           }
         }
@@ -184,7 +184,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
     change = 0; // inisialisasi
     for (int i = 0; i < w; i++) {
       for (int j = 0; j < l; j++) {
-        if (CageM[i][j] == -99) { // masih belum terisi
+        if (cage_map[i][j] == -99) { // masih belum terisi
           pair<int,int> movable[4]; // array jalan yang mungkin
           int count = 0, ii, jj;
           for (int k = 0; k < 4; k++) { 
@@ -203,8 +203,8 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
               ii = i , jj = j + 1, dum = true;
             }
             if (dum) { // jika jalan mungkin
-              if (Cells[ii][jj]->GetSymbol() == Cells[i][j]->GetSymbol() &&
-                  CageM[ii][jj] != -99) {
+              if (cells[ii][jj]->GetSymbol() == cells[i][j]->GetSymbol() &&
+                  cage_map[ii][jj] != -99) {
               // jika habitatnya sama, dan sudah masuk ke cage
                 movable[count] = make_pair(ii,jj);
                 count++;
@@ -215,14 +215,14 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
             int move = rand() % count; // random
             ii = movable[move].first;
             jj = movable[move].second;
-            CageM[i][j] = CageM[ii][jj];
+            cage_map[i][j] = cage_map[ii][jj];
             change++;
           }
         }
       }
     }
   }
-  if(Auto){
+  if (Auto) {
     // membaca animals dari animals.txt
     ifstream in("animals.txt");
     if (in.is_open()) {
@@ -232,83 +232,83 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
         int py = 0;
         int j = 0;
         // membaca id
-        while(line[j] != '|'){
+        while(line[j] != '|') {
           id += line[j];
           j++;
         }
         j++;
         // membaca px
-        while(line[j] != '|'){
+        while(line[j] != '|') {
           px = 10*px + line[j] - '0';
           j++;
         }
         j++;
         //membaca py
-        while(j < (int)line.length()){
+        while(j < (int)line.length()) {
           py = 10*py + line[j] - '0';
           j++;
         }
-        if(id == "WF"){
+        if (id == "WF") {
           Wolf* pa;
           pa = new Wolf(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "LI"){
+        else if (id == "LI") {
           Lion* pa;
           pa = new Lion(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "ZBR"){
+        else if (id == "ZBR") {
           Zebra* pa;
           pa = new Zebra(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "ELP"){
+        else if (id == "ELP") {
           Elephant* pa;
           pa = new Elephant(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "MCQ"){
+        else if (id == "MCQ") {
           Macaque* pa;
           pa = new Macaque(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "HG"){
+        else if (id == "HG") {
           Hog* pa;
           pa = new Hog(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "EGL"){
+        else if (id == "EGL") {
           Eagle* pa;
           pa = new Eagle(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "OW"){
+        else if (id == "OW") {
           Owl* pa;
           pa = new Owl(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "HMB"){
+        else if (id == "HMB") {
           Hummingbird* pa;
           pa = new Hummingbird(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "CKT"){
+        else if (id == "CKT") {
           Cockatoo* pa;
           pa = new Cockatoo(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "RBN"){
+        else if (id == "RBN") {
           Robin* pa;
           pa = new Robin(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "BT"){
+        else if (id == "BT") {
           Bat* pa;
           pa = new Bat(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "SHK"){
+        else if (id == "SHK") {
           Shark* pa;
           pa = new Shark(make_pair(py,px));
           AddAnimal(pa);
@@ -318,47 +318,47 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           pa = new MorayEel(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "DGG"){
+        else if (id == "DGG") {
           Dugong* pa;
           pa = new Dugong(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "TRL"){
+        else if (id == "TRL") {
           Turtle* pa;
           pa = new Turtle(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "DLP"){
+        else if (id == "DLP") {
           Dolphin* pa;
           pa = new Dolphin(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "WHL"){
+        else if (id == "WHL") {
           Whale* pa;
           pa = new Whale(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "PNG"){
+        else if (id == "PNG") {
           Penguin* pa;
           pa = new Penguin(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "HPP"){
+        else if (id == "HPP") {
           Hippopotamus* pa;
           pa = new Hippopotamus(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "PLC"){
+        else if (id == "PLC") {
           Pelican* pa;
           pa = new Pelican(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "GSE"){
+        else if (id == "GSE") {
           Goose* pa;
           pa = new Goose(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "CRN"){
+        else if (id == "CRN") {
           Crane* pa;
           pa = new Crane(make_pair(py,px));
           AddAnimal(pa);
@@ -368,7 +368,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           pa = new DracoLizard(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "CLG"){
+        else if (id == "CLG") {
           Colugo* pa;
           pa = new Colugo(make_pair(py,px));
           AddAnimal(pa);
@@ -387,7 +387,7 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
     do {
       cout << "Ingin menambah hewan lagi? (y/n)";
       cin >> option;
-      if(option == 'Y' || option == 'y'){
+      if (option == 'Y' || option == 'y') {
         string id;
         char def_weight;
         int px;
@@ -401,87 +401,87 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
         cin >> py;
         cout << "Apakah ingin menggunakan berat default? (y/n)";
         cin >> def_weight;
-        if(def_weight == 'Y' || def_weight == 'y'){
+        if (def_weight == 'Y' || def_weight == 'y') {
           do{
             cout << "Input berat : (>0)";
             cin >> weight;
           } while(weight <= 0);
         }
-        if(id == "WF"){
+        if (id == "WF") {
           Wolf* pa;
-          if(weight != -1) pa = new Wolf(weight,make_pair(py,px));
+          if (weight != -1) pa = new Wolf(weight,make_pair(py,px));
           else pa = new Wolf(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "LI"){
+        else if (id == "LI") {
           Lion* pa;
-          if(weight != -1) pa = new Lion(weight,make_pair(py,px));
+          if (weight != -1) pa = new Lion(weight,make_pair(py,px));
           else pa = new Lion(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "ZBR"){
+        else if (id == "ZBR") {
           Zebra* pa;
-          if(weight != -1) pa = new Zebra(weight,make_pair(py,px));
+          if (weight != -1) pa = new Zebra(weight,make_pair(py,px));
           else pa = new Zebra(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "ELP"){
+        else if (id == "ELP") {
           Elephant* pa;
-          if(weight != -1) pa = new Elephant(weight,make_pair(py,px));
+          if (weight != -1) pa = new Elephant(weight,make_pair(py,px));
           else pa = new Elephant(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "MCQ"){
+        else if (id == "MCQ") {
           Macaque* pa;
-          if(weight != -1) pa = new Macaque(weight,make_pair(py,px));
+          if (weight != -1) pa = new Macaque(weight,make_pair(py,px));
           else pa = new Macaque(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "HG"){
+        else if (id == "HG") {
           Hog* pa;
-          if(weight != -1) pa = new Hog(weight,make_pair(py,px));
+          if (weight != -1) pa = new Hog(weight,make_pair(py,px));
           else pa = new Hog(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "EGL"){
+        else if (id == "EGL") {
           Eagle* pa;
-          if(weight != -1) pa = new Eagle(weight,make_pair(py,px));
+          if (weight != -1) pa = new Eagle(weight,make_pair(py,px));
           else pa = new Eagle(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "OW"){
+        else if (id == "OW") {
           Owl* pa;
-          if(weight != -1) pa = new Owl(weight,make_pair(py,px));
+          if (weight != -1) pa = new Owl(weight,make_pair(py,px));
           else pa = new Owl(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "HMB"){
+        else if (id == "HMB") {
           Hummingbird* pa;
-          if(weight != -1) pa = new Hummingbird(weight,make_pair(py,px));
+          if (weight != -1) pa = new Hummingbird(weight,make_pair(py,px));
           else pa = new Hummingbird(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "CKT"){
+        else if (id == "CKT") {
           Cockatoo* pa;
-          if(weight != -1) pa = new Cockatoo(weight,make_pair(py,px));
+          if (weight != -1) pa = new Cockatoo(weight,make_pair(py,px));
           else pa = new Cockatoo(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "RBN"){
+        else if (id == "RBN") {
           Robin* pa;
-          if(weight != -1) pa = new Robin(weight,make_pair(py,px));
+          if (weight != -1) pa = new Robin(weight,make_pair(py,px));
           else pa = new Robin(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "BT"){
+        else if (id == "BT") {
           Bat* pa;
-          if(weight != -1) pa = new Bat(weight,make_pair(py,px));
+          if (weight != -1) pa = new Bat(weight,make_pair(py,px));
           else pa = new Bat(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "SHK"){
+        else if (id == "SHK") {
           Shark* pa;
-          if(weight != -1) pa = new Shark(weight,make_pair(py,px));
+          if (weight != -1) pa = new Shark(weight,make_pair(py,px));
           else pa = new Shark(make_pair(py,px));
           AddAnimal(pa);
         }
@@ -491,57 +491,57 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           else pa = new MorayEel(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "DGG"){
+        else if (id == "DGG") {
           Dugong* pa;
-          if(weight != -1) pa = new Dugong(weight,make_pair(py,px));
+          if (weight != -1) pa = new Dugong(weight,make_pair(py,px));
           else pa = new Dugong(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "TRL"){
+        else if (id == "TRL") {
           Turtle* pa;
-          if(weight != -1) pa = new Turtle(weight,make_pair(py,px));
+          if (weight != -1) pa = new Turtle(weight,make_pair(py,px));
           else pa = new Turtle(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "DLP"){
+        else if (id == "DLP") {
           Dolphin* pa;
-          if(weight != -1) pa = new Dolphin(weight,make_pair(py,px));
+          if (weight != -1) pa = new Dolphin(weight,make_pair(py,px));
           else pa = new Dolphin(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "WHL"){
+        else if (id == "WHL") {
           Whale* pa;
-          if(weight != -1) pa = new Whale(weight,make_pair(py,px));
+          if (weight != -1) pa = new Whale(weight,make_pair(py,px));
           else pa = new Whale(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "PNG"){
+        else if (id == "PNG") {
           Penguin* pa;
-          if(weight != -1) pa = new Penguin(weight,make_pair(py,px));
+          if (weight != -1) pa = new Penguin(weight,make_pair(py,px));
           else pa = new Penguin(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "HPP"){
+        else if (id == "HPP") {
           Hippopotamus* pa;
-          if(weight != -1) pa = new Hippopotamus(weight,make_pair(py,px));
+          if (weight != -1) pa = new Hippopotamus(weight,make_pair(py,px));
           else pa = new Hippopotamus(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "PLC"){
+        else if (id == "PLC") {
           Pelican* pa;
-          if(weight != -1) pa = new Pelican(weight,make_pair(py,px));
+          if (weight != -1) pa = new Pelican(weight,make_pair(py,px));
           else pa = new Pelican(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "GSE"){
+        else if (id == "GSE") {
           Goose* pa;
-          if(weight != -1) pa = new Goose(weight,make_pair(py,px));
+          if (weight != -1) pa = new Goose(weight,make_pair(py,px));
           else pa = new Goose(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "CRN"){
+        else if (id == "CRN") {
           Crane* pa;
-          if(weight != -1) pa = new Crane(weight,make_pair(py,px));
+          if (weight != -1) pa = new Crane(weight,make_pair(py,px));
           else pa = new Crane(make_pair(py,px));
           AddAnimal(pa);
         }
@@ -551,9 +551,9 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
           else pa = new DracoLizard(make_pair(py,px));
           AddAnimal(pa);
         }
-        else if(id == "CLG"){
+        else if (id == "CLG") {
           Colugo* pa;
-          if(weight != -1) pa = new Colugo(weight,make_pair(py,px));
+          if (weight != -1) pa = new Colugo(weight,make_pair(py,px));
           else pa = new Colugo(make_pair(py,px));
           AddAnimal(pa);
         }
@@ -569,90 +569,90 @@ Zoo::Zoo(bool Auto, int w , int l) : width(w), length(l) {
 }
 
 Zoo::Zoo(const Zoo& z) : width(z.width), length(z.length) {
-  Cells = new Cell**[width];
-  for (int i = 0; i < width; i++) Cells[i] = new Cell*[length];
+  cells = new Cell**[width];
+  for (int i = 0; i < width; i++) cells[i] = new Cell*[length];
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < length; j++) {
-      switch ((z.Cells[i][j])->GetInitSymbol()) {
+      switch ((z.cells[i][j])->GetInitSymbol()) {
         case 'W':
-          Cells[i][j] = new Habitat('W');
+          cells[i][j] = new Habitat('W');
           break;
         case 'A':
-          Cells[i][j] = new Habitat('A');
+          cells[i][j] = new Habitat('A');
           break;
         case 'L':
-          Cells[i][j] = new Habitat('L');
+          cells[i][j] = new Habitat('L');
           break;
         case 'X':
-          Cells[i][j] = new Road('X');
+          cells[i][j] = new Road('X');
           break;
         case 'N':
-          Cells[i][j] = new Road('N');
+          cells[i][j] = new Road('N');
           break;
         case 'r':
-          Cells[i][j] = new Road('r');
+          cells[i][j] = new Road('r');
           break;
         case 'R':
-          Cells[i][j] = new Restaurant();
+          cells[i][j] = new Restaurant();
           break;
         case 'P':
-          Cells[i][j] = new Park();
+          cells[i][j] = new Park();
           break;
       }
     }
   }
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < length; j++) {
-      CageM[i][j] = z.CageM[i][j];
+      cage_map[i][j] = z.cage_map[i][j];
     }
   }
   NBCage = z.NBCage;
 }
 Zoo::~Zoo() {
-  for(int i = 0; i < width; i++) delete [] CageM[i];
-  delete [] CageM;
+  for(int i = 0; i < width; i++) delete [] cage_map[i];
+  delete [] cage_map;
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < length; j++) {
-      delete Cells[i][j];
+      delete cells[i][j];
     }
-    delete [] Cells[i];
+    delete [] cells[i];
   }
-  delete [] Cells;
+  delete [] cells;
 }
 Zoo& Zoo::operator=(const Zoo& z) {
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < length; j++) {
-      switch ((z.Cells[i][j])->GetInitSymbol()) {
+      switch ((z.cells[i][j])->GetInitSymbol()) {
         case 'W':
-          Cells[i][j] = new Habitat('W');
+          cells[i][j] = new Habitat('W');
           break;
         case 'A':
-          Cells[i][j] = new Habitat('A');
+          cells[i][j] = new Habitat('A');
           break;
         case 'L':
-          Cells[i][j] = new Habitat('L');
+          cells[i][j] = new Habitat('L');
           break;
         case 'X':
-          Cells[i][j] = new Road('X');
+          cells[i][j] = new Road('X');
           break;
         case 'N':
-          Cells[i][j] = new Road('N');
+          cells[i][j] = new Road('N');
           break;
         case 'r':
-          Cells[i][j] = new Road('r');
+          cells[i][j] = new Road('r');
           break;
         case 'R':
-          Cells[i][j] = new Restaurant();
+          cells[i][j] = new Restaurant();
           break;
         case 'P':
-          Cells[i][j] = new Park();
+          cells[i][j] = new Park();
           break;
       }
     }
   }
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < length; j++) {
-      CageM[i][j] = z.CageM[i][j];
+      cage_map[i][j] = z.cage_map[i][j];
     }
   }
   NBCage = z.NBCage;
@@ -662,24 +662,24 @@ Zoo& Zoo::operator=(const Zoo& z) {
 void Zoo::Display(int x1, int y1, int x2, int y2) {
   for (int i = x1; i <= x2; ++i) {
     for (int j = y1; j <= y2; ++j) {
-      Cells[i][j]->Render();
+      cells[i][j]->Render();
     }
     cout << endl;
   }
 }
 
 list<Animal*>::iterator Zoo::FindAnimal(pair<int,int> pos) {
-  list<Animal*>::iterator it = Animals.begin();
-  list<Animal*>::iterator e = Animals.end();
+  list<Animal*>::iterator it = animals.begin();
+  list<Animal*>::iterator e = animals.end();
   --e;
-  if (it != Animals.end()) {
+  if (it != animals.end()) {
     while ((*it)->GetPos() != pos && it != e) {
     ++it;
     }
     if ((*it)->GetPos() == pos) {
       return it;
     } else {
-      return Animals.end();
+      return animals.end();
     }
   } else {
     return it;
@@ -690,21 +690,21 @@ list<Animal*>::iterator Zoo::FindAnimal(pair<int,int> pos) {
 void Zoo::AddAnimal(Animal* a) {
   int posx = a->GetPos().first;
   int posy = a->GetPos().second;
-  if(posx < width && posy << length){
-    int cage = CageM[posx][posy];
+  if (posx < width && posy << length) {
+    int cage = cage_map[posx][posy];
     // cek if habitat dlu
     set<char> hab = a->GetHabitat();
     set<string> compability = a->GetCompatible();
-    if (FindAnimal(make_pair(posx,posy)) == Animals.end()) {
-      if (hab.find(Cells[posx][posy]->GetSymbol()) != hab.end()) {
+    if (FindAnimal(make_pair(posx,posy)) == animals.end()) {
+      if (hab.find(cells[posx][posy]->GetSymbol()) != hab.end()) {
         bool compatible = true; 
         // cek apakah ada hewan yang tidak kompatible dengan hewan a
         int count = 0; // count animal yang ada di cage yang sama
-        for (list<Animal*>::const_iterator it = Animals.begin();
-             it != Animals.end(); ++it) {
-          if (cage == CageM[(*it)->GetPos().first][(*it)->GetPos().second]) {
+        for (list<Animal*>::const_iterator it = animals.begin();
+             it != animals.end(); ++it) {
+          if (cage == cage_map[(*it)->GetPos().first][(*it)->GetPos().second]) {
             count++;
-            if (compability.find(a->GetID()) == compability.end()) {
+            if (compability.find(a->GetId()) == compability.end()) {
               compatible = false;
             }
           }
@@ -712,14 +712,14 @@ void Zoo::AddAnimal(Animal* a) {
         int max = 0;
         for (int i = 0; i < width; i++) {
           for (int j = 0; j < length; j++) {
-            if (CageM[i][j] == cage) {
+            if (cage_map[i][j] == cage) {
               max++;
             }
           }
         }
-        if(0.3*max>=(count+1) && compatible){ // masih muat cagenya
-          Animals.push_back(a);
-          Cells[posx][posy]->SetSymbol(a->GetLegend());
+        if (0.3*max>=(count+1) && compatible) { // masih muat cagenya
+          animals.push_back(a);
+          cells[posx][posy]->SetSymbol(a->GetLegend());
         }
       }
     }
@@ -727,38 +727,31 @@ void Zoo::AddAnimal(Animal* a) {
 }
 
 void Zoo::DelAnimal(string _ID, int _id) {
-  list<Animal*>::iterator it = Animals.begin();
-  list<Animal*>::iterator e = Animals.end();
+  list<Animal*>::iterator it = animals.begin();
+  list<Animal*>::iterator e = animals.end();
   --e;
-  while ((*it)->GetID() != _ID && (*it)->Getid() != _id && it != e) {
+  while ((*it)->GetId() != _ID && (*it)->GetNumber() != _id && it != e) {
     ++it;
   }
-  if ((*it)->GetID() == _ID && (*it)->Getid() == _id) {
+  if ((*it)->GetId() == _ID && (*it)->GetNumber() == _id) {
     delete (*it);
-    Animals.erase(it);
+    animals.erase(it);
   }
   int posx = (*it)->GetPos().first;
   int posy = (*it)->GetPos().second;
-  Cells[posx][posy]->SetSymbol(Cells[posx][posy]->GetInitSymbol());
+  cells[posx][posy]->SetSymbol(cells[posx][posy]->GetInitSymbol());
 }
 
 void Zoo::DelAnimal(int x, int y) {
-  if (FindAnimal(make_pair(x,y)) != Animals.end()) {
-    DelAnimal((*FindAnimal(make_pair(x,y)))->GetID(),
-              (*FindAnimal(make_pair(x,y)))->Getid());
+  if (FindAnimal(make_pair(x,y)) != animals.end()) {
+    DelAnimal((*FindAnimal(make_pair(x,y)))->GetId(),
+              (*FindAnimal(make_pair(x,y)))->GetNumber());
   }
-}
-
-int Zoo::GetWidth() const {
-  return width;
-}
-int Zoo::GetLength() const {
-  return length;
 }
 
 float Zoo::GetTotalMeat() const {
   float sum = 0;
-  for (list<Animal*>::const_iterator it = Animals.begin(); it != Animals.end(); ++it) {
+  for (list<Animal*>::const_iterator it = animals.begin(); it != animals.end(); ++it) {
     if ((*it)->GetType() == 'K') {
       sum += (*it)->GetWeight() * (*it)->GetEat();
     }
@@ -771,7 +764,7 @@ float Zoo::GetTotalMeat() const {
 
 float Zoo::GetTotalVegetables() const {
   float sum = 0;
-  for (list<Animal*>::const_iterator it = Animals.begin(); it != Animals.end(); ++it) {
+  for (list<Animal*>::const_iterator it = animals.begin(); it != animals.end(); ++it) {
     if ((*it)->GetType() == 'H') {
       sum += (*it)->GetWeight() * (*it)->GetEat();
     }
@@ -784,8 +777,8 @@ float Zoo::GetTotalVegetables() const {
 
 void Zoo::MoveAnimal(pair<int, int> pos, int direction) {
   list<Animal*>::iterator it = FindAnimal(pos);
-  if (it != Animals.end()) {
-    if (Cells[pos.first][pos.second]->GetSekat(direction)) {
+  if (it != animals.end()) {
+    if (cells[pos.first][pos.second]->GetSekat(direction)) {
       bool valid = false;
       int i = pos.first, j = pos.second;
       switch(direction) {
@@ -815,10 +808,10 @@ void Zoo::MoveAnimal(pair<int, int> pos, int direction) {
           break;
       }
       if (valid) {
-        if (FindAnimal(make_pair(i,j)) == Animals.end()) {
+        if (FindAnimal(make_pair(i,j)) == animals.end()) {
           (*it)->Move(direction);
-          Cells[pos.first][pos.second]->SetSymbol(Cells[pos.first][pos.second]->GetInitSymbol());
-          Cells[(*it)->GetPos().first][(*it)->GetPos().second]->SetSymbol((*it)->GetLegend());
+          cells[pos.first][pos.second]->SetSymbol(cells[pos.first][pos.second]->GetInitSymbol());
+          cells[(*it)->GetPos().first][(*it)->GetPos().second]->SetSymbol((*it)->GetLegend());
         }
       }
     }
@@ -826,58 +819,58 @@ void Zoo::MoveAnimal(pair<int, int> pos, int direction) {
 }
 
 void Zoo::MoveAnimal(string _ID, int _id, int direction) {
-  list<Animal*>::iterator it = Animals.begin();
-  list<Animal*>::iterator e = Animals.end();
+  list<Animal*>::iterator it = animals.begin();
+  list<Animal*>::iterator e = animals.end();
   --e;
-  while ((*it)->GetID() != _ID && (*it)->Getid() != _id && it != e) {
+  while ((*it)->GetId() != _ID && (*it)->GetNumber() != _id && it != e) {
     ++it;
   }
-  if ((*it)->GetID() == _ID && (*it)->Getid() == _id) {
+  if ((*it)->GetId() == _ID && (*it)->GetNumber() == _id) {
     MoveAnimal((*it)->GetPos(), direction);
   }
 }
 
-void Zoo::MoveAllAnimal(){
+void Zoo::MoveAllAnimal() {
   srand(time(NULL));
-  for (list<Animal*>::iterator it = Animals.begin(); it != Animals.end(); ++it){
+  for (list<Animal*>::iterator it = animals.begin(); it != animals.end(); ++it) {
     MoveAnimal((*it)->GetPos(), (rand()%4));
   }
 }
 
-void Zoo::ToggleSekat(int i, int j, int direction){
-  if (i >=0 && i < width && j >= 0 && j < length){
-    char c = Cells[i][j]->GetInitSymbol();
+void Zoo::ToggleSekat(int i, int j, int direction) {
+  if (i >=0 && i < width && j >= 0 && j < length) {
+    char c = cells[i][j]->GetInitSymbol();
     if (c == 'W' || c == 'L' || c == 'A') {
       switch (direction) {
         case 0:
           if (i-1 >= 0) {
-            if (CageM[i-1][j] == CageM[i][j]) {
-              Cells[i][j]->ToggleSekat(0);
-              Cells[i-1][j]->ToggleSekat(3);
+            if (cage_map[i-1][j] == cage_map[i][j]) {
+              cells[i][j]->ToggleSekat(0);
+              cells[i-1][j]->ToggleSekat(3);
             }
           }
           break;
         case 1:
           if (j-1 >= 0) {
-            if (CageM[i][j-1] == CageM[i][j]) {
-              Cells[i][j]->ToggleSekat(1);
-              Cells[i][j-1]->ToggleSekat(2);
+            if (cage_map[i][j-1] == cage_map[i][j]) {
+              cells[i][j]->ToggleSekat(1);
+              cells[i][j-1]->ToggleSekat(2);
             }
           }
           break;
         case 2:
           if (j+1 < length) {
-            if (CageM[i][j+1] == CageM[i][j]) {
-              Cells[i][j]->ToggleSekat(2);
-              Cells[i][j+1]->ToggleSekat(1);
+            if (cage_map[i][j+1] == cage_map[i][j]) {
+              cells[i][j]->ToggleSekat(2);
+              cells[i][j+1]->ToggleSekat(1);
             }
           }
           break;
         case 3:
           if (i+1 < width) {
-            if (CageM[i+1][j] == CageM[i][j]) {
-              Cells[i][j]->ToggleSekat(3);
-              Cells[i+1][j]->ToggleSekat(0);
+            if (cage_map[i+1][j] == cage_map[i][j]) {
+              cells[i][j]->ToggleSekat(3);
+              cells[i+1][j]->ToggleSekat(0);
             }
           }
           break;
@@ -886,22 +879,22 @@ void Zoo::ToggleSekat(int i, int j, int direction){
   }
 }
 
-void Zoo::ToggleAllSekat(){
-  for (int i = 0; i < width; ++i){
-    for (int j = 0; j < length; ++j){
-      for (int k = 0; k < 2; ++k){
+void Zoo::ToggleAllSekat() {
+  for (int i = 0; i < width; ++i) {
+    for (int j = 0; j < length; ++j) {
+      for (int k = 0; k < 2; ++k) {
         ToggleSekat(i, j, k);
       }
     }
   }
 }
 
-void Zoo::Tour(){
+void Zoo::Tour() {
   set<pair<int,int>> entrance;
   bool vis[width][length];
   for (int i = 0; i < width; ++i) {
     for (int j = 0; j < length; ++j) {
-      if (Cells[i][j]->GetSymbol() == 'N') {
+      if (cells[i][j]->GetSymbol() == 'N') {
         entrance.insert(make_pair(i, j));
       }
       vis[i][j] = false;
@@ -917,17 +910,17 @@ void Zoo::Tour(){
   list<int> route;
   dstack.push(*it);
   bool found = false;
-  while (!found){
+  while (!found) {
     int i = dstack.top().first, j = dstack.top().second;
     vis[i][j] = true;
-    if (Cells[i][j]->GetSymbol() == 'X') {
+    if (cells[i][j]->GetSymbol() == 'X') {
       found = true;
       route.push_back(4);
     } else {
       char c;
       set<int> choice;
       if (i-1 >= 0) {
-        c = Cells[i-1][j]->GetSymbol();
+        c = cells[i-1][j]->GetSymbol();
         if (c == 'r' || c == 'X') {
           if (!vis[i-1][j]) {
             choice.insert(0);
@@ -935,7 +928,7 @@ void Zoo::Tour(){
         }
       }
       if (j - 1 >= 0) {
-        c = Cells[i][j-1]->GetSymbol();
+        c = cells[i][j-1]->GetSymbol();
         if (c == 'r' || c == 'X') {
           if (!vis[i][j-1]) {
             choice.insert(1);
@@ -943,7 +936,7 @@ void Zoo::Tour(){
         }
       }
       if (j + 1 < length) {
-        c = Cells[i][j+1]->GetSymbol();
+        c = cells[i][j+1]->GetSymbol();
         if (c == 'r' || c == 'X') {
           if (!vis[i][j+1]) {
             choice.insert(2);
@@ -951,7 +944,7 @@ void Zoo::Tour(){
         }
       }
       if (i+1 < width) {
-        c = Cells[i+1][j]->GetSymbol();
+        c = cells[i+1][j]->GetSymbol();
         if (c == 'r' || c == 'X') {
           if (!vis[i+1][j]) {
             choice.insert(3);
@@ -992,46 +985,46 @@ void Zoo::Tour(){
   }
   while (!route.empty()) {
     if (i - 1 >= 0) {
-      char c = Cells[i-1][j]->GetInitSymbol();
+      char c = cells[i-1][j]->GetInitSymbol();
       if (c == 'P' || c == 'R') {
-        Cells[i-1][j]->Interact();
+        cells[i-1][j]->Interact();
       } else if (c == 'W' || c == 'L' || c == 'A') {
-        if (!VisCage[CageM[i-1][j]]) {
-          InteractCage(make_pair(i - 1,j), CageM[i-1][j]);
-          VisCage[CageM[i-1][j]] = true;
+        if (!VisCage[cage_map[i-1][j]]) {
+          InteractCage(make_pair(i - 1,j), cage_map[i-1][j]);
+          VisCage[cage_map[i-1][j]] = true;
         }
       }
     }
     if (j - 1 >= 0) {
-      char c = Cells[i][j-1]->GetInitSymbol();
+      char c = cells[i][j-1]->GetInitSymbol();
       if (c == 'P' || c == 'R') {
-        Cells[i][j-1]->Interact();
+        cells[i][j-1]->Interact();
       } else if (c == 'W' || c == 'L' || c == 'A') {
-        if (!VisCage[CageM[i][j-1]]) {
-          InteractCage(make_pair(i,j - 1), CageM[i][j-1]);
-          VisCage[CageM[i][j-1]] = true;
+        if (!VisCage[cage_map[i][j-1]]) {
+          InteractCage(make_pair(i,j - 1), cage_map[i][j-1]);
+          VisCage[cage_map[i][j-1]] = true;
         }
       }
     }
     if (j + 1 < length) {
-      char c = Cells[i][j+1]->GetInitSymbol();
+      char c = cells[i][j+1]->GetInitSymbol();
       if (c == 'P' || c == 'R') {
-        Cells[i][j+1]->Interact();
+        cells[i][j+1]->Interact();
       } else if (c == 'W' || c == 'L' || c == 'A') {
-        if (!VisCage[CageM[i][j+1]]) {
-          InteractCage(make_pair(i,j + 1), CageM[i][j+1]);
-          VisCage[CageM[i][j+1]] = true;
+        if (!VisCage[cage_map[i][j+1]]) {
+          InteractCage(make_pair(i,j + 1), cage_map[i][j+1]);
+          VisCage[cage_map[i][j+1]] = true;
         }
       }
     }
     if (i + 1 < width) {
-      char c = Cells[i+1][j]->GetInitSymbol();
+      char c = cells[i+1][j]->GetInitSymbol();
       if (c == 'P' || c == 'R') {
-        Cells[i+1][j]->Interact();
+        cells[i+1][j]->Interact();
       } else if (c == 'W' || c == 'L' || c == 'A') {
-        if (!VisCage[CageM[i+1][j]]) {
-          InteractCage(make_pair(i + 1,j), CageM[i+1][j]);
-          VisCage[CageM[i+1][j]] = true;
+        if (!VisCage[cage_map[i+1][j]]) {
+          InteractCage(make_pair(i + 1,j), cage_map[i+1][j]);
+          VisCage[cage_map[i+1][j]] = true;
         }
       }
     }
@@ -1066,11 +1059,11 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber) {
   while (!bqueue.empty()) {
     int i = bqueue.front().first, j = bqueue.front().second;
     bqueue.pop();
-    if (FindAnimal(make_pair(i,j)) != Animals.end()) {
+    if (FindAnimal(make_pair(i,j)) != animals.end()) {
       (*FindAnimal(make_pair(i,j)))->Interact();
     }  
     if (i-1 >= 0) {
-      if (CageM[i-1][j] == cnumber) {
+      if (cage_map[i-1][j] == cnumber) {
         if (!Vis[i-1][j]) {
           bqueue.push(make_pair(i - 1, j));
           Vis[i-1][j] = true;
@@ -1078,7 +1071,7 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber) {
       }
     }
     if (j - 1 >= 0) {
-      if (CageM[i][j-1] == cnumber) {
+      if (cage_map[i][j-1] == cnumber) {
         if (!Vis[i][j-1]) {
           bqueue.push(make_pair(i,j - 1));
           Vis[i][j-1] = true;
@@ -1086,7 +1079,7 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber) {
       }
     }
     if (j+1 < length) {
-      if (CageM[i][j+1] == cnumber) {
+      if (cage_map[i][j+1] == cnumber) {
         if (!Vis[i][j+1]) {
           bqueue.push(make_pair(i,j + 1));
           Vis[i][j+1] = true;
@@ -1094,7 +1087,7 @@ void Zoo::InteractCage(pair<int,int> pos, int cnumber) {
       }
     }
     if (i+1 < width) {
-      if (CageM[i+1][j] == cnumber) {
+      if (cage_map[i+1][j] == cnumber) {
         if (!Vis[i+1][j]) {
           bqueue.push(make_pair(i + 1,j));
           Vis[i+1][j] = true;

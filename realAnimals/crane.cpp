@@ -55,10 +55,10 @@ Crane::Crane(float _weight, pair<int,int> _position):
   compatible.insert("SGL");
 }
 
-Crane::~Crane(){}
+Crane::~Crane() {}
 
 Crane::Crane(const Crane& c):
-       Animal(c.ID, c.id, c.legend, c.weight, c.eat, c.type, c.position) {
+       Animal(c.id, c.number, c.legend, c.weight, c.eat, c.type, c.position) {
   habitat = c.habitat;
 }
 
@@ -69,11 +69,11 @@ Crane& Crane::operator=(const Crane& c) {
 }
 
 void Crane::Act() const {
-  cout << ID << "-";
-  if (id < 10){
-    cout << "0"; 
+  cout << id << "-";
+  if (number < 10) {
+    cout << "0";
   }
-  cout << id  << ": *soar*" << endl;
+  cout << number  << ": *soar*" << endl;
 }
 
 void Crane::Interact() const {

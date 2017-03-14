@@ -48,7 +48,7 @@ public:
    * \param t Turtle yang ingin dikopi
    * \return Turtle yang sama dengan t
    */
-  Turtle& operator= (const Turtle& t);
+  Turtle& operator=(const Turtle& t);
   /**
    * \brief Act
    * \details Turtle's behaviour

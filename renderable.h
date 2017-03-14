@@ -13,7 +13,7 @@ class Renderable{
 		 * \brief Render
 		 * \details Menampilkan representasi objek pada layar
 		 */
-		virtual void Render();
+		virtual void Render() = 0;
 };
 
 #endif

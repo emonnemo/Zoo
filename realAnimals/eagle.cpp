@@ -25,10 +25,10 @@ Eagle::Eagle(float _weight, pair<int,int> _position):
   compatible.insert("PLC");
 }
 
-Eagle::~Eagle(){}
+Eagle::~Eagle() {}
 
 Eagle::Eagle(const Eagle& e):
-       Animal(e.ID, e.id, e.legend, e.weight, e.eat, e.type, e.position) {
+       Animal(e.id, e.number, e.legend, e.weight, e.eat, e.type, e.position) {
   habitat = e.habitat;
 }
 
@@ -39,11 +39,11 @@ Eagle& Eagle::operator=(const Eagle& e) {
 }
 
 void Eagle::Act() const {
-  cout << ID << "-";
-  if (id < 10){
-    cout << "0"; 
+  cout << id << "-";
+  if (number < 10) {
+    cout << "0";
   }
-  cout << id  << ": *scream*" << endl;
+  cout << number  << ": *scream*" << endl;
 }
 
 void Eagle::Interact() const {

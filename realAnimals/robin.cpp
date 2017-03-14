@@ -7,7 +7,8 @@ using namespace std;
 
 int Robin::robin_nb = 0;
 
-Robin::Robin(pair<int,int> _position): Animal("RBN", ++robin_nb, '&', 0.06, food, 'O', _position) {
+Robin::Robin(pair<int,int> _position):
+       Animal("RBN", ++robin_nb, '&', 0.06, food, 'O', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");
@@ -21,7 +22,8 @@ Robin::Robin(pair<int,int> _position): Animal("RBN", ++robin_nb, '&', 0.06, food
   compatible.insert("DRL");
 }
 
-Robin::Robin(float _weight, pair<int,int> _position): Animal("RBN", ++robin_nb, '&', _weight, food, 'O', _position) {
+Robin::Robin(float _weight, pair<int,int> _position):
+       Animal("RBN", ++robin_nb, '&', _weight, food, 'O', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");
@@ -35,24 +37,25 @@ Robin::Robin(float _weight, pair<int,int> _position): Animal("RBN", ++robin_nb, 
   compatible.insert("DRL");
 }
 
-Robin::~Robin(){}
+Robin::~Robin() {}
 
-Robin::Robin(const Robin& r): Animal(r.ID, r.id, r.legend, r.weight, r.eat, r.type, r.position) {
+Robin::Robin(const Robin& r):
+       Animal(r.id, r.number, r.legend, r.weight, r.eat, r.type, r.position) {
   habitat = r.habitat;
 }
 
-Robin& Robin::operator= (const Robin& r) {
+Robin& Robin::operator=(const Robin& r) {
   SetWeight(r.GetWeight());
   SetPos(r.GetPos());
   return *this;
 }
 
 void Robin::Act() const {
-  cout << ID << "-";
-  if (id < 10){
-    cout << "0"; 
+  cout << id << "-";
+  if (number < 10) {
+    cout << "0";
   }
-  cout << id  << ": *hoot*" << endl;
+  cout << number  << ": *hoot*" << endl;
 }
 
 void Robin::Interact() const {

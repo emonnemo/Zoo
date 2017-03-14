@@ -39,10 +39,10 @@ Dolphin::Dolphin(float _weight, pair<int,int> _position):
   compatible.insert("CRN");
 }
 
-Dolphin::~Dolphin(){}
+Dolphin::~Dolphin() {}
 
 Dolphin::Dolphin(const Dolphin& d):
-         Animal(d.ID,d.id,d.legend,d.weight,d.eat,d.type,d.position) {
+         Animal(d.id, d.number, d.legend, d.weight, d.eat, d.type, d.position) {
   habitat = d.habitat;
 }
 
@@ -53,11 +53,11 @@ Dolphin& Dolphin::operator=(const Dolphin& d) {
 }
 
 void Dolphin::Act() const {
-  cout << ID << "-";
-  if (id < 10){
-    cout << "0"; 
+  cout << id << "-";
+  if (number < 10) {
+    cout << "0";
   }
-  cout << id  << ": *click*" << endl;
+  cout << number  << ": *click*" << endl;
 }
 
 void Dolphin::Interact() const {

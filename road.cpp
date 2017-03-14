@@ -17,10 +17,9 @@ Road::~Road() {
 
 }
 
+void Road::Interact() const {}
 
-void Road::ToggleSekat(int direction) {
-
-}
+void Road::ToggleSekat(int direction) {}
     
 bool Road::GetSekat(int direction) const {
   return false;

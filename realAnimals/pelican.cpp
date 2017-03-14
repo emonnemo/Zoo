@@ -7,7 +7,8 @@ using namespace std;
 
 int Pelican::pelican_nb = 0;
 
-Pelican::Pelican(pair<int,int> _position): Animal("PLC", ++pelican_nb, '~', 7, food, 'K', _position) {
+Pelican::Pelican(pair<int,int> _position):
+         Animal("PLC", ++pelican_nb, '~', 7, food, 'K', _position) {
   eat = food;
   habitat.insert('W');  
   habitat.insert('A');
@@ -30,7 +31,8 @@ Pelican::Pelican(pair<int,int> _position): Animal("PLC", ++pelican_nb, '~', 7, f
   compatible.insert("SGL");
 }
 
-Pelican::Pelican(float _weight, pair<int,int> _position): Animal("PLC", ++pelican_nb, '~', _weight, food, 'K', _position) {
+Pelican::Pelican(float _weight, pair<int,int> _position):
+         Animal("PLC", ++pelican_nb, '~', _weight, food, 'K', _position) {
   eat = food;
   habitat.insert('W');
   habitat.insert('A');
@@ -53,24 +55,25 @@ Pelican::Pelican(float _weight, pair<int,int> _position): Animal("PLC", ++pelica
   compatible.insert("SGL");
 }
 
-Pelican::~Pelican(){}
+Pelican::~Pelican() {}
 
-Pelican::Pelican(const Pelican& p): Animal(p.ID, p.id, p.legend, p.weight, p.eat, p.type, p.position) {
+Pelican::Pelican(const Pelican& p):
+         Animal(p.id, p.number, p.legend, p.weight, p.eat, p.type, p.position) {
   habitat = p.habitat;
 }
 
-Pelican& Pelican::operator= (const Pelican& p) {
+Pelican& Pelican::operator=(const Pelican& p) {
   SetWeight(p.GetWeight());
   SetPos(p.GetPos());
   return *this;
 }
 
 void Pelican::Act() const {
-  cout << ID << "-";
-  if (id < 10){
-    cout << "0"; 
+  cout << id << "-";
+  if (number < 10) {
+    cout << "0";
   }
-  cout << id  << ": “hrraa-hrraa”" << endl;
+  cout << number  << ": “hrraa-hrraa”" << endl;
 }
 
 void Pelican::Interact() const {

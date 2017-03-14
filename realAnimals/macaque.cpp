@@ -7,7 +7,8 @@ using namespace std;
 
 int Macaque::macaque_nb = 0;
 
-Macaque::Macaque(pair<int,int> _position): Animal("MCQ", ++macaque_nb, '5', 9, food, 'O', _position) {
+Macaque::Macaque(pair<int,int> _position):
+         Animal("MCQ", ++macaque_nb, '5', 9, food, 'O', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("ZBR");
@@ -20,7 +21,8 @@ Macaque::Macaque(pair<int,int> _position): Animal("MCQ", ++macaque_nb, '5', 9, f
   compatible.insert("SGL");
 }
 
-Macaque::Macaque(float _weight, pair<int,int> _position): Animal("MCQ", ++macaque_nb, '5', _weight, food, 'O', _position) {
+Macaque::Macaque(float _weight, pair<int,int> _position):
+         Animal("MCQ", ++macaque_nb, '5', _weight, food, 'O', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("ZBR");
@@ -33,24 +35,25 @@ Macaque::Macaque(float _weight, pair<int,int> _position): Animal("MCQ", ++macaqu
   compatible.insert("SGL");
 }
 
-Macaque::~Macaque(){}
+Macaque::~Macaque() {}
 
-Macaque::Macaque(const Macaque& m): Animal(m.ID, m.id, m.legend, m.weight, m.eat, m.type, m.position) {
+Macaque::Macaque(const Macaque& m):
+         Animal(m.id, m.number, m.legend, m.weight, m.eat, m.type, m.position) {
   habitat = m.habitat;
 }
 
-Macaque& Macaque::operator= (const Macaque& m) {
+Macaque& Macaque::operator=(const Macaque& m) {
   SetWeight(m.GetWeight());
   SetPos(m.GetPos());
   return *this;
 }
 
 void Macaque::Act() const {
-  cout << ID << "-";
-  if (id < 10){
-    cout << "0"; 
+  cout << id << "-";
+  if (number < 10) {
+    cout << "0";
   }
-  cout << id  << ": *chatter*" << endl;
+  cout << number  << ": *chatter*" << endl;
 }
 
 void Macaque::Interact() const {

@@ -48,7 +48,7 @@ public:
    * \param w Whale yang ingin dikopi
    * \return Whale yang sama dengan w
    */
-  Whale& operator= (const Whale& w);
+  Whale& operator=(const Whale& w);
   /**
    * \brief Act
    * \details Whale's behaviour

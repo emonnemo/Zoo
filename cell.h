@@ -81,13 +81,13 @@ class Cell: public Renderable{
     void Render();
 
     //Tidak diimplementtasi
-    virtual void ToggleSekat(int direction);
+    virtual void ToggleSekat(int direction) = 0;
     
     //Tidak diimplementasi
-    virtual bool GetSekat(int direction) const;
+    virtual bool GetSekat(int direction) const = 0;
 
     //Tidak diimplementasi
-    virtual void Interact() const;
+    virtual void Interact() const = 0;
 
   protected:
     char initsymbol;

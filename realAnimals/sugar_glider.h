@@ -48,7 +48,7 @@ public:
 	 * \param s SugarGlider yang ingin dikopi
 	 * \return SugarGlider yang sama dengan s
 	 */
-	SugarGlider& operator= (const SugarGlider& s);
+	SugarGlider& operator=(const SugarGlider& s);
 	/**
 	 * \brief Act
 	 * \details SugarGlider's behaviour

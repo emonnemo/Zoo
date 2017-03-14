@@ -48,7 +48,7 @@ class Zoo{
 		  * \param w width lebar kebun binatang, default 16
 		  * \param l length panjang kebun binatang, default 6
 		  */
-		Zoo(bool = 1 , int = 33, int = 32);
+		Zoo(bool = 1, int = 33, int = 32);
 
 		/** @brief cctor
 		  */
@@ -92,20 +92,6 @@ class Zoo{
 		 * \param y posisi pada length
 		 */
 		void DelAnimal(int x, int y);
-
-		/**
-		 * \brief GetWidth
-		 * \details mengembalikan width
-		 * \return int
-		 */
-		int GetWidth() const;
-
-		/**
-		 * \brief GetLength
-		 * \details mengembalikan length
-		 * \return int
-		 */
-		int GetLength() const;
 
 		/**
 		 * \brief GetTotalMeat
@@ -179,9 +165,9 @@ class Zoo{
 	private:
 		const int width;
 		const int length;
-		Cell*** Cells;
-		list<Animal*> Animals;
-		int** CageM;
+		Cell*** cells;
+		list<Animal*> animals;
+		int** cage_map;
 		int NBCage;
 };
 

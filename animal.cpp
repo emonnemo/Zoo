@@ -10,15 +10,15 @@ Animal::Animal(){
 
 }
 
-Animal::Animal(string _ID,
-               int _id,
+Animal::Animal(string _id,
+               int _number,
                char _legend,
                float _weight,
                float _eat,
                char _type,
                pair<int,int> _position) {
-  ID = _ID;
   id = _id;
+  number = _number;
   legend = _legend;
   weight = _weight;
   eat = _eat;
@@ -28,8 +28,8 @@ Animal::Animal(string _ID,
 }
 
 Animal::Animal(const Animal& a) {
-  ID = a.ID;
   id = a.id;
+  number = a.number;
   legend = a.legend;
   weight = a.weight;
   eat = a.eat;
@@ -42,8 +42,8 @@ Animal::Animal(const Animal& a) {
 Animal::~Animal() {}
 
 Animal& Animal::operator=(const Animal& a) {
-  ID = a.ID;
   id = a.id;
+  number = a.number;
   legend = a.legend;
   weight = a.weight;
   eat = a.eat;
@@ -54,12 +54,12 @@ Animal& Animal::operator=(const Animal& a) {
   return *this;
 }
 
-string Animal::GetID() const {
-  return ID;
+string Animal::GetId() const {
+  return id;
 }
 
-int Animal::Getid() const {
-  return id;
+int Animal::GetNumber() const {
+  return number;
 }
 
 float Animal::GetWeight() const {
@@ -95,30 +95,16 @@ void Animal::SetWeight(float _weight) {
   weight = _weight;
 }
 
-void Animal::AddCompatible(string ID) {
-  compatible.insert(ID);
-}
-
-void Animal::DelCompatible(string ID) {
-  compatible.erase(ID);
-}
-
 set<string> Animal::GetCompatible() const {
   return compatible;
 }
 
-void Animal::Act() const {}
-
-void Animal::Interact() const {
-  cout << "interact" << endl;
-}
-
 void Animal::Description(string a) const {
-  cout << "This is a(n) " << a << " called " << ID << "-";
-  if (id < 10) {
+  cout << "This is a(n) " << a << " called " << id << "-";
+  if (number < 10) {
     cout << "0"; 
   }
-  cout << id << ". It weights " << weight << " kilograms. It eats ";
+  cout << number << ". It weights " << weight << " kilograms. It eats ";
   cout << eat*weight << " kilograms of ";
   if (type == 'K') {
     cout << "meats";

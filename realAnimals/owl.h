@@ -48,7 +48,7 @@ public:
    * \param o Owl yang ingin dikopi
    * \return Owl yang sama dengan o
    */
-  Owl& operator= (const Owl& o);
+  Owl& operator=(const Owl& o);
   /**
    * \brief Act
    * \details Owl's behaviour

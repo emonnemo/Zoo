@@ -48,7 +48,7 @@ public:
    * \param s Shark yang ingin dikopi
    * \return Shark yang sama dengan s
    */
-  Shark& operator= (const Shark& s);
+  Shark& operator=(const Shark& s);
   /**
    * \brief Act
    * \details Shark's behaviour

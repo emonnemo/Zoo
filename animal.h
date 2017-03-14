@@ -14,21 +14,20 @@ class Animal {
     /**
       * \brief Constructor
       * \details Menciptakan email
-      * 
-      * \param _ID ID jenis animal
+      * \param _ID id jenis animal
       * \param _id nomor pada jenisnya
       * \param _legend penanda hewan pada peta
       * \param _weight berat badan* \param _eat persentase makan 0-100%
       * \param _type karnivor, herbivor, omnivor
       * \param _position posisi hewan
       */
-    Animal(string _ID,
-           int _id,
-           char _legend,
-           float _weight,
-           float _eat,
-           char _type,
-           pair<int,int> _position);
+    Animal(string _id,
+    	   int _number,
+    	   char _legend,
+    	   float _weight,
+    	   float _eat,
+    	   char _type,
+    	   pair<int,int> _position);
 
     /** @brief Destructor.
       */
@@ -48,17 +47,17 @@ class Animal {
 
     /**
       * \brief GetID
-      * \details Mengembalikan ID hewan
+      * \details Mengembalikan id hewan
       * \return string
       */
-    string GetID() const;
+    string GetId() const;
 
     /**
       * \brief Getid
-      * \details Mengembalikan nomor id di hewan tersebut
+      * \details Mengembalikan nomor number di hewan tersebut
       * \return int
       */
-    int Getid() const;
+    int GetNumber() const;
 
     /** @brief GetWeight
       * \details mengembalikan nilai weight dari suatu Animal
@@ -87,9 +86,14 @@ class Animal {
       * \details mengembalikan legenda suatu Animal
       * \return legenda Animal tersebut
       */
-    virtual char GetLegend() const;
+    char GetLegend() const;
 
-    virtual set<char> GetHabitat() const;
+    /**
+     * \brief GetHabitat
+     * \details mengembalikan habitat
+     * \return habitat
+     */
+    set<char> GetHabitat() const;
 
     /** @brief SetWeight
       * \details mengatur berat badan suatu Animal
@@ -104,35 +108,26 @@ class Animal {
     void SetPos(pair<int,int> _position);
 
     /**
-      * \brief AddCompatible
-      * \details Menambahkan hewan dengan ID pada set compatible
-      * \param ID hewan yang akan ditambah
-      */
-    void AddCompatible(string ID);
-
-    /**
-      * \brief DelCompatible
-      * \details Menghapus hewan dengan ID pada set compatible
-      * \param ID yang akan dihapus
-      */
-    void DelCompatible(string ID);
-
+     * \brief GetCompatible
+     * \details mengembalikan set compatible
+     * \return compatible
+     */
     set<string> GetCompatible() const;
 
-    virtual void Act() const;
+    virtual void Act() const = 0;
 
     /**
     * \brief Interact
     * \details mengoutput hasil interaksi dengan Animal
     */
-    virtual void Interact() const;
+    virtual void Interact() const = 0;
 
     /**
     * \brief Description
     * \details mengoutput deskripsi Animal tersebut
     * \param a jenis binatang
     */
-    virtual void Description(string a) const;
+    void Description(string a) const;
 
     /**
       * \brief Move
@@ -143,8 +138,8 @@ class Animal {
     void Move(int direction);
 
     protected:
-      string ID;
-      int id;
+      string id;
+      int number;
       char legend;
       float weight;
       float eat;

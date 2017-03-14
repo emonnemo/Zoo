@@ -7,7 +7,8 @@ using namespace std;
 
 int MorayEel::moray_eel_nb = 0;
 
-MorayEel::MorayEel(pair<int,int> _position): Animal("MRE", ++moray_eel_nb, '8', 13, food, 'K', _position) {
+MorayEel::MorayEel(pair<int,int> _position):
+          Animal("MRE", ++moray_eel_nb, '8', 13, food, 'K', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("MRE");
@@ -18,7 +19,8 @@ MorayEel::MorayEel(pair<int,int> _position): Animal("MRE", ++moray_eel_nb, '8', 
   compatible.insert("HPP");
 }
 
-MorayEel::MorayEel(float _weight, pair<int,int> _position): Animal("MRE", ++moray_eel_nb, '8', _weight, food, 'K', _position) {
+MorayEel::MorayEel(float _weight, pair<int,int> _position):
+          Animal("MRE", ++moray_eel_nb, '8', _weight, food, 'K', _position) {
   eat = food;
   habitat.insert('W');
   compatible.insert("MRE");
@@ -29,24 +31,31 @@ MorayEel::MorayEel(float _weight, pair<int,int> _position): Animal("MRE", ++mora
   compatible.insert("HPP");
 }
 
-MorayEel::~MorayEel(){}
+MorayEel::~MorayEel() {}
 
-MorayEel::MorayEel(const MorayEel& m): Animal(m.ID, m.id, m.legend, m.weight, m.eat, m.type, m.position) {
+MorayEel::MorayEel(const MorayEel& m):
+          Animal(m.id,
+                 m.number,
+                 m.legend,
+                 m.weight,
+                 m.eat,
+                 m.type,
+                 m.position) {
   habitat = m.habitat;
 }
 
-MorayEel& MorayEel::operator= (const MorayEel& m) {
+MorayEel& MorayEel::operator=(const MorayEel& m) {
   SetWeight(m.GetWeight());
   SetPos(m.GetPos());
   return *this;
 }
 
 void MorayEel::Act() const {
-  cout << ID << "-";
-  if (id < 10){
-    cout << "0"; 
+  cout << id << "-";
+  if (number < 10) {
+    cout << "0";
   }
-  cout << id  << ": *hide into rocks*" << endl;
+  cout << number  << ": *hide into rocks*" << endl;
 }
 
 void MorayEel::Interact() const {
