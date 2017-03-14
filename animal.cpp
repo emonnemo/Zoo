@@ -1,14 +1,12 @@
-/* Author		: Andika Kusuma / 13515033
- * File			: animal.cpp
+/* Author    : Andika Kusuma / 13515033
+ * File      : animal.cpp
  */
 
 #include "animal.h"
 #include <iostream>
 using namespace std;
 
-Animal::Animal(){
-
-}
+Animal::Animal() {}
 
 Animal::Animal(string _id,
                int _number,
@@ -109,15 +107,15 @@ void Animal::Description(string a) const {
   if (type == 'K') {
     cout << "meats";
   } else if (type == 'O') {
-  	cout << "meats and vegetables";
+    cout << "meats and vegetables";
   } else {
-  	cout << "vegetables";
+    cout << "vegetables";
   }
   cout << endl;
 }
 
 void Animal::Move(int direction) {
-  switch(direction){
+  switch (direction) {
     case 0:
       position.first--;
       break;

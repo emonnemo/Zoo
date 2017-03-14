@@ -13,9 +13,7 @@ Habitat::Habitat(char s) {
   }
 }
 
-Habitat::~Habitat() {
-  
-}
+Habitat::~Habitat() {}
 
 void Habitat::ToggleSekat(int direction) {
   if (sekat[direction]) {
@@ -29,6 +27,4 @@ bool Habitat::GetSekat(int direction) const {
   return sekat[direction];
 }
 
-void Habitat::Interact() const {
-  
-}
+void Habitat::Interact() const {}
