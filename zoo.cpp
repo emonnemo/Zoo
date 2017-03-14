@@ -775,14 +775,14 @@ void Zoo::AddAnimal(Animal* a) {
   }
 }
 
-void Zoo::DelAnimal(string _ID, int _id) {
+void Zoo::DelAnimal(string _id, int _number) {
   list<Animal*>::iterator it = animals.begin();
   list<Animal*>::iterator e = animals.end();
   --e;
-  while ((*it)->GetId() != _ID && (*it)->GetNumber() != _id && it != e) {
+  while ((*it)->GetId() != _id && (*it)->GetNumber() != _number && it != e) {
     ++it;
   }
-  if ((*it)->GetId() == _ID && (*it)->GetNumber() == _id) {
+  if ((*it)->GetId() == _id && (*it)->GetNumber() == _number) {
     delete (*it);
     animals.erase(it);
   }
@@ -873,14 +873,14 @@ void Zoo::MoveAnimal(pair<int, int> pos, int direction) {
   }
 }
 
-void Zoo::MoveAnimal(string _ID, int _id, int direction) {
+void Zoo::MoveAnimal(string _id, int _number, int direction) {
   list<Animal*>::iterator it = animals.begin();
   list<Animal*>::iterator e = animals.end();
   --e;
-  while ((*it)->GetId() != _ID && (*it)->GetNumber() != _id && it != e) {
+  while ((*it)->GetId() != _id && (*it)->GetNumber() != _number && it != e) {
     ++it;
   }
-  if ((*it)->GetId() == _ID && (*it)->GetNumber() == _id) {
+  if ((*it)->GetId() == _id && (*it)->GetNumber() == _number) {
     MoveAnimal((*it)->GetPos(), direction);
   }
 }
