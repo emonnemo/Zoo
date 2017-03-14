@@ -9,10 +9,10 @@
 using namespace std;
 
 /**
- * \class Draco_Lizard
+ * \class DracoLizard
  * \details real class dari animal, yaitu kadal terbang
  */
-class Draco_Lizard: public Animal {
+class DracoLizard: public Animal {
 public:
 	/**
 	 * \brief Constructor default weight
@@ -21,7 +21,7 @@ public:
 	 * \param _weight berat badan
 	 * \param _position posisi kadal terbang
 	 */
-	Draco_Lizard(pair<int,int> _position);
+	DracoLizard(pair<int,int> _position);
 	/**
 	 * \brief Constructor dengan weight
 	 * \details Menciptakan objek kadal terbang dengan weight sebagai parameter
@@ -29,38 +29,38 @@ public:
 	 * \param _weight berat badan
 	 * \param _position posisi kadal terbang
 	 */
-	Draco_Lizard(float _weight, pair<int,int> _position);
+	DracoLizard(float _weight, pair<int,int> _position);
 	/**
 	 * \brief DestructorD
 	 */
-	~Draco_Lizard();
+	~DracoLizard();
 	/**
 	 * \brief Copy Constructor
 	 * \details copy constructor, menjamin tidak bitwise copy
 	 * 
-	 * \param d Draco_Lizard yang ingin dikopi
+	 * \param d DracoLizard yang ingin dikopi
 	 */
-	Draco_Lizard(const Draco_Lizard& d);
+	DracoLizard(const DracoLizard& d);
 	/**
 	 * \brief Operator =
 	 * \details operator=, menjamin tidak bitwise copy
 	 * 
-	 * \param d Draco_Lizard yang ingin dikopi
-	 * \return Draco_Lizard yang sama dengan d
+	 * \param d DracoLizard yang ingin dikopi
+	 * \return DracoLizard yang sama dengan d
 	 */
-	Draco_Lizard& operator= (const Draco_Lizard& d);
+	DracoLizard& operator= (const DracoLizard& d);
 	/**
 	 * \brief Act
-	 * \details Draco_Lizard's behaviour
+	 * \details DracoLizard's behaviour
 	 */
 	void Act() const;
 	/**
 	 * \brief Interact
-	 * \details mengoutput hasil interaksi dengan Draco_Lizard
+	 * \details mengoutput hasil interaksi dengan DracoLizard
 	 */
 	void Interact() const;
 private:
-	static int dracoLizardNB;
+	static int draco_lizard_nb;
 	const float food = 0.2;
 };
 

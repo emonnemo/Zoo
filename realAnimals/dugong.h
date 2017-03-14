@@ -1,7 +1,7 @@
-//File Dugong.h
+//File dugong.h
 
-#ifndef Dugong_H
-#define Dugong_H
+#ifndef DUGONG_H
+#define DUGONG_H
 
 #include "../animal.h"
 #include <iostream>
@@ -38,17 +38,17 @@ public:
    * \brief Copy Constructor
    * \details copy constructor, menjamin tidak bitwise copy
    * 
-   * \param w Dugong yang ingin dikopi
+   * \param d Dugong yang ingin dikopi
    */
-  Dugong(const Dugong& w);
+  Dugong(const Dugong& d);
   /**
    * \brief Operator =
    * \details operator=, menjamin tidak bitwise copy
    * 
-   * \param w Dugong yang ingin dikopi
-   * \return Dugong yang sama dengan w
+   * \param d Dugong yang ingin dikopi
+   * \return Dugong yang sama dengan d
    */
-  Dugong& operator= (const Dugong& w);
+  Dugong& operator= (const Dugong& d);
   /**
    * \brief Act
    * \details Dugong's behaviour
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int DugongNB;
+  static int dugong_nb;
   const float food = 0.2;
 };
 

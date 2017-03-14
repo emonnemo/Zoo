@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Eagle::eagleNB = 0;
+int Eagle::eagle_nb = 0;
 
-Eagle::Eagle(pair<int,int> _position): Animal("EGL",++eagleNB,'#',4,food,'K',_position) {
+Eagle::Eagle(pair<int,int> _position): Animal("EGL", ++eagle_nb, '#', 4, food, 'K', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("EGL");
@@ -15,7 +15,7 @@ Eagle::Eagle(pair<int,int> _position): Animal("EGL",++eagleNB,'#',4,food,'K',_po
   compatible.insert("PLC");
 }
 
-Eagle::Eagle(float _weight, pair<int,int> _position): Animal("EGL",++eagleNB,'#',_weight,food,'K',_position) {
+Eagle::Eagle(float _weight, pair<int,int> _position): Animal("EGL", ++eagle_nb, '#', _weight, food, 'K', _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("EGL");
@@ -25,7 +25,7 @@ Eagle::Eagle(float _weight, pair<int,int> _position): Animal("EGL",++eagleNB,'#'
 
 Eagle::~Eagle(){}
 
-Eagle::Eagle(const Eagle& e): Animal(e.ID,e.id,e.legend,e.weight,e.eat,e.type,e.position) {
+Eagle::Eagle(const Eagle& e): Animal(e.ID, e.id, e.legend, e.weight, e.eat, e.type, e.position) {
   habitat = e.habitat;
 }
 

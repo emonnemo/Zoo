@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Goose::GooseNB = 0;
+int Goose::goose_nb = 0;
 
-Goose::Goose(pair<int,int> _position): Animal("GSE",++GooseNB,'+',4,food,'H',_position) {
+Goose::Goose(pair<int,int> _position): Animal("GSE", ++goose_nb, '+', 4, food, 'H', _position) {
   eat = food;
   habitat.insert('W');  
   habitat.insert('A');
@@ -29,7 +29,7 @@ Goose::Goose(pair<int,int> _position): Animal("GSE",++GooseNB,'+',4,food,'H',_po
   compatible.insert("SGL");
 }
 
-Goose::Goose(float _weight, pair<int,int> _position): Animal("GSE",++GooseNB,'+',_weight,food,'H',_position) {
+Goose::Goose(float _weight, pair<int,int> _position): Animal("GSE", ++goose_nb, '+', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('W');
   habitat.insert('A');
@@ -53,7 +53,7 @@ Goose::Goose(float _weight, pair<int,int> _position): Animal("GSE",++GooseNB,'+'
 
 Goose::~Goose(){}
 
-Goose::Goose(const Goose& g): Animal(g.ID,g.id,g.legend,g.weight,g.eat,g.type,g.position) {
+Goose::Goose(const Goose& g): Animal(g.ID, g.id, g.legend, g.weight, g.eat, g.type, g.position) {
   habitat = g.habitat;
 }
 

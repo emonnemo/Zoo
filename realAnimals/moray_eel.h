@@ -1,7 +1,7 @@
 //File moray_eel.h
 
-#ifndef Moray_EEL_H
-#define Moray_EEL_H
+#ifndef MORAY_EEL_H
+#define MORAY_EEL_H
 
 #include "../animal.h"
 #include <iostream>
@@ -9,10 +9,10 @@
 using namespace std;
 
 /**
- * \class Moray_Eel
+ * \class MorayEel
  * \details real class dari animal, yaitu belut
  */
-class Moray_Eel: public Animal {
+class MorayEel: public Animal {
 public:
   /**
    * \brief Constructor default weight
@@ -21,7 +21,7 @@ public:
    * \param _weight berat badan
    * \param _position posisi belut
    */
-  Moray_Eel(pair<int,int> _position);
+  MorayEel(pair<int,int> _position);
   /**
    * \brief Constructor dengan weight
    * \details Menciptakan objek belut dengan weight sebagai parameter
@@ -29,38 +29,38 @@ public:
    * \param _weight berat badan
    * \param _position posisi belut
    */
-  Moray_Eel(float _weight, pair<int,int> _position);
+  MorayEel(float _weight, pair<int,int> _position);
   /**
    * \brief Destructor
    */
-  ~Moray_Eel();
+  ~MorayEel();
   /**
    * \brief Copy Constructor
    * \details copy constructor, menjamin tidak bitwise copy
    * 
-   * \param w Moray_Eel yang ingin dikopi
+   * \param m MorayEel yang ingin dikopi
    */
-  Moray_Eel(const Moray_Eel& w);
+  MorayEel(const MorayEel& m);
   /**
    * \brief Operator =
    * \details operator=, menjamin tidak bitwise copy
    * 
-   * \param w Moray_Eel yang ingin dikopi
-   * \return Moray_Eel yang sama dengan w
+   * \param m MorayEel yang ingin dikopi
+   * \return MorayEel yang sama dengan m
    */
-  Moray_Eel& operator= (const Moray_Eel& w);
+  MorayEel& operator= (const MorayEel& m);
   /**
    * \brief Act
-   * \details Moray_Eel's behaviour
+   * \details MorayEel's behaviour
    */
   void Act() const;
   /**
    * \brief Interact
-   * \details mengoutput hasil interaksi dengan Moray_Eel
+   * \details mengoutput hasil interaksi dengan MorayEel
    */
   void Interact() const;
 private:
-  static int morayEelNB;
+  static int moray_eel_nb;
   const float food = 0.2;
 };
 

@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Hog::HogNB = 0;
+int Hog::hog_nb = 0;
 
-Hog::Hog(pair<int,int> _position): Animal("HG",++HogNB,'6',68,food,'O',_position) {
+Hog::Hog(pair<int,int> _position): Animal("HG", ++hog_nb, '6', 68, food, 'O', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("ZBR");
@@ -17,7 +17,7 @@ Hog::Hog(pair<int,int> _position): Animal("HG",++HogNB,'6',68,food,'O',_position
   compatible.insert("HPP");
 }
 
-Hog::Hog(float _weight, pair<int,int> _position): Animal("HG",++HogNB,'6',_weight,food,'O',_position) {
+Hog::Hog(float _weight, pair<int,int> _position): Animal("HG", ++hog_nb, '6', _weight, food, 'O', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("ZBR");
@@ -29,13 +29,13 @@ Hog::Hog(float _weight, pair<int,int> _position): Animal("HG",++HogNB,'6',_weigh
 
 Hog::~Hog(){}
 
-Hog::Hog(const Hog& w): Animal(w.ID,w.id,w.legend,w.weight,w.eat,w.type,w.position) {
-  habitat = w.habitat;
+Hog::Hog(const Hog& h): Animal(h.ID, h.id, h.legend, h.weight, h.eat, h.type, h.position) {
+  habitat = h.habitat;
 }
 
-Hog& Hog::operator= (const Hog& w) {
-  SetWeight(w.GetWeight());
-  SetPos(w.GetPos());
+Hog& Hog::operator= (const Hog& h) {
+  SetWeight(h.GetWeight());
+  SetPos(h.GetPos());
   return *this;
 }
 

@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Pelican::PelicanNB = 0;
+int Pelican::pelican_nb = 0;
 
-Pelican::Pelican(pair<int,int> _position): Animal("PLC",++PelicanNB,'~',7,food,'K',_position) {
+Pelican::Pelican(pair<int,int> _position): Animal("PLC", ++pelican_nb, '~', 7, food, 'K', _position) {
   eat = food;
   habitat.insert('W');  
   habitat.insert('A');
@@ -30,7 +30,7 @@ Pelican::Pelican(pair<int,int> _position): Animal("PLC",++PelicanNB,'~',7,food,'
   compatible.insert("SGL");
 }
 
-Pelican::Pelican(float _weight, pair<int,int> _position): Animal("PLC",++PelicanNB,'~',_weight,food,'K',_position) {
+Pelican::Pelican(float _weight, pair<int,int> _position): Animal("PLC", ++pelican_nb, '~', _weight, food, 'K', _position) {
   eat = food;
   habitat.insert('W');
   habitat.insert('A');
@@ -55,7 +55,7 @@ Pelican::Pelican(float _weight, pair<int,int> _position): Animal("PLC",++Pelican
 
 Pelican::~Pelican(){}
 
-Pelican::Pelican(const Pelican& p): Animal(p.ID,p.id,p.legend,p.weight,p.eat,p.type,p.position) {
+Pelican::Pelican(const Pelican& p): Animal(p.ID, p.id, p.legend, p.weight, p.eat, p.type, p.position) {
   habitat = p.habitat;
 }
 

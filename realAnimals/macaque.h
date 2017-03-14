@@ -38,17 +38,17 @@ public:
    * \brief Copy Constructor
    * \details copy constructor, menjamin tidak bitwise copy
    * 
-   * \param w Macaque yang ingin dikopi
+   * \param m Macaque yang ingin dikopi
    */
-  Macaque(const Macaque& w);
+  Macaque(const Macaque& m);
   /**
    * \brief Operator =
    * \details operator=, menjamin tidak bitwise copy
    * 
-   * \param w Macaque yang ingin dikopi
-   * \return Macaque yang sama dengan w
+   * \param m Macaque yang ingin dikopi
+   * \return Macaque yang sama dengan m
    */
-  Macaque& operator= (const Macaque& w);
+  Macaque& operator= (const Macaque& m);
   /**
    * \brief Act
    * \details Macaque's behaviour
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int MacaqueNB;
+  static int macaque_nb;
   const float food = 0.2;
 };
 

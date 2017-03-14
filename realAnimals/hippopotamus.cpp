@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Hippopotamus::hippopotamusNB = 0;
+int Hippopotamus::hippopotamus_nb = 0;
 
-Hippopotamus::Hippopotamus(pair<int,int> _position): Animal("HPP",++hippopotamusNB,')',1496,food,'H',_position) {
+Hippopotamus::Hippopotamus(pair<int,int> _position): Animal("HPP", ++hippopotamus_nb, ')', 1496, food, 'H', _position) {
   eat = food;
   habitat.insert('L');  
   habitat.insert('W');
@@ -29,7 +29,7 @@ Hippopotamus::Hippopotamus(pair<int,int> _position): Animal("HPP",++hippopotamus
   compatible.insert("CRN");
 }
 
-Hippopotamus::Hippopotamus(float _weight, pair<int,int> _position): Animal("HPP",++hippopotamusNB,')',_weight,food,'H',_position) {
+Hippopotamus::Hippopotamus(float _weight, pair<int,int> _position): Animal("HPP", ++hippopotamus_nb, ')', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('L');
   habitat.insert('W');
@@ -53,7 +53,7 @@ Hippopotamus::Hippopotamus(float _weight, pair<int,int> _position): Animal("HPP"
 
 Hippopotamus::~Hippopotamus(){}
 
-Hippopotamus::Hippopotamus(const Hippopotamus& h): Animal(h.ID,h.id,h.legend,h.weight,h.eat,h.type,h.position) {
+Hippopotamus::Hippopotamus(const Hippopotamus& h): Animal(h.ID, h.id, h.legend, h.weight, h.eat, h.type, h.position) {
   habitat = h.habitat;
 }
 

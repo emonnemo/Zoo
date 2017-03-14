@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Draco_Lizard::dracoLizardNB = 0;
+int DracoLizard::draco_lizard_nb = 0;
 
-Draco_Lizard::Draco_Lizard(pair<int,int> _position): Animal("DRL",++dracoLizardNB,'=',0.2,food,'K',_position) {
+DracoLizard::DracoLizard(pair<int,int> _position): Animal("DRL", ++draco_lizard_nb, '=', 0.2, food, 'K', _position) {
 	eat = food;
 	habitat.insert('L');	
 	habitat.insert('A');
@@ -24,7 +24,7 @@ Draco_Lizard::Draco_Lizard(pair<int,int> _position): Animal("DRL",++dracoLizardN
 	compatible.insert("CRN");
 }
 
-Draco_Lizard::Draco_Lizard(float _weight, pair<int,int> _position): Animal("DRL",++dracoLizardNB,'=',_weight,food,'K',_position) {
+DracoLizard::DracoLizard(float _weight, pair<int,int> _position): Animal("DRL", ++draco_lizard_nb, '=', _weight, food, 'K', _position) {
 	eat = food;
 	habitat.insert('L');
 	habitat.insert('A');
@@ -41,19 +41,19 @@ Draco_Lizard::Draco_Lizard(float _weight, pair<int,int> _position): Animal("DRL"
 	compatible.insert("CRN");
 }
 
-Draco_Lizard::~Draco_Lizard(){}
+DracoLizard::~DracoLizard(){}
 
-Draco_Lizard::Draco_Lizard(const Draco_Lizard& d): Animal(d.ID,d.id,d.legend,d.weight,d.eat,d.type,d.position) {
+DracoLizard::DracoLizard(const DracoLizard& d): Animal(d.ID, d.id, d.legend, d.weight, d.eat, d.type, d.position) {
 	habitat = d.habitat;
 }
 
-Draco_Lizard& Draco_Lizard::operator= (const Draco_Lizard& d) {
+DracoLizard& DracoLizard::operator= (const DracoLizard& d) {
 	SetWeight(d.GetWeight());
 	SetPos(d.GetPos());
 	return *this;
 }
 
-void Draco_Lizard::Act() const {
+void DracoLizard::Act() const {
 	cout << ID << "-";
 	if (id < 10){
 		cout << "0"; 
@@ -61,7 +61,7 @@ void Draco_Lizard::Act() const {
 	cout << id	<< ": *jump*" << endl;
 }
 
-void Draco_Lizard::Interact() const {
+void DracoLizard::Interact() const {
 	Description("draco lizard");
 	Act();
 }

@@ -1,7 +1,7 @@
 //File crane.h
 
-#ifndef Crane_H
-#define Crane_H
+#ifndef CRANE_H
+#define CRANE_H
 
 #include "../animal.h"
 #include <iostream>
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int CraneNB;
+  static int crane_nb;
   const float food = 0.3;
 };
 

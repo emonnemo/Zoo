@@ -38,17 +38,17 @@ public:
    * \brief Copy Constructor
    * \details copy constructor, menjamin tidak bitwise copy
    * 
-   * \param w Turtle yang ingin dikopi
+   * \param t Turtle yang ingin dikopi
    */
-  Turtle(const Turtle& w);
+  Turtle(const Turtle& t);
   /**
    * \brief Operator =
    * \details operator=, menjamin tidak bitwise copy
    * 
-   * \param w Turtle yang ingin dikopi
-   * \return Turtle yang sama dengan w
+   * \param t Turtle yang ingin dikopi
+   * \return Turtle yang sama dengan t
    */
-  Turtle& operator= (const Turtle& w);
+  Turtle& operator= (const Turtle& t);
   /**
    * \brief Act
    * \details Turtle's behaviour
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int TurtleNB;
+  static int turtle_nb;
   const float food = 0.05;
 };
 

@@ -5,9 +5,15 @@
 #include <iostream>
 using namespace std;
 
-int Bat::batNB = 0;
+int Bat::bat_nb = 0;
 
-Bat::Bat(pair<int,int> _position): Animal("BT",++batNB,'*',0.15,food,'O',_position) {
+Bat::Bat(pair<int,int> _position): Animal("BT",
+                                          ++bat_nb,
+                                          '*',
+                                          0.15,
+                                          food,
+                                          'O',
+                                          _position) {
   eat = food;
   habitat.insert('A');
   msg = " ";
@@ -20,7 +26,13 @@ Bat::Bat(pair<int,int> _position): Animal("BT",++batNB,'*',0.15,food,'O',_positi
   compatible.insert("CRN");
 }
 
-Bat::Bat(float _weight, pair<int,int> _position): Animal("BT",++batNB,'*',_weight,food,'O',_position) {
+Bat::Bat(float _weight, pair<int,int> _position): Animal("BT",
+                                                         ++bat_nb,
+                                                         '*',
+                                                         _weight,
+                                                         food,
+                                                         'O',
+                                                         _position) {
   eat = food;
   habitat.insert('A');
   compatible.insert("HMB");
@@ -34,7 +46,13 @@ Bat::Bat(float _weight, pair<int,int> _position): Animal("BT",++batNB,'*',_weigh
 
 Bat::~Bat(){}
 
-Bat::Bat(const Bat& b): Animal(b.ID,b.id,b.legend,b.weight,b.eat,b.type,b.position) {
+Bat::Bat(const Bat& b): Animal(b.ID,
+                               b.id,
+                               b.legend,
+                               b.weight,
+                               b.eat,
+                               b.type,
+                               b.position) {
   habitat = b.habitat;
 }
 

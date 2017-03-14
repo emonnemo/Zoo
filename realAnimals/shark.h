@@ -38,17 +38,17 @@ public:
    * \brief Copy Constructor
    * \details copy constructor, menjamin tidak bitwise copy
    * 
-   * \param w Shark yang ingin dikopi
+   * \param s Shark yang ingin dikopi
    */
-  Shark(const Shark& w);
+  Shark(const Shark& s);
   /**
    * \brief Operator =
    * \details operator=, menjamin tidak bitwise copy
    * 
-   * \param w Shark yang ingin dikopi
-   * \return Shark yang sama dengan w
+   * \param s Shark yang ingin dikopi
+   * \return Shark yang sama dengan s
    */
-  Shark& operator= (const Shark& w);
+  Shark& operator= (const Shark& s);
   /**
    * \brief Act
    * \details Shark's behaviour
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int SharkNB;
+  static int shark_nb;
   const float food = 0.2;
 };
 

@@ -1,7 +1,7 @@
 //File goose.h
 
-#ifndef Goose_H
-#define Goose_H
+#ifndef GOOSE_H
+#define GOOSE_H
 
 #include "../animal.h"
 #include <iostream>
@@ -60,7 +60,7 @@ public:
    */
   void Interact() const;
 private:
-  static int GooseNB;
+  static int goose_nb;
   const float food = 0.3;
 };
 

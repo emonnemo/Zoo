@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Elephant::elephantNB = 0;
+int Elephant::elephant_nb = 0;
 
-Elephant::Elephant(pair<int,int> _position): Animal("ELP",++elephantNB,'4',5000,food,'H',_position) {
+Elephant::Elephant(pair<int,int> _position): Animal("ELP", ++elephant_nb, '4', 5000, food, 'H', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("WF");
@@ -19,7 +19,7 @@ Elephant::Elephant(pair<int,int> _position): Animal("ELP",++elephantNB,'4',5000,
   compatible.insert("HPP");
 }
 
-Elephant::Elephant(float _weight, pair<int,int> _position): Animal("ELP",++elephantNB,'4',_weight,food,'H',_position) {
+Elephant::Elephant(float _weight, pair<int,int> _position): Animal("ELP", ++elephant_nb, '4', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("WF");
@@ -33,7 +33,7 @@ Elephant::Elephant(float _weight, pair<int,int> _position): Animal("ELP",++eleph
 
 Elephant::~Elephant(){}
 
-Elephant::Elephant(const Elephant& e): Animal(e.ID,e.id,e.legend,e.weight,e.eat,e.type,e.position) {
+Elephant::Elephant(const Elephant& e): Animal(e.ID, e.id, e.legend, e.weight, e.eat, e.type, e.position) {
   habitat = e.habitat;
 }
 

@@ -5,9 +5,9 @@
 #include <iostream>
 using namespace std;
 
-int Zebra::zebraNB = 0;
+int Zebra::zebra_nb = 0;
 
-Zebra::Zebra(pair<int,int> _position): Animal("ZBR",++zebraNB,'3',226,food,'H',_position) {
+Zebra::Zebra(pair<int,int> _position): Animal("ZBR", ++zebra_nb, '3', 226, food, 'H', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("ZBR");
@@ -21,7 +21,7 @@ Zebra::Zebra(pair<int,int> _position): Animal("ZBR",++zebraNB,'3',226,food,'H',_
   compatible.insert("SGL");
 }
 
-Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR",++zebraNB,'3',_weight,food,'H',_position) {
+Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR", ++zebra_nb, '3', _weight, food, 'H', _position) {
   eat = food;
   habitat.insert('L');
   compatible.insert("ZBR");
@@ -37,7 +37,7 @@ Zebra::Zebra(float _weight, pair<int,int> _position): Animal("ZBR",++zebraNB,'3'
 
 Zebra::~Zebra(){}
 
-Zebra::Zebra(const Zebra& z): Animal(z.ID,z.id,z.legend,z.weight,z.eat,z.type,z.position) {
+Zebra::Zebra(const Zebra& z): Animal(z.ID, z.id, z.legend, z.weight, z.eat, z.type, z.position) {
   habitat = z.habitat;
 }
 
