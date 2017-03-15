@@ -1,9 +1,9 @@
 PROJECT_NAME = 'Virtual Zoo'
-INPUT = . "realAnimals"
-OUTPUT_DIRECTORY = docs/
+INPUT = "../src/driver" "../src/zoo" "../src/cells/cell" "../src/cells/habitat" "../src/cells/renderable" "../src/cells/facilities" "../src/cells/facilities/facility" "../src/cells/facilities/park" "../src/cells/facilities/restaurant" "../src/cells/road" "../src/animals/animal" "../src/animals/bat" "../src/animals/cockatoo" "../src/animals/colugo" "../src/animals/crane" "../src/animals/dolphin" "../src/animals/draco_lizard" "../src/animals/dugong" "../src/animals/eagle" "../src/animals/elephant" "../src/animals/goose" "../src/animals/hippopotamus" "../src/animals/hog" "../src/animals/hummingbird" "../src/animals/lion" "../src/animals/macaque" "../src/animals/moray_eel" "../src/animals/owl" "../src/animals/pelican" "../src/animals/penguin" "../src/animals/robin" "../src/animals/shark" "../src/animals/sugar_glider" "../src/animals/turtle" "../src/animals/whale" "../src/animals/wolf" "../src/animals/zebra"
+OUTPUT_DIRECTORY = "../docs/"
 GENERATE_HTML = YES
 HTML_OUTPUT = html/
 HTML_FILE_EXTENSION = .html
 GENERATE_LATEX = NO
-HAVE_DOT = NO
-CLASS_DIAGRAMS = NO
+HAVE_DOT = YES
+CLASS_DIAGRAMS = YES
