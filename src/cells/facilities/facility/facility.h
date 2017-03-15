@@ -1,6 +1,4 @@
-/* Author    : Andika Kusuma / 13515033
- * File      : facility.h
- */
+//	file	: facility.h
 
 #ifndef FACILITY_H
 #define FACILITY_H

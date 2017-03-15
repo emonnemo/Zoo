@@ -1,6 +1,4 @@
-/* Author    : Andika Kusuma / 13515033
- * File      : park.h
- */
+//	file	: park.h
 
 #ifndef PARK_H
 #define PARK_H

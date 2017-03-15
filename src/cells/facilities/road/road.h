@@ -1,6 +1,4 @@
-/* Author    : Andika Kusuma / 13515033
- * File      : road.h
- */
+//	file	: road.h
 
 #ifndef ROAD_H
 #define ROAD_H

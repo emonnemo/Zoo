@@ -1,6 +1,4 @@
-/* Author    : Andika Kusuma / 13515033
- * File      : zoo.cpp
- */
+// File 	: zoo.cpp
 
 #include "zoo.h"
 #include "../cells/cell/cell.h"

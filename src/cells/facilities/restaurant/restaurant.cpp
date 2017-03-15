@@ -1,3 +1,5 @@
+//	file	: restaurant.cpp
+
 #include "restaurant.h"
 #include <iostream>
 

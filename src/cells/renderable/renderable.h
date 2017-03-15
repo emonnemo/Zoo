@@ -1,3 +1,5 @@
+//	file	: renderable.h
+
 #ifndef RENDERABLE_H
 #define RENDERABLE_H
 

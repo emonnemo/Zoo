@@ -1,6 +1,4 @@
-/* Author    : Andika Kusuma / 13515033
- * File      : cell.h
- */
+//	file	: cell.h
 
 #ifndef CELL_H
 #define CELL_H

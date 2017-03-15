@@ -1,6 +1,4 @@
-/* Author    : Gisela Supardi / 13515009
- * File      : habitat.h
- */
+//	fila	: habitat.h
 
 #ifndef HABITAT_H
 #define HABITAT_H

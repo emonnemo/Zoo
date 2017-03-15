@@ -1,6 +1,4 @@
-/* Author    : Andika Kusuma / 13515033
- * File      : restaurant.h
- */
+//	file	: restaurant.h
 
 #ifndef RESTAURANT_H
 #define RESTAURANT_H

@@ -1,6 +1,4 @@
-/* Author    : Andika Kusuma / 13515033
- * File      : animal.cpp
- */
+//	file	: animal.cpp
 
 #include "animal.h"
 #include <iostream>

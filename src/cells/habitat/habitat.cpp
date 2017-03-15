@@ -1,6 +1,4 @@
-/* Author    : Gisela Supardi / 13515009
- * File      : habitat.cpp
- */
+//	file	: habitat.cpp
 
 #include "habitat.h"
 using namespace std;
