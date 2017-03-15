@@ -1,4 +1,4 @@
-#include "hummingbird.h"
+#include "../src/animals/hummingbird/hummingbird.h"
 #include <set>
 using namespace std;
 #include<gtest/gtest.h>

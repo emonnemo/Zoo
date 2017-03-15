@@ -1,4 +1,4 @@
-#include "shark.h"
+#include "../src/animals/shark/shark.h"
 #include <set>
 using namespace std;
 #include<gtest/gtest.h>

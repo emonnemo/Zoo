@@ -1,4 +1,4 @@
-#include "colugo.h"
+#include "../src/animals/colugo/colugo.h"
 #include <set>
 using namespace std;
 #include<gtest/gtest.h>

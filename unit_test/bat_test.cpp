@@ -1,4 +1,4 @@
-#include "bat.h"
+#include "../src/animals/bat/bat.h"
 #include <set>
 using namespace std;
 #include<gtest/gtest.h>

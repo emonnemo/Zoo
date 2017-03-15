@@ -1,4 +1,4 @@
-#include "sugar_glider.h"
+#include "../src/animals/sugar_glider/sugar_glider.h"
 #include <set>
 using namespace std;
 #include<gtest/gtest.h>

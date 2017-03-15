@@ -1,4 +1,4 @@
-#include "dugong.h"
+#include "../src/animals/dugong/dugong.h"
 #include <set>
 using namespace std;
 #include<gtest/gtest.h>

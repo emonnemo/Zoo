@@ -1,4 +1,4 @@
-#include "moray_eel.h"
+#include "../src/animals/moray_eel/moray_eel.h"
 #include <set>
 using namespace std;
 #include<gtest/gtest.h>

@@ -1,4 +1,4 @@
-#include "macaque.h"
+#include "../src/animals/macaque/macaque.h"
 #include <set>
 using namespace std;
 #include<gtest/gtest.h>

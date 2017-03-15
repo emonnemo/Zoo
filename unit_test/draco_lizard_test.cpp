@@ -1,4 +1,4 @@
-#include "draco_lizard.h"
+#include "../src/animals/draco_lizard/draco_lizard.h"
 #include <set>
 using namespace std;
 #include<gtest/gtest.h>
