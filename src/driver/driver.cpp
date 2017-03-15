@@ -5,7 +5,7 @@ using namespace std;
 Driver::Driver() {
   char option;
   int width = 33, length = 32;
-  Zoo z;
+  Zoo* z;
   do {
     cout << "Auto generate zoo? (y/n) ";
     cin >> option;  
@@ -16,8 +16,9 @@ Driver::Driver() {
       cout << "Input lebar dan panjang zoo: ";
       cin >> width >> length;
     } while (width <= 0 || length <= 0);
-    Zoo temp (0, width, length);
-    z = temp;
+    z = new Zoo (0, width, length);
+  } else{
+    z = new Zoo;
   }
   do {
     cout << "Apa yang ingin anda lakukan?" << endl
@@ -29,20 +30,20 @@ Driver::Driver() {
     cin >> option;
     switch (option) {
       case '1':
-        z.Display(0, 0, width-1, length-1);
+        z->Display(0, 0, width-1, length-1);
         break;
       case '2':
-        cout << "Daging: " << z.GetTotalMeat() << " kg" << endl
-        << "Tumbuhan: " << z.GetTotalVegetables() << "kg" << endl;
+        cout << "Daging: " << z->GetTotalMeat() << " kg" << endl
+        << "Tumbuhan: " << z->GetTotalVegetables() << "kg" << endl;
         break;
       case '3':
-        z.Tour();
+        z->Tour();
         break;
       case '4':
-        z.ToggleAllSekat();
+        z->ToggleAllSekat();
         break;
     }
-    z.MoveAllAnimal();
+    z->MoveAllAnimal();
   } while (option != '5');
 }
 

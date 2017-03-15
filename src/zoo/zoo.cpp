@@ -25,7 +25,7 @@ Zoo::Zoo(bool Auto, int w, int l): width(w), length(l) {
   for (int i = 0; i < width; ++i) {
     cells[i] = new Cell* [length];
   }
-  string line;
+  string line, dummy;
   if (Auto) { // automatis ctor dari file eksternal
     ifstream ifile("asset/map.txt");
     if (ifile.is_open()) {
@@ -41,8 +41,8 @@ Zoo::Zoo(bool Auto, int w, int l): width(w), length(l) {
   }
   else { // membaca input dari user
     for (int i = 0; i < width; ++i) {
-      getline(cin, line);
       for (int j = 0; j < length; ++j) {
+      	cin >> line[j];
         MakroNewCell(line[j]);
       }
     }
@@ -235,7 +235,7 @@ Zoo::Zoo(bool Auto, int w, int l): width(w), length(l) {
         char def_weight;
         int px;
         int py;
-        int weight = -1;
+        int weight = 0;
         cout << "Input id hewan :";
         cin >> id;
         cout << "Input posisi x : (kolom ke-)";
@@ -244,7 +244,7 @@ Zoo::Zoo(bool Auto, int w, int l): width(w), length(l) {
         cin >> py;
         cout << "Apakah ingin menggunakan berat default? (y/n)";
         cin >> def_weight;
-        if (def_weight == 'Y' || def_weight == 'y') {
+        if (def_weight == 'N' || def_weight == 'N') {
           do{
             cout << "Input berat : (>0)";
             cin >> weight;
@@ -290,22 +290,26 @@ Zoo::~Zoo() {
 }
   
 Zoo& Zoo::operator=(const Zoo& z) {
+  cout << "test 0";
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < length; j++) {
       MakroNewCell((z.cells[i][j])->GetInitSymbol());
     }
   }
+  cout << "test 1";
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < length; j++) {
       cage_map[i][j] = z.cage_map[i][j];
     }
   }
   cage_nb = z.cage_nb;
+  cout << "test 2";
   for (list<Animal*>::const_iterator it = z.animals.begin();
        it != z.animals.end(); ++it){
     int py = (*it)->GetPos().first, px = (*it)->GetPos().second;
     MakroNewAnimal((*it)->GetId(),(*it)->GetWeight());
   }
+  cout << "test 3";
   return *this;
 }
 
@@ -340,7 +344,7 @@ list<Animal*>::iterator Zoo::FindAnimal(pair<int,int> pos) {
 void Zoo::AddAnimal(Animal* a) {
   int posx = a->GetPos().first;
   int posy = a->GetPos().second;
-  if (posx < width && posy << length) {
+  if (posx >= 0 && posx < width && posy >= 0 && posy < length) {
     int cage = cage_map[posx][posy];
     // cek if habitat dlu
     set<char> hab = a->GetHabitat();
